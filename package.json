@@ -4,8 +4,7 @@
   "description": "Styles and PeerUI React component library for peerio-desktop",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc",
-    "tslint": "tslint",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

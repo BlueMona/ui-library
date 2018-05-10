@@ -8,6 +8,7 @@
     "rules": {
       "interface-name": false,
       "member-access": false,
+      "no-implicit-dependencies": false,
       "quotemark": false,
       "semicolon": false
     },
