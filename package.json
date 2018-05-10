@@ -1,0 +1,35 @@
+{
+  "name": "peerio-desktop-ui-library",
+  "version": "1.0.0",
+  "description": "Styles and PeerUI React component library for peerio-desktop",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "tslint": "tslint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeerioTechnologies/peerio-desktop-ui-library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PeerioTechnologies/peerio-desktop-ui-library/issues"
+  },
+  "homepage": "https://github.com/PeerioTechnologies/peerio-desktop-ui-library#readme",
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-mobx": "0.0.3"
+  },
+  "devDependencies": {
+    "@types/react": "^16.3.14",
+    "@types/react-dom": "^16.0.5",
+    "ts-loader": "^4.3.0",
+    "tslint": "^5.10.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^2.8.3",
+    "webpack": "^4.8.1",
+    "webpack-cli": "^2.1.3"
+  }
+}
