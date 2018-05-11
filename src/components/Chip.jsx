@@ -1,7 +1,7 @@
-const React = require('react');
-const { observer } = require('mobx-react');
+import React from 'react';
+import { observer } from 'mobx-react';
 
-const Button = require('./Button');
+import Button from './Button';
 
 @observer
 class Chip extends React.Component {

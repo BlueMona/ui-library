@@ -1,5 +1,5 @@
-const React = require('react');
-const css = require('classnames');
+import React from 'react';
+import css from 'classnames';
 
 /*
     PROPS       type        description

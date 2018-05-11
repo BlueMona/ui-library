@@ -1,6 +1,6 @@
-const React = require('react');
-const css = require('classnames');
-const Tooltip = require('./Tooltip');
+import React from 'react';
+import css from 'classnames';
+import Tooltip from './Tooltip';
 
 /*
     PROPS           type        description

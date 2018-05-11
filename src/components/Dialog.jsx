@@ -1,11 +1,11 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const { action, computed, observable, reaction } = require('mobx');
-const { observer } = require('mobx-react');
+import { action, computed, observable, reaction } from 'mobx';
+import { observer } from 'mobx-react';
 
-const css = require('classnames');
-const Button = require('./Button');
+import css from 'classnames';
+import Button from './Button';
 
 const appRoot = document.getElementById('root');
 

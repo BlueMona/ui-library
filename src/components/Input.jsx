@@ -1,7 +1,7 @@
-const React = require('react');
-const { action, observable } = require('mobx');
-const { observer } = require('mobx-react');
-const css = require('classnames');
+import React from 'react';
+import { action, observable } from 'mobx';
+import { observer } from 'mobx-react';
+import css from 'classnames';
 
 /*
     PROPS       type        description

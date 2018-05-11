@@ -1,14 +1,14 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const { action, observable } = require('mobx');
-const { observer } = require('mobx-react');
+import { action, observable } from 'mobx';
+import { observer } from 'mobx-react';
 
-const css = require('classnames');
-const { getDataProps, getParentWithClass } = require('~/helpers/dom');
+import css from 'classnames';
+import { getDataProps, getParentWithClass } from '~/helpers/dom';
 
-const Button = require('./Button');
-const Tooltip = require('./Tooltip');
+import Button from './Button';
+import Tooltip from './Tooltip';
 
 const appRoot = document.getElementById('root');
 

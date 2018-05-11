@@ -1,5 +1,5 @@
-const React = require('react');
-const { observer } = require('mobx-react');
+import React from 'react';
+import { observer } from 'mobx-react';
 
 /*
     PROPS       type        description

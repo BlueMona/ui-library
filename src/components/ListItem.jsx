@@ -1,8 +1,8 @@
-const React = require('react');
-const css = require('classnames');
+import React from 'react';
+import css from 'classnames';
 
-const MaterialIcon = require('./MaterialIcon');
-const { getDataProps } = require('~/helpers/dom');
+import MaterialIcon from './MaterialIcon';
+import { getDataProps } from '~/helpers/dom';
 
 /*
     PROPS       type        description

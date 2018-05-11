@@ -1,9 +1,9 @@
-const React = require('react');
-const css = require('classnames');
+import React from 'react';
+import css from 'classnames';
 
-const MaterialIcon = require('./MaterialIcon');
-const CustomIcon = require('./CustomIcon');
-const Tooltip = require('./Tooltip');
+import MaterialIcon from './MaterialIcon';
+import CustomIcon from './CustomIcon';
+import Tooltip from './Tooltip';
 
 /*
     PROPS           type        description

@@ -1,9 +1,9 @@
-const React = require('react');
-const { observer } = require('mobx-react');
+import React from 'react';
+import { observer } from 'mobx-react';
 
-const css = require('classnames');
-const CustomIcon = require('./CustomIcon');
-const MaterialIcon = require('./MaterialIcon');
+import css from 'classnames';
+import CustomIcon from './CustomIcon';
+import MaterialIcon from './MaterialIcon';
 
 /*
     PROPS           type        description

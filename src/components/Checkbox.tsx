@@ -1,10 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-const css = require('classnames');
+import css from 'classnames';
 
 interface PropTypes {
   className?: string,
-  checked?: boolean
+  checked: boolean
   onChange: any,
   label?: any,
   disabled?: boolean
