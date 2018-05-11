@@ -3,10 +3,10 @@ import { observer } from 'mobx-react';
 import css from 'classnames';
 
 interface PropTypes {
-  className?: string,
+  className?: string
   checked: boolean
-  onChange: any,
-  label?: any,
+  onChange: () => void
+  label?: any
   disabled?: boolean
 }
 
