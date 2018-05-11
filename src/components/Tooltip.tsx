@@ -1,20 +1,4 @@
-import React from 'react';
-import { action, observable } from 'mobx';
-import { observer } from 'mobx-react';
-
-import css from 'classnames';
-import { getPositionInWindow } from './helpers';
-
 /*
-    PROPS       type        description
-    ----------------------------------------
-    className   string
-    text        string
-    position    string      top (default), right, bottom, left
-    size        string      small, or leave blank for default
-    ----------------------------------------
-
-    NOTE:
     To use this component, place <Tooltip> in the render of any component.
     To prevent cutoffs in elements with `overflow:hidden`, tooltip is rendered `position:fixed`.
     So, tooltip's position is calculated based on parentElement's.
@@ -27,9 +11,23 @@ import { getPositionInWindow } from './helpers';
     See <Avatar> for example use.
 */
 
+import React from 'react';
+import { action, observable } from 'mobx';
+import { observer } from 'mobx-react';
+
+import css from 'classnames';
+import { getPositionInWindow } from './helpers';
+
+interface PropTypes {
+    className?: string
+    text?: string
+    position?: 'top' | 'right' | 'bottom' | 'left'
+    size?: 'small'
+}
+
 @observer
-class Tooltip extends React.Component {
-    ref;
+export class Tooltip extends React.Component<PropTypes> {
+    ref = new HTMLDivElement;
 
     @observable isVisible = false;
     @observable style = {
@@ -37,9 +35,11 @@ class Tooltip extends React.Component {
         top: ''
     };
 
-    @action.bound setRef(ref) {
+    @action.bound setRef(ref: HTMLDivElement): void {
         if (ref) {
             this.ref = ref;
+
+            if (!ref.parentElement) return;
             ref.parentElement.addEventListener('mouseenter', this.showTooltip, false);
             ref.parentElement.addEventListener('mouseleave', this.hideTooltip, false);
             ref.parentElement.addEventListener('click', this.hideTooltip, false);
@@ -47,8 +47,8 @@ class Tooltip extends React.Component {
     }
 
     componentWillUnmount() {
-        if (!this.ref) return;
-
+        if (!this.ref || !this.ref.parentElement) return;
+        
         this.ref.parentElement.removeEventListener('mouseenter', this.showTooltip);
         this.ref.parentElement.removeEventListener('mouseleave', this.hideTooltip);
         this.ref.parentElement.removeEventListener('click', this.hideTooltip);
@@ -57,7 +57,7 @@ class Tooltip extends React.Component {
     @action.bound showTooltip() {
         if (!this.ref) return;
 
-        const tooltipParent = this.ref.parentElement;
+        const tooltipParent = this.ref.parentElement as HTMLElement;
         const { width, height } = this.ref.getBoundingClientRect();
         const { offsetX, offsetY, posX, posY } = getPositionInWindow(tooltipParent);
         const margin = 5;
@@ -115,5 +115,3 @@ class Tooltip extends React.Component {
         );
     }
 }
-
-module.exports = Tooltip;
