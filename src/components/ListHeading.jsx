@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /*
     PROPS       type        description
@@ -13,7 +13,7 @@ class ListHeading extends React.Component {
         return (
             <li className={this.props.className
                 ? `p-list-heading ${this.props.className}`
-                : 'p-list-heading'
+                : "p-list-heading"
             }>
                 {this.props.caption || this.props.children}
             </li>

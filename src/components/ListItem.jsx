@@ -1,8 +1,8 @@
-import React from 'react';
-import css from 'classnames';
+import React from "react";
+import css from "classnames";
 
-import MaterialIcon from './MaterialIcon';
-import { getDataProps } from '~/helpers/dom';
+import MaterialIcon from "./MaterialIcon";
+import { getDataProps } from "~/helpers/dom";
 
 /*
     PROPS       type        description
@@ -14,10 +14,10 @@ import { getDataProps } from '~/helpers/dom';
     legend                  usually string, can be any HTML. requires caption.
 
     leftContent             any HTML. renders to left of caption||children
-    leftIcon    string      MaterialIcon name. if !!leftIcon, leftContent doesn't render
+    leftIcon    string      MaterialIcon name. if !!leftIcon, leftContent doesn"t render
 
     rightContent            any HTML. renders to right of caption||children
-    rightIcon   string      MaterialIcon name. if !!rightIcon, rightContent doesn't render
+    rightIcon   string      MaterialIcon name. if !!rightIcon, rightContent doesn"t render
 
     onClick     function
     ----------------------------------------
@@ -28,7 +28,7 @@ class ListItem extends React.Component {
         return (
             <li
                 className={css(
-                    'p-list-item',
+                    "p-list-item",
                     this.props.className,
                     { disabled: this.props.disabled }
                 )}

@@ -35,7 +35,7 @@
 
       &::before {
         will-change: left, right;
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 0;
@@ -49,7 +49,7 @@
 
       &::after {
         will-change: left, right;
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         top: 0;

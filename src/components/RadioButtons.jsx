@@ -1,5 +1,5 @@
-import React from 'react';
-import { observer } from 'mobx-react';
+import React from "react";
+import { observer } from "mobx-react";
 
 /*
     PROPS       type        description
@@ -14,7 +14,7 @@ import { observer } from 'mobx-react';
 @observer
 class RadioButtons extends React.Component {
     setValue = (ev) => {
-        this.props.onChange(ev.target.getAttribute('data-value'));
+        this.props.onChange(ev.target.getAttribute("data-value"));
     }
 
     render() {
@@ -26,15 +26,15 @@ class RadioButtons extends React.Component {
                 <li key={options[i].value}>
                     <span
                         className={value === options[i].value
-                            ? 'material-icons clickable selected'
-                            : 'material-icons clickable'
+                            ? "material-icons clickable selected"
+                            : "material-icons clickable"
                         }
                         data-value={options[i].value}
                         onClick={this.setValue}
                     >
                         {value === options[i].value
-                            ? 'radio_button_checked'
-                            : 'radio_button_unchecked'
+                            ? "radio_button_checked"
+                            : "radio_button_unchecked"
                         }
                     </span>
                     <span className="label">
@@ -46,7 +46,7 @@ class RadioButtons extends React.Component {
 
         const classNames = this.props.className
             ? `p-radio ${this.props.className}`
-            : 'p-radio';
+            : "p-radio";
 
         return (
             <ul className={classNames}>

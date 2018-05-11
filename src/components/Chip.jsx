@@ -1,7 +1,7 @@
-import React from 'react';
-import { observer } from 'mobx-react';
+import React from "react";
+import { observer } from "mobx-react";
 
-import Button from './Button';
+import Button from "./Button";
 
 @observer
 class Chip extends React.Component {
@@ -11,7 +11,7 @@ class Chip extends React.Component {
                 className={
                     this.props.className
                         ? `p-chip ${this.props.className}`
-                        : 'p-chip'
+                        : "p-chip"
                 }
             >
                 <span className="content">{this.props.children}</span>

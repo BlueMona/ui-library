@@ -1,9 +1,9 @@
-import React from 'react';
-import { action, observable } from 'mobx';
-import { observer } from 'mobx-react';
+import React from "react";
+import { action, observable } from "mobx";
+import { observer } from "mobx-react";
 
-import css from 'classnames';
-import { getParentWithClass } from '~/helpers/dom';
+import css from "classnames";
+import { getParentWithClass } from "~/helpers/dom";
 
 /*
     PROPS       type        description
@@ -27,11 +27,11 @@ class CustomIcon extends React.Component {
     hoverContainer;
     @action.bound setIconRef(ref) {
         if (ref) {
-            this.hoverContainer = getParentWithClass(ref, 'custom-icon-hover-container');
+            this.hoverContainer = getParentWithClass(ref, "custom-icon-hover-container");
 
             if (this.hoverContainer) {
-                this.hoverContainer.addEventListener('mouseenter', this.handleMouseEnter, false);
-                this.hoverContainer.addEventListener('mouseleave', this.handleMouseLeave, false);
+                this.hoverContainer.addEventListener("mouseenter", this.handleMouseEnter, false);
+                this.hoverContainer.addEventListener("mouseleave", this.handleMouseLeave, false);
             }
         }
     }
@@ -41,8 +41,8 @@ class CustomIcon extends React.Component {
 
     componentWillUnmount() {
         if (this.hoverContainer) {
-            this.hoverContainer.removeEventListener('mouseenter', this.handleMouseEnter, false);
-            this.hoverContainer.removeEventListener('mouseleave', this.handleMouseLeave, false);
+            this.hoverContainer.removeEventListener("mouseenter", this.handleMouseEnter, false);
+            this.hoverContainer.removeEventListener("mouseleave", this.handleMouseLeave, false);
         }
     }
 
@@ -50,7 +50,7 @@ class CustomIcon extends React.Component {
         return (
             <div
                 className={css(
-                    'p-custom-icon',
+                    "p-custom-icon",
                     this.props.size,
                     this.props.className,
                     {

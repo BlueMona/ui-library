@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { action, observable } from 'mobx';
-import { observer } from 'mobx-react';
+import { action, observable } from "mobx";
+import { observer } from "mobx-react";
 
-import css from 'classnames';
-import { getDataProps, getParentWithClass } from '~/helpers/dom';
+import css from "classnames";
+import { getDataProps, getParentWithClass } from "~/helpers/dom";
 
-import Button from './Button';
-import Tooltip from './Tooltip';
+import Button from "./Button";
+import Tooltip from "./Tooltip";
 
-const appRoot = document.getElementById('root');
+const appRoot = document.getElementById("root");
 
 /*
     PROPS           type        description
@@ -18,7 +18,7 @@ const appRoot = document.getElementById('root');
     className       string
 
     position        string      the starting point where <MenuGlobal> will be drawn
-                                'top-left' (default), 'top-right', 'bottom-left', 'bottom-right'
+                                "top-left" (default), "top-right", "bottom-left", "bottom-right"
 
     icon            string      * Material Icon name
     customIcon      string      * Custom Icon name
@@ -26,8 +26,8 @@ const appRoot = document.getElementById('root');
                                 * (use one of the above for the Menu button)
 
     tooltip         string
-    tooltipPosition string      default 'top'
-    theme           string      so far only 'wide' exists
+    tooltipPosition string      default "top"
+    theme           string      so far only "wide" exists
 
     onClick         function    use this very rarely, e.g. to stopPropagation of other click events
     disabled        bool        disables the button
@@ -40,10 +40,10 @@ class Menu extends React.Component {
     @observable menuVisible
 
     @observable style = {
-        top: 'inherit',
-        bottom: 'inherit',
-        left: 'inherit',
-        right: 'inherit'
+        top: "inherit",
+        bottom: "inherit",
+        left: "inherit",
+        right: "inherit"
     };
 
     menuButtonRef;
@@ -52,7 +52,7 @@ class Menu extends React.Component {
     @action.bound setMenuButtonRef(ref) {
         if (ref) {
             this.menuButtonRef = ref;
-            this.scrollContainer = getParentWithClass(ref, 'scrollable');
+            this.scrollContainer = getParentWithClass(ref, "scrollable");
         }
     }
 
@@ -70,11 +70,11 @@ class Menu extends React.Component {
         this.setStyle();
         this.menuActive = true;
 
-        window.addEventListener('click', this.hideMenu, true);
-        window.addEventListener('keyup', this.handleKeyUp);
+        window.addEventListener("click", this.hideMenu, true);
+        window.addEventListener("keyup", this.handleKeyUp);
 
         if (this.scrollContainer) {
-            this.scrollContainer.addEventListener('scroll', this.hideMenu);
+            this.scrollContainer.addEventListener("scroll", this.hideMenu);
         }
     }
 
@@ -90,11 +90,11 @@ class Menu extends React.Component {
             this.hideMenuTimeout = null;
         }, 250);
 
-        window.removeEventListener('click', this.hideMenu, true);
-        window.removeEventListener('keyup', this.handleKeyUp);
+        window.removeEventListener("click", this.hideMenu, true);
+        window.removeEventListener("keyup", this.handleKeyUp);
 
         if (this.scrollContainer) {
-            this.scrollContainer.removeEventListener('scroll', this.hideMenu);
+            this.scrollContainer.removeEventListener("scroll", this.hideMenu);
         }
     }
 
@@ -103,11 +103,11 @@ class Menu extends React.Component {
         const windowX = window.innerWidth;
         const windowY = window.innerHeight;
 
-        const [posY, posX] = this.props.position.split('-');
-        if (posY === 'top') this.style.top = `${top}px`;
-        if (posY === 'bottom') this.style.bottom = `${windowY - top - height}px`;
-        if (posX === 'left') this.style.left = `${left}px`;
-        if (posX === 'right') this.style.right = `${windowX - left - width}px`;
+        const [posY, posX] = this.props.position.split("-");
+        if (posY === "top") this.style.top = `${top}px`;
+        if (posY === "bottom") this.style.bottom = `${windowY - top - height}px`;
+        if (posX === "left") this.style.left = `${left}px`;
+        if (posX === "right") this.style.right = `${windowX - left - width}px`;
     }
 
     render() {
@@ -115,7 +115,7 @@ class Menu extends React.Component {
             <div
                 key="p-menu"
                 className={css(
-                    'p-menu',
+                    "p-menu",
                     this.props.className,
                     { clickable: this.menuactive }
                 )}
@@ -134,7 +134,7 @@ class Menu extends React.Component {
                 {this.props.tooltip
                     ? <Tooltip
                         text={this.props.tooltip}
-                        position={this.props.tooltipPosition || 'top-left'}
+                        position={this.props.tooltipPosition || "top-left"}
                     />
                     : null
                 }
@@ -147,7 +147,7 @@ class Menu extends React.Component {
             <div
                 key="p-menu-content"
                 className={css(
-                    'p-menu-content',
+                    "p-menu-content",
                     this.props.theme,
                     { visible: this.menuVisible }
                 )}

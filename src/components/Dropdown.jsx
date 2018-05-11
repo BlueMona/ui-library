@@ -1,6 +1,6 @@
-import React from 'react';
-import { observable, action } from 'mobx';
-import { observer } from 'mobx-react';
+import React from "react";
+import { observable, action } from "mobx";
+import { observer } from "mobx-react";
 
 /*
     PROPS       type        description
@@ -21,9 +21,9 @@ class Dropdown extends React.Component {
         this.isActive = true;
     }
 
-    // Function to change the value, relies on parent component's onChange function
+    // Function to change the value, relies on parent component"s onChange function
     @action.bound setValue(ev) {
-        this.props.onChange(ev.target.getAttribute('data-value'));
+        this.props.onChange(ev.target.getAttribute("data-value"));
         this.isActive = false;
     }
 
@@ -39,11 +39,11 @@ class Dropdown extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener('click', this.handleClick, false);
+        window.addEventListener("click", this.handleClick, false);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('click', this.handleClick);
+        window.removeEventListener("click", this.handleClick);
     }
 
     @action.bound handleClick() {
@@ -72,7 +72,7 @@ class Dropdown extends React.Component {
 
         const classNames = this.props.className
             ? `p-dropdown ${this.props.className}`
-            : 'p-dropdown';
+            : "p-dropdown";
 
         return (
             <div className={classNames}>
@@ -94,7 +94,7 @@ class Dropdown extends React.Component {
                         </span>
                     </div>
                     {this.isActive &&
-                        <ul className={this.isActive ? 'active' : null}>
+                        <ul className={this.isActive ? "active" : null}>
                             {dropdownOptions}
                         </ul>
                     }

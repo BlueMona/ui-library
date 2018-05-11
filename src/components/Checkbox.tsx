@@ -1,6 +1,6 @@
-import React from 'react';
-import { observer } from 'mobx-react';
-import css from 'classnames';
+import React from "react";
+import { observer } from "mobx-react";
+import css from "classnames";
 
 interface Properties {
   className?: string
@@ -16,7 +16,7 @@ export class Checkbox extends React.Component<Properties> {
         return (
             <span
                 className={css(
-                    'p-checkbox',
+                    "p-checkbox",
                     this.props.className,
                     { disabled: this.props.disabled }
                 )}
@@ -30,12 +30,12 @@ export class Checkbox extends React.Component<Properties> {
                         className={css({ clickable: !this.props.disabled })}
                     />
                     <span className={css(
-                        'material-icons',
+                        "material-icons",
                         { selected: this.props.checked }
                     )}>
                         {this.props.checked
-                            ? 'check_box'
-                            : 'check_box_outline_blank'
+                            ? "check_box"
+                            : "check_box_outline_blank"
                         }
                     </span>
                 </span>

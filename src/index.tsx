@@ -1,13 +1,13 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
-import { action, observable } from 'mobx';
-import { observer } from 'mobx-react';
+import { action, observable } from "mobx";
+import { observer } from "mobx-react";
 
-import { Checkbox, MaterialIcon } from './peer-ui';
+import { Checkbox, MaterialIcon } from "./peer-ui";
 
-// import propertyArray from './data/property-array';
-// import { genericContact, genericOptions } from './data/generic-data';
+// import propertyArray from "./data/property-array";
+// import { genericContact, genericOptions } from "./data/generic-data";
 
 /*
   DONE:
@@ -19,7 +19,7 @@ import { Checkbox, MaterialIcon } from './peer-ui';
 @observer
 export class Index extends React.Component {
   // Generic observables
-  @observable genericValue = '' as string | boolean;
+  @observable genericValue = "" as string | boolean;
   @action.bound onChangeValue(val: string | boolean): void {
     this.genericValue = val;
   };
@@ -31,7 +31,7 @@ export class Index extends React.Component {
 
   render() {
     return(
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: "center" }}>
         <Checkbox
           checked={this.genericBool}
           onChange={this.onChangeBool}
@@ -39,8 +39,8 @@ export class Index extends React.Component {
         <br/>
 
         <MaterialIcon
-          icon='person_add'
-          tooltip='add guy'
+          icon="person_add"
+          tooltip="add guy"
         />
         <br/>
 
@@ -50,4 +50,4 @@ export class Index extends React.Component {
   }
 }
 
-render(<Index />, document.getElementById('app'));
+render(<Index />, document.getElementById("app"));

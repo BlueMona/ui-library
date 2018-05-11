@@ -10,8 +10,7 @@ module.exports = {
             "unix"
         ],
         "quotes": [
-            "error",
-            "double"
+            "error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }
         ],
         "semi": [
             "error",

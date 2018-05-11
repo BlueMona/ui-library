@@ -1,13 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { action, computed, observable, reaction } from 'mobx';
-import { observer } from 'mobx-react';
+import { action, computed, observable, reaction } from "mobx";
+import { observer } from "mobx-react";
 
-import css from 'classnames';
-import Button from './Button';
+import css from "classnames";
+import Button from "./Button";
 
-const appRoot = document.getElementById('root');
+const appRoot = document.getElementById("root");
 
 /*
     PROPS           type        description
@@ -20,7 +20,7 @@ const appRoot = document.getElementById('root');
 
     onCancel        function    behaviour for Esc key and overlay click
     actions         array       each element is an object corresponding to 1 button in dialog
-                                e.g. {label: 'string', onClick: function(), disabled: bool}
+                                e.g. {label: "string", onClick: function(), disabled: bool}
     ----------------------------------------
 */
 
@@ -32,7 +32,7 @@ class Dialog extends React.Component {
 
     componentDidMount() {
         /*
-            These awkward timeouts are used to stagger the dialog's render event from its "make visible" event.
+            These awkward timeouts are used to stagger the dialog"s render event from its "make visible" event.
             The .visible class is tied to the dialogVisible bool, which is what triggers the opacity transition.
             Separating these two events ensures that the transition plays.
         */
@@ -44,13 +44,13 @@ class Dialog extends React.Component {
             }
         }, true);
 
-        window.addEventListener('keyup', this.handleEscKey, false);
+        window.addEventListener("keyup", this.handleEscKey, false);
     }
 
     componentWillUnmount() {
         this.activeReaction();
-        window.removeEventListener('keyup', this.handleEscKey);
-        window.removeEventListener('keydown', this.handleTabKey);
+        window.removeEventListener("keyup", this.handleEscKey);
+        window.removeEventListener("keydown", this.handleTabKey);
     }
 
     @action.bound setActive() {
@@ -59,7 +59,7 @@ class Dialog extends React.Component {
             this.unmountTimeout = null;
         }
         this.dialogRendered = true;
-        window.addEventListener('keyup', this.handleEscKey, false);
+        window.addEventListener("keyup", this.handleEscKey, false);
 
         this.restrictFocus();
 
@@ -75,8 +75,8 @@ class Dialog extends React.Component {
             this.mountTimeout = null;
         }
         this.dialogVisible = false;
-        window.removeEventListener('keyup', this.handleEscKey);
-        window.removeEventListener('keydown', this.handleTabKey);
+        window.removeEventListener("keyup", this.handleEscKey);
+        window.removeEventListener("keydown", this.handleTabKey);
 
         this.unmountTimeout = setTimeout(() => {
             this.dialogRendered = false;
@@ -92,11 +92,11 @@ class Dialog extends React.Component {
     }
 
     @computed get focusableElements() {
-        return this.dialogRef.querySelectorAll('input:not(:disabled), textarea:not(:disabled), button:not(:disabled)');
+        return this.dialogRef.querySelectorAll("input:not(:disabled), textarea:not(:disabled), button:not(:disabled)");
     }
 
     @action.bound restrictFocus() {
-        window.addEventListener('keydown', this.handleTabKey, false);
+        window.addEventListener("keydown", this.handleTabKey, false);
     }
 
     @action.bound handleEscKey(ev) {
@@ -107,8 +107,8 @@ class Dialog extends React.Component {
     }
 
     /*
-        We need to restrict focus to the dialog when it's visible.
-        Clicking outside dialog closes it, so that's OK, but it's still possible to use Tab to escape.
+        We need to restrict focus to the dialog when it"s visible.
+        Clicking outside dialog closes it, so that"s OK, but it"s still possible to use Tab to escape.
         For a11y we need to keep Tab key functionality, but restrict it to the contents of the dialog.
         This function makes Tab jump back to first focusable element if the last one is currently focused,
         or to the last element if Shift+Tab while the first is focused.
@@ -149,7 +149,7 @@ class Dialog extends React.Component {
                         key={`p-dialog-button-${i}`}
                         label={actions[i].label}
                         onClick={actions[i].onClick}
-                        theme={i < actions.length - 1 ? 'secondary' : null}
+                        theme={i < actions.length - 1 ? "secondary" : null}
                         disabled={actions[i].disabled}
                     />
                 );
@@ -160,7 +160,7 @@ class Dialog extends React.Component {
         const dialogContent = (
             <div
                 className={css(
-                    'p-dialog-wrapper',
+                    "p-dialog-wrapper",
                     { visible: this.props.noAnimation || this.dialogVisible }
                 )}
                 tabIndex={0}
@@ -174,7 +174,7 @@ class Dialog extends React.Component {
 
                 <dialog open
                     className={css(
-                        'p-dialog',
+                        "p-dialog",
                         this.props.className,
                         this.props.theme
                     )}

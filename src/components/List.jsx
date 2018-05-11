@@ -1,5 +1,5 @@
-import React from 'react';
-import css from 'classnames';
+import React from "react";
+import css from "classnames";
 
 /*
     PROPS       type        description
@@ -14,7 +14,7 @@ class List extends React.Component {
     render() {
         return (
             <ul className={css(
-                'p-list',
+                "p-list",
                 this.props.className,
                 this.props.theme,
                 { clickable: this.props.clickable }

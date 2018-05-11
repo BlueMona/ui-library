@@ -1,9 +1,9 @@
-import React from 'react';
-import { observer } from 'mobx-react';
+import React from "react";
+import { observer } from "mobx-react";
 
-import css from 'classnames';
-import CustomIcon from './CustomIcon';
-import MaterialIcon from './MaterialIcon';
+import css from "classnames";
+import CustomIcon from "./CustomIcon";
+import MaterialIcon from "./MaterialIcon";
 
 /*
     PROPS           type        description
@@ -12,7 +12,7 @@ import MaterialIcon from './MaterialIcon';
     value           string
     caption         string
 
-    icon            string      Material Icon name, if !!icon, customIcon won't render
+    icon            string      Material Icon name, if !!icon, customIcon won"t render
     customIcon      string      Custom Icon name
 
     tooltip         string
@@ -28,7 +28,7 @@ class MenuItem extends React.Component {
             <div
                 value={value}
                 className={css(
-                    'p-menu-item',
+                    "p-menu-item",
                     className,
                     {
                         clickable: !this.props.disabled,

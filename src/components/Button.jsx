@@ -1,9 +1,9 @@
-import React from 'react';
-import css from 'classnames';
+import React from "react";
+import css from "classnames";
 
-import MaterialIcon from './MaterialIcon';
-import CustomIcon from './CustomIcon';
-import Tooltip from './Tooltip';
+import MaterialIcon from "./MaterialIcon";
+import CustomIcon from "./CustomIcon";
+import Tooltip from "./Tooltip";
 
 /*
     PROPS           type        description
@@ -46,12 +46,12 @@ class Button extends React.Component {
     render() {
         const classNames = (
             css(
-                'p-button',
+                "p-button",
                 this.props.className,
                 this.props.theme,
                 {
                     icon: !this.props.label && (this.props.icon || this.props.customIcon),
-                    'icon-and-label': this.props.label && (this.props.icon || this.props.customIcon),
+                    "icon-and-label": this.props.label && (this.props.icon || this.props.customIcon),
                     selected: this.props.selected,
                     active: this.props.active
                 }
@@ -69,7 +69,7 @@ class Button extends React.Component {
                 ? <Tooltip
                     key="tooltip"
                     text={this.props.tooltip}
-                    position={this.props.tooltipPosition || 'top'}
+                    position={this.props.tooltipPosition || "top"}
                     size={this.props.tooltipSize}
                 />
                 : null

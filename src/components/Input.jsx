@@ -1,7 +1,7 @@
-import React from 'react';
-import { action, observable } from 'mobx';
-import { observer } from 'mobx-react';
-import css from 'classnames';
+import React from "react";
+import { action, observable } from "mobx";
+import { observer } from "mobx-react";
+import css from "classnames";
 
 /*
     PROPS       type        description
@@ -41,10 +41,10 @@ class Input extends React.Component {
         return (
             <div
                 className={css(
-                    'p-input',
+                    "p-input",
                     this.props.className,
                     {
-                        'has-error': !!this.props.error,
+                        "has-error": !!this.props.error,
                         focused: this.isFocused
                     }
                 )}
@@ -78,7 +78,7 @@ class Input extends React.Component {
                         onBlur={this.handleBlur}
                         onFocus={this.handleFocus}
 
-                        type={this.props.type || 'text'}
+                        type={this.props.type || "text"}
                         autoFocus={this.props.autoFocus} // eslint-disable-line
                         readOnly={this.props.readOnly}
                         disabled={this.props.disabled}
@@ -89,8 +89,8 @@ class Input extends React.Component {
                 {this.props.label
                     ? <div
                         className={css(
-                            'label',
-                            { shrink: this.props.value !== '' || this.isFocused }
+                            "label",
+                            { shrink: this.props.value !== "" || this.isFocused }
                         )}
                     >
                         {this.props.label}
@@ -100,8 +100,8 @@ class Input extends React.Component {
                 {this.props.hint
                     ? <div
                         className={css(
-                            'hint',
-                            { visible: this.props.value === '' }
+                            "hint",
+                            { visible: this.props.value === "" }
                         )}
                     >
                         {this.props.hint}

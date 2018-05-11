@@ -1,28 +1,28 @@
 /*
     To use this component, place <Tooltip> in the render of any component.
     To prevent cutoffs in elements with `overflow:hidden`, tooltip is rendered `position:fixed`.
-    So, tooltip's position is calculated based on parentElement's.
-    This means that tooltip's position will be relative to position and width/height of its ~immediate parent~.
+    So, tooltip"s position is calculated based on parentElement"s.
+    This means that tooltip"s position will be relative to position and width/height of its ~immediate parent~.
 
     This is important for 2 reasons:
-    1. Make sure parentElement's width/height matches the actual size of the entire parent component.
+    1. Make sure parentElement"s width/height matches the actual size of the entire parent component.
     2. Known Chromium bug: parent with `transform:translate` will mess up positioning of fixed-position children.
 
     See <Avatar> for example use.
 */
 
-import React from 'react';
-import { action, observable } from 'mobx';
-import { observer } from 'mobx-react';
+import React from "react";
+import { action, observable } from "mobx";
+import { observer } from "mobx-react";
 
-import css from 'classnames';
-import { getPositionInWindow } from './helpers';
+import css from "classnames";
+import { getPositionInWindow } from "./helpers";
 
 interface Properties {
     className?: string
     text?: string
-    position?: 'top' | 'right' | 'bottom' | 'left'
-    size?: 'small'
+    position?: "top" | "right" | "bottom" | "left"
+    size?: "small"
 }
 
 @observer
@@ -31,8 +31,8 @@ export class Tooltip extends React.Component<Properties> {
 
     @observable isVisible = false;
     @observable style = {
-        left: '',
-        top: ''
+        left: "",
+        top: ""
     };
 
     @action.bound setRef(ref: HTMLDivElement): void {
@@ -40,18 +40,18 @@ export class Tooltip extends React.Component<Properties> {
             this.ref = ref;
 
             if (!ref.parentElement) return;
-            ref.parentElement.addEventListener('mouseenter', this.showTooltip, false);
-            ref.parentElement.addEventListener('mouseleave', this.hideTooltip, false);
-            ref.parentElement.addEventListener('click', this.hideTooltip, false);
+            ref.parentElement.addEventListener("mouseenter", this.showTooltip, false);
+            ref.parentElement.addEventListener("mouseleave", this.hideTooltip, false);
+            ref.parentElement.addEventListener("click", this.hideTooltip, false);
         }
     }
 
     componentWillUnmount() {
         if (!this.ref || !this.ref.parentElement) return;
         
-        this.ref.parentElement.removeEventListener('mouseenter', this.showTooltip);
-        this.ref.parentElement.removeEventListener('mouseleave', this.hideTooltip);
-        this.ref.parentElement.removeEventListener('click', this.hideTooltip);
+        this.ref.parentElement.removeEventListener("mouseenter", this.showTooltip);
+        this.ref.parentElement.removeEventListener("mouseleave", this.hideTooltip);
+        this.ref.parentElement.removeEventListener("click", this.hideTooltip);
     }
 
     @action.bound showTooltip() {
@@ -64,19 +64,19 @@ export class Tooltip extends React.Component<Properties> {
 
         switch (this.props.position) {
             default:
-            case 'top':
+            case "top":
                 this.style.left = `${posX - width / 2}px`;
                 this.style.top = `${posY - offsetY - height - margin}px`;
                 break;
-            case 'bottom':
+            case "bottom":
                 this.style.left = `${posX - width / 2}px`;
                 this.style.top = `${posY + offsetY + margin}px`;
                 break;
-            case 'left':
+            case "left":
                 this.style.left = `${posX - offsetX - width - margin}px`;
                 this.style.top = `${posY - height / 2}px`;
                 break;
-            case 'right':
+            case "right":
                 this.style.left = `${posX + offsetX + margin}px`;
                 this.style.top = `${posY - height / 2}px`;
                 break;
@@ -93,7 +93,7 @@ export class Tooltip extends React.Component<Properties> {
             <div
                 ref={this.setRef}
                 className={css(
-                    'p-tooltip',
+                    "p-tooltip",
                     this.props.className,
                     this.props.size
                 )}
@@ -106,7 +106,7 @@ export class Tooltip extends React.Component<Properties> {
                         */
                         left: 0,
                         top: 0,
-                        visibility: 'hidden'
+                        visibility: "hidden"
                     }
                 }
             >

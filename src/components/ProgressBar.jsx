@@ -1,7 +1,7 @@
-import React from 'react';
-import { observer } from 'mobx-react';
+import React from "react";
+import { observer } from "mobx-react";
 
-import css from 'classnames';
+import css from "classnames";
 
 /*
     PROPS           type        description
@@ -22,7 +22,7 @@ import css from 'classnames';
 class ProgressBar extends React.Component {
     render() {
         let style;
-        if (this.props.mode === null || 'determinate') {
+        if (this.props.mode === null || "determinate") {
             style = { width: `${this.props.value / this.props.max * 100}%` };
         }
 
@@ -32,17 +32,17 @@ class ProgressBar extends React.Component {
                 so we need to put everything in a container div to be able to control positioning
             */
             <div className={css(
-                'p-progress-bar',
+                "p-progress-bar",
                 this.props.className,
                 this.props.theme,
-                { circular: this.props.type === 'circular' }
+                { circular: this.props.type === "circular" }
             )}>
-                { this.props.type !== 'circular'
+                { this.props.type !== "circular"
                     ? <div className="progress-bar">
                         <div
                             className={css(
-                                this.props.type || 'linear',
-                                this.props.mode || 'determinate',
+                                this.props.type || "linear",
+                                this.props.mode || "determinate",
                                 { multicolor: this.props.multicolor },
                                 this.props.theme
                             )}
@@ -50,7 +50,7 @@ class ProgressBar extends React.Component {
                         />
                     </div>
                     : <div className={css(
-                        'progress-spinner',
+                        "progress-spinner",
                         this.props.theme
                     )}>
                         <svg className="circular">

@@ -1,5 +1,5 @@
-import React from 'react';
-import css from 'classnames';
+import React from "react";
+import css from "classnames";
 
 /*
     PROPS       type        description
@@ -16,12 +16,12 @@ class Switch extends React.Component {
     render() {
         return (
             <div className={css(
-                'p-switch',
+                "p-switch",
                 this.props.className
             )}>
                 <span className="label">{this.props.label}</span>
                 <span className={css(
-                    'p-switch-container',
+                    "p-switch-container",
                     { checked: this.props.checked }
                 )}>
                     {/* The true <input> is invisible and overlaid on the custom "slider" */}

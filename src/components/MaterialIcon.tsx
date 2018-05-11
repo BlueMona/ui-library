@@ -1,6 +1,6 @@
-import React from 'react';
-import css from 'classnames';
-import { Tooltip } from './Tooltip';
+import React from "react";
+import css from "classnames";
+import { Tooltip } from "./Tooltip";
 
 /*
     PROPS           type        description
@@ -11,7 +11,7 @@ import { Tooltip } from './Tooltip';
     tooltip         string
     tooltipPosition string
 
-    active          bool        default false. set to true to enable 'active' style (e.g. $peerio-teal)
+    active          bool        default false. set to true to enable "active" style (e.g. $peerio-teal)
     ----------------------------------------
 
     TODO: size (rarely deviates from 24px, currently handled at CSS level)
@@ -22,14 +22,14 @@ interface Properties {
     className?: string
     icon: string
     tooltip?: string
-    tooltipPosition?: 'top' | 'right' | 'bottom' | 'left'
+    tooltipPosition?: "top" | "right" | "bottom" | "left"
 }
 
 export class MaterialIcon extends React.Component<Properties> {
     render() {
         return (
             <span className={css(
-                'material-icons',
+                "material-icons",
                 this.props.className,
                 { active: this.props.active }
             )}>
