@@ -18,7 +18,7 @@ import { observer } from 'mobx-react';
 import css from 'classnames';
 import { getPositionInWindow } from './helpers';
 
-interface PropTypes {
+interface Properties {
     className?: string
     text?: string
     position?: 'top' | 'right' | 'bottom' | 'left'
@@ -26,8 +26,8 @@ interface PropTypes {
 }
 
 @observer
-export class Tooltip extends React.Component<PropTypes> {
-    ref = new HTMLDivElement;
+export class Tooltip extends React.Component<Properties> {
+    @observable ref = null as any;
 
     @observable isVisible = false;
     @observable style = {
