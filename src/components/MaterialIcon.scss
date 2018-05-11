@@ -1,0 +1,29 @@
+.material-icons {
+  cursor: default;
+  vertical-align: middle;
+  font-size: 24px;
+  color: $icon-dark-active;
+
+  &.gold {
+    color: gold;
+  }
+
+  &.active {
+    color: $color-confirmation;
+  }
+
+  &.selected {
+    color: $color-affirmative;
+  }
+}
+
+.reverse-icon.material-icons,
+.reverse-icon .material-icons {
+  text-align: right;
+  transform: rotateY(180deg);
+}
+
+.clickable .material-icons,
+.p-button .material-icons {
+  cursor: pointer;
+}

@@ -1,33 +1,40 @@
 {
-  "name": "peerio-desktop-ui-library",
+  "name": "ui-library",
   "version": "1.0.0",
   "description": "Styles and PeerUI React component library for peerio-desktop",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack -p",
+    "build-style": "node-sass ./src/style.scss ./dist/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PeerioTechnologies/peerio-desktop-ui-library.git"
+    "url": "git+https://github.com/PeerioTechnologies/ui-library.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PeerioTechnologies/peerio-desktop-ui-library/issues"
+    "url": "https://github.com/PeerioTechnologies/ui-library/issues"
   },
-  "homepage": "https://github.com/PeerioTechnologies/peerio-desktop-ui-library#readme",
+  "homepage": "https://github.com/PeerioTechnologies/ui-library#readme",
   "dependencies": {
+    "mobx": "^4.2.1",
+    "mobx-react": "^5.1.2",
     "react": "^16.3.2",
-    "react-mobx": "0.0.3"
+    "react-dom": "^16.3.2"
   },
   "devDependencies": {
     "@types/react": "^16.3.14",
     "@types/react-dom": "^16.0.5",
+    "classnames": "^2.2.5",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0",
+    "node-sass": "^4.9.0",
+    "open-sans-fontface": "^1.4.0",
     "ts-loader": "^4.3.0",
-    "tslint": "^5.10.0",
-    "tslint-react": "^3.6.0",
     "typescript": "^2.8.3",
+    "typescript-eslint-parser": "^15.0.0",
     "webpack": "^4.8.1",
     "webpack-cli": "^2.1.3"
   }
