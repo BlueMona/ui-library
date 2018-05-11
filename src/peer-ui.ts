@@ -9,12 +9,12 @@ export * from './components/Checkbox';
 // // Icons
 // module.exports.Avatar = require('~/ui-library/Avatar');
 // module.exports.CustomIcon = require('~/ui-library/CustomIcon');
-// module.exports.MaterialIcon = require('~/ui-library/MaterialIcon');
+export * from './components/MaterialIcon';
 
 // // Informational
 // module.exports.Chip = require('~/ui-library/Chip');
 // module.exports.Dialog = require('~/ui-library/Dialog');
-// module.exports.Tooltip = require('~/ui-library/Tooltip');
+export * from './components/Tooltip';
 // module.exports.ProgressBar = require('~/ui-library/ProgressBar');
 
 // // Navigation
