@@ -14,6 +14,9 @@ import { Checkbox, MaterialIcon } from "./peer-ui";
   Checkbox
   MaterialIcon
   Tooltip
+
+  IP:
+  Avatar (put Dialog in here)
 */
 
 @observer

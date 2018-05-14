@@ -22,7 +22,7 @@ export * from "./components/Tooltip";
 // module.exports.MenuItem = require("~/ui-library/MenuItem");
 
 // // Page structure & layout
-// module.exports.Divider = require("~/ui-library/Divider");
+export * from "./components/Divider";
 // module.exports.List = require("~/ui-library/List");
 // module.exports.ListHeading = require("~/ui-library/ListHeading");
 // module.exports.ListItem = require("~/ui-library/ListItem");
