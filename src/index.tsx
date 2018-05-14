@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
-import { Checkbox, MaterialIcon } from "./peer-ui";
+import { Checkbox, CustomIcon, Divider, MaterialIcon } from "./peer-ui";
 
 // import propertyArray from "./data/property-array";
 // import { genericContact, genericOptions } from "./data/generic-data";
@@ -12,6 +12,7 @@ import { Checkbox, MaterialIcon } from "./peer-ui";
 /*
   DONE:
   Checkbox
+  Divider
   MaterialIcon
   Tooltip
 
@@ -46,6 +47,10 @@ export class Index extends React.Component {
           tooltip="add guy"
         />
         <br/>
+
+        <Divider />
+
+        <CustomIcon icon="leave" />
 
       </div>
       

@@ -3,30 +3,25 @@ import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
 import css from "classnames";
-import { getParentWithClass } from "~/helpers/dom";
+const { getParentWithClass } = require("../helpers/dom"); // TODO: figure out the helper functions
 
-/*
-    PROPS       type        description
-    ----------------------------------------
-    className   string
-    icon        string      icon name, no ext (see static/img/custom-icons)
-    size        string      small, medium (default)
-
-    hover       bool        default false. set true to enable hover icon.
-                            * Requires parent w/ .custom-icon-hover-container
-    selected    bool
-
-    active      bool        default. set to true to force "active" style (opacity: 1)
-    ----------------------------------------
-*/
+interface Properties {
+    className?: string
+    icon: string
+    size?: string
+    hover?: boolean
+    selected?: boolean
+    active?: boolean
+}
 
 @observer
-class CustomIcon extends React.Component {
-    @observable hovered;
+export class CustomIcon extends React.Component<Properties> {
+    @observable hovered = false;
 
-    hoverContainer;
-    @action.bound setIconRef(ref) {
-        if (ref) {
+    hoverContainer = null as any; // TODO: another ref as any
+
+    @action.bound setIconRef(ref: HTMLDivElement) {
+        if (ref && this.props.hover) {
             this.hoverContainer = getParentWithClass(ref, "custom-icon-hover-container");
 
             if (this.hoverContainer) {
@@ -58,7 +53,7 @@ class CustomIcon extends React.Component {
                         active: this.props.active
                     }
                 )}
-                ref={this.props.hover ? this.setIconRef : null}
+                ref={this.setIconRef}
             >
                 {(this.props.hover && this.hovered) || this.props.selected
                     ? <img className="hover" src={`./static/custom-icons/${this.props.icon}-hover.svg`} />
@@ -68,5 +63,3 @@ class CustomIcon extends React.Component {
         );
     }
 }
-
-module.exports = CustomIcon;

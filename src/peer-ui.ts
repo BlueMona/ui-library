@@ -8,7 +8,7 @@ export * from "./components/Checkbox";
 
 // // Icons
 // module.exports.Avatar = require("~/ui-library/Avatar");
-// module.exports.CustomIcon = require("~/ui-library/CustomIcon");
+export * from "./components/CustomIcon";
 export * from "./components/MaterialIcon";
 
 // // Informational

@@ -27,7 +27,7 @@ interface Properties {
 
 @observer
 export class Tooltip extends React.Component<Properties> {
-    @observable ref = null as any;
+    @observable ref = null as any; // TODO: is this legit?
 
     @observable isVisible = false;
     @observable style = {
