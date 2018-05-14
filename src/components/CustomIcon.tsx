@@ -16,8 +16,15 @@ interface Properties {
 
 @observer
 export class CustomIcon extends React.Component<Properties> {
-    @observable hovered = false;
+    /*
+        Hovering: It's Weird
+        SVG recolouring via CSS is not supported in Chromium, so we can't just do a :hover state
+        Instead, with hover enabled, <CustomIcon> actually shows a different image file on hover.
+        Currently, this is done by adding a listener on a parent element with class .custom-icon-hover-container
+        So, in all, it's kinda clunky, but it allows us to do things like having CustomIcon change colour when MenuItem is hovered.
+    */
 
+    @observable hovered = false;
     hoverContainer = null as any; // TODO: another ref as any
 
     @action.bound setIconRef(ref: HTMLDivElement) {
