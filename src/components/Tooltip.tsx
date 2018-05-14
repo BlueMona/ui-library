@@ -20,7 +20,7 @@ import { getPositionInWindow } from "./helpers";
 
 interface Properties {
     className?: string
-    text: string
+    text?: string
 
     // If empty, will default to "top"
     position?: "top" | "right" | "bottom" | "left"

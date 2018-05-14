@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
-import { Checkbox, CustomIcon, Divider, MaterialIcon } from "./peer-ui";
+import { Button, Checkbox, CustomIcon, Divider, MaterialIcon } from "./peer-ui";
 
 // import propertyArray from "./data/property-array";
 // import { genericContact, genericOptions } from "./data/generic-data";
@@ -46,6 +46,11 @@ export class Index extends React.Component {
 
         <CustomIcon icon="leave" />
 
+        <Button
+          theme="affirmative inverted"
+        >
+          Button
+        </Button>
       </div>
       
     );

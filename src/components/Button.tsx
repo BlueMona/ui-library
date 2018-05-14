@@ -1,9 +1,9 @@
 import React from "react";
 import css from "classnames";
 
-import MaterialIcon from "./MaterialIcon";
-import CustomIcon from "./CustomIcon";
-import Tooltip from "./Tooltip";
+import { MaterialIcon } from "./MaterialIcon";
+import { CustomIcon } from "./CustomIcon";
+import { Tooltip } from "./Tooltip";
 
 /*
     PROPS           type        description
@@ -34,15 +34,65 @@ import Tooltip from "./Tooltip";
                                 * secondary: font color $text-dark-inactive (for secondary action e.g. dialog "cancel")
                                 * inverted: font color $text-light-default
                                 * affirmative: green "go" style
-
                                 * small: collapses padding
                                 * link: style button as link (look like <a>)
-
                                 * no-hover: remove hover effects
     ----------------------------------------
 */
 
-class Button extends React.Component {
+interface Properties {
+    className?: string
+    style?: object
+
+    // Button will render as an <a> element
+    href?: string
+
+    // If label content exists, child content ignored. Can put arbitarary HTML in here.
+    label?: any
+
+    // To use MaterialIcon
+    icon?: string
+
+    // To use CustomIcon
+    customIcon?: string
+
+    // Makes button unclickable and applies "disabled" styling
+    disabled?: boolean
+
+    // Makes button blue or other "selected" colour
+    selected?: boolean
+
+    // Makes button teal or other "active" colour
+    active?: boolean
+
+    onClick?: () => void
+    onMouseEnter?: () => void
+    onMouseLeave?: () => void
+
+    // Tooltip text
+    tooltip?: string
+
+    // Where will tooltip be rendered? Defaults to "top"
+    tooltipPosition?: "top" | "right" | "bottom" | "left"
+
+    // Blank for default = 24px, "small" = 16px
+    tooltipSize?: "small"
+
+    // TODO: clean up these themes (on desktop too)
+    /* Various themes for styling.
+        * (default): font colour $color-affirmative, background transparent
+        * primary: font color $text-dark-default
+        * secondary: font color $text-dark-inactive (for secondary action e.g. dialog "cancel")
+        * inverted: font color $text-light-default
+        * affirmative: font color $white, background $color-affirmative
+        * small: collapses padding
+        * link: style button as link (look like <a>)
+        * no-hover: remove hover effects
+    */
+    theme?: string
+}
+
+export class Button extends React.Component<Properties> {
     render() {
         const classNames = (
             css(
@@ -50,8 +100,8 @@ class Button extends React.Component {
                 this.props.className,
                 this.props.theme,
                 {
-                    icon: !this.props.label && (this.props.icon || this.props.customIcon),
-                    "icon-and-label": this.props.label && (this.props.icon || this.props.customIcon),
+                    icon: !this.props.label && (!!this.props.icon || !!this.props.customIcon),
+                    "icon-and-label": !!this.props.label && (!!this.props.icon || !!this.props.customIcon),
                     selected: this.props.selected,
                     active: this.props.active
                 }
@@ -67,7 +117,6 @@ class Button extends React.Component {
             ),
             (this.props.tooltip
                 ? <Tooltip
-                    key="tooltip"
                     text={this.props.tooltip}
                     position={this.props.tooltipPosition || "top"}
                     size={this.props.tooltipSize}
@@ -104,5 +153,3 @@ class Button extends React.Component {
         );
     }
 }
-
-module.exports = Button;

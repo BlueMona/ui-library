@@ -1,5 +1,5 @@
 // // Inputs & other interactables
-// module.exports.Button = require("~/ui-library/Button");
+export * from "./components/Button";
 export * from "./components/Checkbox";
 // module.exports.Dropdown = require("~/ui-library/Dropdown");
 // module.exports.Input = require("~/ui-library/Input");
