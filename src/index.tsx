@@ -10,12 +10,6 @@ import { Checkbox, CustomIcon, Divider, MaterialIcon } from "./peer-ui";
 // import { genericContact, genericOptions } from "./data/generic-data";
 
 /*
-  DONE:
-  Checkbox
-  Divider
-  MaterialIcon
-  Tooltip
-
   IP:
   Avatar (put Dialog in here)
 */

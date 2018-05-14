@@ -7,9 +7,16 @@ const { getParentWithClass } = require("../helpers/dom"); // TODO: figure out th
 
 interface Properties {
     className?: string
+
+    // The icon's name, i.e. filename without extension
     icon: string
-    size?: string
+
+    // 'small' = 16px, or leave blank for default = 24px
+    size?: 'small'
+
+    // Set true if icon should have hover effects. Requires parent component with class .custom-icon-hover-container
     hover?: boolean
+
     selected?: boolean
     active?: boolean
 }

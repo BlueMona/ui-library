@@ -19,9 +19,16 @@ interface Contact {
 
 interface Properties {
     className?: string
+
+    // Set true to make Avatar clickable: adds a bounce effect on hover and shows user's profile in a popup on click
     clickable?: boolean
+
+    // Contact object
     contact: Contact
+
     size?: "tiny" | "small" | "medium" | "large" | "full"
+
+    // Set true to have a tooltip, which will show user's username
     tooltip?: boolean
 }
 
