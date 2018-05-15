@@ -693,7 +693,7 @@ dialog {
         animation-delay: 1.15s;
         background-color: inherit; }
       .p-progress-bar .progress-bar .indeterminate.multicolor {
-        animation: backgroundColors 6s ease-in-out infinite; }
+        animation: backgroundColor 6s ease-in-out infinite; }
 
 @keyframes pulse {
   0% {
@@ -725,7 +725,7 @@ dialog {
     left: 107%;
     right: -8%; } }
 
-@keyframes color {
+@keyframes backgroundColor {
   100%,
   0% {
     background-color: #e90162; }
@@ -746,9 +746,6 @@ dialog {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
     stroke-linecap: round;
-    cx: 25;
-    cy: 25;
-    r: 20;
     animation: dash 1.5s ease-in-out infinite;
     fill: none;
     stroke: #02cedb; }
@@ -762,9 +759,6 @@ dialog {
   .p-progress-bar .progress-spinner.small .path {
     stroke-width: 2;
     stroke-dasharray: 1, 80;
-    cx: 10;
-    cy: 10;
-    r: 6;
     animation: dashSmall 1.5s ease-in-out infinite; }
 
 @keyframes color {

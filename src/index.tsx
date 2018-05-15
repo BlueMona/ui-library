@@ -101,7 +101,7 @@ export class Index extends React.Component {
 
         <ProgressBar
           mode="indeterminate"
-          type="circular"
+          theme="multicolor"
         />
 
       </div>

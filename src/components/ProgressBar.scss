@@ -63,7 +63,7 @@
       }
 
       &.multicolor {
-        animation: backgroundColors (6s) ease-in-out infinite;
+        animation: backgroundColor (6s) ease-in-out infinite;
       }
     }
 
@@ -107,7 +107,7 @@
       }
     }
 
-    @keyframes color {
+    @keyframes backgroundColor {
       100%,
       0% {
         background-color: $color-error;
@@ -142,9 +142,6 @@
       stroke-dasharray: 1, 200;
       stroke-dashoffset: 0;
       stroke-linecap: round;
-      cx: 25;
-      cy: 25;
-      r: 20;
       animation: dash 1.5s ease-in-out infinite;
       fill: none;
       stroke: $color-confirmation;
@@ -173,9 +170,6 @@
       .path {
         stroke-width: 2;
         stroke-dasharray: 1, 80;
-        cx: 10;
-        cy: 10;
-        r: 6;
         animation: dashSmall 1.5s ease-in-out infinite;
       }
     }

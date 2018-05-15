@@ -12,9 +12,9 @@ interface Properties {
 
     // Linear or circular visual
     type?: 'linear' | 'circular'
-
-    // Multicolor, light, or small. Some combinations of these work. TODO: make this clearer
-    theme?: string
+    
+    theme?: 'multicolor' | 'light'
+    size?: 'small'
 
     value?: number
     max?: number
@@ -50,6 +50,7 @@ export class ProgressBar extends React.Component<Properties> {
                             className={css(
                                 this.props.type || "linear",
                                 this.props.mode || "determinate",
+                                this.props.size,
                                 this.props.theme
                             )}
                             style={style}
@@ -57,10 +58,16 @@ export class ProgressBar extends React.Component<Properties> {
                     </div>
                     : <div className={css(
                         "progress-spinner",
+                        this.props.size,
                         this.props.theme
                     )}>
                         <svg className="circular">
-                            <circle className="path" />
+                            <circle
+                                className="path"
+                                cx={this.props.size === "small" ? 10 : 25 }
+                                cy={this.props.size === "small" ? 10 : 25 }
+                                r={this.props.size === "small" ? 6 : 20 }
+                            />
                         </svg>
                     </div>
                 }
