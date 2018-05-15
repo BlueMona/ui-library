@@ -4,7 +4,7 @@ export * from "./components/Checkbox";
 export * from "./components/Dropdown";
 export * from "./components/Input";
 export * from "./components/RadioButtons";
-// export * from "./components/Switch";
+export * from "./components/Switch";
 
 // // Icons
 export * from "./components/Avatar";

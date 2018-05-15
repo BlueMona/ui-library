@@ -19,7 +19,7 @@ import {
   // Menu, MenuItem,
   ProgressBar,
   RadioButtons,
-  // Switch
+  Switch
 } from "./peer-ui";
 
 // import propertyArray from "./data/property-array";
@@ -91,13 +91,13 @@ export class Index extends React.Component {
           Dialog
         </Button>
 
-        <Dialog
+        {/* <Dialog
           active={this.genericBool}
           actions={actions}
           onCancel={this.onChangeBool}
         >
           Child content
-        </Dialog>
+        </Dialog> */}
 
         <Dropdown
           onChange={this.onChangeText}
@@ -114,6 +114,11 @@ export class Index extends React.Component {
           value={this.genericText}
           onChange={this.onChangeText}
           options={options}
+        />
+
+        <Switch
+          checked={this.genericBool}
+          onChange={this.onChangeBool}
         />
 
       </div>

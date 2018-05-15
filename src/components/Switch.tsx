@@ -1,18 +1,14 @@
 import React from "react";
 import css from "classnames";
 
-/*
-    PROPS       type        description
-    ----------------------------------------
-    className   string
-    label       string
+interface Properties {
+    className?: string
+    label?: string
+    checked: boolean
+    onChange: (ev : any) => void
+}
 
-    checked     bool
-    onChange    function
-    ----------------------------------------
-*/
-
-class Switch extends React.Component {
+export class Switch extends React.Component<Properties> {
     render() {
         return (
             <div className={css(
@@ -37,5 +33,3 @@ class Switch extends React.Component {
         );
     }
 }
-
-module.exports = Switch;
