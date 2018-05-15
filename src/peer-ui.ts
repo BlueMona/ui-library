@@ -7,7 +7,7 @@ export * from "./components/Input";
 // export * from "./components/Switch";
 
 // // Icons
-// export * from "./components/Avatar";
+export * from "./components/Avatar";
 export * from "./components/CustomIcon";
 export * from "./components/MaterialIcon";
 
@@ -15,7 +15,7 @@ export * from "./components/MaterialIcon";
 export * from "./components/Chip";
 export * from "./components/Dialog";
 export * from "./components/Tooltip";
-// export * from "./components/ProgressBar";
+export * from "./components/ProgressBar";
 
 // // Navigation
 export * from "./components/Menu";

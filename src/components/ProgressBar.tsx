@@ -3,27 +3,34 @@ import { observer } from "mobx-react";
 
 import css from "classnames";
 
-/*
-    PROPS           type        description
-    ----------------------------------------
-    className       string
-    mode            string      determinate (default), indeterminate
-    type            string      linear (default), circular
-    theme           string      multicolor, light, small
 
-    value           int         (determinate) current progress value of the progress bar
-    max             int         (determinate) max progress value of progress bar
-    ----------------------------------------
+interface Properties {
+    className?: string
 
-    determinate + circular will not work (will default to indeterminate)
-*/
+    // Infinite or tied to value
+    mode?: 'determinate' | 'indeterminate'
+
+    // Linear or circular visual
+    type?: 'linear' | 'circular'
+
+    // Multicolor, light, or small. Some combinations of these work. TODO: make this clearer
+    theme?: string
+
+    value?: number
+    max?: number
+}
+
+// TODO: require value & max when determinate mode
+// TODO: determinate circular does not exist, can we define this in type?
 
 @observer
-class ProgressBar extends React.Component {
+export class ProgressBar extends React.Component<Properties> {
     render() {
         let style;
-        if (this.props.mode === null || "determinate") {
-            style = { width: `${this.props.value / this.props.max * 100}%` };
+        if (this.props.mode === undefined || null || "determinate") {
+            if (!!this.props.value && !!this.props.max) { // TODO: get rid of this when we have this done in the type
+                style = { width: `${this.props.value / this.props.max * 100}%` };
+            }
         }
 
         return (
@@ -43,7 +50,6 @@ class ProgressBar extends React.Component {
                             className={css(
                                 this.props.type || "linear",
                                 this.props.mode || "determinate",
-                                { multicolor: this.props.multicolor },
                                 this.props.theme
                             )}
                             style={style}
@@ -62,5 +68,3 @@ class ProgressBar extends React.Component {
         );
     }
 }
-
-module.exports = ProgressBar;

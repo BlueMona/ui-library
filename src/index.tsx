@@ -5,17 +5,19 @@ import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
 import {
+  Avatar,
   Button,
-  Checkbox,
-  Chip,
-  CustomIcon,
+  // Checkbox,
+  // Chip,
+  // CustomIcon,
   Dialog,
-  Divider,
+  // Divider,
   Dropdown,
-  Input,
-  List, ListHeading, ListItem,
-  MaterialIcon,
-  Menu, MenuItem
+  // Input,
+  // List, ListHeading, ListItem,
+  // MaterialIcon,
+  // Menu, MenuItem,
+  ProgressBar
 } from "./peer-ui";
 
 // import propertyArray from "./data/property-array";
@@ -63,32 +65,25 @@ export class Index extends React.Component {
       }
     ];
 
+    const contact = {
+      hasAvatar: false,
+      color: 'red',
+      username: 'uiplayground',
+      letter: 'U',
+      fullNameAndUsername: 'UI Playground',
+      mediumAvatarUrl: 'http://peerio.com'
+    };
+
     return(
-      <div style={{ textAlign: "center" }}>
-        <Checkbox
-          checked={this.genericBool}
-          onChange={this.onChangeBool}
-        />
-        <br/>
-
-        <MaterialIcon
-          icon="person_add"
-          tooltip="add guy"
-        />
-        <br/>
-
-        <Divider />
-
-        <CustomIcon icon="leave" />
+      <div>
+        <Avatar contact={contact} />
 
         <Button
           theme="affirmative inverted"
           onClick={this.onChangeBool}
         >
-          Button
+          Dialog
         </Button>
-
-        <Chip deletable>Content</Chip>
 
         <Dialog
           active={this.genericBool}
@@ -104,18 +99,12 @@ export class Index extends React.Component {
           value={this.genericText}
         />
 
-        <Input hint='hint' value="" />
+        <ProgressBar
+          mode="indeterminate"
+          type="circular"
+        />
 
-        <List>
-          <ListHeading>
-            THING
-          </ListHeading>
-          <ListItem>
-            THINGS
-          </ListItem>
-        </List>
       </div>
-      
     );
   }
 }
