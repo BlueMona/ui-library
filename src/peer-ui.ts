@@ -18,8 +18,8 @@ export * from "./components/Tooltip";
 // export * from "./components/ProgressBar";
 
 // // Navigation
-// export * from "./components/Menu";
-// export * from "./components/MenuItem";
+export * from "./components/Menu";
+export * from "./components/MenuItem";
 
 // // Page structure & layout
 export * from "./components/Divider";

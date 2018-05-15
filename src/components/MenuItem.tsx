@@ -2,30 +2,29 @@ import React from "react";
 import { observer } from "mobx-react";
 
 import css from "classnames";
-import CustomIcon from "./CustomIcon";
-import MaterialIcon from "./MaterialIcon";
+import { CustomIcon } from "./CustomIcon";
+import { MaterialIcon } from "./MaterialIcon";
 
-/*
-    PROPS           type        description
-    ----------------------------------------
-    className       string
-    value           string
-    caption         string
+interface Properties {
+    className?: string
+    value: string
+    caption?: string
 
-    icon            string      Material Icon name, if !!icon, customIcon won"t render
-    customIcon      string      Custom Icon name
+    icon?: string
+    customIcon?: string
 
-    tooltip         string
-    tooltipPosition string
-    ----------------------------------------
-*/
+    onClick: () => void
+
+    disabled?: boolean
+    selected?: boolean
+}
 
 @observer
-class MenuItem extends React.Component {
+export class MenuItem extends React.Component<Properties> {
     render() {
         const { value, icon, customIcon, caption, className, onClick } = this.props;
         return (
-            <div
+            <li
                 value={value}
                 className={css(
                     "p-menu-item",
@@ -55,9 +54,7 @@ class MenuItem extends React.Component {
                     )
                 }
                 {caption}
-            </div>
+            </li>
         );
     }
 }
-
-module.exports = MenuItem;

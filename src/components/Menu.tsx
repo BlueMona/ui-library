@@ -5,39 +5,54 @@ import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
 import css from "classnames";
-import { getDataProps, getParentWithClass } from "~/helpers/dom";
+import { getDataProps, getParentWithClass } from "../helpers/dom";
 
-import Button from "./Button";
-import Tooltip from "./Tooltip";
+import { Button } from "./Button";
+import { Tooltip } from "./Tooltip";
 
-const appRoot = document.getElementById("root");
+const appRoot = document.getElementById("root") as HTMLElement;
 
 /*
     PROPS           type        description
     ----------------------------------------
     className       string
-
-    position        string      the starting point where <MenuGlobal> will be drawn
-                                "top-left" (default), "top-right", "bottom-left", "bottom-right"
-
+    position        string      the starting point where <MenuGlobal> will be drawn "top-left" (default), "top-right", "bottom-left", "bottom-right"
     icon            string      * Material Icon name
     customIcon      string      * Custom Icon name
     customButton                * any HTML
-                                * (use one of the above for the Menu button)
-
     tooltip         string
     tooltipPosition string      default "top"
     theme           string      so far only "wide" exists
-
     onClick         function    use this very rarely, e.g. to stopPropagation of other click events
     disabled        bool        disables the button
     ----------------------------------------
 */
 
+// TODO: many 'any' types
+
+interface Properties {
+    className?: string
+
+    // Default "top-left"
+    position?: "top-left" | "top-right" | "bottom-left" | "bottom-right"
+
+    icon?: string
+    customIcon?: string
+    customButton?: any
+
+    tooltip?: string
+    tooltipPosition?: "top" | "bottom" | "left" | "right"
+
+    theme?: string
+
+    onClick?: () => void
+    disabled?: boolean
+}
+
 @observer
-class Menu extends React.Component {
-    @observable menuActive;
-    @observable menuVisible
+export class Menu extends React.Component<Properties> {
+    @observable menuActive = false;
+    @observable menuVisible = false;
 
     @observable style = {
         top: "inherit",
@@ -46,17 +61,18 @@ class Menu extends React.Component {
         right: "inherit"
     };
 
-    menuButtonRef;
-    scrollContainer;
+    menuButtonRef : any;
+    scrollContainer : any;
+    hideMenuTimeout : any;
 
-    @action.bound setMenuButtonRef(ref) {
+    @action.bound setMenuButtonRef(ref : any) {
         if (ref) {
             this.menuButtonRef = ref;
             this.scrollContainer = getParentWithClass(ref, "scrollable");
         }
     }
 
-    @action.bound setMenuContentRef(ref) {
+    @action.bound setMenuContentRef(ref : any) {
         if (ref) this.menuVisible = true;
     }
 
@@ -78,7 +94,7 @@ class Menu extends React.Component {
         }
     }
 
-    @action.bound handleKeyUp(ev) {
+    @action.bound handleKeyUp(ev : any) {
         if (ev.keyCode === 27) this.hideMenu();
     }
 
@@ -102,8 +118,10 @@ class Menu extends React.Component {
         const { width, height, left, top } = this.menuButtonRef.getBoundingClientRect();
         const windowX = window.innerWidth;
         const windowY = window.innerHeight;
+        
+        const position = !!this.props.position ? this.props.position : "top-left";
+        const [posY, posX] = position.split("-");
 
-        const [posY, posX] = this.props.position.split("-");
         if (posY === "top") this.style.top = `${top}px`;
         if (posY === "bottom") this.style.bottom = `${windowY - top - height}px`;
         if (posX === "left") this.style.left = `${left}px`;
@@ -117,7 +135,7 @@ class Menu extends React.Component {
                 className={css(
                     "p-menu",
                     this.props.className,
-                    { clickable: this.menuactive }
+                    { clickable: this.menuActive }
                 )}
                 ref={this.setMenuButtonRef}
                 onClick={this.props.onClick}
@@ -134,7 +152,7 @@ class Menu extends React.Component {
                 {this.props.tooltip
                     ? <Tooltip
                         text={this.props.tooltip}
-                        position={this.props.tooltipPosition || "top-left"}
+                        position={this.props.tooltipPosition || "top"}
                     />
                     : null
                 }
@@ -144,7 +162,7 @@ class Menu extends React.Component {
         if (!this.menuActive) return menuButton;
 
         const menuContent = (
-            <div
+            <ul
                 key="p-menu-content"
                 className={css(
                     "p-menu-content",
@@ -156,7 +174,7 @@ class Menu extends React.Component {
                 {...getDataProps(this.props)}
             >
                 {this.props.children}
-            </div>
+            </ul>
         );
 
         return [
@@ -168,5 +186,3 @@ class Menu extends React.Component {
         ];
     }
 }
-
-module.exports = Menu;
