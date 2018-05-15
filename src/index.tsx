@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
-import { Button, Checkbox, Chip, CustomIcon, Divider, MaterialIcon } from "./peer-ui";
+import { Button, Checkbox, Chip, CustomIcon, Dialog, Divider, MaterialIcon } from "./peer-ui";
 
 // import propertyArray from "./data/property-array";
 // import { genericContact, genericOptions } from "./data/generic-data";
@@ -28,6 +28,17 @@ export class Index extends React.Component {
   };
 
   render() {
+    const actions = [
+      {
+        label: "Cancel",
+        onClick: () => {console.log("Cancel")}
+      },
+      {
+        label: "OK",
+        onClick: () => {this.onChangeBool()}
+      }
+    ];
+
     return(
       <div style={{ textAlign: "center" }}>
         <Checkbox
@@ -48,11 +59,20 @@ export class Index extends React.Component {
 
         <Button
           theme="affirmative inverted"
+          onClick={this.onChangeBool}
         >
           Button
         </Button>
 
         <Chip deletable>Content</Chip>
+
+        <Dialog
+          active={this.genericBool}
+          actions={actions}
+          onCancel={this.onChangeBool}
+        >
+          Child content
+        </Dialog>
       </div>
       
     );

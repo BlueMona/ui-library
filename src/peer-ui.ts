@@ -13,7 +13,7 @@ export * from "./components/MaterialIcon";
 
 // // Informational
 export * from "./components/Chip";
-// export * from "./components/Dialog";
+export * from "./components/Dialog";
 export * from "./components/Tooltip";
 // export * from "./components/ProgressBar";
 

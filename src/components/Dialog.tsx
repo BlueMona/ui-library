@@ -1,221 +1,216 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 
-// import { action, computed, observable, reaction } from "mobx";
-// import { observer } from "mobx-react";
+import { action, computed, observable, reaction } from "mobx";
+import { observer } from "mobx-react";
 
-// import css from "classnames";
-// import Button from "./Button";
+import css from "classnames";
+import { Button } from "./Button";
 
-// const appRoot = document.getElementById("root");
+const appRoot = document.getElementById("root") as HTMLElement;
 
-// /*
-//     PROPS           type        description
-//     ----------------------------------------
-//     className       string
-//     active          bool
-//     noAnimation     bool
-//     title                       usually string but any HTML allowed
-//     theme           string      error (red), warning (yellow), primary (brand color e.g. blue)
-//     onCancel        function    behaviour for Esc key and overlay click
-//     actions         array       each element is an object corresponding to 1 button in dialog
-//                                 e.g. {label: "string", onClick: function(), disabled: bool}
-//     ----------------------------------------
-// */
+interface Properties {
+    className?: string
+    active: boolean
+    noAnimation?: boolean
+    title?: any
+    theme?: string
 
-// interface Properties {
-//     className: string
-//     active: boolean
-//     noAnimation: boolean
-//     title: any
-//     theme: string
-//     onCancel: () => void
-//     actions: Action[]
-// }
+    // Behaviour for Esc key or overlay click
+    onCancel?: () => void
 
-// interface Action {
-//     label: string
-//     onClick: () => void
-//     theme?: string
-//     disabled?: boolean
-// }
+    // Array of Action objects, each with label, onClick, theme?, disabled?
+    actions: Action[]
+}
 
-// @observer
-// export class Dialog extends React.Component<Properties> {
-//     // Separate "rendered" and "visible" bools to be able to use fade in/out animations
-//     @observable dialogRendered = false;
-//     @observable dialogVisible = false;
+interface Action {
+    label: string
+    onClick: () => void
+    theme?: string
+    disabled?: boolean
+}
 
-//     componentDidMount() {
-//         /*
-//             These awkward timeouts are used to stagger the dialog"s render event from its "make visible" event.
-//             The .visible class is tied to the dialogVisible bool, which is what triggers the opacity transition.
-//             Separating these two events ensures that the transition plays.
-//         */
-//         this.activeReaction = reaction(() => this.props.active, active => {
-//             if (active) {
-//                 this.setActive();
-//             } else {
-//                 this.setInactive();
-//             }
-//         }, true);
+@observer
+export class Dialog extends React.Component<Properties> {
+    // Separate "rendered" and "visible" bools to be able to use fade in/out animations
+    @observable dialogRendered = false;
+    @observable dialogVisible = false;
 
-//         window.addEventListener("keyup", this.handleEscKey, false);
-//     }
+    activeReaction = undefined as any;
+    mountTimeout = undefined as any;
+    unmountTimeout = undefined as any; // TODO: This seems wrong
 
-//     componentWillUnmount() {
-//         this.activeReaction();
-//         window.removeEventListener("keyup", this.handleEscKey);
-//         window.removeEventListener("keydown", this.handleTabKey);
-//     }
+    dialogRef = undefined as any;
 
-//     @action.bound setActive() {
-//         if (this.unmountTimeout) {
-//             clearTimeout(this.unmountTimeout);
-//             this.unmountTimeout = null;
-//         }
-//         this.dialogRendered = true;
-//         window.addEventListener("keyup", this.handleEscKey, false);
+    componentDidMount() {
+        /*
+            These awkward timeouts are used to stagger the dialog"s render event from its "make visible" event.
+            The .visible class is tied to the dialogVisible bool, which is what triggers the opacity transition.
+            Separating these two events ensures that the transition plays.
+        */
+        this.activeReaction = reaction(() => this.props.active, active => {
+            if (active) {
+                this.setActive();
+            } else {
+                this.setInactive();
+            }
+        }, { fireImmediately: true });
 
-//         this.restrictFocus();
+        window.addEventListener("keyup", this.handleEscKey, false);
+    }
 
-//         this.mountTimeout = setTimeout(() => {
-//             this.dialogVisible = true;
-//             this.mountTimeout = null;
-//         }, 1);
-//     }
+    componentWillUnmount() {
+        this.activeReaction();
+        window.removeEventListener("keyup", this.handleEscKey);
+        window.removeEventListener("keydown", this.handleTabKey);
+    }
 
-//     @action.bound setInactive() {
-//         if (this.mountTimeout) {
-//             clearTimeout(this.mountTimeout);
-//             this.mountTimeout = null;
-//         }
-//         this.dialogVisible = false;
-//         window.removeEventListener("keyup", this.handleEscKey);
-//         window.removeEventListener("keydown", this.handleTabKey);
+    @action.bound setActive() {
+        if (this.unmountTimeout) {
+            clearTimeout(this.unmountTimeout);
+            this.unmountTimeout = null;
+        }
+        this.dialogRendered = true;
+        window.addEventListener("keyup", this.handleEscKey, false);
 
-//         this.unmountTimeout = setTimeout(() => {
-//             this.dialogRendered = false;
-//             this.unmountTimeout = null;
-//         }, 200);
-//     }
+        this.restrictFocus();
 
-//     @action.bound setDialogRef(ref) {
-//         if (ref) {
-//             this.dialogRef = ref;
-//             ref.focus();
-//         }
-//     }
+        this.mountTimeout = setTimeout(() => {
+            this.dialogVisible = true;
+            this.mountTimeout = null;
+        }, 1);
+    }
 
-//     @computed get focusableElements() {
-//         return this.dialogRef.querySelectorAll("input:not(:disabled), textarea:not(:disabled), button:not(:disabled)");
-//     }
+    @action.bound setInactive() {
+        if (this.mountTimeout) {
+            clearTimeout(this.mountTimeout);
+            this.mountTimeout = null;
+        }
+        this.dialogVisible = false;
+        window.removeEventListener("keyup", this.handleEscKey);
+        window.removeEventListener("keydown", this.handleTabKey);
 
-//     @action.bound restrictFocus() {
-//         window.addEventListener("keydown", this.handleTabKey, false);
-//     }
+        this.unmountTimeout = setTimeout(() => {
+            this.dialogRendered = false;
+            this.unmountTimeout = null;
+        }, 200);
+    }
 
-//     @action.bound handleEscKey(ev) {
-//         if (!this.dialogVisible || !this.dialogRendered) return;
-//         if (ev.keyCode === 27) {
-//             this.props.onCancel();
-//         }
-//     }
+    @action.bound setDialogRef(ref : HTMLDivElement) {
+        if (ref) {
+            this.dialogRef = ref;
+            ref.focus();
+        }
+    }
 
-//     /*
-//         We need to restrict focus to the dialog when it"s visible.
-//         Clicking outside dialog closes it, so that"s OK, but it"s still possible to use Tab to escape.
-//         For a11y we need to keep Tab key functionality, but restrict it to the contents of the dialog.
-//         This function makes Tab jump back to first focusable element if the last one is currently focused,
-//         or to the last element if Shift+Tab while the first is focused.
-//     */
-//     @action.bound handleTabKey(ev) {
-//         if (!this.dialogVisible || !this.dialogRendered) return;
+    @computed get focusableElements() {
+        return this.dialogRef.querySelectorAll("input:not(:disabled), textarea:not(:disabled), button:not(:disabled)");
+    }
 
-//         if (ev.keyCode === 9) {
-//             if (this.focusableElements.length === 0) {
-//                 ev.preventDefault();
-//             } else {
-//                 const first = this.focusableElements[0];
-//                 const last = this.focusableElements[this.focusableElements.length - 1];
+    @action.bound restrictFocus() {
+        window.addEventListener("keydown", this.handleTabKey, false);
+    }
 
-//                 if (ev.shiftKey && document.activeElement === first) {
-//                     ev.preventDefault();
-//                     last.focus();
-//                 }
+    @action.bound handleEscKey(ev: any) { // TODO: deal with ev: any
+        if (!this.dialogVisible || !this.dialogRendered || !this.props.onCancel) return;
+        if (ev.keyCode === 27) {
+            this.props.onCancel();
+        }
+    }
 
-//                 if (!ev.shiftKey && document.activeElement === last) {
-//                     ev.preventDefault();
-//                     first.focus();
-//                 }
-//             }
-//         }
-//     }
+    /*
+        We need to restrict focus to the dialog when it"s visible.
+        Clicking outside dialog closes it, so that"s OK, but it"s still possible to use Tab to escape.
+        For a11y we need to keep Tab key functionality, but restrict it to the contents of the dialog.
+        This function makes Tab jump back to first focusable element if the last one is currently focused,
+        or to the last element if Shift+Tab while the first is focused.
+    */
+    @action.bound handleTabKey(ev: any) {
+        if (!this.dialogVisible || !this.dialogRendered) return;
 
-//     render() {
-//         if (!this.dialogRendered) return null;
+        if (ev.keyCode === 9) {
+            if (this.focusableElements.length === 0) {
+                ev.preventDefault();
+            } else {
+                const first = this.focusableElements[0] as HTMLElement;
+                const last = this.focusableElements[this.focusableElements.length - 1] as HTMLElement;
 
-//         const { actions } = this.props;
-//         const buttons = [];
+                if (ev.shiftKey && document.activeElement === first) {
+                    ev.preventDefault();
+                    last.focus();
+                }
 
-//         if (actions) {
-//             for (let i = 0; i < actions.length; i++) {
-//                 buttons.push(
-//                     <Button
-//                         key={`p-dialog-button-${i}`}
-//                         label={actions[i].label}
-//                         onClick={actions[i].onClick}
-//                         theme={i < actions.length - 1 ? "secondary" : null}
-//                         disabled={actions[i].disabled}
-//                     />
-//                 );
-//             }
-//         }
+                if (!ev.shiftKey && document.activeElement === last) {
+                    ev.preventDefault();
+                    first.focus();
+                }
+            }
+        }
+    }
 
-//         /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-//         const dialogContent = (
-//             <div
-//                 className={css(
-//                     "p-dialog-wrapper",
-//                     { visible: this.props.noAnimation || this.dialogVisible }
-//                 )}
-//                 tabIndex={0}
-//                 ref={this.setDialogRef}
-//             >
+    render() {
+        if (!this.dialogRendered) return null;
 
-//                 <div
-//                     className="p-dialog-overlay"
-//                     onClick={this.props.onCancel}
-//                 />
+        const { actions } = this.props;
+        const buttons = [];
 
-//                 <dialog open
-//                     className={css(
-//                         "p-dialog",
-//                         this.props.className,
-//                         this.props.theme
-//                     )}
-//                 >
-//                     <div className="body">
-//                         {this.props.title
-//                             ? <div className="title">{this.props.title}</div>
-//                             : null
-//                         }
-//                         {this.props.children}
-//                     </div>
+        if (actions) {
+            for (let i = 0; i < actions.length; i++) {
+                buttons.push(
+                    <Button
+                        key={`p-dialog-button-${i}`}
+                        label={actions[i].label}
+                        onClick={actions[i].onClick}
+                        theme={i < actions.length - 1 ? "secondary" : undefined}
+                        disabled={actions[i].disabled}
+                    />
+                );
+            }
+        }
 
-//                     {this.props.actions
-//                         ? <div className="actions">{buttons}</div>
-//                         : null
-//                     }
-//                 </dialog>
-//             </div>
-//         );
-//         /* eslint-enable jsx-a11y/no-noninteractive-tabindex */
+        
+        const dialogContent = (
+            <div
+                className={css(
+                    "p-dialog-wrapper",
+                    { visible: this.props.noAnimation || this.dialogVisible }
+                )}
+                tabIndex={0}
+                ref={this.setDialogRef}
+            >
+
+                <div
+                    className="p-dialog-overlay"
+                    onClick={this.props.onCancel}
+                />
+
+                <dialog open
+                    className={css(
+                        "p-dialog",
+                        this.props.className,
+                        this.props.theme
+                    )}
+                >
+                    <div className="body">
+                        {this.props.title
+                            ? <div className="title">{this.props.title}</div>
+                            : null
+                        }
+                        {this.props.children}
+                    </div>
+
+                    {this.props.actions
+                        ? <div className="actions">{buttons}</div>
+                        : null
+                    }
+                </dialog>
+            </div>
+        );
 
 
-//         return ReactDOM.createPortal(
-//             dialogContent,
-//             appRoot
-//         );
-//     }
-// }
+        return ReactDOM.createPortal(
+            dialogContent,
+            appRoot
+        );
+    }
+}
