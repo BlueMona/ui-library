@@ -23,3 +23,7 @@ The other assets are kinda weird and I'm not sure how to manage the asset pipeli
 ### Portals
 
 `<Dialog>` and `<Menu>` both use ReactDOM's `createPortal` function which lets us render the component to an arbitrary place in the document, allowing the component to escape its parent hierarchy. Currently they target the element with the id `root`, which obviously means that something `#root` needs to exist in the document. This is a similar thing to above; the functioning of these components assumes a certain HTML structure from the project that is using them.
+
+### Weirdness with types
+
+Have not yet figured out how to properly type events, right now all events (click, escape key, tab key) are `any` type.
