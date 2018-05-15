@@ -5,41 +5,6 @@ import { MaterialIcon } from "./MaterialIcon";
 import { CustomIcon } from "./CustomIcon";
 import { Tooltip } from "./Tooltip";
 
-/*
-    PROPS           type        description
-    ----------------------------------------
-    className       string
-    style           object      if !!style, will override css styles
-
-    href            string      if !!href, entire render is different + onClick ignored
-    label                       if !!label, child content ignored. can be string or any HTML
-    icon            string      MaterialIcon name. if !!icon, child content ignored
-    customIcon      string      CustomIcon name
-
-    disabled        bool
-    selected        bool        makes button blue (e.g. radio buttons, checkboxes)
-    active          bool        make button teal (e.g. sidebar toggle)
-
-    onClick         function
-    onMouseEnter    function
-    onMouseLeave    function
-
-    tooltip         string
-    tooltipPosition string
-    tooltipSize     string
-
-    theme           string      theme keywords to apply various styles other than default
-                                (no keyword, default theme: $peerio-blue text, transparent background)
-                                * primary: font color $text-dark-default
-                                * secondary: font color $text-dark-inactive (for secondary action e.g. dialog "cancel")
-                                * inverted: font color $text-light-default
-                                * affirmative: green "go" style
-                                * small: collapses padding
-                                * link: style button as link (look like <a>)
-                                * no-hover: remove hover effects
-    ----------------------------------------
-*/
-
 interface Properties {
     className?: string
     style?: object
