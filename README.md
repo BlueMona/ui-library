@@ -31,3 +31,7 @@ Have not yet figured out how to properly type events. Right now all events (clic
 ### Conditional interface options
 
 e.g. in `<Chip>`, making `onDeleteClick` necessary only if `deletable` is true.
+
+### Security vulnerability in node-sass
+
+Do we care about this? Wait for next merge? Downgrade node-sass? https://github.com/sass/node-sass/issues/2355
