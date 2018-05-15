@@ -8,13 +8,13 @@ interface Properties {
     className?: string
 
     // Infinite or tied to value
-    mode?: 'determinate' | 'indeterminate'
+    mode?: "determinate" | "indeterminate"
 
     // Linear or circular visual
-    type?: 'linear' | 'circular'
-    
-    theme?: 'multicolor' | 'light'
-    size?: 'small'
+    type?: "linear" | "circular"
+
+    theme?: "multicolor" | "light"
+    size?: "small"
 
     value?: number
     max?: number

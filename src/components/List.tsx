@@ -4,7 +4,7 @@ import css from "classnames";
 interface Properties {
     className?: string
     clickable?: boolean
-    theme?: 'large' | 'no-hover'
+    theme?: "large" | "no-hover"
 }
 
 export class List extends React.Component<Properties> {

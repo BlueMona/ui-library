@@ -12,7 +12,7 @@ import { Tooltip } from "./Tooltip";
 
 const appRoot = document.getElementById("root") as HTMLElement;
 
-// TODO: many 'any' types
+// TODO: many "any" types
 
 interface Properties {
     className?: string

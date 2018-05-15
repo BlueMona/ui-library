@@ -18,7 +18,7 @@ interface Properties {
     maxLength?: number
     placeholder?: string
     readOnly?: boolean
-    type?: 'text' | 'password'
+    type?: "text" | "password"
     value?: string
     multiline?: boolean
 

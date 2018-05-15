@@ -8,11 +8,11 @@ const { getParentWithClass } = require("../helpers/dom"); // TODO: figure out th
 interface Properties {
     className?: string
 
-    // The icon's name, i.e. filename without extension
+    // The icon"s name, i.e. filename without extension
     icon: string
 
-    // 'small' = 16px, or leave blank for default = 24px
-    size?: 'small'
+    // "small" = 16px, or leave blank for default = 24px
+    size?: "small"
 
     // Set true if icon should have hover effects. Requires parent component with class .custom-icon-hover-container
     hover?: boolean
@@ -24,11 +24,11 @@ interface Properties {
 @observer
 export class CustomIcon extends React.Component<Properties> {
     /*
-        Hovering: It's Weird
-        SVG recolouring via CSS is not supported in Chromium, so we can't just do a :hover state
+        Hovering: It"s Weird
+        SVG recolouring via CSS is not supported in Chromium, so we can"t just do a :hover state
         Instead, with hover enabled, <CustomIcon> actually shows a different image file on hover.
         Currently, this is done by adding a listener on a parent element with class .custom-icon-hover-container
-        So, in all, it's kinda clunky, but it allows us to do things like having CustomIcon change colour when MenuItem is hovered.
+        So, in all, it"s kinda clunky, but it allows us to do things like having CustomIcon change colour when MenuItem is hovered.
     */
 
     @observable hovered = false;

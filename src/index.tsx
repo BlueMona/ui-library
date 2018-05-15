@@ -73,11 +73,11 @@ export class Index extends React.Component {
 
     const contact = {
       hasAvatar: false,
-      color: 'red',
-      username: 'uiplayground',
-      letter: 'U',
-      fullNameAndUsername: 'UI Playground',
-      mediumAvatarUrl: 'http://peerio.com'
+      color:"red",
+      username:"uiplayground",
+      letter:"U",
+      fullNameAndUsername:"UI Playground",
+      mediumAvatarUrl:"http://peerio.com"
     };
 
     return(

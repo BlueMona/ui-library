@@ -25,7 +25,7 @@ interface Properties {
     // If empty, will default to "top"
     position?: "top" | "right" | "bottom" | "left"
 
-    // Default max-width is 162px; 'small' sets max-width to 64px
+    // Default max-width is 162px; "small" sets max-width to 64px
     size?: "small"
 }
 
