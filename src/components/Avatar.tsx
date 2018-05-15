@@ -1,6 +1,5 @@
 import React from "react";
 import { observer } from "mobx-react";
-// import uiStore from "~/stores/ui-store";
 import css from "classnames";
 
 import { MaterialIcon } from "./MaterialIcon";
@@ -33,7 +32,7 @@ interface Properties {
 }
 
 @observer
-class Avatar extends React.Component<Properties> {
+export class Avatar extends React.Component<Properties> {
     // When avatar is clickable, click opens ContactProfile dialog
     openContactDialog(ev : any) { // TODO: deal with ev : any
         console.log("click");
@@ -81,5 +80,3 @@ class Avatar extends React.Component<Properties> {
         );
     }
 }
-
-module.exports = Avatar;
