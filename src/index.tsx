@@ -4,7 +4,17 @@ import { render } from "react-dom";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
-import { Button, Checkbox, Chip, CustomIcon, Dialog, Divider, Dropdown, MaterialIcon } from "./peer-ui";
+import {
+  Button,
+  Checkbox,
+  Chip,
+  CustomIcon,
+  Dialog,
+  Divider,
+  Dropdown,
+  Input,
+  MaterialIcon
+} from "./peer-ui";
 
 // import propertyArray from "./data/property-array";
 // import { genericContact, genericOptions } from "./data/generic-data";
@@ -91,6 +101,8 @@ export class Index extends React.Component {
           options={options}
           value={this.genericText}
         />
+
+        <Input hint='hint' value="" />
       </div>
       
     );

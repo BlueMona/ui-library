@@ -2,7 +2,7 @@
 export * from "./components/Button";
 export * from "./components/Checkbox";
 export * from "./components/Dropdown";
-// export * from "./components/Input";
+export * from "./components/Input";
 // export * from "./components/RadioButtons";
 // export * from "./components/Switch";
 
