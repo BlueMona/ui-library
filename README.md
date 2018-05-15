@@ -27,3 +27,7 @@ The other assets are kinda weird and I'm not sure how to manage the asset pipeli
 ### Weirdness with types
 
 Have not yet figured out how to properly type events, right now all events (click, escape key, tab key) are `any` type.
+
+### Conditional interface options
+
+e.g. in `<Chip>`, making `onDeleteClick` necessary only if `deletable` is true.
