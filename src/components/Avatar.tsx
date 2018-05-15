@@ -36,7 +36,6 @@ interface Properties {
 class Avatar extends React.Component<Properties> {
     // When avatar is clickable, click opens ContactProfile dialog
     openContactDialog(ev : any) { // TODO: deal with ev: any
-        if (!this.props.clickable) return;
         console.log("click");
         console.log(ev);
     }
@@ -62,7 +61,7 @@ class Avatar extends React.Component<Properties> {
                             { clickable: this.props.clickable }
                         )}
                         style={!c.hasAvatar ? { backgroundColor: c.color } : {}}
-                        onClick={this.openContactDialog}
+                        onClick={this.props.clickable ? this.openContactDialog : undefined}
                     >
                         {c.hasAvatar
                             ? <img src={c.mediumAvatarUrl} alt={c.username} />
