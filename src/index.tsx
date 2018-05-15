@@ -17,7 +17,9 @@ import {
   // List, ListHeading, ListItem,
   // MaterialIcon,
   // Menu, MenuItem,
-  ProgressBar
+  ProgressBar,
+  RadioButtons,
+  // Switch
 } from "./peer-ui";
 
 // import propertyArray from "./data/property-array";
@@ -62,6 +64,10 @@ export class Index extends React.Component {
       {
         label: "First label",
         value: "first"
+      },
+      {
+        label: "Second label",
+        value: "second"
       }
     ];
 
@@ -102,6 +108,12 @@ export class Index extends React.Component {
         <ProgressBar
           mode="indeterminate"
           theme="multicolor"
+        />
+
+        <RadioButtons
+          value={this.genericText}
+          onChange={this.onChangeText}
+          options={options}
         />
 
       </div>

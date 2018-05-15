@@ -11,9 +11,23 @@ import { observer } from "mobx-react";
     ----------------------------------------
 */
 
+interface Properties {
+    className?: string
+    onChange: (ev: any) => void
+    value: string
+    options: Option[]
+}
+
+interface Option {
+    value: string
+    label: string
+}
+
+// TODO: centralize some of the interfaces, like Option, Tooltip
+
 @observer
-class RadioButtons extends React.Component {
-    setValue = (ev) => {
+export class RadioButtons extends React.Component<Properties> {
+    setValue = (ev : any) => {
         this.props.onChange(ev.target.getAttribute("data-value"));
     }
 
@@ -55,5 +69,3 @@ class RadioButtons extends React.Component {
         );
     }
 }
-
-module.exports = RadioButtons;
