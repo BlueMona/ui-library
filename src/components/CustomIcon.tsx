@@ -34,7 +34,7 @@ export class CustomIcon extends React.Component<Properties> {
     @observable hovered = false;
     hoverContainer = null as any; // TODO: another ref as any
 
-    @action.bound setIconRef(ref: HTMLDivElement) {
+    @action.bound setIconRef(ref : HTMLDivElement) {
         if (ref && this.props.hover) {
             this.hoverContainer = getParentWithClass(ref, "custom-icon-hover-container");
 
