@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
-import { Button, Checkbox, CustomIcon, Divider, MaterialIcon } from "./peer-ui";
+import { Button, Checkbox, Chip, CustomIcon, Divider, MaterialIcon } from "./peer-ui";
 
 // import propertyArray from "./data/property-array";
 // import { genericContact, genericOptions } from "./data/generic-data";
@@ -51,6 +51,8 @@ export class Index extends React.Component {
         >
           Button
         </Button>
+
+        <Chip deletable>Content</Chip>
       </div>
       
     );
