@@ -4,7 +4,7 @@ import { render } from "react-dom";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
-import { Button, Checkbox, Chip, CustomIcon, Dialog, Divider, MaterialIcon } from "./peer-ui";
+import { Button, Checkbox, Chip, CustomIcon, Dialog, Divider, Dropdown, MaterialIcon } from "./peer-ui";
 
 // import propertyArray from "./data/property-array";
 // import { genericContact, genericOptions } from "./data/generic-data";
@@ -22,6 +22,11 @@ export class Index extends React.Component {
     this.genericValue = val;
   };
 
+  @observable genericText = "first" as string;
+  @action.bound onChangeText(val: string): void {
+    this.genericText = val;
+  };
+
   @observable genericBool = false;
   @action.bound onChangeBool(): void {
     this.genericBool = !this.genericBool;
@@ -36,6 +41,13 @@ export class Index extends React.Component {
       {
         label: "OK",
         onClick: () => {this.onChangeBool()}
+      }
+    ];
+
+    const options = [
+      {
+        label: "First label",
+        value: "first"
       }
     ];
 
@@ -73,6 +85,12 @@ export class Index extends React.Component {
         >
           Child content
         </Dialog>
+
+        <Dropdown
+          onChange={this.onChangeText}
+          options={options}
+          value={this.genericText}
+        />
       </div>
       
     );
