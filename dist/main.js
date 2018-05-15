@@ -539,7 +539,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*!************************!*\
   !*** ./src/peer-ui.ts ***!
   \************************/
-/*! exports provided: Button, Checkbox, Dropdown, CustomIcon, MaterialIcon, Chip, Dialog, Tooltip, Divider */
+/*! exports provided: Button, Checkbox, CustomIcon, MaterialIcon, Chip, Tooltip, Divider, Dropdown, Dialog */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

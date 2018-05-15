@@ -35,7 +35,7 @@ interface Properties {
 @observer
 class Avatar extends React.Component<Properties> {
     // When avatar is clickable, click opens ContactProfile dialog
-    openContactDialog(ev : any) { // TODO: deal with ev: any
+    openContactDialog(ev : any) { // TODO: deal with ev : any
         console.log("click");
         console.log(ev);
     }

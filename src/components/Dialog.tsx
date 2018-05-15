@@ -111,7 +111,7 @@ export class Dialog extends React.Component<Properties> {
         window.addEventListener("keydown", this.handleTabKey, false);
     }
 
-    @action.bound handleEscKey(ev : any) { // TODO: deal with ev: any
+    @action.bound handleEscKey(ev : any) { // TODO: deal with ev : any
         if (!this.dialogVisible || !this.dialogRendered || !this.props.onCancel) return;
         if (ev.keyCode === 27) {
             this.props.onCancel();
