@@ -12,28 +12,15 @@ import { Tooltip } from "./Tooltip";
 
 const appRoot = document.getElementById("root") as HTMLElement;
 
-/*
-    PROPS           type        description
-    ----------------------------------------
-    className       string
-    position        string      the starting point where <MenuGlobal> will be drawn "top-left" (default), "top-right", "bottom-left", "bottom-right"
-    icon            string      * Material Icon name
-    customIcon      string      * Custom Icon name
-    customButton                * any HTML
-    tooltip         string
-    tooltipPosition string      default "top"
-    theme           string      so far only "wide" exists
-    onClick         function    use this very rarely, e.g. to stopPropagation of other click events
-    disabled        bool        disables the button
-    ----------------------------------------
-*/
-
 // TODO: many 'any' types
 
 interface Properties {
     className?: string
 
-    // Default "top-left"
+    /*
+        The starting point where MenuGlobal will be drawn from. Default "top-left"
+        Somewhat counterintuitive e.g. "top-left" will start from top-left and draw downward and to the right
+    */
     position?: "top-left" | "top-right" | "bottom-left" | "bottom-right"
 
     icon?: string
