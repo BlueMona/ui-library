@@ -13,6 +13,7 @@ import {
   Divider,
   Dropdown,
   Input,
+  List, ListHeading, ListItem,
   MaterialIcon
 } from "./peer-ui";
 
@@ -103,6 +104,15 @@ export class Index extends React.Component {
         />
 
         <Input hint='hint' value="" />
+
+        <List>
+          <ListHeading>
+            THING
+          </ListHeading>
+          <ListItem>
+            THINGS
+          </ListItem>
+        </List>
       </div>
       
     );

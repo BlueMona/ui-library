@@ -1,20 +1,13 @@
 import React from "react";
 import css from "classnames";
 
-/*
-    PROPS       type        description
-    ----------------------------------------
-    className   string
-    clickable   bool
-    theme       string      large, no-hover
-    ----------------------------------------
-*/
+interface Properties {
+    className?: string
+    clickable?: boolean
+    theme?: 'large' | 'no-hover'
+}
 
-// interface Properties {
-    
-// }
-
-class List extends React.Component {
+export class List extends React.Component<Properties> {
     render() {
         return (
             <ul className={css(
@@ -28,5 +21,3 @@ class List extends React.Component {
         );
     }
 }
-
-module.exports = List;

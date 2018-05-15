@@ -23,6 +23,6 @@ export * from "./components/Tooltip";
 
 // // Page structure & layout
 export * from "./components/Divider";
-// export * from "./components/List";
-// export * from "./components/ListHeading";
-// export * from "./components/ListItem";
+export * from "./components/List";
+export * from "./components/ListHeading";
+export * from "./components/ListItem";

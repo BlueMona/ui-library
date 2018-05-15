@@ -1,29 +1,22 @@
 import React from "react";
 import css from "classnames";
 
-import MaterialIcon from "./MaterialIcon";
-import { getDataProps } from "~/helpers/dom";
+import { MaterialIcon } from "./MaterialIcon";
+import { getDataProps } from "../helpers/dom";
 
-/*
-    PROPS       type        description
-    ----------------------------------------
-    className   string
-    disabled    bool
+interface Properties {
+    className?: string
+    disabled?: boolean
+    caption?: any
+    legend?: any
+    leftContent?: any
+    leftIcon?: string
+    rightContent?: any
+    rightIcon?: string
+    onClick?: () => void
+}
 
-    caption                 usually string, can be any HTML. if !!caption, children not rendered
-    legend                  usually string, can be any HTML. requires caption.
-
-    leftContent             any HTML. renders to left of caption||children
-    leftIcon    string      MaterialIcon name. if !!leftIcon, leftContent doesn"t render
-
-    rightContent            any HTML. renders to right of caption||children
-    rightIcon   string      MaterialIcon name. if !!rightIcon, rightContent doesn"t render
-
-    onClick     function
-    ----------------------------------------
-*/
-
-class ListItem extends React.Component {
+export class ListItem extends React.Component<Properties> {
     render() {
         return (
             <li
@@ -73,5 +66,3 @@ class ListItem extends React.Component {
         );
     }
 }
-
-module.exports = ListItem;
