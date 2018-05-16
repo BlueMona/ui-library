@@ -19,11 +19,3 @@ The other assets are kinda weird and I'm not sure how to manage the asset pipeli
 ### Portals
 
 `<Dialog>` and `<Menu>` both use ReactDOM's `createPortal` function which lets us render the component to an arbitrary place in the document, allowing the component to escape its parent hierarchy. Currently they target the element with the id `root`, which obviously means that something `#root` needs to exist in the document. This is a similar thing to above; the functioning of these components assumes a certain HTML structure from the project that is using them.
-
-### Conditional interface options
-
-e.g. in `<Chip>`, making `onDeleteClick` necessary only if `deletable` is true.
-
-### Security vulnerability in node-sass
-
-Do we care about this? Wait for next merge? Downgrade node-sass? https://github.com/sass/node-sass/issues/2355
