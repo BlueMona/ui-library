@@ -15,3 +15,8 @@ export interface ContactProps {
     username: string
     tofuError?: boolean
 }
+
+export interface OptionProps {
+    value: string
+    label: string
+}

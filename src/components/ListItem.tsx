@@ -2,7 +2,7 @@ import React from "react";
 import css from "classnames";
 
 import { MaterialIcon } from "./MaterialIcon";
-import { getDataProps } from "../helpers/dom";
+import { getDataProps } from "./helpers/dom";
 
 export interface ListItemProps {
     className?: string

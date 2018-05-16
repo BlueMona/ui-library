@@ -5,7 +5,7 @@ import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
 import css from "classnames";
-import { getDataProps, getParentWithClass } from "../helpers/dom";
+import { getDataProps, getParentWithClass } from "./helpers/dom";
 
 import { Button } from "./Button";
 import { Tooltip } from "./Tooltip";

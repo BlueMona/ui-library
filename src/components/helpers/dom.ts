@@ -10,7 +10,7 @@ export function getPositionInWindow(element: HTMLElement) {
     };
 }
 
-// The following 3 helpers are copied from peerio-desktop and then converted to TS
+// The following 3 helpers were copied from peerio-desktop and then converted to TS
 export function getAttributeInParentChain(element: HTMLElement, attribute: string): string | null {
     let el = element as HTMLElement | null;
 

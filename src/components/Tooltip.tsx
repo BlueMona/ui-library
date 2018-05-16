@@ -16,7 +16,7 @@ import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
 import css from "classnames";
-import { getPositionInWindow } from "./helpers/helpers";
+import { getPositionInWindow } from "./helpers/dom";
 
 export interface TooltipProps {
     className?: string

@@ -3,7 +3,7 @@ import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
 import css from "classnames";
-const { getParentWithClass } = require("../helpers/dom"); // TODO: figure out the helper functions
+const { getParentWithClass } = require("./helpers/dom"); // TODO: figure out the helper functions
 
 export interface CustomIconProps {
     className?: string

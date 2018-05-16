@@ -2,17 +2,14 @@ import React from "react";
 import { observable, action } from "mobx";
 import { observer } from "mobx-react";
 
+import { OptionProps } from "./helpers/interfaces";
+
 export interface DropdownProps {
     className?: string
     onChange: (ev: any) => void // deal with this
     label?: string
     value: string
-    options: Option[]
-}
-
-export interface Option {
-    value: string
-    label: string
+    options: OptionProps[]
 }
 
 @observer
