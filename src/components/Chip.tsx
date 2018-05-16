@@ -3,22 +3,12 @@ import { observer } from "mobx-react";
 
 import { Button } from "./Button";
 
-// interface PropertiesWithoutDeletion {
-//     className?: string
-//     deletable: undefined
-//     onDeleteClick: undefined
-// }
-
-interface PropertiesWithDeletion {
+export interface ChipProps {
     className?: string
-    deletable?: boolean
-    onDeleteClick?: () => void
 }
 
-type Properties = PropertiesWithDeletion;
-
 @observer
-export class Chip extends React.Component<Properties> {
+export class Chip extends React.Component<ChipProps & ({ deletable: true, onDeleteClick: () => void } | { deletable?: false })> {
     render() {
         return (
             <div
