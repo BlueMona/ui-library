@@ -17,7 +17,7 @@ import { Tooltip } from "./Tooltip";
     TODO: size (rarely deviates from 24px, currently handled at CSS level)
 */
 
-interface Properties {
+export interface MaterialIconProps {
     active?: boolean
     className?: string
     icon: string
@@ -25,7 +25,7 @@ interface Properties {
     tooltipPosition?: "top" | "right" | "bottom" | "left"
 }
 
-export class MaterialIcon extends React.Component<Properties> {
+export class MaterialIcon extends React.Component<MaterialIconProps> {
     render() {
         return (
             <span className={css(

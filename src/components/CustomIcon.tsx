@@ -5,7 +5,7 @@ import { observer } from "mobx-react";
 import css from "classnames";
 const { getParentWithClass } = require("../helpers/dom"); // TODO: figure out the helper functions
 
-interface Properties {
+export interface CustomIconProps {
     className?: string
 
     // The icon"s name, i.e. filename without extension
@@ -22,9 +22,9 @@ interface Properties {
 }
 
 @observer
-export class CustomIcon extends React.Component<Properties> {
+export class CustomIcon extends React.Component<CustomIconProps> {
     /*
-        Hovering: It"s Weird
+        Hovering: It's Weird
         SVG recolouring via CSS is not supported in Chromium, so we can"t just do a :hover state
         Instead, with hover enabled, <CustomIcon> actually shows a different image file on hover.
         Currently, this is done by adding a listener on a parent element with class .custom-icon-hover-container
@@ -34,7 +34,7 @@ export class CustomIcon extends React.Component<Properties> {
     @observable hovered = false;
     hoverContainer = null as any; // TODO: another ref as any
 
-    @action.bound setIconRef(ref : HTMLDivElement) {
+    @action.bound setIconRef(ref: HTMLDivElement) {
         if (ref && this.props.hover) {
             this.hoverContainer = getParentWithClass(ref, "custom-icon-hover-container");
 
@@ -71,7 +71,7 @@ export class CustomIcon extends React.Component<Properties> {
             >
                 {(this.props.hover && this.hovered) || this.props.selected
                     ? <img className="hover" src={`./static/custom-icons/${this.props.icon}-hover.svg`} />
-                    : <img className="default" src={`./static/custom-icons/${this.props.icon}.svg`} />
+                    : <img className="default" src={`yhj9l                                                                                                                                                                                                            n${this.props.icon}.svg`} />
                 }
             </div>
         );

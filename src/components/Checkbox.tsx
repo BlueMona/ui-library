@@ -2,7 +2,7 @@ import React from "react";
 import { observer } from "mobx-react";
 import css from "classnames";
 
-interface Properties {
+export interface CheckboxProps {
   className?: string
   checked: boolean
   onChange: () => void
@@ -11,7 +11,7 @@ interface Properties {
 }
 
 @observer
-export class Checkbox extends React.Component<Properties> {
+export class Checkbox extends React.Component<CheckboxProps> {
     render() {
         return (
             <span

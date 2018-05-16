@@ -4,34 +4,38 @@ import ReactDOM from "react-dom";
 import { action, computed, observable, reaction } from "mobx";
 import { observer } from "mobx-react";
 
+import { ActionProps } from "./helpers/interfaces";
 import css from "classnames";
 import { Button } from "./Button";
 
 const appRoot = document.getElementById("root") as HTMLElement;
 
-interface Properties {
-    className?: string
+export interface DialogProps {
+    // Buttons at the bottom of the dialog
+    actions: ActionProps[]
+
+    // Boolean in the parent that will trigger dialog on `true`, hide on `false`.
     active: boolean
+
+    className?: string
+
+    // No fade in/out transition e.g. when opening a dialog from another dialog
     noAnimation?: boolean
-    title?: any
-    theme?: string
 
     // Behaviour for Esc key or overlay click
     onCancel?: () => void
 
-    // Array of Action objects, each with label, onClick, theme?, disabled?
-    actions: Action[]
-}
+    // "Small" sets width to 360px. Default is 50vw.
+    size?: "small"
+    
+    // Adds a stripe to the top of the dialog.
+    theme?: "warning" | "error" | "primary"
 
-interface Action {
-    label: string
-    onClick: () => void
-    theme?: string
-    disabled?: boolean
+    title?: any
 }
 
 @observer
-export class Dialog extends React.Component<Properties> {
+export class Dialog extends React.Component<DialogProps> {
     // Separate "rendered" and "visible" bools to be able to use fade in/out animations
     @observable dialogRendered = false;
     @observable dialogVisible = false;
@@ -96,7 +100,7 @@ export class Dialog extends React.Component<Properties> {
         }, 200);
     }
 
-    @action.bound setDialogRef(ref : HTMLDivElement) {
+    @action.bound setDialogRef(ref: HTMLDivElement) {
         if (ref) {
             this.dialogRef = ref;
             ref.focus();
@@ -111,7 +115,7 @@ export class Dialog extends React.Component<Properties> {
         window.addEventListener("keydown", this.handleTabKey, false);
     }
 
-    @action.bound handleEscKey(ev : any) { // TODO: deal with ev : any
+    @action.bound handleEscKey(ev: any) { // TODO: deal with ev: any
         if (!this.dialogVisible || !this.dialogRendered || !this.props.onCancel) return;
         if (ev.keyCode === 27) {
             this.props.onCancel();
@@ -125,7 +129,7 @@ export class Dialog extends React.Component<Properties> {
         This function makes Tab jump back to first focusable element if the last one is currently focused,
         or to the last element if Shift+Tab while the first is focused.
     */
-    @action.bound handleTabKey(ev : any) {
+    @action.bound handleTabKey(ev: any) {
         if (!this.dialogVisible || !this.dialogRendered) return;
 
         if (ev.keyCode === 9) {
@@ -188,6 +192,7 @@ export class Dialog extends React.Component<Properties> {
                     className={css(
                         "p-dialog",
                         this.props.className,
+                        this.props.size,
                         this.props.theme
                     )}
                 >

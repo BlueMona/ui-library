@@ -3,7 +3,7 @@ import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 import css from "classnames";
 
-interface Properties {
+export interface InputProps {
     className?: string
     label?: string
     error?: string
@@ -23,19 +23,19 @@ interface Properties {
     multiline?: boolean
 
     // React props
-    onChange?: (ev : any) => void // TODO: any type
+    onChange?: (ev: any) => void // TODO: any type
     onFocus?: () => void
     onBlur?: () => void
-    onKeyUp?: (ev : any) => void
-    onKeyDown?: (ev : any) => void
-    onKeyPress?: (ev : any) => void
+    onKeyUp?: (ev: any) => void
+    onKeyDown?: (ev: any) => void
+    onKeyPress?: (ev: any) => void
 }
 
 @observer
-export class Input extends React.Component<Properties> {
+export class Input extends React.Component<InputProps> {
     @observable isFocused = false;
 
-    handleChange = (ev : any) => {
+    handleChange = (ev: any) => {
         if (!this.props.onChange) return;
         this.props.onChange(ev.target.value);
     }

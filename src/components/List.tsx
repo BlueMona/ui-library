@@ -1,13 +1,13 @@
 import React from "react";
 import css from "classnames";
 
-interface Properties {
+export interface ListProps {
     className?: string
     clickable?: boolean
     theme?: "large" | "no-hover"
 }
 
-export class List extends React.Component<Properties> {
+export class List extends React.Component<ListProps> {
     render() {
         return (
             <ul className={css(

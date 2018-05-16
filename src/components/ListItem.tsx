@@ -4,7 +4,7 @@ import css from "classnames";
 import { MaterialIcon } from "./MaterialIcon";
 import { getDataProps } from "../helpers/dom";
 
-interface Properties {
+export interface ListItemProps {
     className?: string
     disabled?: boolean
     caption?: any
@@ -16,7 +16,7 @@ interface Properties {
     onClick?: () => void
 }
 
-export class ListItem extends React.Component<Properties> {
+export class ListItem extends React.Component<ListItemProps> {
     render() {
         return (
             <li

@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 import css from "classnames";
 
 
-interface Properties {
+export interface ProgressBarProps {
     className?: string
 
     // Infinite or tied to value
@@ -24,7 +24,7 @@ interface Properties {
 // TODO: determinate circular does not exist, can we define this in type?
 
 @observer
-export class ProgressBar extends React.Component<Properties> {
+export class ProgressBar extends React.Component<ProgressBarProps> {
     render() {
         let style;
         if (this.props.mode === undefined || null || "determinate") {

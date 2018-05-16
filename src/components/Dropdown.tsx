@@ -2,21 +2,21 @@ import React from "react";
 import { observable, action } from "mobx";
 import { observer } from "mobx-react";
 
-interface Properties {
+export interface DropdownProps {
     className?: string
-    onChange: (ev : any) => void // deal with this
+    onChange: (ev: any) => void // deal with this
     label?: string
     value: string
     options: Option[]
 }
 
-interface Option {
+export interface Option {
     value: string
     label: string
 }
 
 @observer
-export class Dropdown extends React.Component<Properties> {
+export class Dropdown extends React.Component<DropdownProps> {
     // Bool to show or hide the dropdown
     @observable isActive = false;
     @action.bound activate() {
@@ -24,7 +24,7 @@ export class Dropdown extends React.Component<Properties> {
     }
 
     // Function to change the value, relies on parent component"s onChange function
-    @action.bound setValue(ev : any) {
+    @action.bound setValue(ev: any) {
         this.props.onChange(ev.target.getAttribute("data-value"));
         this.isActive = false;
     }

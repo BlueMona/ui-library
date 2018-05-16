@@ -16,9 +16,9 @@ import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
 import css from "classnames";
-import { getPositionInWindow } from "./helpers";
+import { getPositionInWindow } from "./helpers/helpers";
 
-interface Properties {
+export interface TooltipProps {
     className?: string
     text?: string
 
@@ -30,7 +30,7 @@ interface Properties {
 }
 
 @observer
-export class Tooltip extends React.Component<Properties> {
+export class Tooltip extends React.Component<TooltipProps> {
     @observable ref = null as any; // TODO: is this legit?
 
     @observable isVisible = false;

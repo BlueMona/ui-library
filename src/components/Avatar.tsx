@@ -2,28 +2,18 @@ import React from "react";
 import { observer } from "mobx-react";
 import css from "classnames";
 
+import { ContactProps } from "./helpers/interfaces"
 import { MaterialIcon } from "./MaterialIcon";
 import { Tooltip } from "./Tooltip";
 
-interface Contact {
-    color: string
-    fullNameAndUsername: string
-    hasAvatar?: boolean
-    isDeleted?: boolean
-    letter: string
-    mediumAvatarUrl: string
-    username: string
-    tofuError?: boolean
-}
-
-interface Properties {
+export interface AvatarProps {
     className?: string
 
     // Set true to make Avatar clickable: adds a bounce effect on hover and shows user"s profile in a popup on click
     clickable?: boolean
 
     // Contact object
-    contact: Contact
+    contact: ContactProps
 
     size?: "tiny" | "small" | "medium" | "large" | "full"
 
@@ -32,9 +22,10 @@ interface Properties {
 }
 
 @observer
-export class Avatar extends React.Component<Properties> {
+export class Avatar extends React.Component<AvatarProps> {
     // When avatar is clickable, click opens ContactProfile dialog
-    openContactDialog(ev : any) { // TODO: deal with ev : any
+    // TODO: render ContactProfile dialog in here
+    openContactDialog(ev: any) { // TODO: deal with ev: any
         console.log("click");
         console.log(ev);
     }

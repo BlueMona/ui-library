@@ -1,13 +1,13 @@
 import React from "react";
 
-interface Properties {
+export interface ListHeadingProps {
     className?: string
 
     // Caption will override child content
     caption?: any
 }
 
-export class ListHeading extends React.Component<Properties> {
+export class ListHeading extends React.Component<ListHeadingProps> {
     render() {
         return (
             <li className={this.props.className

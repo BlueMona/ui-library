@@ -5,7 +5,7 @@ import css from "classnames";
 import { CustomIcon } from "./CustomIcon";
 import { MaterialIcon } from "./MaterialIcon";
 
-interface Properties {
+export interface MenuItemProps {
     className?: string
     value: string
     caption?: string
@@ -20,7 +20,7 @@ interface Properties {
 }
 
 @observer
-export class MenuItem extends React.Component<Properties> {
+export class MenuItem extends React.Component<MenuItemProps> {
     render() {
         const { value, icon, customIcon, caption, className, onClick } = this.props;
         return (

@@ -5,7 +5,7 @@ import { MaterialIcon } from "./MaterialIcon";
 import { CustomIcon } from "./CustomIcon";
 import { Tooltip } from "./Tooltip";
 
-interface Properties {
+export interface ButtonProps {
     className?: string
     style?: object
 
@@ -37,7 +37,7 @@ interface Properties {
     // Tooltip text
     tooltip?: string
 
-    // Where will tooltip be rendered? Defaults to "top"
+    // Where tooltip will be rendered. Defaults to "top"
     tooltipPosition?: "top" | "right" | "bottom" | "left"
 
     // Blank for default = 24px, "small" = 16px
@@ -57,7 +57,7 @@ interface Properties {
     theme?: string
 }
 
-export class Button extends React.Component<Properties> {
+export class Button extends React.Component<ButtonProps> {
     render() {
         const classNames = (
             css(

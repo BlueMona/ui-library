@@ -8,9 +8,9 @@ import {
   Avatar,
   Button,
   // Checkbox,
-  // Chip,
+  Chip,
   // CustomIcon,
-  Dialog,
+  // Dialog,
   // Divider,
   Dropdown,
   // Input,
@@ -31,7 +31,7 @@ import {
 */
 
 @observer
-export class Index extends React.Component {
+class Index extends React.Component {
   // Generic observables
   @observable genericValue = "" as string | boolean;
   @action.bound onChangeValue(val: string | boolean): void {

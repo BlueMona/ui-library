@@ -14,7 +14,7 @@ const appRoot = document.getElementById("root") as HTMLElement;
 
 // TODO: many "any" types
 
-interface Properties {
+export interface MenuProps {
     className?: string
 
     /*
@@ -37,7 +37,7 @@ interface Properties {
 }
 
 @observer
-export class Menu extends React.Component<Properties> {
+export class Menu extends React.Component<MenuProps> {
     @observable menuActive = false;
     @observable menuVisible = false;
 
@@ -48,18 +48,18 @@ export class Menu extends React.Component<Properties> {
         right: "inherit"
     };
 
-    menuButtonRef : any;
+    menuButtonRef: any;
     scrollContainer : any;
     hideMenuTimeout : any;
 
-    @action.bound setMenuButtonRef(ref : any) {
+    @action.bound setMenuButtonRef(ref: any) {
         if (ref) {
             this.menuButtonRef = ref;
             this.scrollContainer = getParentWithClass(ref, "scrollable");
         }
     }
 
-    @action.bound setMenuContentRef(ref : any) {
+    @action.bound setMenuContentRef(ref: any) {
         if (ref) this.menuVisible = true;
     }
 
@@ -81,7 +81,7 @@ export class Menu extends React.Component<Properties> {
         }
     }
 
-    @action.bound handleKeyUp(ev : any) {
+    @action.bound handleKeyUp(ev: any) {
         if (ev.keyCode === 27) this.hideMenu();
     }
 

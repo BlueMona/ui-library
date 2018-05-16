@@ -1,14 +1,14 @@
 import React from "react";
 import css from "classnames";
 
-interface Properties {
+export interface SwitchProps {
     className?: string
     label?: string
     checked: boolean
-    onChange: (ev : any) => void
+    onChange: (ev: any) => void
 }
 
-export class Switch extends React.Component<Properties> {
+export class Switch extends React.Component<SwitchProps> {
     render() {
         return (
             <div className={css(
