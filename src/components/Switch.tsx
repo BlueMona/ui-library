@@ -5,7 +5,7 @@ export interface SwitchProps {
     className?: string
     label?: string
     checked: boolean
-    onChange: (ev: any) => void
+    onChange: React.ChangeEventHandler<HTMLInputElement>
 }
 
 export class Switch extends React.Component<SwitchProps> {

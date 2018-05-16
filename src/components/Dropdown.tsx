@@ -53,8 +53,8 @@ export class Dropdown extends React.Component<DropdownProps> {
 
     render() {
         const { value, options } = this.props;
-        const dropdownOptions : any = [];
-        const labels : any = {};
+        const dropdownOptions = [] as object[];
+        const labels = {} as {[key: string]: string};
 
         for (let i = 0; i < options.length; i++) {
             dropdownOptions.push(

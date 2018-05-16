@@ -3,7 +3,7 @@ import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 
 import css from "classnames";
-const { getParentWithClass } = require("./helpers/dom"); // TODO: figure out the helper functions
+const { getParentWithClass } = require("./helpers/dom");
 
 export interface CustomIconProps {
     className?: string
@@ -31,20 +31,19 @@ export class CustomIcon extends React.Component<CustomIconProps> {
         So, in all, it"s kinda clunky, but it allows us to do things like having CustomIcon change colour when MenuItem is hovered.
     */
 
-    @observable hovered = false;
-    hoverContainer = null as any; // TODO: another ref as any
-
-    @action.bound setIconRef(ref: HTMLDivElement) {
-        if (ref && this.props.hover) {
-            this.hoverContainer = getParentWithClass(ref, "custom-icon-hover-container");
-
-            if (this.hoverContainer) {
-                this.hoverContainer.addEventListener("mouseenter", this.handleMouseEnter, false);
-                this.hoverContainer.addEventListener("mouseleave", this.handleMouseLeave, false);
+   hoverContainer: any; // TODO: is there a better way?
+   @action.bound setIconRef(ref: HTMLDivElement) {
+       if (ref && this.props.hover) {
+           this.hoverContainer = getParentWithClass(ref, "custom-icon-hover-container");
+           
+           if (this.hoverContainer) {
+               this.hoverContainer.addEventListener("mouseenter", this.handleMouseEnter, false);
+               this.hoverContainer.addEventListener("mouseleave", this.handleMouseLeave, false);
             }
         }
     }
-
+    
+    @observable hovered = false;
     @action.bound handleMouseEnter() { this.hovered = true; }
     @action.bound handleMouseLeave() { this.hovered = false; }
 

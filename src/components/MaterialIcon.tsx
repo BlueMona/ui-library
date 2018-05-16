@@ -2,21 +2,7 @@ import React from "react";
 import css from "classnames";
 import { Tooltip } from "./Tooltip";
 
-/*
-    PROPS           type        description
-    ----------------------------------------
-    className       string
-    icon            string      Material Icon name with underscores for spaces
-
-    tooltip         string
-    tooltipPosition string
-
-    active          bool        default false. set to true to enable "active" style (e.g. $peerio-teal)
-    ----------------------------------------
-
-    TODO: size (rarely deviates from 24px, currently handled at CSS level)
-*/
-
+// TODO: size prop?
 export interface MaterialIconProps {
     active?: boolean
     className?: string

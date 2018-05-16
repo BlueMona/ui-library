@@ -31,7 +31,7 @@ export interface TooltipProps {
 
 @observer
 export class Tooltip extends React.Component<TooltipProps> {
-    @observable ref = null as any; // TODO: is this legit?
+    @observable ref = undefined as any; // TODO: another ref placeholder
 
     @observable isVisible = false;
     @observable style = {

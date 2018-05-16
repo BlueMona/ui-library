@@ -47,8 +47,8 @@ export class Menu extends React.Component<MenuProps> {
     };
 
     menuButtonRef: any;
-    scrollContainer : any;
-    hideMenuTimeout : any;
+    scrollContainer: any;
+    hideMenuTimeout: any; // TODO: more 'any' placeholders
 
     @action.bound setMenuButtonRef(ref: HTMLDivElement) {
         if (ref) {

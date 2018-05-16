@@ -3,34 +3,23 @@ import { observer } from "mobx-react";
 
 import css from "classnames";
 
-
 export interface ProgressBarProps {
     className?: string
-
-    // Infinite or tied to value
-    mode?: "determinate" | "indeterminate"
-
-    // Linear or circular visual
-    type?: "linear" | "circular"
-
     theme?: "multicolor" | "light"
     size?: "small"
-
-    value?: number
-    max?: number
 }
 
-// TODO: require value & max when determinate mode
-// TODO: determinate circular does not exist, can we define this in type?
-
 @observer
-export class ProgressBar extends React.Component<ProgressBarProps> {
+export class ProgressBar extends React.Component<
+    ProgressBarProps & (
+        { mode?: "determinate", type?: "linear", value: number, max: number } |
+        { mode: "indeterminate", type?: "linear" | "circular" }
+    )
+> {
     render() {
         let style;
-        if (this.props.mode === undefined || null || "determinate") {
-            if (!!this.props.value && !!this.props.max) { // TODO: get rid of this when we have this done in the type
-                style = { width: `${this.props.value / this.props.max * 100}%` };
-            }
+        if (this.props.mode === ("determinate" || undefined)) {
+            style = { width: `${this.props.value / this.props.max * 100}%` };
         }
 
         return (

@@ -9,7 +9,7 @@ import {
   Button,
   // Checkbox,
   // Chip,
-  // CustomIcon,
+  CustomIcon,
   // Dialog,
   // Divider,
   Dropdown,
@@ -98,7 +98,7 @@ class Index extends React.Component {
         >
           Child content
         </Dialog> */}
-
+        
         <Dropdown
           onChange={this.onChangeText}
           options={options}

@@ -9,8 +9,8 @@ export interface InputProps {
     error?: string
     hint?: string
 
-    ref?: any // TODO: any type
-    innerRef?: any // TODO: any type
+    ref?: (ref: HTMLTextAreaElement | HTMLInputElement | null | undefined) => void
+    innerRef?: (ref: HTMLTextAreaElement | HTMLInputElement | null | undefined) => void
 
     // Standard HTML input props
     autoFocus?: boolean

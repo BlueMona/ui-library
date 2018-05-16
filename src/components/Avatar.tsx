@@ -25,7 +25,7 @@ export interface AvatarProps {
 export class Avatar extends React.Component<AvatarProps> {
     // When avatar is clickable, click opens ContactProfile dialog
     // TODO: render ContactProfile dialog in here
-    openContactDialog(ev: React.MouseEvent<HTMLDivElement>) { // TODO: deal with ev: any
+    openContactDialog(ev: React.MouseEvent<HTMLDivElement>) {
         console.log("click");
         console.log(ev);
     }
