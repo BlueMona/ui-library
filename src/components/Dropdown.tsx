@@ -6,7 +6,7 @@ import { OptionProps } from "./helpers/interfaces";
 
 export interface DropdownProps {
     className?: string
-    onChange: (ev: any) => void // deal with this
+    onChange: (val: string) => void
     label?: string
     value: string
     options: OptionProps[]
@@ -21,8 +21,8 @@ export class Dropdown extends React.Component<DropdownProps> {
     }
 
     // Function to change the value, relies on parent component"s onChange function
-    @action.bound setValue(ev: any) {
-        this.props.onChange(ev.target.getAttribute("data-value"));
+    @action.bound setValue(ev: React.MouseEvent<HTMLLIElement>) {
+        this.props.onChange(ev.currentTarget.getAttribute("data-value") as string);
         this.isActive = false;
     }
 

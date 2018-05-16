@@ -1,34 +1,19 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-/*
-    PROPS       type        description
-    ----------------------------------------
-    className   string
-    onChange    function
-    value       string      current value (optional in parent component. define this if you want a default selection)
-    options     array       each object in array contains "value" and "label"
-    ----------------------------------------
-*/
+import { OptionProps} from "./helpers/interfaces";
 
 export interface RadioButtonsProps {
     className?: string
-    onChange: (ev: any) => void
+    onChange: (val: string) => void
     value: string
-    options: Option[]
+    options: OptionProps[]
 }
-
-export interface Option {
-    value: string
-    label: string
-}
-
-// TODO: centralize some of the interfaces, like Option, Tooltip
 
 @observer
 export class RadioButtons extends React.Component<RadioButtonsProps> {
-    setValue = (ev: any) => {
-        this.props.onChange(ev.target.getAttribute("data-value"));
+    setValue = (ev: React.MouseEvent<HTMLSpanElement>) => {
+        this.props.onChange(ev.currentTarget.getAttribute("data-value") as string);
     }
 
     render() {

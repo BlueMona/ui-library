@@ -115,7 +115,7 @@ export class Dialog extends React.Component<DialogProps> {
         window.addEventListener("keydown", this.handleTabKey, false);
     }
 
-    @action.bound handleEscKey(ev: any) { // TODO: deal with ev: any
+    @action.bound handleEscKey(ev: KeyboardEvent) {
         if (!this.dialogVisible || !this.dialogRendered || !this.props.onCancel) return;
         if (ev.keyCode === 27) {
             this.props.onCancel();
@@ -129,7 +129,7 @@ export class Dialog extends React.Component<DialogProps> {
         This function makes Tab jump back to first focusable element if the last one is currently focused,
         or to the last element if Shift+Tab while the first is focused.
     */
-    @action.bound handleTabKey(ev: any) {
+    @action.bound handleTabKey(ev: KeyboardEvent) {
         if (!this.dialogVisible || !this.dialogRendered) return;
 
         if (ev.keyCode === 9) {

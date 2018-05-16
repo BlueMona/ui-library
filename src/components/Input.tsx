@@ -23,21 +23,21 @@ export interface InputProps {
     multiline?: boolean
 
     // React props
-    onChange?: (ev: any) => void // TODO: any type
+    onChange?: (val: string) => void
     onFocus?: () => void
     onBlur?: () => void
-    onKeyUp?: (ev: any) => void
-    onKeyDown?: (ev: any) => void
-    onKeyPress?: (ev: any) => void
+    onKeyUp?: React.KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>
+    onKeyDown?: React.KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>
+    onKeyPress?: React.KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>
 }
 
 @observer
 export class Input extends React.Component<InputProps> {
     @observable isFocused = false;
 
-    handleChange = (ev: any) => {
+    handleChange = (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         if (!this.props.onChange) return;
-        this.props.onChange(ev.target.value);
+        this.props.onChange(ev.currentTarget.value);
     }
 
     @action.bound handleFocus() {

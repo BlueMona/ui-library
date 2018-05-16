@@ -12,8 +12,6 @@ import { Tooltip } from "./Tooltip";
 
 const appRoot = document.getElementById("root") as HTMLElement;
 
-// TODO: many "any" types
-
 export interface MenuProps {
     className?: string
 
@@ -52,14 +50,14 @@ export class Menu extends React.Component<MenuProps> {
     scrollContainer : any;
     hideMenuTimeout : any;
 
-    @action.bound setMenuButtonRef(ref: any) {
+    @action.bound setMenuButtonRef(ref: HTMLDivElement) {
         if (ref) {
             this.menuButtonRef = ref;
             this.scrollContainer = getParentWithClass(ref, "scrollable");
         }
     }
 
-    @action.bound setMenuContentRef(ref: any) {
+    @action.bound setMenuContentRef(ref: HTMLUListElement) {
         if (ref) this.menuVisible = true;
     }
 
@@ -81,7 +79,7 @@ export class Menu extends React.Component<MenuProps> {
         }
     }
 
-    @action.bound handleKeyUp(ev: any) {
+    @action.bound handleKeyUp(ev: KeyboardEvent) {
         if (ev.keyCode === 27) this.hideMenu();
     }
 
