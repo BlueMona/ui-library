@@ -33,7 +33,7 @@ export function getParentWithClass(element: HTMLElement, className: string): HTM
     return null;
 }
 
-export function getDataProps(props: {[key: string]: string}) {
+export function getDataProps(props: {[key: string]: any}) {
 
     const dataProps = {} as {[key: string]: string};
 
