@@ -1,6 +1,6 @@
-# peerio-desktop-ui-library
+# ui-library
 
-Styles and PeerUI React component library for peerio-desktop
+Styles and PeerUI React component library for Peerio desktop application and web properties
 
 ## Documenting some ongoing problems/questions
 

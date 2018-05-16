@@ -8,7 +8,7 @@ import {
   Avatar,
   Button,
   // Checkbox,
-  Chip,
+  // Chip,
   // CustomIcon,
   // Dialog,
   // Divider,
@@ -49,16 +49,16 @@ class Index extends React.Component {
   };
 
   render() {
-    const actions = [
-      {
-        label: "Cancel",
-        onClick: () => {console.log("Cancel")}
-      },
-      {
-        label: "OK",
-        onClick: () => {this.onChangeBool()}
-      }
-    ];
+    // const actions = [
+    //   {
+    //     label: "Cancel",
+    //     onClick: () => {console.log("Cancel")}
+    //   },
+    //   {
+    //     label: "OK",
+    //     onClick: () => {this.onChangeBool()}
+    //   }
+    // ];
 
     const options = [
       {
