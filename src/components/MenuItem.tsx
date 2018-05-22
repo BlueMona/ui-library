@@ -13,7 +13,7 @@ export interface MenuItemProps {
     icon?: string
     customIcon?: string
 
-    onClick: () => void
+    onClick: (ev: React.MouseEvent<HTMLLIElement>) => void
 
     disabled?: boolean
     selected?: boolean
@@ -21,6 +21,11 @@ export interface MenuItemProps {
 
 @observer
 export class MenuItem extends React.Component<MenuItemProps> {
+    clickHandler = (ev: React.MouseEvent<HTMLLIElement>) => {
+        ev.stopPropagation();
+        if (!this.props.disabled) this.props.onClick(ev);
+    }
+
     render() {
         const { value, icon, customIcon, caption, className, onClick } = this.props;
         return (
