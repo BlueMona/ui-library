@@ -15,11 +15,6 @@ const classnames_1 = __importDefault(require("classnames"));
 const MaterialIcon_1 = require("./MaterialIcon");
 const Tooltip_1 = require("./Tooltip");
 let Avatar = class Avatar extends react_1.default.Component {
-    clickHandler() {
-        if (this.props.clickable) {
-            this.props.onClick();
-        }
-    }
     render() {
         const c = this.props.contact;
         let errorIcon;
@@ -31,7 +26,7 @@ let Avatar = class Avatar extends react_1.default.Component {
         }
         return (react_1.default.createElement("div", { className: "p-avatar" },
             react_1.default.createElement("div", { className: "contents" },
-                react_1.default.createElement("div", { className: classnames_1.default("image-container", this.props.className, `${this.props.size || "medium"}`, { clickable: this.props.clickable }), style: !c.hasAvatar ? { backgroundColor: c.color } : {}, onClick: this.props.clickable ? this.clickHandler : undefined }, c.hasAvatar
+                react_1.default.createElement("div", { className: classnames_1.default("image-container", this.props.className, `${this.props.size || "medium"}`, { clickable: this.props.clickable }), style: !c.hasAvatar ? { backgroundColor: c.color } : {}, onClick: this.props.clickable ? this.props.onClick : undefined }, c.hasAvatar
                     ? react_1.default.createElement("img", { src: c.mediumAvatarUrl, alt: c.username })
                     : c.letter)),
             errorIcon,

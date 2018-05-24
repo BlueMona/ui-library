@@ -13,6 +13,5 @@ export declare class Avatar extends React.Component<AvatarProps & ({
 } | {
     clickable?: false;
 })> {
-    clickHandler(): void;
     render(): JSX.Element;
 }

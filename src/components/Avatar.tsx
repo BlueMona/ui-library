@@ -20,12 +20,6 @@ export interface AvatarProps {
 
 @observer
 export class Avatar extends React.Component<AvatarProps & ({clickable: true, onClick: () => void} | {clickable?: false})> {
-    clickHandler() {
-        if (this.props.clickable) {
-            this.props.onClick();
-        }
-    }
-
     render() {
         const c = this.props.contact;
 
@@ -47,7 +41,7 @@ export class Avatar extends React.Component<AvatarProps & ({clickable: true, onC
                             { clickable: this.props.clickable }
                         )}
                         style={!c.hasAvatar ? { backgroundColor: c.color } : {}}
-                        onClick={this.props.clickable ? this.clickHandler : undefined}
+                        onClick={this.props.clickable ? this.props.onClick : undefined}
                     >
                         {c.hasAvatar
                             ? <img src={c.mediumAvatarUrl} alt={c.username} />
