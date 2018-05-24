@@ -8,13 +8,10 @@ import { Tooltip } from "./Tooltip";
 
 export interface AvatarProps {
     className?: string
-
-    // Set true to make Avatar clickable: adds a bounce effect on hover and shows user"s profile in a popup on click
-    clickable?: boolean
-
+    
     // Contact object
     contact: ContactProps
-
+    
     size?: "tiny" | "small" | "medium" | "large" | "full"
 
     // Set true to have a tooltip, which will show user"s username
@@ -22,12 +19,11 @@ export interface AvatarProps {
 }
 
 @observer
-export class Avatar extends React.Component<AvatarProps> {
-    // When avatar is clickable, click opens ContactProfile dialog
-    // TODO: render ContactProfile dialog in here
-    openContactDialog(ev: React.MouseEvent<HTMLDivElement>) {
-        console.log("click");
-        console.log(ev);
+export class Avatar extends React.Component<AvatarProps & ({clickable: true, onClick: (c: object) => void} | {clickable?: false})> {
+    clickHandler() {
+        if (this.props.clickable) {
+            this.props.onClick(this.props.contact);
+        }
     }
 
     render() {
@@ -51,7 +47,7 @@ export class Avatar extends React.Component<AvatarProps> {
                             { clickable: this.props.clickable }
                         )}
                         style={!c.hasAvatar ? { backgroundColor: c.color } : {}}
-                        onClick={this.props.clickable ? this.openContactDialog : undefined}
+                        onClick={this.props.clickable ? this.clickHandler : undefined}
                     >
                         {c.hasAvatar
                             ? <img src={c.mediumAvatarUrl} alt={c.username} />
