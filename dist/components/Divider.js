@@ -1,7 +1,13 @@
-import React from "react";
-export class Divider extends React.PureComponent {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importDefault(require("react"));
+class Divider extends react_1.default.PureComponent {
     render() {
-        return (React.createElement("hr", { className: "p-divider" }));
+        return (react_1.default.createElement("hr", { className: "p-divider" }));
     }
 }
+exports.Divider = Divider;
 //# sourceMappingURL=Divider.js.map

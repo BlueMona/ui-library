@@ -1,29 +1,35 @@
-import React from "react";
-import css from "classnames";
-import { MaterialIcon } from "./MaterialIcon";
-import { getDataProps } from "./helpers/dom";
-export class ListItem extends React.Component {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importDefault(require("react"));
+const classnames_1 = __importDefault(require("classnames"));
+const MaterialIcon_1 = require("./MaterialIcon");
+const dom_1 = require("./helpers/dom");
+class ListItem extends react_1.default.Component {
     render() {
-        return (React.createElement("li", Object.assign({ className: css("p-list-item", this.props.className, { disabled: this.props.disabled }), onClick: this.props.onClick }, getDataProps(this.props)),
+        return (react_1.default.createElement("li", Object.assign({ className: classnames_1.default("p-list-item", this.props.className, { disabled: this.props.disabled }), onClick: this.props.onClick }, dom_1.getDataProps(this.props)),
             this.props.leftIcon
-                ? React.createElement("div", { className: "side-content left icon" },
-                    React.createElement(MaterialIcon, { icon: this.props.leftIcon }))
+                ? react_1.default.createElement("div", { className: "side-content left icon" },
+                    react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: this.props.leftIcon }))
                 : (this.props.leftContent
-                    ? React.createElement("div", { className: "side-content left" }, this.props.leftContent)
+                    ? react_1.default.createElement("div", { className: "side-content left" }, this.props.leftContent)
                     : null),
             this.props.caption
-                ? React.createElement("div", { className: "content" },
-                    React.createElement("div", { className: "caption" }, this.props.caption),
+                ? react_1.default.createElement("div", { className: "content" },
+                    react_1.default.createElement("div", { className: "caption" }, this.props.caption),
                     this.props.legend
-                        ? React.createElement("div", { className: "legend" }, this.props.legend)
+                        ? react_1.default.createElement("div", { className: "legend" }, this.props.legend)
                         : null)
-                : React.createElement("div", { className: "content" }, this.props.children),
+                : react_1.default.createElement("div", { className: "content" }, this.props.children),
             this.props.rightIcon
-                ? React.createElement("div", { className: "side-content right icon" },
-                    React.createElement(MaterialIcon, { icon: this.props.rightIcon }))
+                ? react_1.default.createElement("div", { className: "side-content right icon" },
+                    react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: this.props.rightIcon }))
                 : (this.props.rightContent
-                    ? React.createElement("div", { className: "side-content right" }, this.props.rightContent)
+                    ? react_1.default.createElement("div", { className: "side-content right" }, this.props.rightContent)
                     : null)));
     }
 }
+exports.ListItem = ListItem;
 //# sourceMappingURL=ListItem.js.map

@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,12 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import React from "react";
-import { action, observable } from "mobx";
-import { observer } from "mobx-react";
-import css from "classnames";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importDefault(require("react"));
+const mobx_1 = require("mobx");
+const mobx_react_1 = require("mobx-react");
+const classnames_1 = __importDefault(require("classnames"));
 const { getParentWithClass } = require("./helpers/dom");
-let CustomIcon = class CustomIcon extends React.Component {
+let CustomIcon = class CustomIcon extends react_1.default.Component {
     constructor() {
         /*
             Hovering: It's Weird
@@ -42,38 +47,38 @@ let CustomIcon = class CustomIcon extends React.Component {
         }
     }
     render() {
-        return (React.createElement("div", { className: css("p-custom-icon", this.props.size, this.props.className, {
+        return (react_1.default.createElement("div", { className: classnames_1.default("p-custom-icon", this.props.size, this.props.className, {
                 hovered: this.hovered,
                 active: this.props.active
             }), ref: this.setIconRef }, (this.props.hover && this.hovered) || this.props.selected
-            ? React.createElement("img", { className: "hover", src: `./static/custom-icons/${this.props.icon}-hover.svg` })
-            : React.createElement("img", { className: "default", src: `yhj9l                                                                                                                                                                                                            n${this.props.icon}.svg` })));
+            ? react_1.default.createElement("img", { className: "hover", src: `./static/custom-icons/${this.props.icon}-hover.svg` })
+            : react_1.default.createElement("img", { className: "default", src: `yhj9l                                                                                                                                                                                                            n${this.props.icon}.svg` })));
     }
 };
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [HTMLDivElement]),
     __metadata("design:returntype", void 0)
 ], CustomIcon.prototype, "setIconRef", null);
 __decorate([
-    observable,
+    mobx_1.observable,
     __metadata("design:type", Object)
 ], CustomIcon.prototype, "hovered", void 0);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], CustomIcon.prototype, "handleMouseEnter", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], CustomIcon.prototype, "handleMouseLeave", null);
 CustomIcon = __decorate([
-    observer
+    mobx_react_1.observer
 ], CustomIcon);
-export { CustomIcon };
+exports.CustomIcon = CustomIcon;
 //# sourceMappingURL=CustomIcon.js.map

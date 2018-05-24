@@ -1,3 +1,4 @@
+"use strict";
 /*
     To use this component, place <Tooltip> in the render of any component.
     To prevent cutoffs in elements with `overflow:hidden`, tooltip is rendered `position:fixed`.
@@ -19,12 +20,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import React from "react";
-import { action, observable } from "mobx";
-import { observer } from "mobx-react";
-import css from "classnames";
-import { getPositionInWindow } from "./helpers/dom";
-let Tooltip = class Tooltip extends React.Component {
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importDefault(require("react"));
+const mobx_1 = require("mobx");
+const mobx_react_1 = require("mobx-react");
+const classnames_1 = __importDefault(require("classnames"));
+const dom_1 = require("./helpers/dom");
+let Tooltip = class Tooltip extends react_1.default.Component {
     constructor() {
         super(...arguments);
         this.ref = undefined; // TODO: another ref placeholder
@@ -56,7 +61,7 @@ let Tooltip = class Tooltip extends React.Component {
             return;
         const tooltipParent = this.ref.parentElement;
         const { width, height } = this.ref.getBoundingClientRect();
-        const { offsetX, offsetY, posX, posY } = getPositionInWindow(tooltipParent);
+        const { offsetX, offsetY, posX, posY } = dom_1.getPositionInWindow(tooltipParent);
         const margin = 5;
         switch (this.props.position) {
             default:
@@ -83,7 +88,7 @@ let Tooltip = class Tooltip extends React.Component {
         this.isVisible = false;
     }
     render() {
-        return (React.createElement("div", { ref: this.setRef, className: css("p-tooltip", this.props.className, this.props.size), style: this.isVisible
+        return (react_1.default.createElement("div", { ref: this.setRef, className: classnames_1.default("p-tooltip", this.props.className, this.props.size), style: this.isVisible
                 ? this.style
                 : {
                     /*
@@ -97,37 +102,37 @@ let Tooltip = class Tooltip extends React.Component {
     }
 };
 __decorate([
-    observable,
+    mobx_1.observable,
     __metadata("design:type", Object)
 ], Tooltip.prototype, "ref", void 0);
 __decorate([
-    observable,
+    mobx_1.observable,
     __metadata("design:type", Object)
 ], Tooltip.prototype, "isVisible", void 0);
 __decorate([
-    observable,
+    mobx_1.observable,
     __metadata("design:type", Object)
 ], Tooltip.prototype, "style", void 0);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [HTMLDivElement]),
     __metadata("design:returntype", void 0)
 ], Tooltip.prototype, "setRef", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], Tooltip.prototype, "showTooltip", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], Tooltip.prototype, "hideTooltip", null);
 Tooltip = __decorate([
-    observer
+    mobx_react_1.observer
 ], Tooltip);
-export { Tooltip };
+exports.Tooltip = Tooltip;
 //# sourceMappingURL=Tooltip.js.map

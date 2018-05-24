@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,16 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import React from "react";
-import ReactDOM from "react-dom";
-import { action, observable } from "mobx";
-import { observer } from "mobx-react";
-import css from "classnames";
-import { getDataProps, getParentWithClass } from "./helpers/dom";
-import { Button } from "./Button";
-import { Tooltip } from "./Tooltip";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importDefault(require("react"));
+const react_dom_1 = __importDefault(require("react-dom"));
+const mobx_1 = require("mobx");
+const mobx_react_1 = require("mobx-react");
+const classnames_1 = __importDefault(require("classnames"));
+const dom_1 = require("./helpers/dom");
+const Button_1 = require("./Button");
+const Tooltip_1 = require("./Tooltip");
 const appRoot = document.getElementById("root");
-let Menu = class Menu extends React.Component {
+let Menu = class Menu extends react_1.default.Component {
     constructor() {
         super(...arguments);
         this.menuActive = false;
@@ -31,7 +36,7 @@ let Menu = class Menu extends React.Component {
     setMenuButtonRef(ref) {
         if (ref) {
             this.menuButtonRef = ref;
-            this.scrollContainer = getParentWithClass(ref, "scrollable");
+            this.scrollContainer = dom_1.getParentWithClass(ref, "scrollable");
         }
     }
     setMenuContentRef(ref) {
@@ -85,64 +90,64 @@ let Menu = class Menu extends React.Component {
             this.style.right = `${windowX - left - width}px`;
     }
     render() {
-        const menuButton = (React.createElement("div", { key: "p-menu", className: css("p-menu", this.props.className, { clickable: this.menuActive }), ref: this.setMenuButtonRef, onClick: this.props.onClick },
-            React.createElement(Button, { icon: this.props.icon, customIcon: this.props.customIcon, onClick: this.handleMenuClick, disabled: this.menuActive || this.props.disabled }, this.props.customButton),
+        const menuButton = (react_1.default.createElement("div", { key: "p-menu", className: classnames_1.default("p-menu", this.props.className, { clickable: this.menuActive }), ref: this.setMenuButtonRef, onClick: this.props.onClick },
+            react_1.default.createElement(Button_1.Button, { icon: this.props.icon, customIcon: this.props.customIcon, onClick: this.handleMenuClick, disabled: this.menuActive || this.props.disabled }, this.props.customButton),
             this.props.tooltip
-                ? React.createElement(Tooltip, { text: this.props.tooltip, position: this.props.tooltipPosition || "top" })
+                ? react_1.default.createElement(Tooltip_1.Tooltip, { text: this.props.tooltip, position: this.props.tooltipPosition || "top" })
                 : null));
         if (!this.menuActive)
             return menuButton;
-        const menuContent = (React.createElement("ul", Object.assign({ key: "p-menu-content", className: css("p-menu-content", this.props.theme, { visible: this.menuVisible }), style: this.style, ref: this.setMenuContentRef }, getDataProps(this.props)), this.props.children));
+        const menuContent = (react_1.default.createElement("ul", Object.assign({ key: "p-menu-content", className: classnames_1.default("p-menu-content", this.props.theme, { visible: this.menuVisible }), style: this.style, ref: this.setMenuContentRef }, dom_1.getDataProps(this.props)), this.props.children));
         return [
             menuButton,
-            ReactDOM.createPortal(menuContent, appRoot)
+            react_dom_1.default.createPortal(menuContent, appRoot)
         ];
     }
 };
 __decorate([
-    observable,
+    mobx_1.observable,
     __metadata("design:type", Object)
 ], Menu.prototype, "menuActive", void 0);
 __decorate([
-    observable,
+    mobx_1.observable,
     __metadata("design:type", Object)
 ], Menu.prototype, "menuVisible", void 0);
 __decorate([
-    observable,
+    mobx_1.observable,
     __metadata("design:type", Object)
 ], Menu.prototype, "style", void 0);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [HTMLDivElement]),
     __metadata("design:returntype", void 0)
 ], Menu.prototype, "setMenuButtonRef", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [HTMLUListElement]),
     __metadata("design:returntype", void 0)
 ], Menu.prototype, "setMenuContentRef", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], Menu.prototype, "handleMenuClick", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [KeyboardEvent]),
     __metadata("design:returntype", void 0)
 ], Menu.prototype, "handleKeyUp", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], Menu.prototype, "hideMenu", null);
 Menu = __decorate([
-    observer
+    mobx_react_1.observer
 ], Menu);
-export { Menu };
+exports.Menu = Menu;
 //# sourceMappingURL=Menu.js.map

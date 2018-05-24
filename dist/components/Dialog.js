@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,14 +8,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import React from "react";
-import ReactDOM from "react-dom";
-import { action, computed, observable, reaction } from "mobx";
-import { observer } from "mobx-react";
-import css from "classnames";
-import { Button } from "./Button";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importDefault(require("react"));
+const react_dom_1 = __importDefault(require("react-dom"));
+const mobx_1 = require("mobx");
+const mobx_react_1 = require("mobx-react");
+const classnames_1 = __importDefault(require("classnames"));
+const Button_1 = require("./Button");
 const appRoot = document.getElementById("root");
-let Dialog = class Dialog extends React.Component {
+let Dialog = class Dialog extends react_1.default.Component {
     constructor() {
         super(...arguments);
         // Separate "rendered" and "visible" bools to be able to use fade in/out animations
@@ -31,7 +36,7 @@ let Dialog = class Dialog extends React.Component {
             The .visible class is tied to the dialogVisible bool, which is what triggers the opacity transition.
             Separating these two events ensures that the transition plays.
         */
-        this.activeReaction = reaction(() => this.props.active, active => {
+        this.activeReaction = mobx_1.reaction(() => this.props.active, active => {
             if (active) {
                 this.setActive();
             }
@@ -142,86 +147,86 @@ let Dialog = class Dialog extends React.Component {
         const buttons = [];
         if (actions) {
             for (let i = 0; i < actions.length; i++) {
-                buttons.push(React.createElement(Button, { key: `p-dialog-button-${i}`, label: actions[i].label, onClick: actions[i].onClick, theme: i < actions.length - 1 ? "secondary" : undefined, disabled: actions[i].disabled }));
+                buttons.push(react_1.default.createElement(Button_1.Button, { key: `p-dialog-button-${i}`, label: actions[i].label, onClick: actions[i].onClick, theme: i < actions.length - 1 ? "secondary" : undefined, disabled: actions[i].disabled }));
             }
         }
-        const dialogContent = (React.createElement("div", { className: css("p-dialog-wrapper", { visible: this.props.noAnimation || this.dialogVisible }), tabIndex: 0, ref: this.setDialogRef },
-            React.createElement("div", { className: "p-dialog-overlay", onClick: this.props.onCancel }),
-            React.createElement("dialog", { open: true, className: css("p-dialog", this.props.className, this.props.size, this.props.theme) },
-                React.createElement("div", { className: "body" },
+        const dialogContent = (react_1.default.createElement("div", { className: classnames_1.default("p-dialog-wrapper", { visible: this.props.noAnimation || this.dialogVisible }), tabIndex: 0, ref: this.setDialogRef },
+            react_1.default.createElement("div", { className: "p-dialog-overlay", onClick: this.props.onCancel }),
+            react_1.default.createElement("dialog", { open: true, className: classnames_1.default("p-dialog", this.props.className, this.props.size, this.props.theme) },
+                react_1.default.createElement("div", { className: "body" },
                     this.props.title
-                        ? React.createElement("div", { className: "title" }, this.props.title)
+                        ? react_1.default.createElement("div", { className: "title" }, this.props.title)
                         : null,
                     this.props.children),
                 this.props.actions
-                    ? React.createElement("div", { className: "actions" }, buttons)
+                    ? react_1.default.createElement("div", { className: "actions" }, buttons)
                     : null)));
-        return ReactDOM.createPortal(dialogContent, appRoot);
+        return react_dom_1.default.createPortal(dialogContent, appRoot);
     }
 };
 __decorate([
-    observable,
+    mobx_1.observable,
     __metadata("design:type", Object)
 ], Dialog.prototype, "dialogRendered", void 0);
 __decorate([
-    observable,
+    mobx_1.observable,
     __metadata("design:type", Object)
 ], Dialog.prototype, "dialogVisible", void 0);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], Dialog.prototype, "setActive", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], Dialog.prototype, "setInactive", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [HTMLDivElement]),
     __metadata("design:returntype", void 0)
 ], Dialog.prototype, "setDialogRef", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], Dialog.prototype, "showWithoutAnimation", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], Dialog.prototype, "hideWithoutAnimation", null);
 __decorate([
-    computed,
+    mobx_1.computed,
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [])
 ], Dialog.prototype, "focusableElements", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], Dialog.prototype, "restrictFocus", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [KeyboardEvent]),
     __metadata("design:returntype", void 0)
 ], Dialog.prototype, "handleEscKey", null);
 __decorate([
-    action.bound,
+    mobx_1.action.bound,
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [KeyboardEvent]),
     __metadata("design:returntype", void 0)
 ], Dialog.prototype, "handleTabKey", null);
 Dialog = __decorate([
-    observer
+    mobx_react_1.observer
 ], Dialog);
-export { Dialog };
+exports.Dialog = Dialog;
 //# sourceMappingURL=Dialog.js.map
