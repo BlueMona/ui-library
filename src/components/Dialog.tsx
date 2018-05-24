@@ -107,6 +107,24 @@ export class Dialog extends React.Component<DialogProps> {
         }
     }
 
+    /**
+     * Renders and shows dialog immediately
+     * Note: be careful when using it together with "visible" property
+     */
+    @action.bound showWithoutAnimation() {
+        this.dialogRendered = true;
+        this.dialogVisible = true;
+    }
+
+    /**
+     * Unrenders dialog immediately
+     * Note: be careful when using it together with "visible" property
+     */
+    @action.bound hideWithoutAnimation() {
+        this.dialogRendered = false;
+        this.dialogVisible = false;
+    }
+
     @computed get focusableElements() {
         return this.dialogRef.querySelectorAll("input:not(:disabled), textarea:not(:disabled), button:not(:disabled)");
     }
