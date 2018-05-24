@@ -10,7 +10,8 @@
     "watch:style": "npm run build:style -- -w",
     "build": "run-p build:*",
     "build:webpack": "webpack -p",
-    "build:style": "node-sass ./src/style.scss ./dist/style.css"
+    "build:style": "node-sass ./src/style.scss ./dist/style.css",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
