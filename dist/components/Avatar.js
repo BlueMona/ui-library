@@ -17,7 +17,7 @@ const Tooltip_1 = require("./Tooltip");
 let Avatar = class Avatar extends react_1.default.Component {
     clickHandler() {
         if (this.props.clickable) {
-            this.props.onClick(this.props.contact);
+            this.props.onClick();
         }
     }
     render() {

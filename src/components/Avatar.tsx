@@ -19,10 +19,10 @@ export interface AvatarProps {
 }
 
 @observer
-export class Avatar extends React.Component<AvatarProps & ({clickable: true, onClick: (c: object) => void} | {clickable?: false})> {
+export class Avatar extends React.Component<AvatarProps & ({clickable: true, onClick: () => void} | {clickable?: false})> {
     clickHandler() {
         if (this.props.clickable) {
-            this.props.onClick(this.props.contact);
+            this.props.onClick();
         }
     }
 
