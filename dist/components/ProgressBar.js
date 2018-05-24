@@ -23,7 +23,7 @@ let ProgressBar = class ProgressBar extends react_1.default.Component {
             Progress bar itself needs to be position:relative,
             so we need to put everything in a container div to be able to control positioning
         */
-        react_1.default.createElement("div", { className: classnames_1.default("p-progress-bar", this.props.className, this.props.theme, { circular: this.props.type === "circular" }) }, this.props.type !== "circular"
+        react_1.default.createElement("div", { className: classnames_1.default("p-progress-bar", this.props.className, this.props.theme, this.props.size, { circular: this.props.type === "circular" }) }, this.props.type !== "circular"
             ? react_1.default.createElement("div", { className: "progress-bar" },
                 react_1.default.createElement("div", { className: classnames_1.default(this.props.type || "linear", this.props.mode || "determinate", this.props.size, this.props.theme), style: style }))
             : react_1.default.createElement("div", { className: classnames_1.default("progress-spinner", this.props.size, this.props.theme) },

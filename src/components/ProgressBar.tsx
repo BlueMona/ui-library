@@ -31,6 +31,7 @@ export class ProgressBar extends React.Component<
                 "p-progress-bar",
                 this.props.className,
                 this.props.theme,
+                this.props.size,
                 { circular: this.props.type === "circular" }
             )}>
                 { this.props.type !== "circular"
