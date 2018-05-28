@@ -52,7 +52,7 @@ let CustomIcon = class CustomIcon extends react_1.default.Component {
                 active: this.props.active
             }), ref: this.setIconRef }, (this.props.hover && this.hovered) || this.props.selected
             ? react_1.default.createElement("img", { className: "hover", src: `./static/custom-icons/${this.props.icon}-hover.svg` })
-            : react_1.default.createElement("img", { className: "default", src: `yhj9l                                                                                                                                                                                                            n${this.props.icon}.svg` })));
+            : react_1.default.createElement("img", { className: "default", src: `./static/custom-icons/${this.props.icon}.svg` })));
     }
 };
 __decorate([
