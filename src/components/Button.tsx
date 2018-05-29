@@ -74,14 +74,15 @@ export class Button extends React.Component<ButtonProps> {
         );
 
         const buttonContent = [
-            (this.props.icon && <MaterialIcon key="material-icon" icon={this.props.icon} />),
-            (this.props.customIcon && <CustomIcon key="custom-icon" icon={this.props.customIcon} />),
+            (this.props.icon && <MaterialIcon key={`button-material-icon-${this.props.icon}`} icon={this.props.icon} />),
+            (this.props.customIcon && <CustomIcon key={`button-custom-icon-${this.props.customIcon}`} icon={this.props.customIcon} />),
             (this.props.label || this.props.children
-                ? <span key="label" className="label">{this.props.label || this.props.children}</span>
+                ? <span key={`button-label-${this.props.label || this.props.children}`} className="label">{this.props.label || this.props.children}</span>
                 : null
             ),
             (this.props.tooltip
                 ? <Tooltip
+                    key={`button-tooltip-${this.props.tooltip}`}
                     text={this.props.tooltip}
                     position={this.props.tooltipPosition || "top"}
                     size={this.props.tooltipSize}
