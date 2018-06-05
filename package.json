@@ -1,6 +1,6 @@
 {
   "name": "peer-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Styles and PeerUI React component library for peerio-desktop",
   "main": "dist/peer-ui.js",
   "scripts": {
