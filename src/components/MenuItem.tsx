@@ -27,7 +27,7 @@ export class MenuItem extends React.Component<MenuItemProps> {
     }
 
     render() {
-        const { value, icon, customIcon, caption, className, onClick } = this.props;
+        const { value, icon, customIcon, caption, className } = this.props;
         return (
             <li
                 value={value}
@@ -40,7 +40,7 @@ export class MenuItem extends React.Component<MenuItemProps> {
                         selected: this.props.selected
                     }
                 )}
-                onClick={onClick}
+                onClick={this.clickHandler}
             >
                 {icon
                     ? <MaterialIcon

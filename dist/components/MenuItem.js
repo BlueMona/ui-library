@@ -24,12 +24,12 @@ let MenuItem = class MenuItem extends react_1.default.Component {
         };
     }
     render() {
-        const { value, icon, customIcon, caption, className, onClick } = this.props;
+        const { value, icon, customIcon, caption, className } = this.props;
         return (react_1.default.createElement("li", { value: value, className: classnames_1.default("p-menu-item", className, {
                 clickable: !this.props.disabled,
                 disabled: this.props.disabled,
                 selected: this.props.selected
-            }), onClick: onClick },
+            }), onClick: this.clickHandler },
             icon
                 ? react_1.default.createElement(MaterialIcon_1.MaterialIcon, { key: `icon-${icon}`, icon: icon, className: "icon" })
                 : (customIcon
