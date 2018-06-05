@@ -1,21 +1,22 @@
 # ui-library
 
-Styles and PeerUI React component library for Peerio desktop application and web properties
+Styles and PeerUI React component library for Peerio desktop application and web properties. Please note that this entire repo is a WIP; it is designed to function within Peerio properties (see `peerio-desktop` and `peerio-cms`). It *can* work independently, but requires the consumer to follow some specific instructions, outlined below.
 
-## Documenting some ongoing problems/questions
+### File Paths
 
-### Managing static assets
+#### Styles
+You may directly import the SASS file `node_modules/peer-ui/src/style.scss`, or the compiled CSS file `node_modules/peer-ui/dist/style.css`. Peerio Desktop requires inserting extra styles in a whitelabeling step, so the individual SASS files are imported directly so that the whitelabel Sass files can be added where they're needed.
 
-Right now we have the following static assets which are used in `ui-library` and need to then be passed to `peerio-desktop` and whatever else ends up using `ui-library`:
+#### Images
 
-* Material Icons font files & CSS
-* Open Sans font files & CSS
-* "Custom icons" image files
+The `<CustomIcon>` component assumes that you have placed the icons in a folder `/static/custom-icons/`, wherever your build directory is located. The files themselves are located in `dist/static`
 
-For the CSS it seems to be common practice to straight up `@import "node_modules/the-module/sass-file"`, so that is OK I guess, though it does seem weird.
+#### Fonts 
 
-The other assets are kinda weird and I'm not sure how to manage the asset pipeline. For example, the `<CustomIcon>` component currently puts a path to the icon files in the `img src`, but that path is going to depend on where those assets get placed in the build folder. I've made a `static/` folder that mirrors the structure of `static/` on `peerio-desktop`, but is it normal that we would require projects that use `ui-library` to have a specific structure in their build folder? That seems clunky. Can the path be managed by some kind of config?
+It was too tricky to try to integrate fonts into this repo that could be reliably passed to the consumer. So this repo is font agnostic and relies on the consumer's font stack.
 
-### Portals
+### DOM structure
 
-`<Dialog>` and `<Menu>` both use ReactDOM's `createPortal` function which lets us render the component to an arbitrary place in the document, allowing the component to escape its parent hierarchy. Currently they target the element with the id `root`, which obviously means that something `#root` needs to exist in the document. This is a similar thing to above; the functioning of these components assumes a certain HTML structure from the project that is using them.
+#### Portals
+
+`<Dialog>` and `<Menu>` both use ReactDOM's `createPortal` function which lets us render the component to an arbitrary place in the document, allowing the component to escape its parent hierarchy. Currently they target the element with the id `root`, which obviously means that something `#root` needs to exist in the document.
