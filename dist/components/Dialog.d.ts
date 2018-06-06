@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import React from "react";
 import { ActionProps } from "./helpers/interfaces";
 export interface DialogProps {

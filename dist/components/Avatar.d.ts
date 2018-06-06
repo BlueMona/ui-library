@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import React from "react";
 import { ContactProps } from "./helpers/interfaces";
 export interface AvatarProps {
