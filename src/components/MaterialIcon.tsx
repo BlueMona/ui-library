@@ -7,6 +7,7 @@ export interface MaterialIconProps {
     active?: boolean
     className?: string
     icon: string
+    onClick?: () => void;
     tooltip?: string
     tooltipPosition?: "top" | "right" | "bottom" | "left"
 }
