@@ -15,11 +15,14 @@ export interface MaterialIconProps {
 export class MaterialIcon extends React.Component<MaterialIconProps> {
     render() {
         return (
-            <span className={css(
-                "material-icons",
-                this.props.className,
-                { active: this.props.active }
-            )}>
+            <span
+                className={css(
+                    "material-icons",
+                    this.props.className,
+                    { active: this.props.active }
+                )}
+                onClick={this.props.onClick}
+            >
                 {this.props.icon}
                 {this.props.tooltip
                     ? <Tooltip text={this.props.tooltip}
