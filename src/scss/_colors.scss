@@ -42,6 +42,10 @@ $badge-bg-color: $peerio-blue;
 $background-highlighted: rgba($peerio-purple, .45);
 $background-disabled: $black-12; 
 $background-chat: $background-root;
+$start-screen-bg: $darkblue;
+$snackbar-background: $darkblue;
+$file-bottom-filler: $background-hover-default;
+$look-at-me: $color-error;
 
 //// FONT COLORS
 // Text
@@ -63,6 +67,7 @@ $icon-dark-active: $black-54;
 $icon-dark-inactive: $black-12;
 $icon-light-active: $white;
 $icon-light-inactive: $white-70;
+$icon-hover-color: $peerio-blue;
 
 //// DIVIDERS
 $divider-dark: rgba($darkblue, .12);
