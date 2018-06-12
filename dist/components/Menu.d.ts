@@ -8,7 +8,8 @@ export interface MenuProps {
     tooltip?: string;
     tooltipPosition?: "top" | "bottom" | "left" | "right";
     theme?: string;
-    onClick?: () => void;
+    onClick?: (ev?: React.MouseEvent<HTMLDivElement>) => void;
+    onHide?: () => void;
     disabled?: boolean;
 }
 export declare class Menu extends React.Component<MenuProps> {

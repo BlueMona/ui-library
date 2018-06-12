@@ -8,7 +8,7 @@ export interface ListItemProps {
     leftIcon?: string;
     rightContent?: any;
     rightIcon?: string;
-    onClick?: () => void;
+    onClick?: (ev?: React.MouseEvent<HTMLLIElement>) => void;
 }
 export declare class ListItem extends React.Component<ListItemProps> {
     render(): JSX.Element;

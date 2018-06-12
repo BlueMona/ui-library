@@ -8,7 +8,7 @@ export interface AvatarProps {
 }
 export declare class Avatar extends React.Component<AvatarProps & ({
     clickable: true;
-    onClick: () => void;
+    onClick: (ev: React.MouseEvent<HTMLDivElement>) => void;
 } | {
     clickable?: false;
 })> {

@@ -30,7 +30,8 @@ export interface MenuProps {
 
     theme?: string
 
-    onClick?: () => void
+    onClick?: (ev?: React.MouseEvent<HTMLDivElement>) => void
+    onHide?: () => void
     disabled?: boolean
 }
 
@@ -90,6 +91,8 @@ export class Menu extends React.Component<MenuProps> {
             this.menuActive = false;
             this.hideMenuTimeout = null;
         }, 250);
+
+        if (this.props.onHide) { this.props.onHide(); }
 
         window.removeEventListener("click", this.hideMenu, true);
         window.removeEventListener("keyup", this.handleKeyUp);

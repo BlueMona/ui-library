@@ -13,7 +13,7 @@ export interface MenuItemProps {
     icon?: string
     customIcon?: string
 
-    onClick: (ev: React.MouseEvent<HTMLLIElement>) => void
+    onClick: (ev?: React.MouseEvent<HTMLLIElement>) => void
 
     disabled?: boolean
     selected?: boolean

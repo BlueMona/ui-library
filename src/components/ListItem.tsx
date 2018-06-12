@@ -13,7 +13,7 @@ export interface ListItemProps {
     leftIcon?: string
     rightContent?: any
     rightIcon?: string
-    onClick?: () => void
+    onClick?: (ev?: React.MouseEvent<HTMLLIElement>) => void
 }
 
 export class ListItem extends React.Component<ListItemProps> {

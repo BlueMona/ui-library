@@ -9,9 +9,9 @@ export interface ButtonProps {
     disabled?: boolean;
     selected?: boolean;
     active?: boolean;
-    onClick?: () => void;
-    onMouseEnter?: () => void;
-    onMouseLeave?: () => void;
+    onClick?: (ev?: React.MouseEvent<HTMLButtonElement>) => void;
+    onMouseEnter?: (ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+    onMouseLeave?: (ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
     tooltip?: string;
     tooltipPosition?: "top" | "right" | "bottom" | "left";
     tooltipSize?: "small";

@@ -30,9 +30,9 @@ export interface ButtonProps {
     // Makes button teal or other "active" colour
     active?: boolean
 
-    onClick?: () => void
-    onMouseEnter?: () => void
-    onMouseLeave?: () => void
+    onClick?: (ev?: React.MouseEvent<HTMLButtonElement>) => void
+    onMouseEnter?: (ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
+    onMouseLeave?: (ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
 
     // Tooltip text
     tooltip?: string

@@ -68,6 +68,9 @@ let Menu = class Menu extends react_1.default.Component {
             this.menuActive = false;
             this.hideMenuTimeout = null;
         }, 250);
+        if (this.props.onHide) {
+            this.props.onHide();
+        }
         window.removeEventListener("click", this.hideMenu, true);
         window.removeEventListener("keyup", this.handleKeyUp);
         if (this.scrollContainer) {
