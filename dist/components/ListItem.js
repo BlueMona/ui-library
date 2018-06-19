@@ -13,9 +13,10 @@ class ListItem extends react_1.default.Component {
             this.props.leftIcon
                 ? react_1.default.createElement("div", { className: "side-content left icon" },
                     react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: this.props.leftIcon }))
-                : (this.props.leftContent
-                    ? react_1.default.createElement("div", { className: "side-content left" }, this.props.leftContent)
-                    : null),
+                : null,
+            this.props.leftContent
+                ? react_1.default.createElement("div", { className: "side-content left" }, this.props.leftContent)
+                : null,
             this.props.caption
                 ? react_1.default.createElement("div", { className: "content" },
                     react_1.default.createElement("div", { className: "caption" }, this.props.caption),
@@ -26,9 +27,10 @@ class ListItem extends react_1.default.Component {
             this.props.rightIcon
                 ? react_1.default.createElement("div", { className: "side-content right icon" },
                     react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: this.props.rightIcon }))
-                : (this.props.rightContent
-                    ? react_1.default.createElement("div", { className: "side-content right" }, this.props.rightContent)
-                    : null)));
+                : null,
+            this.props.rightContent
+                ? react_1.default.createElement("div", { className: "side-content right" }, this.props.rightContent)
+                : null));
     }
 }
 exports.ListItem = ListItem;
