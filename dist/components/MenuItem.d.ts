@@ -1,7 +1,7 @@
 import React from "react";
 export interface MenuItemProps {
     className?: string;
-    value: string;
+    value?: string;
     caption?: string;
     icon?: string;
     customIcon?: string;

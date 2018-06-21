@@ -7,7 +7,7 @@ import { MaterialIcon } from "./MaterialIcon";
 
 export interface MenuItemProps {
     className?: string
-    value: string
+    value?: string
     caption?: string
 
     icon?: string
