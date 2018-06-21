@@ -28,14 +28,13 @@
 
   &.visible {
     max-height: 600px; // TODO: hardcoded value based on AppNav menu, calculate instead?
-    max-width: 280px;
     padding: $padding-small 0;
     transition: max-height 350ms, padding 250ms;
     opacity: 1;
   }
 
   &.wide .p-menu-item {
-    min-width: 280px;
+    min-width: 224px;
 
     .icon {
       margin-right: $margin-default;

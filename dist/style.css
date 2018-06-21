@@ -16,6 +16,9 @@
   98  Dialog
   99  DropTarget
 */
+.p-menu-header .main-content .caption {
+  font-size: 16px; }
+
 .p-input .hint, .p-input.has-error .error, .p-tooltip {
   font-size: 12px; }
 
@@ -518,6 +521,7 @@ dialog {
   z-index: 90;
   height: auto;
   width: auto;
+  max-width: 280px;
   max-height: 0;
   overflow: hidden;
   transition: max-height 350ms 350ms, padding 250ms 250ms, opacity 150ms;
@@ -526,15 +530,26 @@ dialog {
   background-color: white;
   border-radius: 4px; }
   .p-menu-content.visible {
-    max-height: 370px;
-    max-width: 248px;
+    max-height: 600px;
     padding: 8px 0;
     transition: max-height 350ms, padding 250ms;
     opacity: 1; }
   .p-menu-content.wide .p-menu-item {
-    min-width: 192px; }
+    min-width: 224px; }
     .p-menu-content.wide .p-menu-item .icon {
       margin-right: 16px; }
+
+.p-menu-header {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px 16px 16px;
+  overflow: hidden; }
+  .p-menu-header .main-content {
+    margin-left: 16px; }
+    .p-menu-header .main-content .caption {
+      font-weight: 600; }
+    .p-menu-header .main-content .legend {
+      color: rgba(0, 0, 0, 0.54); }
 
 .p-menu-item {
   display: flex;
