@@ -15,6 +15,7 @@
 
   height: auto;
   width: auto;
+  max-width: 280px;
   max-height: 0;
   overflow: hidden;
 
@@ -26,15 +27,15 @@
   border-radius: 4px;
 
   &.visible {
-    max-height: 370px; // TODO: hardcoded value based on AppNav menu, calculate instead?
-    max-width: 248px;
+    max-height: 600px; // TODO: hardcoded value based on AppNav menu, calculate instead?
+    max-width: 280px;
     padding: $padding-small 0;
     transition: max-height 350ms, padding 250ms;
     opacity: 1;
   }
 
   &.wide .p-menu-item {
-    min-width: 192px;
+    min-width: 280px;
 
     .icon {
       margin-right: $margin-default;

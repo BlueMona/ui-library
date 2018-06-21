@@ -5,7 +5,9 @@ export interface MenuItemProps {
     caption?: string;
     icon?: string;
     customIcon?: string;
-    onClick: (ev?: React.MouseEvent<HTMLLIElement>) => void;
+    onClick?: (ev?: React.MouseEvent<HTMLLIElement>) => void;
+    onMouseEnter?: (ev?: React.MouseEvent<HTMLLIElement>) => void;
+    onMouseLeave?: (ev?: React.MouseEvent<HTMLLIElement>) => void;
     disabled?: boolean;
     selected?: boolean;
 }

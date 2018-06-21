@@ -1,0 +1,19 @@
+.p-menu-header {
+  display: flex;
+  align-items: center;
+  padding: $padding-default $padding-xl $padding-default $padding-default;
+  overflow: hidden;
+
+  .main-content {
+    margin-left: $margin-default;
+
+    .caption {
+      @extend %subtitle;
+      font-weight: $font-weight-semibold;
+    }
+
+    .legend {
+      color: $text-dark-secondary;
+    }
+  }
+}

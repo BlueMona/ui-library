@@ -21,6 +21,7 @@ __export(require("./components/Tooltip"));
 __export(require("./components/ProgressBar"));
 // // Navigation
 __export(require("./components/Menu"));
+__export(require("./components/MenuHeader"));
 __export(require("./components/MenuItem"));
 // // Page structure & layout
 __export(require("./components/Divider"));

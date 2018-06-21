@@ -19,6 +19,7 @@ export * from "./components/ProgressBar";
 
 // // Navigation
 export * from "./components/Menu";
+export * from "./components/MenuHeader";
 export * from "./components/MenuItem";
 
 // // Page structure & layout

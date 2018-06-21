@@ -19,7 +19,7 @@ let MenuItem = class MenuItem extends react_1.default.Component {
         super(...arguments);
         this.clickHandler = (ev) => {
             ev.stopPropagation();
-            if (!this.props.disabled)
+            if (!this.props.disabled && this.props.onClick)
                 this.props.onClick(ev);
         };
     }

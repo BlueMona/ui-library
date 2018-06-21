@@ -12,6 +12,7 @@ export * from "./components/Dialog";
 export * from "./components/Tooltip";
 export * from "./components/ProgressBar";
 export * from "./components/Menu";
+export * from "./components/MenuHeader";
 export * from "./components/MenuItem";
 export * from "./components/Divider";
 export * from "./components/List";
