@@ -343,7 +343,7 @@ dialog {
 .p-divider {
   height: 1px;
   margin: 8px 0;
-  background-color: #eee;
+  background-color: rgba(4, 11, 64, 0.12);
   border: 0; }
 
 .p-dropdown, .p-dropdown .selector, .p-dropdown .inputs-container {
@@ -587,7 +587,7 @@ dialog {
     height: 4px;
     width: 100%;
     overflow: hidden;
-    background-color: #d9d9d9; }
+    background-color: rgba(4, 11, 64, 0.12); }
     .p-progress-bar .progress-bar .determinate {
       position: absolute;
       top: 0;
