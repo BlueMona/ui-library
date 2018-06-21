@@ -56,6 +56,7 @@ export class MenuItem extends React.Component<MenuItemProps> {
                             icon={customIcon}
                             className="icon"
                             hover
+                            selected={this.props.selected}
                         />
                         : null
                     )

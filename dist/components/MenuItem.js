@@ -33,7 +33,7 @@ let MenuItem = class MenuItem extends react_1.default.Component {
             icon
                 ? react_1.default.createElement(MaterialIcon_1.MaterialIcon, { key: `icon-${icon}`, icon: icon, className: "icon" })
                 : (customIcon
-                    ? react_1.default.createElement(CustomIcon_1.CustomIcon, { key: `icon-${customIcon}`, icon: customIcon, className: "icon", hover: true })
+                    ? react_1.default.createElement(CustomIcon_1.CustomIcon, { key: `icon-${customIcon}`, icon: customIcon, className: "icon", hover: true, selected: this.props.selected })
                     : null),
             caption));
     }
