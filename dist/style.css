@@ -541,7 +541,7 @@ dialog {
 
 .p-menu-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 16px;
   overflow: hidden; }
   .p-menu-header .main-content {
