@@ -20,6 +20,10 @@
   border: 0;
   border-radius: 24px;
 
+  .material-icons {
+    color: inherit;
+  }
+
   > span {
     white-space: nowrap;
   }
@@ -95,18 +99,12 @@
     min-width: 0;
     padding: 0;
     border-radius: 100%;
-
-    .material-icons {
-      color: $icon-dark-active;
-    }
+    color: $icon-dark-active;
 
     &:hover,
     &:focus {
       background-color: transparent;
-
-      .material-icons {
-        color: $color-affirmative;
-      }
+      color: $color-affirmative;
     }
 
     &:disabled .material-icons {
@@ -121,7 +119,7 @@
     }
   }
 
-  &.gold .material-icons {
+  &.gold {
     color: gold;
   }
 
@@ -142,19 +140,11 @@
   // "Active" theme, e.g. sidebar toggle, show/hide passphrase
   &.active {
     color: $peerio-teal;
-
-    .material-icons {
-      color: $peerio-teal;
-    }
   }
 
   // "Selected" theme, e.g. used for some radio buttons
   &.selected {
     color: $peerio-blue;
-
-    .material-icons {
-      color: $peerio-blue;
-    }
   }
 
   // "Link" theme
