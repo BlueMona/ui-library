@@ -111,6 +111,8 @@
   background-color: transparent;
   border: 0;
   border-radius: 24px; }
+  .p-button .material-icons {
+    color: inherit; }
   .p-button > span {
     white-space: nowrap; }
   .p-button:not(:disabled) {
@@ -149,19 +151,17 @@
     width: 36px;
     min-width: 0;
     padding: 0;
-    border-radius: 100%; }
-    .p-button.icon .material-icons {
-      color: rgba(0, 0, 0, 0.54); }
+    border-radius: 100%;
+    color: rgba(0, 0, 0, 0.54); }
     .p-button.icon:hover, .p-button.icon:focus {
-      background-color: transparent; }
-      .p-button.icon:hover .material-icons, .p-button.icon:focus .material-icons {
-        color: #408cff; }
+      background-color: transparent;
+      color: #408cff; }
     .p-button.icon:disabled .material-icons {
       color: rgba(0, 0, 0, 0.12); }
   .p-button.icon-and-label .material-icons,
   .p-button.icon-and-label .p-custom-icon {
     margin-right: 8px; }
-  .p-button.gold .material-icons {
+  .p-button.gold {
     color: gold; }
   .p-button.small {
     height: auto;
@@ -172,12 +172,8 @@
       background-color: inherit; }
   .p-button.active {
     color: #02cedb; }
-    .p-button.active .material-icons {
-      color: #02cedb; }
   .p-button.selected {
     color: #408cff; }
-    .p-button.selected .material-icons {
-      color: #408cff; }
   .p-button.link {
     display: inline;
     height: auto;
