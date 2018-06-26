@@ -16,10 +16,13 @@ export interface AvatarProps {
 
     // Set true to have a tooltip, which will show user"s username
     tooltip?: boolean
+
+    clickable?: boolean
+    onClick?: (ev: React.MouseEvent<HTMLDivElement>) => void
 }
 
 @observer
-export class Avatar extends React.Component<AvatarProps & ({clickable: true, onClick: (ev: React.MouseEvent<HTMLDivElement>) => void} | {clickable?: false})> {
+export class Avatar extends React.Component<AvatarProps> {
     render() {
         const c = this.props.contact;
 
@@ -38,7 +41,7 @@ export class Avatar extends React.Component<AvatarProps & ({clickable: true, onC
                             "image-container",
                             this.props.className,
                             `${this.props.size || "medium"}`,
-                            { clickable: this.props.clickable }
+                            { clickable: this.props.clickable || !!this.props.onClick }
                         )}
                         style={!c.hasAvatar ? { backgroundColor: c.color } : {}}
                         onClick={this.props.clickable ? this.props.onClick : undefined}
