@@ -17,6 +17,10 @@ export interface AvatarProps {
     // Set true to have a tooltip, which will show user"s username
     tooltip?: boolean
 
+    /*
+        `clickable` is only for styling (hover effect), which is automatically applied if !!onClick
+        i.e. only need to put `clickable` if you want the hover effect, but Avatar itself has no onClick event
+    */
     clickable?: boolean
     onClick?: (ev: React.MouseEvent<HTMLDivElement>) => void
 }
@@ -44,7 +48,7 @@ export class Avatar extends React.Component<AvatarProps> {
                             { clickable: this.props.clickable || !!this.props.onClick }
                         )}
                         style={!c.hasAvatar ? { backgroundColor: c.color } : {}}
-                        onClick={this.props.clickable ? this.props.onClick : undefined}
+                        onClick={this.props.onClick}
                     >
                         {c.hasAvatar
                             ? <img src={c.mediumAvatarUrl} alt={c.username} />
