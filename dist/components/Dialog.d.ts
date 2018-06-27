@@ -9,6 +9,7 @@ export interface DialogProps {
     size?: "small";
     theme?: "warning" | "error" | "primary";
     title?: any;
+    headerImage?: string;
 }
 export declare class Dialog extends React.Component<DialogProps> {
     dialogRendered: boolean;

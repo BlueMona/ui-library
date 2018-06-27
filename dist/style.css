@@ -318,8 +318,7 @@
     overflow-x: hidden;
     overflow-y: auto; }
     .p-dialog .body .title {
-      margin-bottom: 16px;
-      font-weight: 400; }
+      margin-bottom: 16px; }
   .p-dialog .actions {
     padding: 8px;
     text-align: right; }

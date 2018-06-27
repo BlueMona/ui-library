@@ -150,9 +150,16 @@ let Dialog = class Dialog extends react_1.default.Component {
                 buttons.push(react_1.default.createElement(Button_1.Button, { key: `p-dialog-button-${i}`, label: actions[i].label, onClick: actions[i].onClick, theme: i < actions.length - 1 ? "secondary" : undefined, disabled: actions[i].disabled }));
             }
         }
-        const dialogContent = (react_1.default.createElement("div", { className: classnames_1.default("p-dialog-wrapper", { visible: this.props.noAnimation || this.dialogVisible }), tabIndex: 0, ref: this.setDialogRef },
+        const dialogContent = (react_1.default.createElement("div", { className: classnames_1.default("p-dialog-wrapper", {
+                visible: this.props.noAnimation || this.dialogVisible,
+                'with-header-image': !!this.props.headerImage
+            }), tabIndex: 0, ref: this.setDialogRef },
             react_1.default.createElement("div", { className: "p-dialog-overlay", onClick: this.props.onCancel }),
             react_1.default.createElement("dialog", { open: true, className: classnames_1.default("p-dialog", this.props.className, this.props.size, this.props.theme) },
+                this.props.headerImage
+                    ? react_1.default.createElement("div", { className: "header-image" },
+                        react_1.default.createElement("img", { src: this.props.headerImage }))
+                    : null,
                 react_1.default.createElement("div", { className: "body" },
                     this.props.title
                         ? react_1.default.createElement("div", { className: "title" }, this.props.title)

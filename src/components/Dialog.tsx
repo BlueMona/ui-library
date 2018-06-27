@@ -32,6 +32,9 @@ export interface DialogProps {
     theme?: "warning" | "error" | "primary"
 
     title?: any
+
+    // URL to header image
+    headerImage?: string
 }
 
 @observer
@@ -195,7 +198,10 @@ export class Dialog extends React.Component<DialogProps> {
             <div
                 className={css(
                     "p-dialog-wrapper",
-                    { visible: this.props.noAnimation || this.dialogVisible }
+                    {
+                        visible: this.props.noAnimation || this.dialogVisible,
+                        'with-header-image': !!this.props.headerImage
+                    }
                 )}
                 tabIndex={0}
                 ref={this.setDialogRef}
@@ -214,6 +220,12 @@ export class Dialog extends React.Component<DialogProps> {
                         this.props.theme
                     )}
                 >
+                    {this.props.headerImage
+                        ? <div className="header-image">
+                            <img src={this.props.headerImage} />
+                        </div>
+                        : null
+                    }
                     <div className="body">
                         {this.props.title
                             ? <div className="title">{this.props.title}</div>
