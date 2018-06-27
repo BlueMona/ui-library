@@ -34,6 +34,7 @@ export interface InputProps {
 @observer
 export class Input extends React.Component<InputProps> {
     @observable isFocused = false;
+    @observable inputRef = undefined as any;
 
     handleChange = (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         if (!this.props.onChange) return;
@@ -50,6 +51,29 @@ export class Input extends React.Component<InputProps> {
         if (!!this.props.onBlur) this.props.onBlur();
     }
 
+    @action.bound setRef(ref: any) {
+        if (ref) {
+            this.inputRef = ref;
+            if (this.props.autoFocus) {
+                this.focus();
+            }
+        }
+    }
+
+    @action.bound focus() {
+        if (this.inputRef) {
+            this.inputRef.focus();
+            this.handleFocus();
+        }
+    }
+
+    @action.bound blur() {
+        if (this.inputRef) {
+            this.inputRef.blur();
+            this.handleBlur();
+        }
+    }
+
     render() {
         return (
             <div
@@ -57,6 +81,7 @@ export class Input extends React.Component<InputProps> {
                     "p-input",
                     this.props.className,
                     {
+                        "has-label": !!this.props.label,
                         "has-error": !!this.props.error,
                         focused: this.isFocused
                     }
@@ -76,7 +101,7 @@ export class Input extends React.Component<InputProps> {
                         onBlur={this.handleBlur}
                         onFocus={this.handleFocus}
 
-                        ref={this.props.ref || this.props.innerRef}
+                        ref={this.setRef}
                     />
                     : <input
                         placeholder={this.props.placeholder}
@@ -92,11 +117,10 @@ export class Input extends React.Component<InputProps> {
                         onFocus={this.handleFocus}
 
                         type={this.props.type || "text"}
-                        autoFocus={this.props.autoFocus} // eslint-disable-line
                         readOnly={this.props.readOnly}
                         disabled={this.props.disabled}
 
-                        ref={this.props.ref || this.props.innerRef}
+                        ref={this.setRef}
                     />
                 }
                 {this.props.label

@@ -23,8 +23,12 @@ export interface InputProps {
 }
 export declare class Input extends React.Component<InputProps> {
     isFocused: boolean;
+    inputRef: any;
     handleChange: (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     handleFocus(): void;
     handleBlur(): void;
+    setRef(ref: any): void;
+    focus(): void;
+    blur(): void;
     render(): JSX.Element;
 }
