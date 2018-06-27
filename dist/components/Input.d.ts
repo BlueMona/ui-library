@@ -4,7 +4,6 @@ export interface InputProps {
     label?: string;
     error?: string;
     hint?: string;
-    ref?: (ref: HTMLTextAreaElement | HTMLInputElement | null | undefined) => void;
     innerRef?: (ref: HTMLTextAreaElement | HTMLInputElement | null | undefined) => void;
     autoFocus?: boolean;
     disabled?: boolean;

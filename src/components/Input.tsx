@@ -8,8 +8,7 @@ export interface InputProps {
     label?: string
     error?: string
     hint?: string
-
-    ref?: (ref: HTMLTextAreaElement | HTMLInputElement | null | undefined) => void
+    
     innerRef?: (ref: HTMLTextAreaElement | HTMLInputElement | null | undefined) => void
 
     // Standard HTML input props
@@ -101,7 +100,7 @@ export class Input extends React.Component<InputProps> {
                         onBlur={this.handleBlur}
                         onFocus={this.handleFocus}
 
-                        ref={this.setRef}
+                        ref={this.props.innerRef || this.setRef}
                     />
                     : <input
                         placeholder={this.props.placeholder}
@@ -120,7 +119,7 @@ export class Input extends React.Component<InputProps> {
                         readOnly={this.props.readOnly}
                         disabled={this.props.disabled}
 
-                        ref={this.setRef}
+                        ref={this.props.innerRef || this.setRef}
                     />
                 }
                 {this.props.label
