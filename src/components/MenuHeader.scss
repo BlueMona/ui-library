@@ -2,14 +2,25 @@
   display: flex;
   align-items: flex-start;
   padding: $padding-default;
-  overflow: hidden;
 
   .main-content {
     margin-left: $margin-default;
+    max-width: 100%;
+    min-width: 0;
 
     .caption {
       @extend %subtitle;
       font-weight: $font-weight-semibold;
+      max-width: 100%;
+      min-width: 0;
+      
+      // Vertical ellipsis
+      word-break: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
     }
 
     .legend {
