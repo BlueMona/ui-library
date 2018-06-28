@@ -8,19 +8,28 @@
     width: 16px;
   }
 
-  // Hover state
   img.default {
     opacity: .54;
   }
 
   img.hover {
+    display: none;
     opacity: 1;
   }
 
-  // Active state
   &.active {
     img.default {
       opacity: 1;
+    }
+  }
+
+  &.hovered, &.selected {
+    img.default {
+      display: none;
+    }
+    
+    img.hover {
+      display: inline-block;
     }
   }
 }

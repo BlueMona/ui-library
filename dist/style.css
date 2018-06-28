@@ -276,9 +276,14 @@
   .p-custom-icon img.default {
     opacity: .54; }
   .p-custom-icon img.hover {
+    display: none;
     opacity: 1; }
   .p-custom-icon.active img.default {
     opacity: 1; }
+  .p-custom-icon.hovered img.default, .p-custom-icon.selected img.default {
+    display: none; }
+  .p-custom-icon.hovered img.hover, .p-custom-icon.selected img.hover {
+    display: inline-block; }
 
 .p-dialog-wrapper {
   display: flex;

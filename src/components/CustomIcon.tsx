@@ -62,16 +62,15 @@ export class CustomIcon extends React.Component<CustomIconProps> {
                     this.props.size,
                     this.props.className,
                     {
+                        selected: this.props.selected,
                         hovered: this.hovered,
                         active: this.props.active
                     }
                 )}
                 ref={this.setIconRef}
             >
-                {(this.props.hover && this.hovered) || this.props.selected
-                    ? <img className="hover" src={`./static/custom-icons/${this.props.icon}-hover.svg`} />
-                    : <img className="default" src={`./static/custom-icons/${this.props.icon}.svg`} />
-                }
+                <img className="hover" src={`./static/custom-icons/${this.props.icon}-hover.svg`} />
+                <img className="default" src={`./static/custom-icons/${this.props.icon}.svg`} />
             </div>
         );
     }
