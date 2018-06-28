@@ -43,6 +43,8 @@ export class MenuItem extends React.Component<MenuItemProps> {
                     }
                 )}
                 onClick={this.clickHandler}
+                onMouseEnter={this.props.onMouseEnter}
+                onMouseLeave={this.props.onMouseLeave}
             >
                 {icon
                     ? <MaterialIcon

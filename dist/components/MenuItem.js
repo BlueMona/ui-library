@@ -29,7 +29,7 @@ let MenuItem = class MenuItem extends react_1.default.Component {
                 clickable: !this.props.disabled,
                 disabled: this.props.disabled,
                 selected: this.props.selected
-            }), onClick: this.clickHandler },
+            }), onClick: this.clickHandler, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave },
             icon
                 ? react_1.default.createElement(MaterialIcon_1.MaterialIcon, { key: `icon-${icon}`, icon: icon, className: "icon" })
                 : (customIcon
