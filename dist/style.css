@@ -561,8 +561,8 @@ dialog {
       text-overflow: ellipsis;
       display: -webkit-box;
       line-height: 18px;
-      max-height: 54px;
-      -webkit-line-clamp: 3;
+      max-height: 72px;
+      -webkit-line-clamp: 4;
       -webkit-box-orient: vertical; }
     .p-menu-header .main-content .legend {
       color: rgba(0, 0, 0, 0.54); }
