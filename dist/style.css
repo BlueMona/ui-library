@@ -161,6 +161,8 @@
   .p-button.icon-and-label .material-icons,
   .p-button.icon-and-label .p-custom-icon {
     margin-right: 8px; }
+  .p-button.icon-and-label .material-icons {
+    color: rgba(0, 0, 0, 0.54); }
   .p-button.gold {
     color: gold; }
   .p-button.small {
