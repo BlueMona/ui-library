@@ -13,7 +13,8 @@ import { Tooltip } from "./Tooltip";
 const appRoot = document.getElementById("root") as HTMLElement;
 
 export interface MenuProps {
-    className?: string
+    className?: string // for the Menu button
+    innerClassName?: string // for the Menu content itself
 
     /*
         The starting point where MenuGlobal will be drawn from. Default "top-left"
@@ -28,10 +29,6 @@ export interface MenuProps {
     tooltip?: string
     tooltipPosition?: "top" | "bottom" | "left" | "right"
 
-    /*
-        `theme` in effect is a `className` prop that applies class to the menu itself as opposed to the <Menu> button
-        There is a defined "wide" theme but otherwise this is used to target styles onto the actual menu
-    */
     theme?: string
 
     onClick?: (ev?: React.MouseEvent<HTMLDivElement>) => void
@@ -159,6 +156,7 @@ export class Menu extends React.Component<MenuProps> {
                 className={css(
                     "p-menu-content",
                     this.props.theme,
+                    this.props.innerClassName,
                     { visible: this.menuVisible }
                 )}
                 style={this.style}

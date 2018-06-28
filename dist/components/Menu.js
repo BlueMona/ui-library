@@ -100,7 +100,7 @@ let Menu = class Menu extends react_1.default.Component {
                 : null));
         if (!this.menuActive)
             return menuButton;
-        const menuContent = (react_1.default.createElement("ul", Object.assign({ key: "p-menu-content", className: classnames_1.default("p-menu-content", this.props.theme, { visible: this.menuVisible }), style: this.style, ref: this.setMenuContentRef }, dom_1.getDataProps(this.props)), this.props.children));
+        const menuContent = (react_1.default.createElement("ul", Object.assign({ key: "p-menu-content", className: classnames_1.default("p-menu-content", this.props.theme, this.props.innerClassName, { visible: this.menuVisible }), style: this.style, ref: this.setMenuContentRef }, dom_1.getDataProps(this.props)), this.props.children));
         return [
             menuButton,
             react_dom_1.default.createPortal(menuContent, appRoot)

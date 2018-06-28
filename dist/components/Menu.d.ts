@@ -1,6 +1,7 @@
 import React from "react";
 export interface MenuProps {
     className?: string;
+    innerClassName?: string;
     position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
     icon?: string;
     customIcon?: string;
