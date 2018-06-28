@@ -386,9 +386,12 @@ dialog {
   .p-input input {
     flex-grow: 1;
     height: 48px;
-    padding: 18px 8px 0;
+    max-width: 100%;
+    padding: 0 8px 0;
     margin-top: 0;
     transition: 150ms; }
+  .p-input.has-label input {
+    padding-top: 18px; }
   .p-input textarea {
     flex-grow: 1;
     padding: 12px 8px 8px; }
@@ -537,12 +540,23 @@ dialog {
 .p-menu-header {
   display: flex;
   align-items: flex-start;
-  padding: 16px;
-  overflow: hidden; }
+  padding: 16px; }
   .p-menu-header .main-content {
-    margin-left: 16px; }
+    margin-left: 16px;
+    max-width: 100%;
+    min-width: 0; }
     .p-menu-header .main-content .caption {
-      font-weight: 600; }
+      font-weight: 600;
+      max-width: 100%;
+      min-width: 0;
+      word-break: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      line-height: 18px;
+      max-height: 72px;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical; }
     .p-menu-header .main-content .legend {
       color: rgba(0, 0, 0, 0.54); }
 
