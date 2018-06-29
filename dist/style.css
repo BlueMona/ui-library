@@ -248,11 +248,11 @@
     width: 20px;
     margin-right: -8px;
     box-sizing: content-box;
-    border: 2px solid rgba(64, 140, 255, 0.15);
+    border: 2px solid #408cff;
     border-radius: 20px; }
     .p-chip .p-button .material-icons {
       font-size: 20px;
-      color: rgba(64, 140, 255, 0.15); }
+      color: #408cff; }
     .p-chip .p-button:hover {
       background: #408cff; }
       .p-chip .p-button:hover .material-icons {

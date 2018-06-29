@@ -43,12 +43,12 @@
     width: 20px;
     margin-right: -8px;
     box-sizing: content-box;
-    border: 2px solid $background-selected;
+    border: 2px solid $peerio-blue;
     border-radius: 20px;
 
     .material-icons {
       font-size: 20px;
-      color: $background-selected;
+      color: $peerio-blue;
     }
 
     &:hover {
