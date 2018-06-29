@@ -2,7 +2,7 @@ import React from "react";
 export interface CheckboxProps {
     className?: string;
     checked: boolean;
-    onChange: () => void;
+    onChange?: () => void;
     label?: any;
     disabled?: boolean;
 }

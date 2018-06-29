@@ -5,7 +5,7 @@ import css from "classnames";
 export interface CheckboxProps {
   className?: string
   checked: boolean
-  onChange: () => void
+  onChange?: () => void
   label?: any
   disabled?: boolean
 }
