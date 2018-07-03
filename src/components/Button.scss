@@ -32,13 +32,11 @@
     cursor: pointer;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: $background-selected;
   }
 
-  &:active,
-  &:focus {
+  &:active {
     outline: none;
   }
 
@@ -101,8 +99,7 @@
     border-radius: 100%;
     color: $icon-dark-active;
 
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: transparent;
       color: $color-affirmative;
     }
@@ -134,8 +131,7 @@
     min-width: 0;
     padding: 0;
 
-    &:hover,
-    &:focus {
+    &:hover {
       // box-shadow: none;
       background-color: inherit;
     }
@@ -168,8 +164,7 @@
   }
 
   // "No-hover" theme
-  &.no-hover:hover,
-  &.no-hover:focus {
+  &.no-hover:hover {
     background-color: inherit;
   }
 }

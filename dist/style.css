@@ -117,9 +117,9 @@
     white-space: nowrap; }
   .p-button:not(:disabled) {
     cursor: pointer; }
-  .p-button:hover, .p-button:focus {
+  .p-button:hover {
     background-color: rgba(64, 140, 255, 0.15); }
-  .p-button:active, .p-button:focus {
+  .p-button:active {
     outline: none; }
   .p-button:disabled {
     pointer-events: none;
@@ -153,7 +153,7 @@
     padding: 0;
     border-radius: 100%;
     color: rgba(0, 0, 0, 0.54); }
-    .p-button.icon:hover, .p-button.icon:focus {
+    .p-button.icon:hover {
       background-color: transparent;
       color: #408cff; }
     .p-button.icon:disabled .material-icons {
@@ -170,7 +170,7 @@
     width: auto;
     min-width: 0;
     padding: 0; }
-    .p-button.small:hover, .p-button.small:focus {
+    .p-button.small:hover {
       background-color: inherit; }
   .p-button.active {
     color: #02cedb; }
@@ -189,7 +189,7 @@
     text-transform: none;
     color: #408cff;
     background-color: transparent; }
-  .p-button.no-hover:hover, .p-button.no-hover:focus {
+  .p-button.no-hover:hover {
     background-color: inherit; }
 
 .p-checkbox {
