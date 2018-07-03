@@ -119,7 +119,7 @@
     cursor: pointer; }
   .p-button:hover {
     background-color: rgba(64, 140, 255, 0.15); }
-  .p-button:active {
+  .p-button:active, .p-button:focus {
     outline: none; }
   .p-button:disabled {
     pointer-events: none;

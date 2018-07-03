@@ -36,7 +36,8 @@
     background-color: $background-selected;
   }
 
-  &:active {
+  &:active,
+  &:focus {
     outline: none;
   }
 
