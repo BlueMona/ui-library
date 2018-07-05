@@ -51,7 +51,9 @@ let Menu = class Menu extends react_1.default.Component {
         }
         this.setStyle();
         this.menuActive = true;
-        this.props.onClick;
+        if (this.props.onClick) {
+            this.props.onClick();
+        }
         window.addEventListener("click", this.hideMenu, true);
         window.addEventListener("keyup", this.handleKeyUp);
         if (this.scrollContainer) {
