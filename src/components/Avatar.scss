@@ -35,6 +35,11 @@
     color: $white;
     border-radius: 100%;
 
+    // When avatar has light bg color, text needs to be dark
+    &.light-bg {
+      color: $black;
+    }
+
     img {
       max-height: 100%;
       max-width: 100%;

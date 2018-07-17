@@ -6,7 +6,7 @@ export interface ActionProps {
 }
 
 export interface ContactProps {
-    color: string
+    color: ContactColorProps
     fullNameAndUsername: string
     hasAvatar?: boolean
     isDeleted?: boolean
@@ -14,6 +14,11 @@ export interface ContactProps {
     mediumAvatarUrl: string
     username: string
     tofuError?: boolean
+}
+
+export interface ContactColorProps {
+    value: string
+    isLight: boolean
 }
 
 export interface OptionProps {
