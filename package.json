@@ -1,6 +1,6 @@
 {
   "name": "peer-ui",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "Styles and PeerUI React component library for peerio-desktop",
   "main": "dist/peer-ui.js",
   "types": "dist/peer-ui.d.ts",
@@ -25,24 +25,24 @@
   },
   "homepage": "https://github.com/PeerioTechnologies/ui-library#readme",
   "dependencies": {
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
-    "@types/classnames": "^2.2.4",
-    "@types/react": "^16.3.16",
+    "@types/classnames": "^2.2.5",
+    "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
     "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.9.1",
+    "eslint-plugin-react": "^7.10.0",
     "mobx": "3.5.1",
     "mobx-react": "4.4.2",
-    "node-sass": "git+https://github.com/sass/node-sass.git#v4.7.0",
+    "node-sass": "^4.9.2",
     "npm-run-all": "^4.1.3",
     "react": "16.3.2",
     "react-dom": "16.3.2",
-    "ts-loader": "^4.3.1",
-    "typescript": "^2.9.1",
+    "ts-loader": "^4.4.2",
+    "typescript": "^2.9.2",
     "typescript-eslint-parser": "^15.0.1",
-    "webpack": "^4.11.0",
+    "webpack": "^4.16.1",
     "webpack-cli": "^2.1.5"
   },
   "peerDependencies": {

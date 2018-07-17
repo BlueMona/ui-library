@@ -45,9 +45,12 @@ export class Avatar extends React.Component<AvatarProps> {
                             "image-container",
                             this.props.className,
                             `${this.props.size || "medium"}`,
-                            { clickable: this.props.clickable || !!this.props.onClick }
+                            {
+                                clickable: this.props.clickable || !!this.props.onClick,
+                                'light-bg': !c.hasAvatar && c.color.isLight
+                            }
                         )}
-                        style={!c.hasAvatar ? { backgroundColor: c.color } : {}}
+                        style={!c.hasAvatar ? { backgroundColor: c.color.value } : {}}
                         onClick={this.props.onClick}
                     >
                         {c.hasAvatar
