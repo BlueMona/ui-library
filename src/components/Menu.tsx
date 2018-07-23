@@ -73,8 +73,6 @@ export class Menu extends React.Component<MenuProps> {
         this.setStyle();
         this.menuActive = true;
 
-        if (this.props.onClick) { this.props.onClick(); }
-
         window.addEventListener("click", this.hideMenu, true);
         window.addEventListener("keyup", this.handleKeyUp);
 
@@ -129,6 +127,7 @@ export class Menu extends React.Component<MenuProps> {
                     { clickable: this.menuActive }
                 )}
                 ref={this.setMenuButtonRef}
+                onClick={this.props.onClick}
             >
                 <Button
                     icon={this.props.icon}

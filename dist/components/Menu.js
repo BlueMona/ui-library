@@ -51,9 +51,6 @@ let Menu = class Menu extends react_1.default.Component {
         }
         this.setStyle();
         this.menuActive = true;
-        if (this.props.onClick) {
-            this.props.onClick();
-        }
         window.addEventListener("click", this.hideMenu, true);
         window.addEventListener("keyup", this.handleKeyUp);
         if (this.scrollContainer) {
@@ -96,7 +93,7 @@ let Menu = class Menu extends react_1.default.Component {
             this.style.right = `${windowX - left - width}px`;
     }
     render() {
-        const menuButton = (react_1.default.createElement("div", { key: "p-menu", className: classnames_1.default("p-menu", this.props.className, { clickable: this.menuActive }), ref: this.setMenuButtonRef },
+        const menuButton = (react_1.default.createElement("div", { key: "p-menu", className: classnames_1.default("p-menu", this.props.className, { clickable: this.menuActive }), ref: this.setMenuButtonRef, onClick: this.props.onClick },
             react_1.default.createElement(Button_1.Button, { icon: this.props.icon, customIcon: this.props.customIcon, onClick: this.handleMenuClick, disabled: this.menuActive || this.props.disabled }, this.props.customButton),
             this.props.tooltip
                 ? react_1.default.createElement(Tooltip_1.Tooltip, { text: this.props.tooltip, position: this.props.tooltipPosition || "top" })
