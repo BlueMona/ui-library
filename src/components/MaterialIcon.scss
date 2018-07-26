@@ -8,12 +8,18 @@
     color: gold;
   }
 
-  &.active {
+  &.active,
+  &.confirmation {
     color: $color-confirmation;
   }
 
-  &.selected {
+  &.selected,
+  &.affirmative {
     color: $color-affirmative;
+  }
+
+  &.error {
+    color: $color-error;
   }
 }
 
