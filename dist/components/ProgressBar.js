@@ -15,7 +15,7 @@ const classnames_1 = __importDefault(require("classnames"));
 let ProgressBar = class ProgressBar extends react_1.default.Component {
     render() {
         let style;
-        if (this.props.mode === ("determinate" || undefined)) {
+        if (this.props.mode === "determinate" || this.props.mode === undefined) {
             style = { width: `${this.props.value / this.props.max * 100}%` };
         }
         return (
