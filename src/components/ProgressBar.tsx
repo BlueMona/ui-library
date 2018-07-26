@@ -18,7 +18,7 @@ export class ProgressBar extends React.Component<
 > {
     render() {
         let style;
-        if (this.props.mode === ("determinate" || undefined)) {
+        if (this.props.mode === "determinate" || this.props.mode === undefined) {
             style = { width: `${this.props.value / this.props.max * 100}%` };
         }
 
