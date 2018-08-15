@@ -27,7 +27,7 @@ export interface DialogProps {
 
     // "Small" sets width to 360px. Default is 50vw.
     size?: "small"
-    
+
     // Adds a stripe to the top of the dialog.
     theme?: "warning" | "error" | "primary"
 
@@ -62,14 +62,14 @@ export class Dialog extends React.Component<DialogProps> {
                 this.setInactive();
             }
         }, { fireImmediately: true });
-
-        window.addEventListener("keyup", this.handleEscKey, false);
     }
 
     componentWillUnmount() {
+        if (this.dialogRendered) {
+            window.removeEventListener("keyup", this.handleEscKey);
+            window.removeEventListener("keydown", this.handleTabKey);
+        }
         this.activeReaction();
-        window.removeEventListener("keyup", this.handleEscKey);
-        window.removeEventListener("keydown", this.handleTabKey);
     }
 
     @action.bound setActive() {
@@ -193,7 +193,7 @@ export class Dialog extends React.Component<DialogProps> {
             }
         }
 
-        
+
         const dialogContent = (
             <div
                 className={css(

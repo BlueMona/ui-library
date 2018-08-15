@@ -44,12 +44,13 @@ let Dialog = class Dialog extends react_1.default.Component {
                 this.setInactive();
             }
         }, { fireImmediately: true });
-        window.addEventListener("keyup", this.handleEscKey, false);
     }
     componentWillUnmount() {
+        if (this.dialogRendered) {
+            window.removeEventListener("keyup", this.handleEscKey);
+            window.removeEventListener("keydown", this.handleTabKey);
+        }
         this.activeReaction();
-        window.removeEventListener("keyup", this.handleEscKey);
-        window.removeEventListener("keydown", this.handleTabKey);
     }
     setActive() {
         if (this.unmountTimeout) {
