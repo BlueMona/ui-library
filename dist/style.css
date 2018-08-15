@@ -506,10 +506,12 @@ dialog {
   color: rgba(0, 0, 0, 0.54); }
   .material-icons.gold {
     color: gold; }
-  .material-icons.active {
+  .material-icons.active, .material-icons.confirmation {
     color: #02cedb; }
-  .material-icons.selected {
+  .material-icons.selected, .material-icons.affirmative {
     color: #408cff; }
+  .material-icons.error {
+    color: #e90162; }
 
 .reverse-icon.material-icons,
 .reverse-icon .material-icons {
