@@ -2,6 +2,7 @@ import React from "react";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 import css from "classnames";
+import { Button } from "./Button";
 
 export interface InputProps {
     className?: string
@@ -38,6 +39,10 @@ export class Input extends React.Component<InputProps> {
     handleChange = (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         if (!this.props.onChange) return;
         this.props.onChange(ev.currentTarget.value);
+    }
+
+    clearInput = () => {
+        this.inputRef.value = '';
     }
 
     @action.bound handleFocus() {
@@ -144,6 +149,10 @@ export class Input extends React.Component<InputProps> {
                     : null
                 }
                 {this.props.error ? <div className="error">{this.props.error}</div> : null}
+                {(!this.props.multiline && !!this.props.value)
+                    ? <Button className="clear-button" icon="close" onClick={this.clearInput} />
+                    : null
+                }
             </div>
         );
     }

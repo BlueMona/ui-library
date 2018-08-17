@@ -94,4 +94,12 @@
       opacity: 1;
     }
   }
+
+  // Close button
+  .clear-button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -18px; // half icon height
+  }
 }

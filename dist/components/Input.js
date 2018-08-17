@@ -16,6 +16,7 @@ const react_1 = __importDefault(require("react"));
 const mobx_1 = require("mobx");
 const mobx_react_1 = require("mobx-react");
 const classnames_1 = __importDefault(require("classnames"));
+const Button_1 = require("./Button");
 let Input = class Input extends react_1.default.Component {
     constructor() {
         super(...arguments);
@@ -25,6 +26,9 @@ let Input = class Input extends react_1.default.Component {
             if (!this.props.onChange)
                 return;
             this.props.onChange(ev.currentTarget.value);
+        };
+        this.clearInput = () => {
+            this.inputRef.value = '';
         };
     }
     handleFocus() {
@@ -72,7 +76,10 @@ let Input = class Input extends react_1.default.Component {
             this.props.hint
                 ? react_1.default.createElement("div", { className: classnames_1.default("hint", { visible: this.props.value === "" }) }, this.props.hint)
                 : null,
-            this.props.error ? react_1.default.createElement("div", { className: "error" }, this.props.error) : null));
+            this.props.error ? react_1.default.createElement("div", { className: "error" }, this.props.error) : null,
+            (!this.props.multiline && !!this.props.value)
+                ? react_1.default.createElement(Button_1.Button, { className: "clear-button", icon: "close", onClick: this.clearInput })
+                : null));
     }
 };
 __decorate([
