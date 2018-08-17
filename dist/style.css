@@ -382,7 +382,6 @@ dialog {
 
 .p-input {
   display: flex;
-  flex-grow: 1;
   position: relative;
   height: auto;
   width: 100%; }
@@ -442,6 +441,11 @@ dialog {
     top: 100%;
     color: #e90162;
     opacity: 1; }
+  .p-input .clear-button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -18px; }
 
 .p-list {
   padding: 8px 0; }
