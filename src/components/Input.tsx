@@ -125,8 +125,7 @@ export class Input extends React.Component<InputProps> {
                 {this.props.label
                     ? <div
                         className={css(
-                            "label",
-                            { shrink: this.props.value !== "" || this.isFocused }
+                            "label"
                         )}
                     >
                         {this.props.label}

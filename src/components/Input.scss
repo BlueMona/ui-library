@@ -9,7 +9,7 @@
   input,
   textarea {
     border: 1px solid $input-border;
-    border-radius: 2px;
+    border-radius: 4px;
 
     &::placeholder {
       color: $text-dark-hint;
@@ -25,27 +25,24 @@
     transition: 150ms;
   }
 
-  &.has-label input {
-    padding-top: 18px;
-  }
-
   textarea {
     flex-grow: 1;
     padding: 12px $padding-small $padding-small;
   }
 
   .label {
+    display: flex;
+    align-items: center;
+    height: 16px;
     position: absolute;
     pointer-events: none;
-    top: 16px;
-    padding-left: $padding-small;
+    top: -8px;
+    left: $padding-tiny;
+    padding: 0 $padding-tiny;
     transition: top 150ms, font-size 150ms, color 150ms;
-    color: $text-dark-hint;
-
-    &.shrink {
-      top: 8px;
-      font-size: 12px;
-    }
+    color: $text-dark-secondary;
+    background-color: $background-root;
+    font-size: 12px;
   }
 
   .hint {
@@ -76,7 +73,6 @@
       border-color: $peerio-blue;
     }
 
-    .label,
     .error,
     + .helper-text {
       color: $peerio-blue;
@@ -87,10 +83,6 @@
   &.has-error {
     input {
       border-color: $color-error;
-    }
-
-    .label {
-      color: $color-error;
     }
 
     .error {

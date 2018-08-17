@@ -388,8 +388,8 @@ dialog {
   width: 100%; }
   .p-input input,
   .p-input textarea {
-    border: 1px solid rgba(0, 0, 0, 0.38);
-    border-radius: 2px; }
+    border: 1px solid rgba(0, 0, 0, 0.54);
+    border-radius: 4px; }
     .p-input input::placeholder,
     .p-input textarea::placeholder {
       color: rgba(0, 0, 0, 0.38); }
@@ -400,21 +400,22 @@ dialog {
     padding: 0 8px 0;
     margin-top: 0;
     transition: 150ms; }
-  .p-input.has-label input {
-    padding-top: 18px; }
   .p-input textarea {
     flex-grow: 1;
     padding: 12px 8px 8px; }
   .p-input .label {
+    display: flex;
+    align-items: center;
+    height: 16px;
     position: absolute;
     pointer-events: none;
-    top: 16px;
-    padding-left: 8px;
+    top: -8px;
+    left: 4px;
+    padding: 0 4px;
     transition: top 150ms, font-size 150ms, color 150ms;
-    color: rgba(0, 0, 0, 0.38); }
-    .p-input .label.shrink {
-      top: 8px;
-      font-size: 12px; }
+    color: rgba(0, 0, 0, 0.54);
+    background-color: white;
+    font-size: 12px; }
   .p-input .hint {
     position: absolute;
     pointer-events: none;
@@ -430,14 +431,11 @@ dialog {
   .p-input.focused input {
     outline: 0;
     border-color: #408cff; }
-  .p-input.focused .label,
   .p-input.focused .error,
   .p-input.focused + .helper-text {
     color: #408cff; }
   .p-input.has-error input {
     border-color: #e90162; }
-  .p-input.has-error .label {
-    color: #e90162; }
   .p-input.has-error .error {
     position: absolute;
     width: 100%;
