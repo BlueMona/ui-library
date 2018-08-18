@@ -69,17 +69,27 @@
     height: $padding-default;
     margin-top: $margin-tiny;
     width: 100%;
-  }
-
-  .hint {
-    @extend %hint-error-label;
+    font-size: 12px;
     pointer-events: none;
-    transition: opacity 150ms;
-    color: $text-dark-hint;
     opacity: 0;
+    transition: opacity 150ms;
 
     &.visible {
       opacity: 1;
+    }
+
+    &.hint {
+      color: $text-dark-hint;
+    }
+
+    &.error {
+      color: $color-error;
+
+      .material-icons {
+        font-size: 18px;
+        color: inherit;
+        margin-right: 2px;
+      }
     }
   }
 
@@ -88,19 +98,12 @@
     input {
       border-color: $color-error;
     }
-
-    .error {
-      @extend %hint-error-label;
-      color: $color-error;
-      opacity: 1;
-    }
   }
 
   // Close button
   .clear-button {
     position: absolute;
     right: 0;
-    top: 50%;
-    margin-top: -18px; // half icon height
+    top: 16px;
   }
 }

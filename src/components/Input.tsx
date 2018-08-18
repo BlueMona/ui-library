@@ -2,7 +2,9 @@ import React from "react";
 import { action, observable } from "mobx";
 import { observer } from "mobx-react";
 import css from "classnames";
+
 import { Button } from "./Button";
+import { MaterialIcon } from "./MaterialIcon";
 
 export interface InputProps {
     className?: string
@@ -145,19 +147,23 @@ export class Input extends React.Component<InputProps> {
                     : null
                 }
 
-                <div className="hint-or-error">
-                    {this.props.hint
-                        ? <div
-                            className={css(
-                                "hint",
-                                { visible: this.isFocused && !this.props.error }
-                            )}
-                        >
-                            {this.props.hint}
-                        </div>
-                        : null
+                <div className={css(
+                    "hint-or-error",
+                    {
+                        error: !!this.props.error,
+                        hint: !!this.props.hint,
+                        visible: !!this.props.error || (!!this.props.hint && this.isFocused)
                     }
-                    {this.props.error ? <div className="error">{this.props.error}</div> : null}
+                )}>
+                    {this.props.error ?
+                        <React.Fragment>
+                            <MaterialIcon icon="error_outline" />
+                            {this.props.error}
+                        </React.Fragment>
+                        : this.props.hint
+                            ? this.props.hint
+                            : null
+                    }
                 </div>
             </div>
         );

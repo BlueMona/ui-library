@@ -19,7 +19,7 @@
 .p-menu-header .main-content .caption {
   font-size: 16px; }
 
-.p-input .hint, .p-input.has-error .error, .p-tooltip {
+.p-tooltip {
   font-size: 12px; }
 
 .p-dropdown .inputs-container ul, .p-list, .p-radio {
@@ -382,6 +382,7 @@ dialog {
 
 .p-input {
   display: flex;
+  flex-direction: column;
   position: relative;
   height: auto;
   width: 100%; }
@@ -394,7 +395,7 @@ dialog {
       color: rgba(0, 0, 0, 0.38); }
   .p-input input {
     flex-grow: 1;
-    height: 48px;
+    height: 64px;
     max-width: 100%;
     padding: 0 8px 0;
     margin-top: 0;
@@ -402,6 +403,14 @@ dialog {
   .p-input textarea {
     flex-grow: 1;
     padding: 12px 8px 8px; }
+  .p-input input:hover {
+    border-color: rgba(0, 0, 0, 0.87); }
+  .p-input.focused input {
+    outline: 0;
+    border-color: #408cff; }
+  .p-input.focused .error,
+  .p-input.focused + .helper-text {
+    color: #408cff; }
   .p-input .label {
     display: flex;
     align-items: center;
@@ -415,37 +424,31 @@ dialog {
     color: rgba(0, 0, 0, 0.54);
     background-color: white;
     font-size: 12px; }
-  .p-input .hint {
-    position: absolute;
+  .p-input .hint-or-error {
+    display: flex;
+    height: 16px;
+    margin-top: 4px;
+    width: 100%;
+    font-size: 12px;
     pointer-events: none;
-    top: 100%;
-    padding-left: 8px;
-    transition: opacity 150ms;
-    color: rgba(0, 0, 0, 0.38);
-    opacity: 0; }
-    .p-input .hint.visible {
+    opacity: 0;
+    transition: opacity 150ms; }
+    .p-input .hint-or-error.visible {
       opacity: 1; }
-  .p-input input:hover {
-    border-color: rgba(0, 0, 0, 0.87); }
-  .p-input.focused input {
-    outline: 0;
-    border-color: #408cff; }
-  .p-input.focused .error,
-  .p-input.focused + .helper-text {
-    color: #408cff; }
+    .p-input .hint-or-error.hint {
+      color: rgba(0, 0, 0, 0.38); }
+    .p-input .hint-or-error.error {
+      color: #e90162; }
+      .p-input .hint-or-error.error .material-icons {
+        font-size: 18px;
+        color: inherit;
+        margin-right: 2px; }
   .p-input.has-error input {
     border-color: #e90162; }
-  .p-input.has-error .error {
-    position: absolute;
-    width: 100%;
-    top: 100%;
-    color: #e90162;
-    opacity: 1; }
   .p-input .clear-button {
     position: absolute;
     right: 0;
-    top: 50%;
-    margin-top: -18px; }
+    top: 16px; }
 
 .p-list {
   padding: 8px 0; }

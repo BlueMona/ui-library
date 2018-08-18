@@ -17,6 +17,7 @@ const mobx_1 = require("mobx");
 const mobx_react_1 = require("mobx-react");
 const classnames_1 = __importDefault(require("classnames"));
 const Button_1 = require("./Button");
+const MaterialIcon_1 = require("./MaterialIcon");
 let Input = class Input extends react_1.default.Component {
     constructor() {
         super(...arguments);
@@ -77,11 +78,17 @@ let Input = class Input extends react_1.default.Component {
             (!this.props.multiline && !!this.props.value && !!this.props.onClear)
                 ? react_1.default.createElement(Button_1.Button, { className: "clear-button", icon: "close", onClick: this.clearInput })
                 : null,
-            react_1.default.createElement("div", { className: "hint-or-error" },
-                this.props.hint
-                    ? react_1.default.createElement("div", { className: classnames_1.default("hint", { visible: this.isFocused && !this.props.error }) }, this.props.hint)
-                    : null,
-                this.props.error ? react_1.default.createElement("div", { className: "error" }, this.props.error) : null)));
+            react_1.default.createElement("div", { className: classnames_1.default("hint-or-error", {
+                    error: !!this.props.error,
+                    hint: !!this.props.hint,
+                    visible: !!this.props.error || (!!this.props.hint && this.isFocused)
+                }) }, this.props.error ?
+                react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: "error_outline" }),
+                    this.props.error)
+                : this.props.hint
+                    ? this.props.hint
+                    : null)));
     }
 };
 __decorate([
