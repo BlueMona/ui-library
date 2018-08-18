@@ -14,6 +14,7 @@ export interface InputProps {
     value?: string;
     multiline?: boolean;
     onChange?: (val: string) => void;
+    onClear?: () => void;
     onFocus?: () => void;
     onBlur?: () => void;
     onKeyUp?: React.KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>;

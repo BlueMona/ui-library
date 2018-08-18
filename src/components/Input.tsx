@@ -24,6 +24,7 @@ export interface InputProps {
 
     // React props
     onChange?: (val: string) => void
+    onClear?: () => void
     onFocus?: () => void
     onBlur?: () => void
     onKeyUp?: React.KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>
@@ -42,7 +43,7 @@ export class Input extends React.Component<InputProps> {
     }
 
     clearInput = () => {
-        this.inputRef.value = '';
+        if (this.props.onClear) this.props.onClear();
     }
 
     @action.bound handleFocus() {
@@ -149,7 +150,7 @@ export class Input extends React.Component<InputProps> {
                     : null
                 }
                 {this.props.error ? <div className="error">{this.props.error}</div> : null}
-                {(!this.props.multiline && !!this.props.value)
+                {(!this.props.multiline && !!this.props.value && !!this.props.onClear)
                     ? <Button className="clear-button" icon="close" onClick={this.clearInput} />
                     : null
                 }

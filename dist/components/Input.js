@@ -28,7 +28,8 @@ let Input = class Input extends react_1.default.Component {
             this.props.onChange(ev.currentTarget.value);
         };
         this.clearInput = () => {
-            this.inputRef.value = '';
+            if (this.props.onClear)
+                this.props.onClear();
         };
     }
     handleFocus() {
@@ -77,7 +78,7 @@ let Input = class Input extends react_1.default.Component {
                 ? react_1.default.createElement("div", { className: classnames_1.default("hint", { visible: this.props.value === "" }) }, this.props.hint)
                 : null,
             this.props.error ? react_1.default.createElement("div", { className: "error" }, this.props.error) : null,
-            (!this.props.multiline && !!this.props.value)
+            (!this.props.multiline && !!this.props.value && !!this.props.onClear)
                 ? react_1.default.createElement(Button_1.Button, { className: "clear-button", icon: "close", onClick: this.clearInput })
                 : null));
     }
