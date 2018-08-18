@@ -418,7 +418,7 @@ dialog {
   .p-input .hint {
     position: absolute;
     pointer-events: none;
-    top: 28px;
+    top: 100%;
     padding-left: 8px;
     transition: opacity 150ms;
     color: rgba(0, 0, 0, 0.38);

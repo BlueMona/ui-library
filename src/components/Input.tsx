@@ -92,6 +92,17 @@ export class Input extends React.Component<InputProps> {
                     }
                 )}
             >
+                {this.props.label
+                    ? <div
+                        className={css(
+                            "label"
+                        )}
+                    >
+                        {this.props.label}
+                    </div>
+                    : null
+                }
+
                 {this.props.multiline
                     ? <textarea
                         placeholder={this.props.placeholder}
@@ -128,32 +139,26 @@ export class Input extends React.Component<InputProps> {
                         ref={this.props.innerRef || this.setRef}
                     />
                 }
-                {this.props.label
-                    ? <div
-                        className={css(
-                            "label"
-                        )}
-                    >
-                        {this.props.label}
-                    </div>
-                    : null
-                }
-                {this.props.hint
-                    ? <div
-                        className={css(
-                            "hint",
-                            { visible: this.props.value === "" }
-                        )}
-                    >
-                        {this.props.hint}
-                    </div>
-                    : null
-                }
-                {this.props.error ? <div className="error">{this.props.error}</div> : null}
+                
                 {(!this.props.multiline && !!this.props.value && !!this.props.onClear)
                     ? <Button className="clear-button" icon="close" onClick={this.clearInput} />
                     : null
                 }
+
+                <div className="hint-or-error">
+                    {this.props.hint
+                        ? <div
+                            className={css(
+                                "hint",
+                                { visible: this.isFocused && !this.props.error }
+                            )}
+                        >
+                            {this.props.hint}
+                        </div>
+                        : null
+                    }
+                    {this.props.error ? <div className="error">{this.props.error}</div> : null}
+                </div>
             </div>
         );
     }

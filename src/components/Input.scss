@@ -1,5 +1,6 @@
 .p-input {
   display: flex;
+  flex-direction: column;
   position: relative;
   height: auto;
   width: 100%;
@@ -16,7 +17,7 @@
 
   input {
     flex-grow: 1;
-    height: 48px;
+    height: 64px;
     max-width: 100%;
     padding: 0 $padding-small 0;
     margin-top: 0;
@@ -26,37 +27,6 @@
   textarea {
     flex-grow: 1;
     padding: 12px $padding-small $padding-small;
-  }
-
-  .label {
-    display: flex;
-    align-items: center;
-    height: 16px;
-    position: absolute;
-    pointer-events: none;
-    top: -8px;
-    left: $padding-tiny;
-    padding: 0 $padding-tiny;
-    transition: top 150ms, font-size 150ms, color 150ms;
-    color: $text-dark-secondary;
-    background-color: $background-root;
-    font-size: 12px;
-  }
-
-  .hint {
-    @extend %hint-error-label;
-    position: absolute;
-    pointer-events: none;
-    top: 28px;
-    padding-left: $padding-small;
-
-    transition: opacity 150ms;
-    color: $text-dark-hint;
-    opacity: 0;
-
-    &.visible {
-      opacity: 1;
-    }
   }
 
   // Hover state
@@ -77,6 +47,42 @@
     }
   }
 
+  // Label text
+  .label {
+    display: flex;
+    align-items: center;
+    height: 16px;
+    position: absolute;
+    pointer-events: none;
+    top: -8px;
+    left: $padding-tiny;
+    padding: 0 $padding-tiny;
+    transition: top 150ms, font-size 150ms, color 150ms;
+    color: $text-dark-secondary;
+    background-color: $background-root;
+    font-size: 12px;
+  }
+
+  // Hint/error text container
+  .hint-or-error {
+    display: flex;
+    height: $padding-default;
+    margin-top: $margin-tiny;
+    width: 100%;
+  }
+
+  .hint {
+    @extend %hint-error-label;
+    pointer-events: none;
+    transition: opacity 150ms;
+    color: $text-dark-hint;
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+
   // Error state
   &.has-error {
     input {
@@ -85,9 +91,6 @@
 
     .error {
       @extend %hint-error-label;
-      position: absolute;
-      width: 100%;
-      top: 100%;
       color: $color-error;
       opacity: 1;
     }
