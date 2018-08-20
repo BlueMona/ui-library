@@ -146,8 +146,8 @@
       background-color: white;
       border: 1px solid #408cff; }
     .p-button.affirmative:disabled {
-      color: rgba(255, 255, 255, 0.38);
-      background-color: transparent; }
+      color: white;
+      background-color: rgba(0, 0, 0, 0.12); }
   .p-button.icon {
     height: 36px;
     width: 36px;
