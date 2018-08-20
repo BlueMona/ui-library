@@ -408,9 +408,6 @@ dialog {
   .p-input.focused input {
     outline: 0;
     border-color: #408cff; }
-  .p-input.focused .error,
-  .p-input.focused + .helper-text {
-    color: #408cff; }
   .p-input .label {
     display: flex;
     align-items: center;
@@ -436,7 +433,7 @@ dialog {
     .p-input .hint-or-error.visible {
       opacity: 1; }
     .p-input .hint-or-error.hint {
-      color: rgba(0, 0, 0, 0.38); }
+      color: #408cff; }
     .p-input .hint-or-error.error {
       color: #e90162; }
       .p-input .hint-or-error.error .material-icons {
