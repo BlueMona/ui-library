@@ -6,23 +6,18 @@ import css from "classnames";
 import { Button } from "./Button";
 import { MaterialIcon } from "./MaterialIcon";
 
-export interface InputProps {
+interface BaseInputProps {
     className?: string
     label?: string
     error?: string
     hint?: string
-    
-    innerRef?: (ref: HTMLTextAreaElement | HTMLInputElement | null | undefined) => void
 
     // Standard HTML input props
     autoFocus?: boolean
-    disabled?: boolean
     maxLength?: number
     placeholder?: string
-    readOnly?: boolean
-    type?: "text" | "password"
+    
     value?: string
-    multiline?: boolean
 
     // React props
     onChange?: (val: string) => void
@@ -33,6 +28,20 @@ export interface InputProps {
     onKeyDown?: React.KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>
     onKeyPress?: React.KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>
 }
+
+interface TextAreaInputProps {
+    multiline: true;
+    innerRef?: React.Ref<HTMLTextAreaElement>;
+}
+
+interface InputInputProps {
+    type?: "text" | "password";
+    readOnly?: boolean;;
+    disabled?: boolean
+    innerRef?: React.Ref<HTMLInputElement>;
+}
+
+export type InputProps = BaseInputProps & (TextAreaInputProps | InputInputProps);
 
 @observer
 export class Input extends React.Component<InputProps> {
