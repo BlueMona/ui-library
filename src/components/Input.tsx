@@ -36,8 +36,8 @@ interface TextAreaInputProps {
 
 interface InputInputProps {
     type?: "text" | "password";
-    readOnly?: boolean;;
-    disabled?: boolean
+    readOnly?: boolean;
+    disabled?: boolean;
     innerRef?: React.Ref<HTMLInputElement>;
 }
 
