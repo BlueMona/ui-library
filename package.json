@@ -5,16 +5,17 @@
   "main": "dist/peer-ui.js",
   "types": "dist/peer-ui.d.ts",
   "scripts": {
+    "build": "rm -rf dist/ && tsc",
     "watch": "run-p watch:*",
     "watch:webpack": "webpack -d --watch",
     "watch:style": "npm run build:style -- -w",
-    "build": "run-p build:*",
-    "build:webpack": "webpack -p",
-    "build:style": "node-sass ./src/style.scss ./dist/style.css",
+    "web-build": "run-p web-build:*",
+    "web-build:webpack": "webpack -p",
+    "web-build:style": "node-sass ./src/style.scss ./dist/style.css",
     "test": "run-s -l test:*",
     "test:ts": "tsc --noEmit",
     "test:jest": "jest --colors",
-    "test:eslint": "eslint 'src/**/*'"
+    "test:eslint": "eslint 'src/**/*.{ts,tsx}'"
   },
   "repository": {
     "type": "git",
