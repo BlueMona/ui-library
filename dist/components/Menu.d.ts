@@ -31,5 +31,5 @@ export declare class Menu extends React.Component<MenuProps> {
     handleKeyUp(ev: KeyboardEvent): void;
     hideMenu(): void;
     setStyle(): void;
-    render(): JSX.Element | (React.ReactPortal | JSX.Element)[];
+    render(): JSX.Element | JSX.Element[];
 }

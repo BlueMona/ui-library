@@ -107,8 +107,8 @@ export class Menu extends React.Component<MenuProps> {
         const { width, height, left, top } = this.menuButtonRef.getBoundingClientRect();
         const windowX = window.innerWidth;
         const windowY = window.innerHeight;
-        
-        const position = !!this.props.position ? this.props.position : "top-left";
+
+        const position = this.props.position || "top-left";
         const [posY, posX] = position.split("-");
 
         if (posY === "top") this.style.top = `${top}px`;
