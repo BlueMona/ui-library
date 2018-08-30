@@ -6,23 +6,18 @@ import css from "classnames";
 import { Button } from "./Button";
 import { MaterialIcon } from "./MaterialIcon";
 
-export interface InputProps {
+interface BaseInputProps {
     className?: string
     label?: string
     error?: string
     hint?: string
 
-    innerRef?: (ref: HTMLTextAreaElement | HTMLInputElement | null | undefined) => void
-
     // Standard HTML input props
     autoFocus?: boolean
-    disabled?: boolean
     maxLength?: number
     placeholder?: string
-    readOnly?: boolean
-    type?: "text" | "password"
+
     value?: string
-    multiline?: boolean
 
     // React props
     onChange?: (val: string) => void
@@ -34,10 +29,25 @@ export interface InputProps {
     onKeyPress?: React.KeyboardEventHandler<HTMLInputElement | HTMLTextAreaElement>
 }
 
+interface TextAreaInputProps {
+    multiline: true;
+    innerRef?: React.Ref<HTMLTextAreaElement>;
+}
+
+interface InputInputProps {
+    multiline?: false;
+    type?: "text" | "password";
+    readOnly?: boolean;
+    disabled?: boolean;
+    innerRef?: React.Ref<HTMLInputElement>;
+}
+
+export type InputProps = BaseInputProps & (TextAreaInputProps | InputInputProps);
+
 @observer
 export class Input extends React.Component<InputProps> {
     @observable isFocused = false;
-    @observable inputRef = undefined as any;
+    @observable inputRef: HTMLInputElement | HTMLTextAreaElement | null = null;
 
     handleChange = (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         if (!this.props.onChange) return;
@@ -49,16 +59,16 @@ export class Input extends React.Component<InputProps> {
     }
 
     @action.bound handleFocus() {
-        this.isFocused = true;
         if (this.props.onFocus) this.props.onFocus();
+        this.isFocused = true;
     }
 
     @action.bound handleBlur() {
-        this.isFocused = false;
         if (this.props.onBlur) this.props.onBlur();
+        this.isFocused = false;
     }
 
-    @action.bound setRef(ref: any) {
+    @action.bound setRef(ref: HTMLInputElement | HTMLTextAreaElement | null) {
         if (ref) {
             this.inputRef = ref;
             if (this.props.autoFocus) {
