@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Checking Versions"
+          name: 'Checking Versions'
           command: |
             node --version
             npm --version
@@ -23,5 +23,5 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: typescript, eslint, jest
+          name: tests - typescript, eslint, jest, sass, prettier
           command: npm test
