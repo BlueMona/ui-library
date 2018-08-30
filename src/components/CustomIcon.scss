@@ -9,7 +9,7 @@
   }
 
   img.default {
-    opacity: .54;
+    opacity: 0.54;
   }
 
   img.hover {
@@ -23,11 +23,12 @@
     }
   }
 
-  &.hovered, &.selected {
+  &.hovered,
+  &.selected {
     img.default {
       display: none;
     }
-    
+
     img.hover {
       display: inline-block;
     }

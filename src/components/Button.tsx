@@ -1,50 +1,54 @@
-import React from "react";
-import css from "classnames";
+import React from 'react';
+import css from 'classnames';
 
-import { MaterialIcon } from "./MaterialIcon";
-import { CustomIcon } from "./CustomIcon";
-import { Tooltip } from "./Tooltip";
+import { MaterialIcon } from './MaterialIcon';
+import { CustomIcon } from './CustomIcon';
+import { Tooltip } from './Tooltip';
 
 export interface ButtonProps {
-    className?: string
-    style?: object
+  className?: string;
+  style?: object;
 
-    // Button will render as an <a> element
-    href?: string
+  // Button will render as an <a> element
+  href?: string;
 
-    // If label content exists, child content ignored. Can put arbitarary HTML in here.
-    label?: any
+  // If label content exists, child content ignored. Can put arbitarary HTML in here.
+  label?: any;
 
-    // To use MaterialIcon
-    icon?: string
+  // To use MaterialIcon
+  icon?: string;
 
-    // To use CustomIcon
-    customIcon?: string
+  // To use CustomIcon
+  customIcon?: string;
 
-    // Makes button unclickable and applies "disabled" styling
-    disabled?: boolean
+  // Makes button unclickable and applies "disabled" styling
+  disabled?: boolean;
 
-    // Makes button blue or other "selected" colour
-    selected?: boolean
+  // Makes button blue or other "selected" colour
+  selected?: boolean;
 
-    // Makes button teal or other "active" colour
-    active?: boolean
+  // Makes button teal or other "active" colour
+  active?: boolean;
 
-    onClick?: (ev?: React.MouseEvent<HTMLButtonElement>) => void
-    onMouseEnter?: (ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
-    onMouseLeave?: (ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void
+  onClick?: (ev?: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseEnter?: (
+    ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => void;
+  onMouseLeave?: (
+    ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => void;
 
-    // Tooltip text
-    tooltip?: string
+  // Tooltip text
+  tooltip?: string;
 
-    // Where tooltip will be rendered. Defaults to "top"
-    tooltipPosition?: "top" | "right" | "bottom" | "left"
+  // Where tooltip will be rendered. Defaults to "top"
+  tooltipPosition?: 'top' | 'right' | 'bottom' | 'left';
 
-    // Blank for default = 24px, "small" = 16px
-    tooltipSize?: "small"
+  // Blank for default = 24px, "small" = 16px
+  tooltipSize?: 'small';
 
-    // TODO: clean up these themes (on desktop too)
-    /* Various themes for styling.
+  // TODO: clean up these themes (on desktop too)
+  /* Various themes for styling.
         * (default): font colour $color-affirmative, background transparent
         * primary: font color $text-dark-default
         * secondary: font color $text-dark-inactive (for secondary action e.g. dialog "cancel")
@@ -54,68 +58,75 @@ export interface ButtonProps {
         * link: style button as link (look like <a>)
         * no-hover: remove hover effects
     */
-    theme?: string
+  theme?: string;
 }
 
 export class Button extends React.Component<ButtonProps> {
-    render() {
-        const classNames = (
-            css(
-                "p-button",
-                this.props.className,
-                this.props.theme,
-                {
-                    icon: !this.props.label && (!!this.props.icon || !!this.props.customIcon),
-                    "icon-and-label": !!this.props.label && (!!this.props.icon || !!this.props.customIcon),
-                    selected: this.props.selected,
-                    active: this.props.active
-                }
-            )
-        );
+  render() {
+    const classNames = css('p-button', this.props.className, this.props.theme, {
+      icon: !this.props.label && (!!this.props.icon || !!this.props.customIcon),
+      'icon-and-label':
+        !!this.props.label && (!!this.props.icon || !!this.props.customIcon),
+      selected: this.props.selected,
+      active: this.props.active
+    });
 
-        const buttonContent = [
-            (this.props.icon && <MaterialIcon key={`button-material-icon-${this.props.icon}`} icon={this.props.icon} />),
-            (this.props.customIcon && <CustomIcon key={`button-custom-icon-${this.props.customIcon}`} icon={this.props.customIcon} />),
-            (this.props.label || this.props.children
-                ? <span key={`button-label-${this.props.label || this.props.children}`} className="label">{this.props.label || this.props.children}</span>
-                : null
-            ),
-            (this.props.tooltip
-                ? <Tooltip
-                    key={`button-tooltip-${this.props.tooltip}`}
-                    text={this.props.tooltip}
-                    position={this.props.tooltipPosition || "top"}
-                    size={this.props.tooltipSize}
-                />
-                : null
-            )
-        ];
+    const buttonContent = [
+      this.props.icon && (
+        <MaterialIcon
+          key={`button-material-icon-${this.props.icon}`}
+          icon={this.props.icon}
+        />
+      ),
+      this.props.customIcon && (
+        <CustomIcon
+          key={`button-custom-icon-${this.props.customIcon}`}
+          icon={this.props.customIcon}
+        />
+      ),
+      this.props.label || this.props.children ? (
+        <span
+          key={`button-label-${this.props.label || this.props.children}`}
+          className="label"
+        >
+          {this.props.label || this.props.children}
+        </span>
+      ) : null,
+      this.props.tooltip ? (
+        <Tooltip
+          key={`button-tooltip-${this.props.tooltip}`}
+          text={this.props.tooltip}
+          position={this.props.tooltipPosition || 'top'}
+          size={this.props.tooltipSize}
+        />
+      ) : null
+    ];
 
-        if (this.props.href) {
-            return (
-                <a
-                    href={this.props.href}
-                    className={classNames}
-                    onMouseEnter={this.props.onMouseEnter}
-                    onMouseLeave={this.props.onMouseLeave}
-                    style={this.props.style}
-                >
-                    {buttonContent}
-                </a>
-            );
-        }
-
-        return (
-            <button
-                className={classNames}
-                onClick={this.props.onClick}
-                onMouseEnter={this.props.onMouseEnter}
-                onMouseLeave={this.props.onMouseLeave}
-                disabled={this.props.disabled}
-                style={this.props.style}
-            >
-                {buttonContent}
-            </button>
-        );
+    if (this.props.href) {
+      return (
+        <a
+          href={this.props.href}
+          className={classNames}
+          onMouseEnter={this.props.onMouseEnter}
+          onMouseLeave={this.props.onMouseLeave}
+          style={this.props.style}
+        >
+          {buttonContent}
+        </a>
+      );
     }
+
+    return (
+      <button
+        className={classNames}
+        onClick={this.props.onClick}
+        onMouseEnter={this.props.onMouseEnter}
+        onMouseLeave={this.props.onMouseLeave}
+        disabled={this.props.disabled}
+        style={this.props.style}
+      >
+        {buttonContent}
+      </button>
+    );
+  }
 }

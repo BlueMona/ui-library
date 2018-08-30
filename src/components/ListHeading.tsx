@@ -1,21 +1,24 @@
-import React from "react";
+import React from 'react';
 
 export interface ListHeadingProps {
-    className?: string
+  className?: string;
 
-    // Caption will override child content
-    caption?: any
+  // Caption will override child content
+  caption?: any;
 }
 
 export class ListHeading extends React.Component<ListHeadingProps> {
-    render() {
-        return (
-            <li className={this.props.className
-                ? `p-list-heading ${this.props.className}`
-                : "p-list-heading"
-            }>
-                {this.props.caption || this.props.children}
-            </li>
-        );
-    }
+  render() {
+    return (
+      <li
+        className={
+          this.props.className
+            ? `p-list-heading ${this.props.className}`
+            : 'p-list-heading'
+        }
+      >
+        {this.props.caption || this.props.children}
+      </li>
+    );
+  }
 }
