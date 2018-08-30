@@ -5,9 +5,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -22,7 +19,7 @@ let Input = class Input extends react_1.default.Component {
     constructor() {
         super(...arguments);
         this.isFocused = false;
-        this.inputRef = undefined;
+        this.inputRef = null;
         this.handleChange = (ev) => {
             if (!this.props.onChange)
                 return;
@@ -34,14 +31,14 @@ let Input = class Input extends react_1.default.Component {
         };
     }
     handleFocus() {
-        this.isFocused = true;
-        if (!!this.props.onFocus)
+        if (this.props.onFocus)
             this.props.onFocus();
+        this.isFocused = true;
     }
     handleBlur() {
-        this.isFocused = false;
-        if (!!this.props.onBlur)
+        if (this.props.onBlur)
             this.props.onBlur();
+        this.isFocused = false;
     }
     setRef(ref) {
         if (ref) {
@@ -92,42 +89,25 @@ let Input = class Input extends react_1.default.Component {
     }
 };
 __decorate([
-    mobx_1.observable,
-    __metadata("design:type", Object)
+    mobx_1.observable
 ], Input.prototype, "isFocused", void 0);
 __decorate([
-    mobx_1.observable,
-    __metadata("design:type", Object)
+    mobx_1.observable
 ], Input.prototype, "inputRef", void 0);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Input.prototype, "handleFocus", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Input.prototype, "handleBlur", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Input.prototype, "setRef", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Input.prototype, "focus", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Input.prototype, "blur", null);
 Input = __decorate([
     mobx_react_1.observer

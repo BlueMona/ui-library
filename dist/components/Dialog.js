@@ -5,9 +5,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -173,65 +170,37 @@ let Dialog = class Dialog extends react_1.default.Component {
     }
 };
 __decorate([
-    mobx_1.observable,
-    __metadata("design:type", Object)
+    mobx_1.observable
 ], Dialog.prototype, "dialogRendered", void 0);
 __decorate([
-    mobx_1.observable,
-    __metadata("design:type", Object)
+    mobx_1.observable
 ], Dialog.prototype, "dialogVisible", void 0);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Dialog.prototype, "setActive", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Dialog.prototype, "setInactive", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [HTMLDivElement]),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Dialog.prototype, "setDialogRef", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Dialog.prototype, "showWithoutAnimation", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Dialog.prototype, "hideWithoutAnimation", null);
 __decorate([
-    mobx_1.computed,
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [])
+    mobx_1.computed
 ], Dialog.prototype, "focusableElements", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Dialog.prototype, "restrictFocus", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [KeyboardEvent]),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Dialog.prototype, "handleEscKey", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [KeyboardEvent]),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Dialog.prototype, "handleTabKey", null);
 Dialog = __decorate([
     mobx_react_1.observer

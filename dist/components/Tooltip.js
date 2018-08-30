@@ -17,9 +17,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -102,34 +99,22 @@ let Tooltip = class Tooltip extends react_1.default.Component {
     }
 };
 __decorate([
-    mobx_1.observable,
-    __metadata("design:type", Object)
+    mobx_1.observable
 ], Tooltip.prototype, "ref", void 0);
 __decorate([
-    mobx_1.observable,
-    __metadata("design:type", Object)
+    mobx_1.observable
 ], Tooltip.prototype, "isVisible", void 0);
 __decorate([
-    mobx_1.observable,
-    __metadata("design:type", Object)
+    mobx_1.observable
 ], Tooltip.prototype, "style", void 0);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [HTMLDivElement]),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Tooltip.prototype, "setRef", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Tooltip.prototype, "showTooltip", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Tooltip.prototype, "hideTooltip", null);
 Tooltip = __decorate([
     mobx_react_1.observer

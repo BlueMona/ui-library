@@ -5,9 +5,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -81,7 +78,7 @@ let Menu = class Menu extends react_1.default.Component {
         const { width, height, left, top } = this.menuButtonRef.getBoundingClientRect();
         const windowX = window.innerWidth;
         const windowY = window.innerHeight;
-        const position = !!this.props.position ? this.props.position : "top-left";
+        const position = this.props.position || "top-left";
         const [posY, posX] = position.split("-");
         if (posY === "top")
             this.style.top = `${top}px`;
@@ -108,46 +105,28 @@ let Menu = class Menu extends react_1.default.Component {
     }
 };
 __decorate([
-    mobx_1.observable,
-    __metadata("design:type", Object)
+    mobx_1.observable
 ], Menu.prototype, "menuActive", void 0);
 __decorate([
-    mobx_1.observable,
-    __metadata("design:type", Object)
+    mobx_1.observable
 ], Menu.prototype, "menuVisible", void 0);
 __decorate([
-    mobx_1.observable,
-    __metadata("design:type", Object)
+    mobx_1.observable
 ], Menu.prototype, "style", void 0);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [HTMLDivElement]),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Menu.prototype, "setMenuButtonRef", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [HTMLUListElement]),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Menu.prototype, "setMenuContentRef", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Menu.prototype, "handleMenuClick", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [KeyboardEvent]),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Menu.prototype, "handleKeyUp", null);
 __decorate([
-    mobx_1.action.bound,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    mobx_1.action.bound
 ], Menu.prototype, "hideMenu", null);
 Menu = __decorate([
     mobx_react_1.observer
