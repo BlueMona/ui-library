@@ -16,6 +16,5 @@
     "esModuleInterop": true,
     "experimentalDecorators": true
   },
-  "include": ["src/**/*", "node_modules/jest-enzyme/lib/index.d.ts"],
-  "exclude": ["src/**/*.test.*"]
+  "include": ["src/**/*"]
 }

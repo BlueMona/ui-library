@@ -63,7 +63,7 @@
   },
   "jest": {
     "testEnvironment": "enzyme",
-    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "setupTestFrameworkScriptFile": "./src/setupEnzyme.ts",
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
@@ -73,6 +73,9 @@
       "tsx",
       "js",
       "jsx"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   }
 }
