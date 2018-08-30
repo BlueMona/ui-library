@@ -11,7 +11,7 @@ export interface InputProps {
     label?: string
     error?: string
     hint?: string
-    
+
     innerRef?: (ref: HTMLTextAreaElement | HTMLInputElement | null | undefined) => void
 
     // Standard HTML input props
@@ -50,12 +50,12 @@ export class Input extends React.Component<InputProps> {
 
     @action.bound handleFocus() {
         this.isFocused = true;
-        if (!!this.props.onFocus) this.props.onFocus();
+        if (this.props.onFocus) this.props.onFocus();
     }
 
     @action.bound handleBlur() {
         this.isFocused = false;
-        if (!!this.props.onBlur) this.props.onBlur();
+        if (this.props.onBlur) this.props.onBlur();
     }
 
     @action.bound setRef(ref: any) {
@@ -141,7 +141,7 @@ export class Input extends React.Component<InputProps> {
                         ref={this.props.innerRef || this.setRef}
                     />
                 }
-                
+
                 {(!this.props.multiline && !!this.props.value && !!this.props.onClear)
                     ? <Button className="clear-button" icon="close" onClick={this.clearInput} />
                     : null
