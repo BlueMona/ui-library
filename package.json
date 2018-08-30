@@ -13,7 +13,7 @@
     "web-build:webpack": "webpack -p",
     "web-build:style": "node-sass ./src/style.scss ./dist/style.css",
     "test": "run-s -l test:*",
-    "test:ts": "tsc --noEmit",
+    "test:ts": "tsc --noEmit --pretty",
     "test:jest": "jest --colors",
     "test:eslint": "eslint 'src/**/*.{ts,tsx}'"
   },

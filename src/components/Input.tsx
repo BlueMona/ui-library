@@ -16,7 +16,7 @@ interface BaseInputProps {
     autoFocus?: boolean
     maxLength?: number
     placeholder?: string
-    
+
     value?: string
 
     // React props
@@ -35,6 +35,7 @@ interface TextAreaInputProps {
 }
 
 interface InputInputProps {
+    multiline?: false;
     type?: "text" | "password";
     readOnly?: boolean;
     disabled?: boolean;
@@ -46,7 +47,7 @@ export type InputProps = BaseInputProps & (TextAreaInputProps | InputInputProps)
 @observer
 export class Input extends React.Component<InputProps> {
     @observable isFocused = false;
-    @observable inputRef = undefined as any;
+    @observable inputRef: HTMLInputElement | HTMLTextAreaElement | null = null;
 
     handleChange = (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         if (!this.props.onChange) return;
@@ -58,16 +59,16 @@ export class Input extends React.Component<InputProps> {
     }
 
     @action.bound handleFocus() {
-        this.isFocused = true;
         if (this.props.onFocus) this.props.onFocus();
+        this.isFocused = true;
     }
 
     @action.bound handleBlur() {
-        this.isFocused = false;
         if (this.props.onBlur) this.props.onBlur();
+        this.isFocused = false;
     }
 
-    @action.bound setRef(ref: any) {
+    @action.bound setRef(ref: HTMLInputElement | HTMLTextAreaElement | null) {
         if (ref) {
             this.inputRef = ref;
             if (this.props.autoFocus) {
