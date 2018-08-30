@@ -15,6 +15,7 @@
     "test": "run-s -l test:*",
     "test:ts": "tsc --noEmit --pretty",
     "test:jest": "jest --colors",
+    "test:sass": "node-sass -x ./src/style.scss > /dev/null",
     "test:eslint": "eslint 'src/**/*.{ts,tsx}'",
     "test:prettier": "prettier 'src/**/*.{ts,tsx,scss}' -l",
     "prettier": "prettier 'src/**/*.{ts,tsx,scss}' --write"
