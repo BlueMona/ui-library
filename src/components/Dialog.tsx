@@ -1,62 +1,91 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { action, computed, observable, reaction } from 'mobx';
+import {
+  action,
+  computed,
+  observable,
+  reaction,
+  IReactionDisposer
+} from 'mobx';
 import { observer } from 'mobx-react';
 
 import { ActionProps } from './helpers/interfaces';
 import css from 'classnames';
 import { Button } from './Button';
 
+// FIXME: remove! untestable
 const appRoot = document.getElementById('root') as HTMLElement;
 
 export interface DialogProps {
-  // Buttons at the bottom of the dialog
-  actions: ActionProps[];
+  /** Buttons at the bottom of the dialog, if any */
+  actions?: ActionProps[];
 
-  // Boolean in the parent that will trigger dialog on `true`, hide on `false`.
+  /** Boolean in the parent that will trigger dialog on `true`, hide on `false`. */
   active: boolean;
 
+  /** Additional classname(s) applied to the inner <dialog> element. */
   className?: string;
 
-  // No fade in/out transition e.g. when opening a dialog from another dialog
+  /** No fade in/out transition e.g. when opening a dialog from another dialog */
   noAnimation?: boolean;
 
-  // Behaviour for Esc key or overlay click
+  /** Behaviour for Esc key or overlay click */
   onCancel?: () => void;
 
-  // "Small" sets width to 360px. Default is 50vw.
+  /** "Small" sets width to 360px. Default is 50vw. */
   size?: 'small';
 
-  // Adds a stripe to the top of the dialog.
+  /** Adds a stripe to the top of the dialog. */
   theme?: 'warning' | 'error' | 'primary';
 
-  title?: any;
+  /** Title displayed at the top of the dialog. */
+  title?: string;
 
-  // URL to header image
+  /** URL to header image */
   headerImage?: string;
 }
 
+// TODO: there's quite a bit of incidental state and behaviour that's difficult
+// to reason about here based around intermediate animation states. it could use
+// a closer audit and a pass to simplify it, possibly integrating a react
+// library to allow for more declarative animations. (or maybe a future
+// css-in-js solution could directly drive animation with less state...?)
+
+/**
+ * Usage notes from discussion with Lucas on 30/08/2018: can be invoked either
+ * by passing in the prop `active`, OR by getting a ref and calling
+ * `showWithoutAnimation`, `setActive()`.
+ *
+ * (There's at least one story to refactor/audit this:
+ * https://app.clubhouse.io/peerio/story/8020/desktop-dialog-manager)
+ *
+ * WARNING: this component uses the <dialog> dom element, only available in
+ * chrome 37+/firefox 53+. it may not be available in other environments.
+ */
 @observer
 export class Dialog extends React.Component<DialogProps> {
   // Separate "rendered" and "visible" bools to be able to use fade in/out animations
   @observable
-  dialogRendered = false;
+  private dialogRendered = false;
+
   @observable
-  dialogVisible = false;
+  private dialogVisible = false;
 
-  activeReaction = undefined as any;
-  mountTimeout = undefined as any;
-  unmountTimeout = undefined as any; // TODO: This seems wrong
+  private activeReaction: IReactionDisposer | null = null;
+  private mountTimeout: NodeJS.Timer | null = null;
+  private unmountTimeout: NodeJS.Timer | null = null;
 
-  dialogRef = undefined as any;
+  @observable.ref
+  private dialogRef?: HTMLDivElement;
 
   componentDidMount() {
     /*
-            These awkward timeouts are used to stagger the dialog"s render event from its "make visible" event.
-            The .visible class is tied to the dialogVisible bool, which is what triggers the opacity transition.
-            Separating these two events ensures that the transition plays.
-        */
+        These awkward timeouts are used to stagger the dialog's render event
+        from its "make visible" event. The .visible class is tied to the
+        dialogVisible bool, which is what triggers the opacity transition.
+        Separating these two events ensures that the transition plays.
+    */
     this.activeReaction = reaction(
       () => this.props.active,
       active => {
@@ -75,7 +104,7 @@ export class Dialog extends React.Component<DialogProps> {
       window.removeEventListener('keyup', this.handleEscKey);
       window.removeEventListener('keydown', this.handleTabKey);
     }
-    this.activeReaction();
+    if (this.activeReaction) this.activeReaction();
   }
 
   @action.bound
@@ -112,7 +141,7 @@ export class Dialog extends React.Component<DialogProps> {
   }
 
   @action.bound
-  setDialogRef(ref: HTMLDivElement) {
+  private setDialogRef(ref: HTMLDivElement | null) {
     if (ref) {
       this.dialogRef = ref;
       ref.focus();
@@ -141,7 +170,7 @@ export class Dialog extends React.Component<DialogProps> {
 
   @computed
   get focusableElements() {
-    return this.dialogRef.querySelectorAll(
+    return this.dialogRef!.querySelectorAll(
       'input:not(:disabled), textarea:not(:disabled), button:not(:disabled)'
     );
   }
@@ -161,12 +190,14 @@ export class Dialog extends React.Component<DialogProps> {
   }
 
   /*
-        We need to restrict focus to the dialog when it"s visible.
-        Clicking outside dialog closes it, so that"s OK, but it"s still possible to use Tab to escape.
-        For a11y we need to keep Tab key functionality, but restrict it to the contents of the dialog.
-        This function makes Tab jump back to first focusable element if the last one is currently focused,
-        or to the last element if Shift+Tab while the first is focused.
-    */
+      We need to restrict focus to the dialog when it's visible.
+
+      Clicking outside dialog closes it, so that's OK, but it's still possible
+      to use Tab to escape. For a11y we need to keep Tab key functionality, but
+      restrict it to the contents of the dialog. This function makes Tab jump
+      back to first focusable element if the last one is currently focused, or
+      to the last element if Shift+Tab while the first is focused.
+  */
   @action.bound
   handleTabKey(ev: KeyboardEvent) {
     if (!this.dialogVisible || !this.dialogRendered) return;
@@ -196,9 +227,19 @@ export class Dialog extends React.Component<DialogProps> {
   render() {
     if (!this.dialogRendered) return null;
 
-    const { actions } = this.props;
-    const buttons = [];
+    const {
+      actions,
+      className,
+      size,
+      theme,
+      headerImage,
+      noAnimation,
+      children,
+      title,
+      onCancel
+    } = this.props;
 
+    const buttons = [];
     if (actions) {
       for (let i = 0; i < actions.length; i++) {
         buttons.push(
@@ -216,36 +257,26 @@ export class Dialog extends React.Component<DialogProps> {
     const dialogContent = (
       <div
         className={css('p-dialog-wrapper', {
-          visible: this.props.noAnimation || this.dialogVisible,
-          'with-header-image': !!this.props.headerImage
+          visible: noAnimation || this.dialogVisible,
+          'with-header-image': !!headerImage
         })}
         tabIndex={0}
         ref={this.setDialogRef}
       >
-        <div className="p-dialog-overlay" onClick={this.props.onCancel} />
+        <div className="p-dialog-overlay" onClick={onCancel} />
 
-        <dialog
-          open
-          className={css(
-            'p-dialog',
-            this.props.className,
-            this.props.size,
-            this.props.theme
-          )}
-        >
-          {this.props.headerImage ? (
+        <dialog open className={css('p-dialog', className, size, theme)}>
+          {headerImage ? (
             <div className="header-image">
-              <img src={this.props.headerImage} />
+              <img src={headerImage} />
             </div>
           ) : null}
           <div className="body">
-            {this.props.title ? (
-              <div className="title">{this.props.title}</div>
-            ) : null}
-            {this.props.children}
+            {title ? <div className="title">{title}</div> : null}
+            {children}
           </div>
 
-          {this.props.actions ? <div className="actions">{buttons}</div> : null}
+          {actions ? <div className="actions">{buttons}</div> : null}
         </dialog>
       </div>
     );
