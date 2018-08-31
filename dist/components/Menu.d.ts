@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 export interface MenuProps {
     className?: string;
     innerClassName?: string;
-    position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+    position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
     icon?: string;
     customIcon?: string;
     customButton?: any;
     tooltip?: string;
-    tooltipPosition?: "top" | "bottom" | "left" | "right";
+    tooltipPosition?: 'top' | 'bottom' | 'left' | 'right';
     theme?: string;
     onClick?: (ev?: React.MouseEvent<HTMLDivElement>) => void;
     onHide?: () => void;

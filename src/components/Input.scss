@@ -95,7 +95,13 @@
     }
   }
 
-  // Close button
+  // Clear text input button
+  &.has-clear-button {
+    input {
+      padding-right: $padding-xl;
+    }
+  }
+
   .clear-button {
     position: absolute;
     right: 0;

@@ -6,8 +6,8 @@ function getPositionInWindow(element) {
     return {
         offsetX: width / 2,
         offsetY: height / 2,
-        posX: left + (width / 2),
-        posY: top + (height / 2)
+        posX: left + width / 2,
+        posY: top + height / 2
     };
 }
 exports.getPositionInWindow = getPositionInWindow;
@@ -36,7 +36,9 @@ function getParentWithClass(element, className) {
 exports.getParentWithClass = getParentWithClass;
 function getDataProps(props) {
     const dataProps = {};
-    Object.keys(props).filter(p => p.startsWith('data-')).forEach(key => {
+    Object.keys(props)
+        .filter(p => p.startsWith('data-'))
+        .forEach(key => {
         dataProps[key] = props[key];
     });
     return dataProps;

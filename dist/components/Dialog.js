@@ -15,7 +15,7 @@ const mobx_1 = require("mobx");
 const mobx_react_1 = require("mobx-react");
 const classnames_1 = __importDefault(require("classnames"));
 const Button_1 = require("./Button");
-const appRoot = document.getElementById("root");
+const appRoot = document.getElementById('root');
 let Dialog = class Dialog extends react_1.default.Component {
     constructor() {
         super(...arguments);
@@ -29,10 +29,10 @@ let Dialog = class Dialog extends react_1.default.Component {
     }
     componentDidMount() {
         /*
-            These awkward timeouts are used to stagger the dialog"s render event from its "make visible" event.
-            The .visible class is tied to the dialogVisible bool, which is what triggers the opacity transition.
-            Separating these two events ensures that the transition plays.
-        */
+                These awkward timeouts are used to stagger the dialog"s render event from its "make visible" event.
+                The .visible class is tied to the dialogVisible bool, which is what triggers the opacity transition.
+                Separating these two events ensures that the transition plays.
+            */
         this.activeReaction = mobx_1.reaction(() => this.props.active, active => {
             if (active) {
                 this.setActive();
@@ -44,8 +44,8 @@ let Dialog = class Dialog extends react_1.default.Component {
     }
     componentWillUnmount() {
         if (this.dialogRendered) {
-            window.removeEventListener("keyup", this.handleEscKey);
-            window.removeEventListener("keydown", this.handleTabKey);
+            window.removeEventListener('keyup', this.handleEscKey);
+            window.removeEventListener('keydown', this.handleTabKey);
         }
         this.activeReaction();
     }
@@ -55,7 +55,7 @@ let Dialog = class Dialog extends react_1.default.Component {
             this.unmountTimeout = null;
         }
         this.dialogRendered = true;
-        window.addEventListener("keyup", this.handleEscKey, false);
+        window.addEventListener('keyup', this.handleEscKey, false);
         this.restrictFocus();
         this.mountTimeout = setTimeout(() => {
             this.dialogVisible = true;
@@ -68,8 +68,8 @@ let Dialog = class Dialog extends react_1.default.Component {
             this.mountTimeout = null;
         }
         this.dialogVisible = false;
-        window.removeEventListener("keyup", this.handleEscKey);
-        window.removeEventListener("keydown", this.handleTabKey);
+        window.removeEventListener('keyup', this.handleEscKey);
+        window.removeEventListener('keydown', this.handleTabKey);
         this.unmountTimeout = setTimeout(() => {
             this.dialogRendered = false;
             this.unmountTimeout = null;
@@ -98,10 +98,10 @@ let Dialog = class Dialog extends react_1.default.Component {
         this.dialogVisible = false;
     }
     get focusableElements() {
-        return this.dialogRef.querySelectorAll("input:not(:disabled), textarea:not(:disabled), button:not(:disabled)");
+        return this.dialogRef.querySelectorAll('input:not(:disabled), textarea:not(:disabled), button:not(:disabled)');
     }
     restrictFocus() {
-        window.addEventListener("keydown", this.handleTabKey, false);
+        window.addEventListener('keydown', this.handleTabKey, false);
     }
     handleEscKey(ev) {
         if (!this.dialogVisible || !this.dialogRendered || !this.props.onCancel)
@@ -111,12 +111,12 @@ let Dialog = class Dialog extends react_1.default.Component {
         }
     }
     /*
-        We need to restrict focus to the dialog when it"s visible.
-        Clicking outside dialog closes it, so that"s OK, but it"s still possible to use Tab to escape.
-        For a11y we need to keep Tab key functionality, but restrict it to the contents of the dialog.
-        This function makes Tab jump back to first focusable element if the last one is currently focused,
-        or to the last element if Shift+Tab while the first is focused.
-    */
+          We need to restrict focus to the dialog when it"s visible.
+          Clicking outside dialog closes it, so that"s OK, but it"s still possible to use Tab to escape.
+          For a11y we need to keep Tab key functionality, but restrict it to the contents of the dialog.
+          This function makes Tab jump back to first focusable element if the last one is currently focused,
+          or to the last element if Shift+Tab while the first is focused.
+      */
     handleTabKey(ev) {
         if (!this.dialogVisible || !this.dialogRendered)
             return;
@@ -145,27 +145,21 @@ let Dialog = class Dialog extends react_1.default.Component {
         const buttons = [];
         if (actions) {
             for (let i = 0; i < actions.length; i++) {
-                buttons.push(react_1.default.createElement(Button_1.Button, { key: `p-dialog-button-${i}`, label: actions[i].label, onClick: actions[i].onClick, theme: i < actions.length - 1 ? "secondary" : undefined, disabled: actions[i].disabled }));
+                buttons.push(react_1.default.createElement(Button_1.Button, { key: `p-dialog-button-${i}`, label: actions[i].label, onClick: actions[i].onClick, theme: i < actions.length - 1 ? 'secondary' : undefined, disabled: actions[i].disabled }));
             }
         }
-        const dialogContent = (react_1.default.createElement("div", { className: classnames_1.default("p-dialog-wrapper", {
+        const dialogContent = (react_1.default.createElement("div", { className: classnames_1.default('p-dialog-wrapper', {
                 visible: this.props.noAnimation || this.dialogVisible,
                 'with-header-image': !!this.props.headerImage
             }), tabIndex: 0, ref: this.setDialogRef },
             react_1.default.createElement("div", { className: "p-dialog-overlay", onClick: this.props.onCancel }),
-            react_1.default.createElement("dialog", { open: true, className: classnames_1.default("p-dialog", this.props.className, this.props.size, this.props.theme) },
-                this.props.headerImage
-                    ? react_1.default.createElement("div", { className: "header-image" },
-                        react_1.default.createElement("img", { src: this.props.headerImage }))
-                    : null,
+            react_1.default.createElement("dialog", { open: true, className: classnames_1.default('p-dialog', this.props.className, this.props.size, this.props.theme) },
+                this.props.headerImage ? (react_1.default.createElement("div", { className: "header-image" },
+                    react_1.default.createElement("img", { src: this.props.headerImage }))) : null,
                 react_1.default.createElement("div", { className: "body" },
-                    this.props.title
-                        ? react_1.default.createElement("div", { className: "title" }, this.props.title)
-                        : null,
+                    this.props.title ? (react_1.default.createElement("div", { className: "title" }, this.props.title)) : null,
                     this.props.children),
-                this.props.actions
-                    ? react_1.default.createElement("div", { className: "actions" }, buttons)
-                    : null)));
+                this.props.actions ? react_1.default.createElement("div", { className: "actions" }, buttons) : null)));
         return react_dom_1.default.createPortal(dialogContent, appRoot);
     }
 };

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 export interface CustomIconProps {
     className?: string;
     icon: string;
-    size?: "small";
+    size?: 'small';
     hover?: boolean;
     selected?: boolean;
     active?: boolean;

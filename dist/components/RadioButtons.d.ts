@@ -1,5 +1,5 @@
-import React from "react";
-import { OptionProps } from "./helpers/interfaces";
+import React from 'react';
+import { OptionProps } from './helpers/interfaces';
 export interface RadioButtonsProps {
     className?: string;
     onChange: (val: string) => void;

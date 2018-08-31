@@ -1,5 +1,5 @@
 import React from 'react';
-import { action, observable } from 'mobx';
+import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import css from 'classnames';
 
@@ -51,10 +51,8 @@ export type InputProps = BaseInputProps &
 
 @observer
 export class Input extends React.Component<InputProps> {
-  @observable
-  isFocused = false;
-  @observable
-  inputRef: HTMLInputElement | HTMLTextAreaElement | null = null;
+  @observable isFocused = false;
+  @observable inputRef: HTMLInputElement | HTMLTextAreaElement | null = null;
 
   handleChange = (
     ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -62,6 +60,11 @@ export class Input extends React.Component<InputProps> {
     if (!this.props.onChange) return;
     this.props.onChange(ev.currentTarget.value);
   };
+
+  @computed
+  get showClearButton() {
+    return !this.props.multiline && !!this.props.value && !!this.props.onClear;
+  }
 
   clearInput = () => {
     if (this.props.onClear) this.props.onClear();
@@ -111,6 +114,7 @@ export class Input extends React.Component<InputProps> {
         className={css('p-input', this.props.className, {
           'has-label': !!this.props.label,
           'has-error': !!this.props.error,
+          'has-clear-button': this.showClearButton,
           focused: this.isFocused
         })}
       >
@@ -149,7 +153,7 @@ export class Input extends React.Component<InputProps> {
           />
         )}
 
-        {!this.props.multiline && !!this.props.value && !!this.props.onClear ? (
+        {this.showClearButton ? (
           <Button
             className="clear-button"
             icon="close"

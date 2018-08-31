@@ -26,16 +26,12 @@ let Avatar = class Avatar extends react_1.default.Component {
         }
         return (react_1.default.createElement("div", { className: "p-avatar" },
             react_1.default.createElement("div", { className: "contents" },
-                react_1.default.createElement("div", { className: classnames_1.default("image-container", this.props.className, `${this.props.size || "medium"}`, {
+                react_1.default.createElement("div", { className: classnames_1.default('image-container', this.props.className, `${this.props.size || 'medium'}`, {
                         clickable: this.props.clickable || !!this.props.onClick,
                         'light-bg': !c.hasAvatar && c.color.isLight
-                    }), style: !c.hasAvatar ? { backgroundColor: c.color.value } : {}, onClick: this.props.onClick }, c.hasAvatar
-                    ? react_1.default.createElement("img", { src: c.mediumAvatarUrl, alt: c.username })
-                    : c.letter)),
+                    }), style: !c.hasAvatar ? { backgroundColor: c.color.value } : {}, onClick: this.props.onClick }, c.hasAvatar ? (react_1.default.createElement("img", { src: c.mediumAvatarUrl, alt: c.username })) : (c.letter))),
             errorIcon,
-            this.props.tooltip
-                ? react_1.default.createElement(Tooltip_1.Tooltip, { text: c.fullNameAndUsername, position: "top" })
-                : null));
+            this.props.tooltip ? (react_1.default.createElement(Tooltip_1.Tooltip, { text: c.fullNameAndUsername, position: "top" })) : null));
     }
 };
 Avatar = __decorate([

@@ -14,13 +14,9 @@ const mobx_react_1 = require("mobx-react");
 const Button_1 = require("./Button");
 let Chip = class Chip extends react_1.default.Component {
     render() {
-        return (react_1.default.createElement("div", { className: this.props.className
-                ? `p-chip ${this.props.className}`
-                : "p-chip" },
+        return (react_1.default.createElement("div", { className: this.props.className ? `p-chip ${this.props.className}` : 'p-chip' },
             react_1.default.createElement("span", { className: "content" }, this.props.children),
-            this.props.deletable
-                ? react_1.default.createElement(Button_1.Button, { icon: "remove", onClick: this.props.onDeleteClick, theme: "small" })
-                : null));
+            this.props.deletable ? (react_1.default.createElement(Button_1.Button, { icon: "remove", onClick: this.props.onDeleteClick, theme: "small" })) : null));
     }
 };
 Chip = __decorate([

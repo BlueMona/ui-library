@@ -25,16 +25,12 @@ let MenuItem = class MenuItem extends react_1.default.Component {
     }
     render() {
         const { value, icon, customIcon, caption, className } = this.props;
-        return (react_1.default.createElement("li", { value: value, className: classnames_1.default("p-menu-item", className, {
+        return (react_1.default.createElement("li", { value: value, className: classnames_1.default('p-menu-item', className, {
                 clickable: !this.props.disabled,
                 disabled: this.props.disabled,
                 selected: this.props.selected
             }), onClick: this.clickHandler, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave },
-            icon
-                ? react_1.default.createElement(MaterialIcon_1.MaterialIcon, { key: `icon-${icon}`, icon: icon, className: "icon" })
-                : (customIcon
-                    ? react_1.default.createElement(CustomIcon_1.CustomIcon, { key: `icon-${customIcon}`, icon: customIcon, className: "icon", hover: true, selected: this.props.selected })
-                    : null),
+            icon ? (react_1.default.createElement(MaterialIcon_1.MaterialIcon, { key: `icon-${icon}`, icon: icon, className: "icon" })) : customIcon ? (react_1.default.createElement(CustomIcon_1.CustomIcon, { key: `icon-${customIcon}`, icon: customIcon, className: "icon", hover: true, selected: this.props.selected })) : null,
             caption));
     }
 };

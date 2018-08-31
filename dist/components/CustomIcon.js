@@ -13,38 +13,42 @@ const react_1 = __importDefault(require("react"));
 const mobx_1 = require("mobx");
 const mobx_react_1 = require("mobx-react");
 const classnames_1 = __importDefault(require("classnames"));
-const { getParentWithClass } = require("./helpers/dom");
+const { getParentWithClass } = require('./helpers/dom');
 let CustomIcon = class CustomIcon extends react_1.default.Component {
     constructor() {
         /*
-            Hovering: It's Weird
-            SVG recolouring via CSS is not supported in Chromium, so we can"t just do a :hover state
-            Instead, with hover enabled, <CustomIcon> actually shows a different image file on hover.
-            Currently, this is done by adding a listener on a parent element with class .custom-icon-hover-container
-            So, in all, it"s kinda clunky, but it allows us to do things like having CustomIcon change colour when MenuItem is hovered.
-        */
+              Hovering: It's Weird
+              SVG recolouring via CSS is not supported in Chromium, so we can"t just do a :hover state
+              Instead, with hover enabled, <CustomIcon> actually shows a different image file on hover.
+              Currently, this is done by adding a listener on a parent element with class .custom-icon-hover-container
+              So, in all, it"s kinda clunky, but it allows us to do things like having CustomIcon change colour when MenuItem is hovered.
+          */
         super(...arguments);
         this.hovered = false;
     }
     setIconRef(ref) {
         if (ref && this.props.hover) {
-            this.hoverContainer = getParentWithClass(ref, "custom-icon-hover-container");
+            this.hoverContainer = getParentWithClass(ref, 'custom-icon-hover-container');
             if (this.hoverContainer) {
-                this.hoverContainer.addEventListener("mouseenter", this.handleMouseEnter, false);
-                this.hoverContainer.addEventListener("mouseleave", this.handleMouseLeave, false);
+                this.hoverContainer.addEventListener('mouseenter', this.handleMouseEnter, false);
+                this.hoverContainer.addEventListener('mouseleave', this.handleMouseLeave, false);
             }
         }
     }
-    handleMouseEnter() { this.hovered = true; }
-    handleMouseLeave() { this.hovered = false; }
+    handleMouseEnter() {
+        this.hovered = true;
+    }
+    handleMouseLeave() {
+        this.hovered = false;
+    }
     componentWillUnmount() {
         if (this.hoverContainer) {
-            this.hoverContainer.removeEventListener("mouseenter", this.handleMouseEnter, false);
-            this.hoverContainer.removeEventListener("mouseleave", this.handleMouseLeave, false);
+            this.hoverContainer.removeEventListener('mouseenter', this.handleMouseEnter, false);
+            this.hoverContainer.removeEventListener('mouseleave', this.handleMouseLeave, false);
         }
     }
     render() {
-        return (react_1.default.createElement("div", { className: classnames_1.default("p-custom-icon", this.props.size, this.props.className, {
+        return (react_1.default.createElement("div", { className: classnames_1.default('p-custom-icon', this.props.size, this.props.className, {
                 selected: this.props.selected,
                 hovered: this.hovered,
                 active: this.props.active

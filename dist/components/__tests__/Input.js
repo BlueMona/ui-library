@@ -5,8 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const enzyme_1 = require("enzyme");
-const Input_1 = require("./Input");
+const Input_1 = require("../Input");
 describe('<Input>', () => {
+    it('should match the snapshot', () => {
+        expect(enzyme_1.shallow(react_1.default.createElement(Input_1.Input, { value: "Hello input!" }))).toMatchSnapshot();
+    });
     it('should contain a dom <input> if multiline is not specified', () => {
         expect(enzyme_1.shallow(react_1.default.createElement(Input_1.Input, null)).find('input')).toExist();
     });
@@ -24,4 +27,4 @@ describe('<Input>', () => {
         expect(ref.current).not.toBeNull();
     });
 });
-//# sourceMappingURL=Input.test.js.map
+//# sourceMappingURL=Input.js.map

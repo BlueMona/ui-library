@@ -15,7 +15,7 @@ const classnames_1 = __importDefault(require("classnames"));
 let MenuHeader = class MenuHeader extends react_1.default.Component {
     render() {
         const { className, leftContent, caption, legend } = this.props;
-        return (react_1.default.createElement("li", { className: classnames_1.default("p-menu-header", className) },
+        return (react_1.default.createElement("li", { className: classnames_1.default('p-menu-header', className) },
             react_1.default.createElement("div", { className: "left-content" }, leftContent),
             react_1.default.createElement("div", { className: "main-content" },
                 react_1.default.createElement("div", { className: "caption" }, caption),
