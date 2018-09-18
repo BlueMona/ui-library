@@ -155,6 +155,7 @@ export class Input extends React.Component<InputProps> {
 
         {this.showClearButton ? (
           <Button
+            tabIndex={-1}
             className="clear-button"
             icon="close"
             onClick={this.clearInput}

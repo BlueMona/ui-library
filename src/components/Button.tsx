@@ -30,6 +30,9 @@ export interface ButtonProps {
   // Makes button teal or other "active" colour
   active?: boolean;
 
+  // HTML tab index
+  tabIndex?: number;
+
   onClick?: (ev?: React.MouseEvent<HTMLButtonElement>) => void;
   onMouseEnter?: (
     ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
@@ -105,6 +108,7 @@ export class Button extends React.Component<ButtonProps> {
     if (this.props.href) {
       return (
         <a
+          tabIndex={this.props.tabIndex}
           href={this.props.href}
           className={classNames}
           onMouseEnter={this.props.onMouseEnter}
@@ -118,6 +122,7 @@ export class Button extends React.Component<ButtonProps> {
 
     return (
       <button
+        tabIndex={this.props.tabIndex}
         className={classNames}
         onClick={this.props.onClick}
         onMouseEnter={this.props.onMouseEnter}
