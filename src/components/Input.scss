@@ -107,4 +107,35 @@
     right: 0;
     top: 16px;
   }
+
+  // THEMES //
+  /* 
+   * TRANSPARENT
+   * - makes inputs fully transparent, no borders, no background colours
+   * - adjusts label to be flush with input text
+   * - other small spacing and sizing adjustments
+   */
+  &.transparent {
+    input,
+    textarea {
+      border: 0;
+      padding: 0;
+      padding-top: $padding-small;
+    }
+
+    input {
+      height: 48px;
+    }
+
+    .label {
+      background-color: transparent;
+      top: 0;
+      left: auto;
+      padding: 0;
+    }
+
+    .hint-or-error {
+      margin-top: 0;
+    }
+  }
 }

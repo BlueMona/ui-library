@@ -11,6 +11,8 @@ interface BaseInputProps {
   label?: string;
   error?: string;
   hint?: string;
+  theme?: 'transparent';
+  noHelperText?: boolean; // Use to hide error/hint div in cases of very tight positioning.
 
   // Standard HTML input props
   autoFocus?: boolean;
@@ -113,7 +115,7 @@ export class Input extends React.Component<InputProps> {
   render() {
     return (
       <div
-        className={css('p-input', this.props.className, {
+        className={css('p-input', this.props.className, this.props.theme, {
           'has-label': !!this.props.label,
           'has-error': !!this.props.error,
           'has-clear-button': this.showClearButton,
@@ -164,22 +166,25 @@ export class Input extends React.Component<InputProps> {
           />
         ) : null}
 
-        <div
-          className={css('hint-or-error', {
-            error: !!this.props.error,
-            hint: !!this.props.hint,
-            visible: !!this.props.error || (!!this.props.hint && this.isFocused)
-          })}
-        >
-          {this.props.error ? (
-            <React.Fragment>
-              <MaterialIcon icon="error_outline" />
-              {this.props.error}
-            </React.Fragment>
-          ) : this.props.hint ? (
-            this.props.hint
-          ) : null}
-        </div>
+        {this.props.noHelperText ? null : (
+          <div
+            className={css('hint-or-error', {
+              error: !!this.props.error,
+              hint: !!this.props.hint,
+              visible:
+                !!this.props.error || (!!this.props.hint && this.isFocused)
+            })}
+          >
+            {this.props.error ? (
+              <React.Fragment>
+                <MaterialIcon icon="error_outline" />
+                {this.props.error}
+              </React.Fragment>
+            ) : this.props.hint ? (
+              this.props.hint
+            ) : null}
+          </div>
+        )}
       </div>
     );
   }

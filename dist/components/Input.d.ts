@@ -4,6 +4,8 @@ interface BaseInputProps {
     label?: string;
     error?: string;
     hint?: string;
+    theme?: 'transparent';
+    noHelperText?: boolean;
     autoFocus?: boolean;
     maxLength?: number;
     placeholder?: string;

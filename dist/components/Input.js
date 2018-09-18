@@ -64,7 +64,7 @@ let Input = class Input extends react_1.default.Component {
         }
     }
     render() {
-        return (react_1.default.createElement("div", { className: classnames_1.default('p-input', this.props.className, {
+        return (react_1.default.createElement("div", { className: classnames_1.default('p-input', this.props.className, this.props.theme, {
                 'has-label': !!this.props.label,
                 'has-error': !!this.props.error,
                 'has-clear-button': this.showClearButton,
@@ -73,13 +73,13 @@ let Input = class Input extends react_1.default.Component {
             this.props.label ? (react_1.default.createElement("div", { className: classnames_1.default('label') }, this.props.label)) : null,
             this.props.multiline ? (react_1.default.createElement("textarea", { placeholder: this.props.placeholder, value: this.props.value, maxLength: this.props.maxLength, onChange: this.props.onChange ? this.handleChange : undefined, onKeyPress: this.props.onKeyPress, onKeyDown: this.props.onKeyDown, onKeyUp: this.props.onKeyUp, onBlur: this.handleBlur, onFocus: this.handleFocus, ref: this.props.innerRef || this.setRef })) : (react_1.default.createElement("input", { placeholder: this.props.placeholder, value: this.props.value, maxLength: this.props.maxLength, onChange: this.props.onChange ? this.handleChange : undefined, onKeyPress: this.props.onKeyPress, onKeyDown: this.props.onKeyDown, onKeyUp: this.props.onKeyUp, onBlur: this.handleBlur, onFocus: this.handleFocus, type: this.props.type || 'text', readOnly: this.props.readOnly, disabled: this.props.disabled, ref: this.props.innerRef || this.setRef })),
             this.showClearButton ? (react_1.default.createElement(Button_1.Button, { tabIndex: -1, className: "clear-button", icon: "close", onClick: this.clearInput })) : null,
-            react_1.default.createElement("div", { className: classnames_1.default('hint-or-error', {
+            this.props.noHelperText ? null : (react_1.default.createElement("div", { className: classnames_1.default('hint-or-error', {
                     error: !!this.props.error,
                     hint: !!this.props.hint,
                     visible: !!this.props.error || (!!this.props.hint && this.isFocused)
                 }) }, this.props.error ? (react_1.default.createElement(react_1.default.Fragment, null,
                 react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: "error_outline" }),
-                this.props.error)) : this.props.hint ? (this.props.hint) : null)));
+                this.props.error)) : this.props.hint ? (this.props.hint) : null))));
     }
 };
 __decorate([
