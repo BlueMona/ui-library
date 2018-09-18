@@ -51,8 +51,10 @@ export type InputProps = BaseInputProps &
 
 @observer
 export class Input extends React.Component<InputProps> {
-  @observable isFocused = false;
-  @observable inputRef: HTMLInputElement | HTMLTextAreaElement | null = null;
+  @observable
+  isFocused = false;
+  @observable
+  inputRef: HTMLInputElement | HTMLTextAreaElement | null = null;
 
   handleChange = (
     ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
