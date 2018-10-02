@@ -33,6 +33,9 @@ export interface ButtonProps {
   // HTML tab index
   tabIndex?: number;
 
+  // Label for E2E desktop tests  
+  testId?: string;
+
   onClick?: (ev?: React.MouseEvent<HTMLButtonElement>) => void;
   onMouseEnter?: (
     ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
@@ -108,6 +111,7 @@ export class Button extends React.Component<ButtonProps> {
     if (this.props.href) {
       return (
         <a
+          data-test-id={this.props.testId}
           tabIndex={this.props.tabIndex}
           href={this.props.href}
           className={classNames}
@@ -122,6 +126,7 @@ export class Button extends React.Component<ButtonProps> {
 
     return (
       <button
+        data-test-id={this.props.testId}
         tabIndex={this.props.tabIndex}
         className={classNames}
         onClick={this.props.onClick}
