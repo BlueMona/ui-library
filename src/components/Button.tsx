@@ -93,6 +93,7 @@ export class Button extends React.Component<ButtonProps> {
       this.props.label || this.props.children ? (
         <span
           key={`button-label-${this.props.label || this.props.children}`}
+          data-test-id={this.props.testId}
           className="label"
         >
           {this.props.label || this.props.children}
@@ -111,7 +112,6 @@ export class Button extends React.Component<ButtonProps> {
     if (this.props.href) {
       return (
         <a
-          data-test-id={this.props.testId}
           tabIndex={this.props.tabIndex}
           href={this.props.href}
           className={classNames}
@@ -126,7 +126,6 @@ export class Button extends React.Component<ButtonProps> {
 
     return (
       <button
-        data-test-id={this.props.testId}
         tabIndex={this.props.tabIndex}
         className={classNames}
         onClick={this.props.onClick}
