@@ -38,7 +38,7 @@ export class Avatar extends React.Component<AvatarProps> {
     }
 
     return (
-      <div className="p-avatar">
+      <div className="p-avatar" data-test-id={this.props.contact.username}>
         <div className="contents">
           <div
             className={css(
