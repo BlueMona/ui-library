@@ -10,6 +10,7 @@ interface BaseInputProps {
     maxLength?: number;
     placeholder?: string;
     value?: string;
+    testId?: string;
     onChange?: (val: string) => void;
     onClear?: () => void;
     onFocus?: () => void;

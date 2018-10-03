@@ -10,6 +10,7 @@ export interface ButtonProps {
     selected?: boolean;
     active?: boolean;
     tabIndex?: number;
+    testId?: string;
     onClick?: (ev?: React.MouseEvent<HTMLButtonElement>) => void;
     onMouseEnter?: (ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
     onMouseLeave?: (ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
