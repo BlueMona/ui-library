@@ -9,6 +9,7 @@ import { MaterialIcon } from './MaterialIcon';
 interface BaseInputProps {
   className?: string;
   label?: string;
+  testId?: string;
   error?: string;
   hint?: string;
   theme?: 'transparent';
@@ -37,7 +38,6 @@ interface BaseInputProps {
 
 interface TextAreaInputProps {
   multiline: true;
-  innerRef?: React.Ref<HTMLTextAreaElement>;
 }
 
 interface InputInputProps {
@@ -45,7 +45,6 @@ interface InputInputProps {
   type?: 'text' | 'password';
   readOnly?: boolean;
   disabled?: boolean;
-  innerRef?: React.Ref<HTMLInputElement>;
 }
 
 export type InputProps = BaseInputProps &
@@ -57,6 +56,15 @@ export class Input extends React.Component<InputProps> {
   isFocused = false;
   @observable
   inputRef: HTMLInputElement | HTMLTextAreaElement | null = null;
+
+  componentDidMount() {
+    if (this.props.autoFocus)
+      setTimeout(() => {
+        if (!this.inputRef) return;
+        // focus does not properly work without setTimeout
+        this.inputRef.focus();
+      }, 0);
+  }
 
   handleChange = (
     ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -88,19 +96,13 @@ export class Input extends React.Component<InputProps> {
 
   @action.bound
   setRef(ref: HTMLInputElement | HTMLTextAreaElement | null) {
-    if (ref) {
-      this.inputRef = ref;
-      if (this.props.autoFocus) {
-        this.focus();
-      }
-    }
+    this.inputRef = ref;
   }
 
   @action.bound
   focus() {
     if (this.inputRef) {
       this.inputRef.focus();
-      this.handleFocus();
     }
   }
 
@@ -137,7 +139,7 @@ export class Input extends React.Component<InputProps> {
             onKeyUp={this.props.onKeyUp}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
-            ref={this.props.innerRef || this.setRef}
+            ref={this.setRef}
           />
         ) : (
           <input
@@ -153,7 +155,7 @@ export class Input extends React.Component<InputProps> {
             type={this.props.type || 'text'}
             readOnly={this.props.readOnly}
             disabled={this.props.disabled}
-            ref={this.props.innerRef || this.setRef}
+            ref={this.setRef}
           />
         )}
 
