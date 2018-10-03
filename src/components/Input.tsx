@@ -20,6 +20,9 @@ interface BaseInputProps {
   placeholder?: string;
 
   value?: string;
+  
+  // Label for E2E desktop tests  
+  testId?: string;
 
   // React props
   onChange?: (val: string) => void;
@@ -128,6 +131,7 @@ export class Input extends React.Component<InputProps> {
 
         {this.props.multiline ? (
           <textarea
+            data-test-id={this.props.testId}
             placeholder={this.props.placeholder}
             value={this.props.value}
             maxLength={this.props.maxLength}
@@ -141,6 +145,7 @@ export class Input extends React.Component<InputProps> {
           />
         ) : (
           <input
+            data-test-id={this.props.testId}
             placeholder={this.props.placeholder}
             value={this.props.value}
             maxLength={this.props.maxLength}
