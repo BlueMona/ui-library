@@ -49,6 +49,7 @@ let Menu = class Menu extends react_1.default.Component {
         this.setStyle();
         this.menuActive = true;
         window.addEventListener('click', this.hideMenu, true);
+        window.addEventListener('blur', this.hideMenu);
         window.addEventListener('keyup', this.handleKeyUp);
         if (this.scrollContainer) {
             this.scrollContainer.addEventListener('scroll', this.hideMenu);
@@ -69,6 +70,7 @@ let Menu = class Menu extends react_1.default.Component {
             this.props.onHide();
         }
         window.removeEventListener('click', this.hideMenu, true);
+        window.removeEventListener('blur', this.hideMenu);
         window.removeEventListener('keyup', this.handleKeyUp);
         if (this.scrollContainer) {
             this.scrollContainer.removeEventListener('scroll', this.hideMenu);
