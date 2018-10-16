@@ -16,12 +16,7 @@ export interface MenuProps {
 export declare class Menu extends React.Component<MenuProps> {
     menuActive: boolean;
     menuVisible: boolean;
-    style: {
-        top: string;
-        bottom: string;
-        left: string;
-        right: string;
-    };
+    style: React.CSSProperties;
     menuButtonRef: any;
     scrollContainer: any;
     hideMenuTimeout: any;
