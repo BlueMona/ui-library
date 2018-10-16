@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 class Divider extends react_1.default.PureComponent {
     render() {
-        return (react_1.default.createElement("hr", { className: "p-divider" }));
+        return react_1.default.createElement("hr", { className: "p-divider" });
     }
 }
 exports.Divider = Divider;

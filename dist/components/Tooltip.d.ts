@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 export interface TooltipProps {
     className?: string;
     text?: string;
-    position?: "top" | "right" | "bottom" | "left";
-    size?: "small";
+    position?: 'top' | 'right' | 'bottom' | 'left';
+    size?: 'small';
 }
 export declare class Tooltip extends React.Component<TooltipProps> {
     ref: any;

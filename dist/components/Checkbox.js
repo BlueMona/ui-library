@@ -14,14 +14,13 @@ const mobx_react_1 = require("mobx-react");
 const classnames_1 = __importDefault(require("classnames"));
 let Checkbox = class Checkbox extends react_1.default.Component {
     render() {
-        return (react_1.default.createElement("span", { className: classnames_1.default("p-checkbox", this.props.className, { disabled: this.props.disabled }) },
+        return (react_1.default.createElement("span", { className: classnames_1.default('p-checkbox', this.props.className, {
+                disabled: this.props.disabled
+            }) },
             react_1.default.createElement("span", { className: "p-checkbox-container" },
                 react_1.default.createElement("input", { type: "checkbox", checked: this.props.checked, onChange: this.props.onChange, className: classnames_1.default({ clickable: !this.props.disabled }) }),
-                react_1.default.createElement("span", { className: classnames_1.default("material-icons", { selected: this.props.checked }) }, this.props.checked
-                    ? "check_box"
-                    : "check_box_outline_blank")),
-            this.props.label &&
-                react_1.default.createElement("span", { className: "p-checkbox-label" }, this.props.label)));
+                react_1.default.createElement("span", { className: classnames_1.default('material-icons', { selected: this.props.checked }) }, this.props.checked ? 'check_box' : 'check_box_outline_blank')),
+            this.props.label && (react_1.default.createElement("span", { className: "p-checkbox-label" }, this.props.label))));
     }
 };
 Checkbox = __decorate([

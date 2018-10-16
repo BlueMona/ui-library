@@ -1,9 +1,9 @@
-import React from "react";
-import { ContactProps } from "./helpers/interfaces";
+import React from 'react';
+import { ContactProps } from './helpers/interfaces';
 export interface AvatarProps {
     className?: string;
     contact: ContactProps;
-    size?: "tiny" | "small" | "medium" | "large" | "full";
+    size?: 'tiny' | 'small' | 'medium' | 'large' | 'full';
     tooltip?: boolean;
     clickable?: boolean;
     onClick?: (ev: React.MouseEvent<HTMLDivElement>) => void;

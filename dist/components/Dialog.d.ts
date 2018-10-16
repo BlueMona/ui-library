@@ -1,13 +1,13 @@
-import React from "react";
-import { ActionProps } from "./helpers/interfaces";
+import React from 'react';
+import { ActionProps } from './helpers/interfaces';
 export interface DialogProps {
     actions: ActionProps[];
     active: boolean;
     className?: string;
     noAnimation?: boolean;
     onCancel?: () => void;
-    size?: "small";
-    theme?: "warning" | "error" | "primary";
+    size?: 'small';
+    theme?: 'warning' | 'error' | 'primary';
     title?: any;
     headerImage?: string;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { action, observable } from 'mobx';
+import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import css from 'classnames';
 
@@ -9,8 +9,11 @@ import { MaterialIcon } from './MaterialIcon';
 interface BaseInputProps {
   className?: string;
   label?: string;
+  testId?: string;
   error?: string;
   hint?: string;
+  theme?: 'transparent';
+  noHelperText?: boolean; // Use to hide error/hint div in cases of very tight positioning.
 
   // Standard HTML input props
   autoFocus?: boolean;
@@ -35,7 +38,6 @@ interface BaseInputProps {
 
 interface TextAreaInputProps {
   multiline: true;
-  innerRef?: React.Ref<HTMLTextAreaElement>;
 }
 
 interface InputInputProps {
@@ -43,7 +45,6 @@ interface InputInputProps {
   type?: 'text' | 'password';
   readOnly?: boolean;
   disabled?: boolean;
-  innerRef?: React.Ref<HTMLInputElement>;
 }
 
 export type InputProps = BaseInputProps &
@@ -56,12 +57,26 @@ export class Input extends React.Component<InputProps> {
   @observable
   inputRef: HTMLInputElement | HTMLTextAreaElement | null = null;
 
+  componentDidMount() {
+    if (this.props.autoFocus)
+      setTimeout(() => {
+        if (!this.inputRef) return;
+        // focus does not properly work without setTimeout
+        this.inputRef.focus();
+      }, 0);
+  }
+
   handleChange = (
     ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     if (!this.props.onChange) return;
     this.props.onChange(ev.currentTarget.value);
   };
+
+  @computed
+  get showClearButton() {
+    return !this.props.multiline && !!this.props.value && !!this.props.onClear;
+  }
 
   clearInput = () => {
     if (this.props.onClear) this.props.onClear();
@@ -81,19 +96,13 @@ export class Input extends React.Component<InputProps> {
 
   @action.bound
   setRef(ref: HTMLInputElement | HTMLTextAreaElement | null) {
-    if (ref) {
-      this.inputRef = ref;
-      if (this.props.autoFocus) {
-        this.focus();
-      }
-    }
+    this.inputRef = ref;
   }
 
   @action.bound
   focus() {
     if (this.inputRef) {
       this.inputRef.focus();
-      this.handleFocus();
     }
   }
 
@@ -108,9 +117,10 @@ export class Input extends React.Component<InputProps> {
   render() {
     return (
       <div
-        className={css('p-input', this.props.className, {
+        className={css('p-input', this.props.className, this.props.theme, {
           'has-label': !!this.props.label,
           'has-error': !!this.props.error,
+          'has-clear-button': this.showClearButton,
           focused: this.isFocused
         })}
       >
@@ -129,7 +139,7 @@ export class Input extends React.Component<InputProps> {
             onKeyUp={this.props.onKeyUp}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
-            ref={this.props.innerRef || this.setRef}
+            ref={this.setRef}
           />
         ) : (
           <input
@@ -145,34 +155,38 @@ export class Input extends React.Component<InputProps> {
             type={this.props.type || 'text'}
             readOnly={this.props.readOnly}
             disabled={this.props.disabled}
-            ref={this.props.innerRef || this.setRef}
+            ref={this.setRef}
           />
         )}
 
-        {!this.props.multiline && !!this.props.value && !!this.props.onClear ? (
+        {this.showClearButton ? (
           <Button
+            tabIndex={-1}
             className="clear-button"
             icon="close"
             onClick={this.clearInput}
           />
         ) : null}
 
-        <div
-          className={css('hint-or-error', {
-            error: !!this.props.error,
-            hint: !!this.props.hint,
-            visible: !!this.props.error || (!!this.props.hint && this.isFocused)
-          })}
-        >
-          {this.props.error ? (
-            <React.Fragment>
-              <MaterialIcon icon="error_outline" />
-              {this.props.error}
-            </React.Fragment>
-          ) : this.props.hint ? (
-            this.props.hint
-          ) : null}
-        </div>
+        {this.props.noHelperText ? null : (
+          <div
+            className={css('hint-or-error', {
+              error: !!this.props.error,
+              hint: !!this.props.hint,
+              visible:
+                !!this.props.error || (!!this.props.hint && this.isFocused)
+            })}
+          >
+            {this.props.error ? (
+              <React.Fragment>
+                <MaterialIcon icon="error_outline" />
+                {this.props.error}
+              </React.Fragment>
+            ) : this.props.hint ? (
+              this.props.hint
+            ) : null}
+          </div>
+        )}
       </div>
     );
   }

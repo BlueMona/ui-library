@@ -25,7 +25,7 @@ let Dropdown = class Dropdown extends react_1.default.Component {
     }
     // Function to change the value, relies on parent component"s onChange function
     setValue(ev) {
-        this.props.onChange(ev.currentTarget.getAttribute("data-value"));
+        this.props.onChange(ev.currentTarget.getAttribute('data-value'));
         this.isActive = false;
     }
     handleMouseEnter() {
@@ -35,10 +35,10 @@ let Dropdown = class Dropdown extends react_1.default.Component {
         this.isHover = false;
     }
     componentDidMount() {
-        window.addEventListener("click", this.handleClick, false);
+        window.addEventListener('click', this.handleClick, false);
     }
     componentWillUnmount() {
-        window.removeEventListener("click", this.handleClick);
+        window.removeEventListener('click', this.handleClick);
     }
     handleClick() {
         if (this.isActive && !this.isHover) {
@@ -55,18 +55,16 @@ let Dropdown = class Dropdown extends react_1.default.Component {
         }
         const classNames = this.props.className
             ? `p-dropdown ${this.props.className}`
-            : "p-dropdown";
+            : 'p-dropdown';
         return (react_1.default.createElement("div", { className: classNames },
-            this.props.label &&
-                react_1.default.createElement("span", { className: "label" },
-                    this.props.label,
-                    ":"),
+            this.props.label && react_1.default.createElement("span", { className: "label" },
+                this.props.label,
+                ":"),
             react_1.default.createElement("div", { className: "inputs-container", onMouseEnter: this.handleMouseEnter, onMouseLeave: this.handleMouseLeave },
                 react_1.default.createElement("div", { className: "selector clickable", onClick: this.activate },
                     react_1.default.createElement("span", { className: "input" }, labels[value]),
                     react_1.default.createElement("span", { className: "material-icons" }, "arrow_drop_down")),
-                this.isActive &&
-                    react_1.default.createElement("ul", { className: this.isActive ? "active" : undefined }, dropdownOptions))));
+                this.isActive && (react_1.default.createElement("ul", { className: this.isActive ? 'active' : undefined }, dropdownOptions)))));
     }
 };
 __decorate([

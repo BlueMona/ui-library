@@ -15,7 +15,7 @@ let RadioButtons = class RadioButtons extends react_1.default.Component {
     constructor() {
         super(...arguments);
         this.setValue = (ev) => {
-            this.props.onChange(ev.currentTarget.getAttribute("data-value"));
+            this.props.onChange(ev.currentTarget.getAttribute('data-value'));
         };
     }
     render() {
@@ -24,16 +24,16 @@ let RadioButtons = class RadioButtons extends react_1.default.Component {
         for (let i = 0; i < options.length; i++) {
             radioOptions.push(react_1.default.createElement("li", { key: options[i].value },
                 react_1.default.createElement("span", { className: value === options[i].value
-                        ? "material-icons clickable selected"
-                        : "material-icons clickable", "data-value": options[i].value, onClick: this.setValue }, value === options[i].value
-                    ? "radio_button_checked"
-                    : "radio_button_unchecked"),
+                        ? 'material-icons clickable selected'
+                        : 'material-icons clickable', "data-value": options[i].value, onClick: this.setValue }, value === options[i].value
+                    ? 'radio_button_checked'
+                    : 'radio_button_unchecked'),
                 react_1.default.createElement("span", { className: "label" }, options[i].label)));
         }
         const classNames = this.props.className
             ? `p-radio ${this.props.className}`
-            : "p-radio";
-        return (react_1.default.createElement("ul", { className: classNames }, radioOptions));
+            : 'p-radio';
+        return react_1.default.createElement("ul", { className: classNames }, radioOptions);
     }
 };
 RadioButtons = __decorate([

@@ -30,6 +30,18 @@ let Input = class Input extends react_1.default.Component {
                 this.props.onClear();
         };
     }
+    componentDidMount() {
+        if (this.props.autoFocus)
+            setTimeout(() => {
+                if (!this.inputRef)
+                    return;
+                // focus does not properly work without setTimeout
+                this.inputRef.focus();
+            }, 0);
+    }
+    get showClearButton() {
+        return !this.props.multiline && !!this.props.value && !!this.props.onClear;
+    }
     handleFocus() {
         if (this.props.onFocus)
             this.props.onFocus();
@@ -41,17 +53,11 @@ let Input = class Input extends react_1.default.Component {
         this.isFocused = false;
     }
     setRef(ref) {
-        if (ref) {
-            this.inputRef = ref;
-            if (this.props.autoFocus) {
-                this.focus();
-            }
-        }
+        this.inputRef = ref;
     }
     focus() {
         if (this.inputRef) {
             this.inputRef.focus();
-            this.handleFocus();
         }
     }
     blur() {
@@ -61,31 +67,22 @@ let Input = class Input extends react_1.default.Component {
         }
     }
     render() {
-        return (react_1.default.createElement("div", { className: classnames_1.default("p-input", this.props.className, {
-                "has-label": !!this.props.label,
-                "has-error": !!this.props.error,
+        return (react_1.default.createElement("div", { className: classnames_1.default('p-input', this.props.className, this.props.theme, {
+                'has-label': !!this.props.label,
+                'has-error': !!this.props.error,
+                'has-clear-button': this.showClearButton,
                 focused: this.isFocused
             }) },
-            this.props.label
-                ? react_1.default.createElement("div", { className: classnames_1.default("label") }, this.props.label)
-                : null,
-            this.props.multiline
-                ? react_1.default.createElement("textarea", { placeholder: this.props.placeholder, value: this.props.value, maxLength: this.props.maxLength, onChange: this.props.onChange ? this.handleChange : undefined, onKeyPress: this.props.onKeyPress, onKeyDown: this.props.onKeyDown, onKeyUp: this.props.onKeyUp, onBlur: this.handleBlur, onFocus: this.handleFocus, ref: this.props.innerRef || this.setRef })
-                : react_1.default.createElement("input", { placeholder: this.props.placeholder, value: this.props.value, maxLength: this.props.maxLength, onChange: this.props.onChange ? this.handleChange : undefined, onKeyPress: this.props.onKeyPress, onKeyDown: this.props.onKeyDown, onKeyUp: this.props.onKeyUp, onBlur: this.handleBlur, onFocus: this.handleFocus, type: this.props.type || "text", readOnly: this.props.readOnly, disabled: this.props.disabled, ref: this.props.innerRef || this.setRef }),
-            (!this.props.multiline && !!this.props.value && !!this.props.onClear)
-                ? react_1.default.createElement(Button_1.Button, { className: "clear-button", icon: "close", onClick: this.clearInput })
-                : null,
-            react_1.default.createElement("div", { className: classnames_1.default("hint-or-error", {
+            this.props.label ? (react_1.default.createElement("div", { className: classnames_1.default('label') }, this.props.label)) : null,
+            this.props.multiline ? (react_1.default.createElement("textarea", { placeholder: this.props.placeholder, value: this.props.value, maxLength: this.props.maxLength, onChange: this.props.onChange ? this.handleChange : undefined, onKeyPress: this.props.onKeyPress, onKeyDown: this.props.onKeyDown, onKeyUp: this.props.onKeyUp, onBlur: this.handleBlur, onFocus: this.handleFocus, ref: this.setRef })) : (react_1.default.createElement("input", { placeholder: this.props.placeholder, value: this.props.value, maxLength: this.props.maxLength, onChange: this.props.onChange ? this.handleChange : undefined, onKeyPress: this.props.onKeyPress, onKeyDown: this.props.onKeyDown, onKeyUp: this.props.onKeyUp, onBlur: this.handleBlur, onFocus: this.handleFocus, type: this.props.type || 'text', readOnly: this.props.readOnly, disabled: this.props.disabled, ref: this.setRef })),
+            this.showClearButton ? (react_1.default.createElement(Button_1.Button, { tabIndex: -1, className: "clear-button", icon: "close", onClick: this.clearInput })) : null,
+            this.props.noHelperText ? null : (react_1.default.createElement("div", { className: classnames_1.default('hint-or-error', {
                     error: !!this.props.error,
                     hint: !!this.props.hint,
                     visible: !!this.props.error || (!!this.props.hint && this.isFocused)
-                }) }, this.props.error ?
-                react_1.default.createElement(react_1.default.Fragment, null,
-                    react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: "error_outline" }),
-                    this.props.error)
-                : this.props.hint
-                    ? this.props.hint
-                    : null)));
+                }) }, this.props.error ? (react_1.default.createElement(react_1.default.Fragment, null,
+                react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: "error_outline" }),
+                this.props.error)) : this.props.hint ? (this.props.hint) : null))));
     }
 };
 __decorate([
@@ -94,6 +91,9 @@ __decorate([
 __decorate([
     mobx_1.observable
 ], Input.prototype, "inputRef", void 0);
+__decorate([
+    mobx_1.computed
+], Input.prototype, "showClearButton", null);
 __decorate([
     mobx_1.action.bound
 ], Input.prototype, "handleFocus", null);

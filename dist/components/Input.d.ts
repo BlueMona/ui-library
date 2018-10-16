@@ -1,9 +1,12 @@
-import React from "react";
+import React from 'react';
 interface BaseInputProps {
     className?: string;
     label?: string;
+    testId?: string;
     error?: string;
     hint?: string;
+    theme?: 'transparent';
+    noHelperText?: boolean;
     autoFocus?: boolean;
     maxLength?: number;
     placeholder?: string;
@@ -18,20 +21,20 @@ interface BaseInputProps {
 }
 interface TextAreaInputProps {
     multiline: true;
-    innerRef?: React.Ref<HTMLTextAreaElement>;
 }
 interface InputInputProps {
     multiline?: false;
-    type?: "text" | "password";
+    type?: 'text' | 'password';
     readOnly?: boolean;
     disabled?: boolean;
-    innerRef?: React.Ref<HTMLInputElement>;
 }
 export declare type InputProps = BaseInputProps & (TextAreaInputProps | InputInputProps);
 export declare class Input extends React.Component<InputProps> {
     isFocused: boolean;
     inputRef: HTMLInputElement | HTMLTextAreaElement | null;
+    componentDidMount(): void;
     handleChange: (ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    readonly showClearButton: boolean;
     clearInput: () => void;
     handleFocus(): void;
     handleBlur(): void;

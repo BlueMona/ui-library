@@ -8,7 +8,7 @@ class ListHeading extends react_1.default.Component {
     render() {
         return (react_1.default.createElement("li", { className: this.props.className
                 ? `p-list-heading ${this.props.className}`
-                : "p-list-heading" }, this.props.caption || this.props.children));
+                : 'p-list-heading' }, this.props.caption || this.props.children));
     }
 }
 exports.ListHeading = ListHeading;

@@ -15,20 +15,18 @@ const classnames_1 = __importDefault(require("classnames"));
 let ProgressBar = class ProgressBar extends react_1.default.Component {
     render() {
         let style;
-        if (this.props.mode === "determinate" || this.props.mode === undefined) {
-            style = { width: `${this.props.value / this.props.max * 100}%` };
+        if (this.props.mode === 'determinate' || this.props.mode === undefined) {
+            style = { width: `${(this.props.value / this.props.max) * 100}%` };
         }
         return (
         /*
-            Progress bar itself needs to be position:relative,
-            so we need to put everything in a container div to be able to control positioning
-        */
-        react_1.default.createElement("div", { className: classnames_1.default("p-progress-bar", this.props.className, this.props.theme, this.props.size, { circular: this.props.type === "circular" }) }, this.props.type !== "circular"
-            ? react_1.default.createElement("div", { className: "progress-bar" },
-                react_1.default.createElement("div", { className: classnames_1.default(this.props.type || "linear", this.props.mode || "determinate", this.props.size, this.props.theme), style: style }))
-            : react_1.default.createElement("div", { className: classnames_1.default("progress-spinner", this.props.size, this.props.theme) },
-                react_1.default.createElement("svg", { className: "circular" },
-                    react_1.default.createElement("circle", { className: "path", cx: this.props.size === "small" ? 10 : 25, cy: this.props.size === "small" ? 10 : 25, r: this.props.size === "small" ? 6 : 20 })))));
+                  Progress bar itself needs to be position:relative,
+                  so we need to put everything in a container div to be able to control positioning
+              */
+        react_1.default.createElement("div", { className: classnames_1.default('p-progress-bar', this.props.className, this.props.theme, this.props.size, { circular: this.props.type === 'circular' }) }, this.props.type !== 'circular' ? (react_1.default.createElement("div", { className: "progress-bar" },
+            react_1.default.createElement("div", { className: classnames_1.default(this.props.type || 'linear', this.props.mode || 'determinate', this.props.size, this.props.theme), style: style }))) : (react_1.default.createElement("div", { className: classnames_1.default('progress-spinner', this.props.size, this.props.theme) },
+            react_1.default.createElement("svg", { className: "circular" },
+                react_1.default.createElement("circle", { className: "path", cx: this.props.size === 'small' ? 10 : 25, cy: this.props.size === 'small' ? 10 : 25, r: this.props.size === 'small' ? 6 : 20 }))))));
     }
 };
 ProgressBar = __decorate([

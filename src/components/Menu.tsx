@@ -80,6 +80,7 @@ export class Menu extends React.Component<MenuProps> {
     this.menuActive = true;
 
     window.addEventListener('click', this.hideMenu, true);
+    window.addEventListener('blur', this.hideMenu);
     window.addEventListener('keyup', this.handleKeyUp);
 
     if (this.scrollContainer) {
@@ -106,6 +107,7 @@ export class Menu extends React.Component<MenuProps> {
     }
 
     window.removeEventListener('click', this.hideMenu, true);
+    window.removeEventListener('blur', this.hideMenu);
     window.removeEventListener('keyup', this.handleKeyUp);
 
     if (this.scrollContainer) {

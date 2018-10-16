@@ -1,17 +1,16 @@
 {
   "name": "peer-ui",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "Styles and PeerUI React component library for peerio-desktop",
   "main": "dist/peer-ui.js",
   "types": "dist/peer-ui.d.ts",
   "scripts": {
-    "build": "rm -rf dist/ && tsc",
+    "build": "run-p build:*",
+    "build:tsc": "rm -rf dist/ && tsc",
+    "build:style": "node-sass ./src/style.scss ./dist/style.css",
     "watch": "run-p watch:*",
-    "watch:webpack": "webpack -d --watch",
+    "watch:tsc": "tsc-watch",
     "watch:style": "npm run build:style -- -w",
-    "web-build": "run-p web-build:*",
-    "web-build:webpack": "webpack -p",
-    "web-build:style": "node-sass ./src/style.scss ./dist/style.css",
     "test": "run-s -l test:*",
     "test:ts": "tsc --noEmit --pretty",
     "test:jest": "jest --colors",
@@ -55,10 +54,9 @@
     "react-dom": "^16.4.2",
     "ts-jest": "^23.1.4",
     "ts-loader": "^4.5.0",
+    "tsc-watch": "^1.0.29",
     "typescript": "^3.0.3",
-    "typescript-eslint-parser": "^18.0.0",
-    "webpack": "^4.17.1",
-    "webpack-cli": "^2.1.5"
+    "typescript-eslint-parser": "^18.0.0"
   },
   "peerDependencies": {
     "mobx": "*",

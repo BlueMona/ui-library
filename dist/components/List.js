@@ -7,7 +7,9 @@ const react_1 = __importDefault(require("react"));
 const classnames_1 = __importDefault(require("classnames"));
 class List extends react_1.default.Component {
     render() {
-        return (react_1.default.createElement("ul", { className: classnames_1.default("p-list", this.props.className, this.props.theme, { clickable: this.props.clickable }) }, this.props.children));
+        return (react_1.default.createElement("ul", { className: classnames_1.default('p-list', this.props.className, this.props.theme, {
+                clickable: this.props.clickable
+            }) }, this.props.children));
     }
 }
 exports.List = List;

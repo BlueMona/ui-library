@@ -32,8 +32,8 @@ let Tooltip = class Tooltip extends react_1.default.Component {
         this.ref = undefined; // TODO: another ref placeholder
         this.isVisible = false;
         this.style = {
-            left: "",
-            top: ""
+            left: '',
+            top: ''
         };
     }
     setRef(ref) {
@@ -41,17 +41,17 @@ let Tooltip = class Tooltip extends react_1.default.Component {
             this.ref = ref;
             if (!ref.parentElement)
                 return;
-            ref.parentElement.addEventListener("mouseenter", this.showTooltip, false);
-            ref.parentElement.addEventListener("mouseleave", this.hideTooltip, false);
-            ref.parentElement.addEventListener("click", this.hideTooltip, false);
+            ref.parentElement.addEventListener('mouseenter', this.showTooltip, false);
+            ref.parentElement.addEventListener('mouseleave', this.hideTooltip, false);
+            ref.parentElement.addEventListener('click', this.hideTooltip, false);
         }
     }
     componentWillUnmount() {
         if (!this.ref || !this.ref.parentElement)
             return;
-        this.ref.parentElement.removeEventListener("mouseenter", this.showTooltip);
-        this.ref.parentElement.removeEventListener("mouseleave", this.hideTooltip);
-        this.ref.parentElement.removeEventListener("click", this.hideTooltip);
+        this.ref.parentElement.removeEventListener('mouseenter', this.showTooltip);
+        this.ref.parentElement.removeEventListener('mouseleave', this.hideTooltip);
+        this.ref.parentElement.removeEventListener('click', this.hideTooltip);
     }
     showTooltip() {
         if (!this.ref)
@@ -62,19 +62,19 @@ let Tooltip = class Tooltip extends react_1.default.Component {
         const margin = 5;
         switch (this.props.position) {
             default:
-            case "top":
+            case 'top':
                 this.style.left = `${posX - width / 2}px`;
                 this.style.top = `${posY - offsetY - height - margin}px`;
                 break;
-            case "bottom":
+            case 'bottom':
                 this.style.left = `${posX - width / 2}px`;
                 this.style.top = `${posY + offsetY + margin}px`;
                 break;
-            case "left":
+            case 'left':
                 this.style.left = `${posX - offsetX - width - margin}px`;
                 this.style.top = `${posY - height / 2}px`;
                 break;
-            case "right":
+            case 'right':
                 this.style.left = `${posX + offsetX + margin}px`;
                 this.style.top = `${posY - height / 2}px`;
                 break;
@@ -85,16 +85,16 @@ let Tooltip = class Tooltip extends react_1.default.Component {
         this.isVisible = false;
     }
     render() {
-        return (react_1.default.createElement("div", { ref: this.setRef, className: classnames_1.default("p-tooltip", this.props.className, this.props.size), style: this.isVisible
+        return (react_1.default.createElement("div", { ref: this.setRef, className: classnames_1.default('p-tooltip', this.props.className, this.props.size), style: this.isVisible
                 ? this.style
                 : {
                     /*
-                        Need to move hidden tooltip to top-left in order to calculate width/height correctly.
-                        (Tooltip near right/bottom of screen may get cut off, which affects calculated bounding box)
-                    */
+                                Need to move hidden tooltip to top-left in order to calculate width/height correctly.
+                                (Tooltip near right/bottom of screen may get cut off, which affects calculated bounding box)
+                            */
                     left: 0,
                     top: 0,
-                    visibility: "hidden"
+                    visibility: 'hidden'
                 } }, this.props.text));
     }
 };

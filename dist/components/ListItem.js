@@ -9,28 +9,18 @@ const MaterialIcon_1 = require("./MaterialIcon");
 const dom_1 = require("./helpers/dom");
 class ListItem extends react_1.default.Component {
     render() {
-        return (react_1.default.createElement("li", Object.assign({ className: classnames_1.default("p-list-item", this.props.className, { disabled: this.props.disabled }), onClick: this.props.onClick }, dom_1.getDataProps(this.props)),
-            this.props.leftIcon
-                ? react_1.default.createElement("div", { className: "side-content left icon" },
-                    react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: this.props.leftIcon }))
-                : null,
-            this.props.leftContent
-                ? react_1.default.createElement("div", { className: "side-content left" }, this.props.leftContent)
-                : null,
-            this.props.caption
-                ? react_1.default.createElement("div", { className: "content" },
-                    react_1.default.createElement("div", { className: "caption" }, this.props.caption),
-                    this.props.legend
-                        ? react_1.default.createElement("div", { className: "legend" }, this.props.legend)
-                        : null)
-                : react_1.default.createElement("div", { className: "content" }, this.props.children),
-            this.props.rightIcon
-                ? react_1.default.createElement("div", { className: "side-content right icon" },
-                    react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: this.props.rightIcon }))
-                : null,
-            this.props.rightContent
-                ? react_1.default.createElement("div", { className: "side-content right" }, this.props.rightContent)
-                : null));
+        return (react_1.default.createElement("li", Object.assign({ className: classnames_1.default('p-list-item', this.props.className, {
+                disabled: this.props.disabled
+            }), onClick: this.props.onClick }, dom_1.getDataProps(this.props)),
+            this.props.leftIcon ? (react_1.default.createElement("div", { className: "side-content left icon" },
+                react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: this.props.leftIcon }))) : null,
+            this.props.leftContent ? (react_1.default.createElement("div", { className: "side-content left" }, this.props.leftContent)) : null,
+            this.props.caption ? (react_1.default.createElement("div", { className: "content" },
+                react_1.default.createElement("div", { className: "caption" }, this.props.caption),
+                this.props.legend ? (react_1.default.createElement("div", { className: "legend" }, this.props.legend)) : null)) : (react_1.default.createElement("div", { className: "content" }, this.props.children)),
+            this.props.rightIcon ? (react_1.default.createElement("div", { className: "side-content right icon" },
+                react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: this.props.rightIcon }))) : null,
+            this.props.rightContent ? (react_1.default.createElement("div", { className: "side-content right" }, this.props.rightContent)) : null));
     }
 }
 exports.ListItem = ListItem;

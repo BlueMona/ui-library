@@ -1,1 +1,1 @@
-{"version":3,"file":"Divider.js","sourceRoot":"","sources":["../../src/components/Divider.tsx"],"names":[],"mappings":";;;;;AAAA,kDAA0B;AAE1B,MAAa,OAAQ,SAAQ,eAAK,CAAC,aAAa;IAC5C,MAAM;QACF,OAAO,CACH,sCAAI,SAAS,EAAC,WAAW,GAAG,CAC/B,CAAC;IACN,CAAC;CACJ;AAND,0BAMC"}
+{"version":3,"file":"Divider.js","sourceRoot":"","sources":["../../src/components/Divider.tsx"],"names":[],"mappings":";;;;;AAAA,kDAA0B;AAE1B,MAAa,OAAQ,SAAQ,eAAK,CAAC,aAAa;IAC9C,MAAM;QACJ,OAAO,sCAAI,SAAS,EAAC,WAAW,GAAG,CAAC;IACtC,CAAC;CACF;AAJD,0BAIC"}
