@@ -61,10 +61,11 @@ export interface ButtonProps {
    * * small: collapses padding
    * * link: style button as link (look like <a>)
    * * no-hover: remove hover effects
-    */
+   */
   theme?: string;
 }
 
+/** Button class. hey. */
 export class Button extends React.Component<ButtonProps> {
   render() {
     const classNames = css('p-button', this.props.className, this.props.theme, {
