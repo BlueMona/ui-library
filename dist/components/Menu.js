@@ -127,6 +127,9 @@ __decorate([
 __decorate([
     mobx_1.action.bound
 ], Menu.prototype, "hideMenu", null);
+__decorate([
+    mobx_1.action
+], Menu.prototype, "setStyle", null);
 Menu = __decorate([
     mobx_react_1.observer
 ], Menu);

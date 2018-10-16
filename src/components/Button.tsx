@@ -61,7 +61,7 @@ export interface ButtonProps {
    * * small: collapses padding
    * * link: style button as link (look like <a>)
    * * no-hover: remove hover effects
-    */
+   */
   theme?: string;
 }
 
