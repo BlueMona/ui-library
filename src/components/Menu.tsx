@@ -44,7 +44,7 @@ export class Menu extends React.Component<MenuProps> {
   menuVisible = false;
 
   @observable
-  style = {
+  style: React.CSSProperties = {
     top: 'inherit',
     bottom: 'inherit',
     left: 'inherit',
@@ -113,6 +113,7 @@ export class Menu extends React.Component<MenuProps> {
     }
   }
 
+  @action
   setStyle() {
     const {
       width,
