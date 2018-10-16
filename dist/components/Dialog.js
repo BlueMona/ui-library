@@ -15,24 +15,57 @@ const mobx_1 = require("mobx");
 const mobx_react_1 = require("mobx-react");
 const classnames_1 = __importDefault(require("classnames"));
 const Button_1 = require("./Button");
+// FIXME: remove! untestable
 const appRoot = document.getElementById('root');
+// TODO: there's quite a bit of incidental state and behaviour that's difficult
+// to reason about here based around intermediate animation states. it could use
+// a closer audit and a pass to simplify it, possibly integrating a react
+// library to allow for more declarative animations. (or maybe a future
+// css-in-js solution could directly drive animation with less state...?)
+/**
+ * Usage notes from discussion with Lucas on 30/08/2018: can be invoked either
+ * by passing in the prop `active`, OR by getting a ref and calling
+ * `showWithoutAnimation`, `setActive()`.
+ *
+ * (There's at least one story to refactor/audit this:
+ * https://app.clubhouse.io/peerio/story/8020/desktop-dialog-manager)
+ *
+ * WARNING: this component uses the <dialog> dom element, only available in
+ * chrome 37+/firefox 53+. it may not be available in other environments.
+ */
 let Dialog = class Dialog extends react_1.default.Component {
+    // TODO: there's quite a bit of incidental state and behaviour that's difficult
+    // to reason about here based around intermediate animation states. it could use
+    // a closer audit and a pass to simplify it, possibly integrating a react
+    // library to allow for more declarative animations. (or maybe a future
+    // css-in-js solution could directly drive animation with less state...?)
+    /**
+     * Usage notes from discussion with Lucas on 30/08/2018: can be invoked either
+     * by passing in the prop `active`, OR by getting a ref and calling
+     * `showWithoutAnimation`, `setActive()`.
+     *
+     * (There's at least one story to refactor/audit this:
+     * https://app.clubhouse.io/peerio/story/8020/desktop-dialog-manager)
+     *
+     * WARNING: this component uses the <dialog> dom element, only available in
+     * chrome 37+/firefox 53+. it may not be available in other environments.
+     */
     constructor() {
         super(...arguments);
         // Separate "rendered" and "visible" bools to be able to use fade in/out animations
         this.dialogRendered = false;
         this.dialogVisible = false;
-        this.activeReaction = undefined;
-        this.mountTimeout = undefined;
-        this.unmountTimeout = undefined; // TODO: This seems wrong
-        this.dialogRef = undefined;
+        this.activeReaction = null;
+        this.mountTimeout = null;
+        this.unmountTimeout = null;
     }
     componentDidMount() {
         /*
-                These awkward timeouts are used to stagger the dialog"s render event from its "make visible" event.
-                The .visible class is tied to the dialogVisible bool, which is what triggers the opacity transition.
-                Separating these two events ensures that the transition plays.
-            */
+            These awkward timeouts are used to stagger the dialog's render event
+            from its "make visible" event. The .visible class is tied to the
+            dialogVisible bool, which is what triggers the opacity transition.
+            Separating these two events ensures that the transition plays.
+        */
         this.activeReaction = mobx_1.reaction(() => this.props.active, active => {
             if (active) {
                 this.setActive();
@@ -47,7 +80,8 @@ let Dialog = class Dialog extends react_1.default.Component {
             window.removeEventListener('keyup', this.handleEscKey);
             window.removeEventListener('keydown', this.handleTabKey);
         }
-        this.activeReaction();
+        if (this.activeReaction)
+            this.activeReaction();
     }
     setActive() {
         if (this.unmountTimeout) {
@@ -111,12 +145,14 @@ let Dialog = class Dialog extends react_1.default.Component {
         }
     }
     /*
-          We need to restrict focus to the dialog when it"s visible.
-          Clicking outside dialog closes it, so that"s OK, but it"s still possible to use Tab to escape.
-          For a11y we need to keep Tab key functionality, but restrict it to the contents of the dialog.
-          This function makes Tab jump back to first focusable element if the last one is currently focused,
-          or to the last element if Shift+Tab while the first is focused.
-      */
+        We need to restrict focus to the dialog when it's visible.
+  
+        Clicking outside dialog closes it, so that's OK, but it's still possible
+        to use Tab to escape. For a11y we need to keep Tab key functionality, but
+        restrict it to the contents of the dialog. This function makes Tab jump
+        back to first focusable element if the last one is currently focused, or
+        to the last element if Shift+Tab while the first is focused.
+    */
     handleTabKey(ev) {
         if (!this.dialogVisible || !this.dialogRendered)
             return;
@@ -141,7 +177,7 @@ let Dialog = class Dialog extends react_1.default.Component {
     render() {
         if (!this.dialogRendered)
             return null;
-        const { actions } = this.props;
+        const { actions, className, size, theme, headerImage, noAnimation, children, title, onCancel } = this.props;
         const buttons = [];
         if (actions) {
             for (let i = 0; i < actions.length; i++) {
@@ -149,17 +185,17 @@ let Dialog = class Dialog extends react_1.default.Component {
             }
         }
         const dialogContent = (react_1.default.createElement("div", { className: classnames_1.default('p-dialog-wrapper', {
-                visible: this.props.noAnimation || this.dialogVisible,
-                'with-header-image': !!this.props.headerImage
+                visible: noAnimation || this.dialogVisible,
+                'with-header-image': !!headerImage
             }), tabIndex: 0, ref: this.setDialogRef },
-            react_1.default.createElement("div", { className: "p-dialog-overlay", onClick: this.props.onCancel }),
-            react_1.default.createElement("dialog", { open: true, className: classnames_1.default('p-dialog', this.props.className, this.props.size, this.props.theme) },
-                this.props.headerImage ? (react_1.default.createElement("div", { className: "header-image" },
-                    react_1.default.createElement("img", { src: this.props.headerImage }))) : null,
+            react_1.default.createElement("div", { className: "p-dialog-overlay", onClick: onCancel }),
+            react_1.default.createElement("dialog", { open: true, className: classnames_1.default('p-dialog', className, size, theme) },
+                headerImage ? (react_1.default.createElement("div", { className: "header-image" },
+                    react_1.default.createElement("img", { src: headerImage }))) : null,
                 react_1.default.createElement("div", { className: "body" },
-                    this.props.title ? (react_1.default.createElement("div", { className: "title" }, this.props.title)) : null,
-                    this.props.children),
-                this.props.actions ? react_1.default.createElement("div", { className: "actions" }, buttons) : null)));
+                    title ? react_1.default.createElement("div", { className: "title" }, title) : null,
+                    children),
+                actions ? react_1.default.createElement("div", { className: "actions" }, buttons) : null)));
         return react_dom_1.default.createPortal(dialogContent, appRoot);
     }
 };
@@ -169,6 +205,9 @@ __decorate([
 __decorate([
     mobx_1.observable
 ], Dialog.prototype, "dialogVisible", void 0);
+__decorate([
+    mobx_1.observable.ref
+], Dialog.prototype, "dialogRef", void 0);
 __decorate([
     mobx_1.action.bound
 ], Dialog.prototype, "setActive", null);
