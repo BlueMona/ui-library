@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import css from 'classnames';
 
 import { MaterialIcon } from './MaterialIcon';
@@ -65,8 +65,7 @@ export interface ButtonProps {
   theme?: string;
 }
 
-/** Button class. hey. */
-export class Button extends React.Component<ButtonProps> {
+export class Button extends Component<ButtonProps> {
   render() {
     const classNames = css('p-button', this.props.className, this.props.theme, {
       icon: !this.props.label && (!!this.props.icon || !!this.props.customIcon),

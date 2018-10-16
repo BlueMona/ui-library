@@ -1,0 +1,32 @@
+---
+name: Avatar
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import { Avatar } from './Avatar'
+
+# Avatar
+
+## Properties
+
+<PropsTable of={Avatar} />
+
+
+## Basic usage
+
+<Playground>
+  {() => {
+    window.sampleContact = {
+      color: { value: '#f44' },
+      fullNameAndUsername: 'Bob Friendly',
+      letter: 'B',
+      username: 'bob_friendly'
+    }
+    return "Here we perform some basic setup for the following examples."
+  }}
+</Playground>
+
+<Playground>
+  <Avatar contact={window.sampleContact} />
+</Playground>

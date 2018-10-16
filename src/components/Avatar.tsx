@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import css from 'classnames';
 
@@ -9,24 +9,25 @@ import { Tooltip } from './Tooltip';
 export interface AvatarProps {
   className?: string;
 
-  // Contact object
+  /** Contact object */
   contact: ContactProps;
 
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'full';
 
-  // Set true to have a tooltip, which will show user"s username
+  /** Set true to have a tooltip, which will show user"s username */
   tooltip?: boolean;
 
-  /*
-        `clickable` is only for styling (hover effect), which is automatically applied if !!onClick
-        i.e. only need to put `clickable` if you want the hover effect, but Avatar itself has no onClick event
-    */
+  /**
+   * `clickable` is only for styling (hover effect), which is automatically
+   *  applied if !!onClick i.e. only need to put `clickable` if you want the
+   *  hover effect, but Avatar itself has no onClick event
+   */
   clickable?: boolean;
   onClick?: (ev: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 @observer
-export class Avatar extends React.Component<AvatarProps> {
+export class Avatar extends Component<AvatarProps> {
   render() {
     const c = this.props.contact;
 
