@@ -17,12 +17,14 @@ addDecorator(
   })
 );
 
-// import '../src/style.scss';
+import 'material-design-icons/iconfont/material-icons.css';
+import './SourceSerifPro/sourceserifpro.css';
+import './OpenSans/opensans.css';
 
 const req = require.context('../stories', true, /\.tsx?$/);
 
 function loadStories() {
-  require('../src/style.scss');
+  require('./main.scss');
   req.keys().forEach(filename => req(filename));
 }
 

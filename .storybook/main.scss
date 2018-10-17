@@ -1,0 +1,30 @@
+// We need to import the main styles from this file so that $font-stack is
+// defined below:
+@import '../src/style.scss';
+
+// Styles copied over from desktop, including setting the font stack:
+html {
+  box-sizing: border-box;
+  font-family: $font-stack;
+  font-size: 10px;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $font-stack;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body,
+#root,
+.app-root {
+  font: 14px/1.45 $font-stack;
+}
