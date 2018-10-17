@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { ActionProps } from './helpers/interfaces';
 export interface DialogProps {
     /** Buttons at the bottom of the dialog, if any */
@@ -31,7 +31,7 @@ export interface DialogProps {
  * WARNING: this component uses the <dialog> dom element, only available in
  * chrome 37+/firefox 53+. it may not be available in other environments.
  */
-export declare class Dialog extends React.Component<DialogProps> {
+export declare class Dialog extends Component<DialogProps> {
     private dialogRendered;
     private dialogVisible;
     private activeReaction;

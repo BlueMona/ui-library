@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 export interface MenuProps {
     className?: string;
     innerClassName?: string;
@@ -13,7 +13,7 @@ export interface MenuProps {
     onHide?: () => void;
     disabled?: boolean;
 }
-export declare class Menu extends React.Component<MenuProps> {
+export declare class Menu extends Component<MenuProps> {
     menuActive: boolean;
     menuVisible: boolean;
     style: React.CSSProperties;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 export interface ListItemProps {
     className?: string;
     disabled?: boolean;
@@ -10,6 +10,6 @@ export interface ListItemProps {
     rightIcon?: string;
     onClick?: (ev?: React.MouseEvent<HTMLLIElement>) => void;
 }
-export declare class ListItem extends React.Component<ListItemProps> {
+export declare class ListItem extends Component<ListItemProps> {
     render(): JSX.Element;
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 export interface MaterialIconProps {
     active?: boolean;
     className?: string;
@@ -7,6 +7,6 @@ export interface MaterialIconProps {
     tooltip?: string;
     tooltipPosition?: 'top' | 'right' | 'bottom' | 'left';
 }
-export declare class MaterialIcon extends React.Component<MaterialIconProps> {
+export declare class MaterialIcon extends Component<MaterialIconProps> {
     render(): JSX.Element;
 }

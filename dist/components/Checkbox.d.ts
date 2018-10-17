@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 export interface CheckboxProps {
     className?: string;
     checked: boolean;
@@ -6,6 +6,6 @@ export interface CheckboxProps {
     label?: any;
     disabled?: boolean;
 }
-export declare class Checkbox extends React.Component<CheckboxProps> {
+export declare class Checkbox extends Component<CheckboxProps> {
     render(): JSX.Element;
 }

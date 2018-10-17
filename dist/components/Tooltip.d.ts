@@ -1,11 +1,11 @@
-import React from 'react';
+import { Component } from 'react';
 export interface TooltipProps {
     className?: string;
     text?: string;
     position?: 'top' | 'right' | 'bottom' | 'left';
     size?: 'small';
 }
-export declare class Tooltip extends React.Component<TooltipProps> {
+export declare class Tooltip extends Component<TooltipProps> {
     ref: any;
     isVisible: boolean;
     style: {

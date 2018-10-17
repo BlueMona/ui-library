@@ -5,11 +5,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importDefault(require("react"));
+const react_1 = __importStar(require("react"));
 const react_dom_1 = __importDefault(require("react-dom"));
 const mobx_1 = require("mobx");
 const mobx_react_1 = require("mobx-react");
@@ -33,7 +40,7 @@ const appRoot = document.getElementById('root');
  * WARNING: this component uses the <dialog> dom element, only available in
  * chrome 37+/firefox 53+. it may not be available in other environments.
  */
-let Dialog = class Dialog extends react_1.default.Component {
+let Dialog = class Dialog extends react_1.Component {
     // TODO: there's quite a bit of incidental state and behaviour that's difficult
     // to reason about here based around intermediate animation states. it could use
     // a closer audit and a pass to simplify it, possibly integrating a react

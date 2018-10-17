@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { OptionProps } from './helpers/interfaces';
 export interface RadioButtonsProps {
     className?: string;
@@ -6,7 +6,7 @@ export interface RadioButtonsProps {
     value: string;
     options: OptionProps[];
 }
-export declare class RadioButtons extends React.Component<RadioButtonsProps> {
+export declare class RadioButtons extends Component<RadioButtonsProps> {
     setValue: (ev: React.MouseEvent<HTMLSpanElement>) => void;
     render(): JSX.Element;
 }

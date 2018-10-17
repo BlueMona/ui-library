@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 export interface ButtonProps {
     className?: string;
     style?: object;
@@ -40,6 +40,6 @@ export interface ButtonProps {
      */
     theme?: string;
 }
-export declare class Button extends React.Component<ButtonProps> {
+export declare class Button extends Component<ButtonProps> {
     render(): JSX.Element;
 }

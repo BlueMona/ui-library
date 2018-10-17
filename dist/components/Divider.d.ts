@@ -1,4 +1,4 @@
-import React from 'react';
-export declare class Divider extends React.PureComponent {
+import { PureComponent } from 'react';
+export declare class Divider extends PureComponent {
     render(): JSX.Element;
 }

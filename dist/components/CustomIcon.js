@@ -5,30 +5,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = __importDefault(require("react"));
+const react_1 = __importStar(require("react"));
 const mobx_1 = require("mobx");
 const mobx_react_1 = require("mobx-react");
 const classnames_1 = __importDefault(require("classnames"));
-const { getParentWithClass } = require('./helpers/dom');
-let CustomIcon = class CustomIcon extends react_1.default.Component {
+const dom_1 = require("./helpers/dom");
+let CustomIcon = class CustomIcon extends react_1.Component {
     constructor() {
         /*
-              Hovering: It's Weird
-              SVG recolouring via CSS is not supported in Chromium, so we can"t just do a :hover state
-              Instead, with hover enabled, <CustomIcon> actually shows a different image file on hover.
-              Currently, this is done by adding a listener on a parent element with class .custom-icon-hover-container
-              So, in all, it"s kinda clunky, but it allows us to do things like having CustomIcon change colour when MenuItem is hovered.
-          */
+         * Hovering: It's Weird
+         *
+         * SVG recolouring via CSS is not supported in Chromium, so we can't just do a
+         * :hover state
+         *
+         * Instead, with hover enabled, <CustomIcon> actually shows a different image
+         * file on hover. Currently, this is done by adding a listener on a parent
+         * element with class .custom-icon-hover-container
+         *
+         * So, in all, it's kinda clunky, but it allows us to do things like having
+         * CustomIcon change colour when MenuItem is hovered.
+         */
         super(...arguments);
         this.hovered = false;
     }
     setIconRef(ref) {
         if (ref && this.props.hover) {
-            this.hoverContainer = getParentWithClass(ref, 'custom-icon-hover-container');
+            this.hoverContainer = dom_1.getParentWithClass(ref, 'custom-icon-hover-container');
             if (this.hoverContainer) {
                 this.hoverContainer.addEventListener('mouseenter', this.handleMouseEnter, false);
                 this.hoverContainer.addEventListener('mouseleave', this.handleMouseLeave, false);
