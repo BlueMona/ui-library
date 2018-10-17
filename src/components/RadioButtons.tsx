@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
 import { OptionProps } from './helpers/interfaces';
@@ -11,7 +11,7 @@ export interface RadioButtonsProps {
 }
 
 @observer
-export class RadioButtons extends React.Component<RadioButtonsProps> {
+export class RadioButtons extends Component<RadioButtonsProps> {
   setValue = (ev: React.MouseEvent<HTMLSpanElement>) => {
     this.props.onChange(ev.currentTarget.getAttribute('data-value') as string);
   };

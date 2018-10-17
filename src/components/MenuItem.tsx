@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
 import css from 'classnames';
@@ -22,7 +22,7 @@ export interface MenuItemProps {
 }
 
 @observer
-export class MenuItem extends React.Component<MenuItemProps> {
+export class MenuItem extends Component<MenuItemProps> {
   clickHandler = (ev: React.MouseEvent<HTMLLIElement>) => {
     ev.stopPropagation();
     if (!this.props.disabled && this.props.onClick) this.props.onClick(ev);

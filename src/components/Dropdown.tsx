@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observable, action } from 'mobx';
 import { observer } from 'mobx-react';
 
@@ -13,7 +13,7 @@ export interface DropdownProps {
 }
 
 @observer
-export class Dropdown extends React.Component<DropdownProps> {
+export class Dropdown extends Component<DropdownProps> {
   // Bool to show or hide the dropdown
   @observable
   isActive = false;

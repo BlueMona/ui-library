@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { action, computed, observable } from 'mobx';
 import { observer } from 'mobx-react';
 import css from 'classnames';
@@ -51,7 +51,7 @@ export type InputProps = BaseInputProps &
   (TextAreaInputProps | InputInputProps);
 
 @observer
-export class Input extends React.Component<InputProps> {
+export class Input extends Component<InputProps> {
   @observable
   isFocused = false;
   @observable

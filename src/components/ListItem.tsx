@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import css from 'classnames';
 
 import { MaterialIcon } from './MaterialIcon';
@@ -16,7 +16,7 @@ export interface ListItemProps {
   onClick?: (ev?: React.MouseEvent<HTMLLIElement>) => void;
 }
 
-export class ListItem extends React.Component<ListItemProps> {
+export class ListItem extends Component<ListItemProps> {
   render() {
     return (
       <li

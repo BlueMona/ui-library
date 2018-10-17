@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
 import css from 'classnames';
@@ -18,7 +18,7 @@ export interface MenuHeaderProps {
 }
 
 @observer
-export class MenuHeader extends React.Component<MenuHeaderProps> {
+export class MenuHeader extends Component<MenuHeaderProps> {
   render() {
     const { className, leftContent, caption, legend } = this.props;
     return (

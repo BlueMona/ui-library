@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
 import css from 'classnames';
@@ -10,7 +10,7 @@ export interface ProgressBarProps {
 }
 
 @observer
-export class ProgressBar extends React.Component<
+export class ProgressBar extends Component<
   ProgressBarProps &
     (
       | { mode?: 'determinate'; type?: 'linear'; value: number; max: number }

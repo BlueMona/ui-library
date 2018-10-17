@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import css from 'classnames';
 
 export interface ListProps {
@@ -7,7 +7,7 @@ export interface ListProps {
   theme?: 'large' | 'no-hover';
 }
 
-export class List extends React.Component<ListProps> {
+export class List extends Component<ListProps> {
   render() {
     return (
       <ul

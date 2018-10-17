@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { action, observable } from 'mobx';
 import { observer } from 'mobx-react';
-
 import css from 'classnames';
-const { getParentWithClass } = require('./helpers/dom');
+
+import { getParentWithClass } from './helpers/dom';
 
 export interface CustomIconProps {
   className?: string;
 
-  // The icon"s name, i.e. filename without extension
+  /** The icon"s name, i.e. filename without extension */
   icon: string;
 
-  // "small" = 16px, or leave blank for default = 24px
+  /** "small" = 16px, or leave blank for default = 24px */
   size?: 'small';
 
-  // Set true if icon should have hover effects. Requires parent component with class .custom-icon-hover-container
+  /**
+   * Set true if icon should have hover effects. Requires parent component with
+   * class .custom-icon-hover-container
+   */
   hover?: boolean;
 
   selected?: boolean;
@@ -22,14 +25,20 @@ export interface CustomIconProps {
 }
 
 @observer
-export class CustomIcon extends React.Component<CustomIconProps> {
+export class CustomIcon extends Component<CustomIconProps> {
   /*
-        Hovering: It's Weird
-        SVG recolouring via CSS is not supported in Chromium, so we can"t just do a :hover state
-        Instead, with hover enabled, <CustomIcon> actually shows a different image file on hover.
-        Currently, this is done by adding a listener on a parent element with class .custom-icon-hover-container
-        So, in all, it"s kinda clunky, but it allows us to do things like having CustomIcon change colour when MenuItem is hovered.
-    */
+   * Hovering: It's Weird
+   *
+   * SVG recolouring via CSS is not supported in Chromium, so we can't just do a
+   * :hover state
+   *
+   * Instead, with hover enabled, <CustomIcon> actually shows a different image
+   * file on hover. Currently, this is done by adding a listener on a parent
+   * element with class .custom-icon-hover-container
+   *
+   * So, in all, it's kinda clunky, but it allows us to do things like having
+   * CustomIcon change colour when MenuItem is hovered.
+   */
 
   hoverContainer: any; // TODO: is there a better way?
   @action.bound

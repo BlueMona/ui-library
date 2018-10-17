@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import css from 'classnames';
 import { Tooltip } from './Tooltip';
 
@@ -12,7 +12,7 @@ export interface MaterialIconProps {
   tooltipPosition?: 'top' | 'right' | 'bottom' | 'left';
 }
 
-export class MaterialIcon extends React.Component<MaterialIconProps> {
+export class MaterialIcon extends Component<MaterialIconProps> {
   render() {
     return (
       <span

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import css from 'classnames';
 
@@ -11,7 +11,7 @@ export interface CheckboxProps {
 }
 
 @observer
-export class Checkbox extends React.Component<CheckboxProps> {
+export class Checkbox extends Component<CheckboxProps> {
   render() {
     return (
       <span

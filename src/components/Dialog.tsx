@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import {
@@ -64,7 +64,7 @@ export interface DialogProps {
  * chrome 37+/firefox 53+. it may not be available in other environments.
  */
 @observer
-export class Dialog extends React.Component<DialogProps> {
+export class Dialog extends Component<DialogProps> {
   // Separate "rendered" and "visible" bools to be able to use fade in/out animations
   @observable
   private dialogRendered = false;

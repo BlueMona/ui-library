@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import { action, observable } from 'mobx';
@@ -37,7 +37,7 @@ export interface MenuProps {
 }
 
 @observer
-export class Menu extends React.Component<MenuProps> {
+export class Menu extends Component<MenuProps> {
   @observable
   menuActive = false;
   @observable

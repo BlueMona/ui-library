@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
 import { Button } from './Button';
@@ -8,7 +8,7 @@ export interface ChipProps {
 }
 
 @observer
-export class Chip extends React.Component<
+export class Chip extends Component<
   ChipProps &
     ({ deletable: true; onDeleteClick: () => void } | { deletable?: false })
 > {

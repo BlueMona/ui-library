@@ -11,7 +11,7 @@
     See <Avatar> for example use.
 */
 
-import React from 'react';
+import React, { Component } from 'react';
 import { action, observable } from 'mobx';
 import { observer } from 'mobx-react';
 
@@ -30,7 +30,7 @@ export interface TooltipProps {
 }
 
 @observer
-export class Tooltip extends React.Component<TooltipProps> {
+export class Tooltip extends Component<TooltipProps> {
   @observable
   ref = undefined as any; // TODO: another ref placeholder
 
