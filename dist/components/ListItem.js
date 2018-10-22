@@ -22,9 +22,9 @@ class ListItem extends react_1.Component {
             this.props.leftIcon ? (react_1.default.createElement("div", { className: "side-content left icon" },
                 react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: this.props.leftIcon }))) : null,
             this.props.leftContent ? (react_1.default.createElement("div", { className: "side-content left" }, this.props.leftContent)) : null,
-            this.props.caption ? (react_1.default.createElement("div", { className: "content" },
-                react_1.default.createElement("div", { className: "caption" }, this.props.caption),
-                this.props.legend ? (react_1.default.createElement("div", { className: "legend" }, this.props.legend)) : null)) : (react_1.default.createElement("div", { className: "content" }, this.props.children)),
+            react_1.default.createElement("div", { className: "content" }, this.props.caption || this.props.legend ? (react_1.default.createElement(react_1.default.Fragment, null,
+                this.props.caption ? (react_1.default.createElement("div", { className: "caption" }, this.props.caption)) : null,
+                this.props.legend ? (react_1.default.createElement("div", { className: "legend" }, this.props.legend)) : null)) : (this.props.children)),
             this.props.rightIcon ? (react_1.default.createElement("div", { className: "side-content right icon" },
                 react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: this.props.rightIcon }))) : null,
             this.props.rightContent ? (react_1.default.createElement("div", { className: "side-content right" }, this.props.rightContent)) : null));
