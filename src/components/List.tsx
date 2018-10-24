@@ -4,7 +4,8 @@ import css from 'classnames';
 export interface ListProps {
   className?: string;
   clickable?: boolean;
-  theme?: 'large' | 'no-hover';
+  // hacky but the easiest way to avoid breaking changes
+  theme?: 'large' | 'no-hover' | 'large no-hover' | 'no-hover large';
 }
 
 export class List extends Component<ListProps> {

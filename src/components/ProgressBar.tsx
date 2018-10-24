@@ -3,70 +3,92 @@ import { observer } from 'mobx-react';
 
 import css from 'classnames';
 
-export interface ProgressBarProps {
+export interface ProgressBarBasicProps {
   className?: string;
   theme?: 'multicolor' | 'light';
   size?: 'small';
 }
 
+export type ProgressBarCircularProps = ProgressBarBasicProps & {
+  circular: true;
+};
+
+export type ProgressBarIndeterminateProps = ProgressBarBasicProps & {
+  circular?: false;
+};
+
+export type ProgressBarDeterminateProps = ProgressBarBasicProps & {
+  circular?: false;
+  value: number;
+  max: number;
+};
+
+export type ProgressBarProps =
+  | ProgressBarCircularProps
+  | ProgressBarIndeterminateProps
+  | ProgressBarDeterminateProps;
+
 @observer
-export class ProgressBar extends Component<
-  ProgressBarProps &
-    (
-      | { mode?: 'determinate'; type?: 'linear'; value: number; max: number }
-      | { mode: 'indeterminate'; type?: 'linear' | 'circular' })
-> {
+export class ProgressBar extends Component<ProgressBarProps> {
   render() {
-    let style;
-    if (this.props.mode === 'determinate' || this.props.mode === undefined) {
-      style = { width: `${(this.props.value / this.props.max) * 100}%` };
+    const { circular, className, theme, size } = this.props;
+
+    let innerBarStyle: React.CSSProperties | undefined;
+
+    const hasValue =
+      (this.props as ProgressBarDeterminateProps).value != undefined;
+    if (hasValue) {
+      const { value, max } = this.props as ProgressBarDeterminateProps;
+      const width = (value / max) * 100;
+      innerBarStyle = { width: `${width}%` };
     }
 
     return (
       /*
-                Progress bar itself needs to be position:relative,
-                so we need to put everything in a container div to be able to control positioning
-            */
+       * Progress bar itself needs to be position:relative, so we need to put
+       * everything in a container div to be able to control positioning
+       */
       <div
-        className={css(
-          'p-progress-bar',
-          this.props.className,
-          this.props.theme,
-          this.props.size,
-          { circular: this.props.type === 'circular' }
-        )}
+        className={css('p-progress-bar', className, theme, size, {
+          circular
+        })}
       >
-        {this.props.type !== 'circular' ? (
+        {circular ? (
+          <CircularProgress size={size} theme={theme} />
+        ) : (
           <div className="progress-bar">
             <div
               className={css(
-                this.props.type || 'linear',
-                this.props.mode || 'determinate',
-                this.props.size,
-                this.props.theme
+                'linear',
+                hasValue ? 'determinate' : 'indeterminate',
+                size,
+                theme
               )}
-              style={style}
+              style={innerBarStyle}
             />
-          </div>
-        ) : (
-          <div
-            className={css(
-              'progress-spinner',
-              this.props.size,
-              this.props.theme
-            )}
-          >
-            <svg className="circular">
-              <circle
-                className="path"
-                cx={this.props.size === 'small' ? 10 : 25}
-                cy={this.props.size === 'small' ? 10 : 25}
-                r={this.props.size === 'small' ? 6 : 20}
-              />
-            </svg>
           </div>
         )}
       </div>
     );
   }
 }
+
+const CircularProgress: React.SFC<{
+  size?: 'small';
+  theme?: 'multicolor' | 'light';
+}> = ({ size, theme }) => {
+  const isSmall = size === 'small';
+
+  return (
+    <div className={css('progress-spinner', size, theme)}>
+      <svg className="circular">
+        <circle
+          className="path"
+          cx={isSmall ? 10 : 25}
+          cy={isSmall ? 10 : 25}
+          r={isSmall ? 6 : 20}
+        />
+      </svg>
+    </div>
+  );
+};
