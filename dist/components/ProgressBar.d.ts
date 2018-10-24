@@ -1,17 +1,21 @@
 import { Component } from 'react';
-export interface ProgressBarProps {
+export interface ProgressBarBasicProps {
     className?: string;
     theme?: 'multicolor' | 'light';
     size?: 'small';
 }
-export declare class ProgressBar extends Component<ProgressBarProps & ({
-    mode?: 'determinate';
-    type?: 'linear';
+export declare type ProgressBarCircularProps = ProgressBarBasicProps & {
+    circular: true;
+};
+export declare type ProgressBarIndeterminateProps = ProgressBarBasicProps & {
+    circular?: false;
+};
+export declare type ProgressBarDeterminateProps = ProgressBarBasicProps & {
+    circular?: false;
     value: number;
     max: number;
-} | {
-    mode: 'indeterminate';
-    type?: 'linear' | 'circular';
-})> {
+};
+export declare type ProgressBarProps = ProgressBarCircularProps | ProgressBarIndeterminateProps | ProgressBarDeterminateProps;
+export declare class ProgressBar extends Component<ProgressBarProps> {
     render(): JSX.Element;
 }

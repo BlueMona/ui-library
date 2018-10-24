@@ -4,8 +4,11 @@ export interface ButtonProps {
     style?: object;
     /** Button will render as an <a> element */
     href?: string;
-    /** If label content exists, child content ignored. Can put arbitarary HTML in here. */
-    label?: any;
+    /**
+     * If `label` prop exists, this element's children will be ignored and the
+     * `label` will be used instead. Arbitrary React content can be used.
+     */
+    label?: React.ReactChild;
     /** To use MaterialIcon */
     icon?: string;
     /** To use CustomIcon */
