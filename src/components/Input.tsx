@@ -19,7 +19,7 @@ interface BaseInputProps {
   autoFocus?: boolean;
   maxLength?: number;
   placeholder?: string;
-
+  readOnly?: boolean;
   value?: string;
 
   // React props
@@ -43,7 +43,6 @@ interface TextAreaInputProps {
 interface InputInputProps {
   multiline?: false;
   type?: 'text' | 'password';
-  readOnly?: boolean;
   disabled?: boolean;
 }
 
@@ -84,6 +83,7 @@ export class Input extends Component<InputProps> {
 
   @action.bound
   handleFocus() {
+    if (this.props.readOnly) return;
     if (this.props.onFocus) this.props.onFocus();
     this.isFocused = true;
   }
@@ -139,6 +139,7 @@ export class Input extends Component<InputProps> {
             onKeyUp={this.props.onKeyUp}
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
+            readOnly={this.props.readOnly}
             ref={this.setRef}
           />
         ) : (
