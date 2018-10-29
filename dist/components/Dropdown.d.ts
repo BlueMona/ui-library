@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { OptionProps } from './helpers/interfaces';
 export interface DropdownProps {
     className?: string;
@@ -7,7 +7,7 @@ export interface DropdownProps {
     value: string;
     options: OptionProps[];
 }
-export declare class Dropdown extends React.Component<DropdownProps> {
+export declare class Dropdown extends Component<DropdownProps> {
     isActive: boolean;
     activate(): void;
     setValue(ev: React.MouseEvent<HTMLLIElement>): void;

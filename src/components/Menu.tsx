@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import { action, observable } from 'mobx';
@@ -37,14 +37,14 @@ export interface MenuProps {
 }
 
 @observer
-export class Menu extends React.Component<MenuProps> {
+export class Menu extends Component<MenuProps> {
   @observable
   menuActive = false;
   @observable
   menuVisible = false;
 
   @observable
-  style = {
+  style: React.CSSProperties = {
     top: 'inherit',
     bottom: 'inherit',
     left: 'inherit',
@@ -80,6 +80,7 @@ export class Menu extends React.Component<MenuProps> {
     this.menuActive = true;
 
     window.addEventListener('click', this.hideMenu, true);
+    window.addEventListener('blur', this.hideMenu);
     window.addEventListener('keyup', this.handleKeyUp);
 
     if (this.scrollContainer) {
@@ -106,6 +107,7 @@ export class Menu extends React.Component<MenuProps> {
     }
 
     window.removeEventListener('click', this.hideMenu, true);
+    window.removeEventListener('blur', this.hideMenu);
     window.removeEventListener('keyup', this.handleKeyUp);
 
     if (this.scrollContainer) {
@@ -113,6 +115,7 @@ export class Menu extends React.Component<MenuProps> {
     }
   }
 
+  @action
   setStyle() {
     const {
       width,

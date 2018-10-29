@@ -1,8 +1,8 @@
-import React from 'react';
+import { Component } from 'react';
 export interface ChipProps {
     className?: string;
 }
-export declare class Chip extends React.Component<ChipProps & ({
+export declare class Chip extends Component<ChipProps & ({
     deletable: true;
     onDeleteClick: () => void;
 } | {

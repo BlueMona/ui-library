@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 export interface ListHeadingProps {
   className?: string;
@@ -7,7 +7,7 @@ export interface ListHeadingProps {
   caption?: any;
 }
 
-export class ListHeading extends React.Component<ListHeadingProps> {
+export class ListHeading extends Component<ListHeadingProps> {
   render() {
     return (
       <li

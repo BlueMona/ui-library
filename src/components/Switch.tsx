@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import css from 'classnames';
 
 export interface SwitchProps {
@@ -8,7 +8,7 @@ export interface SwitchProps {
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export class Switch extends React.Component<SwitchProps> {
+export class Switch extends Component<SwitchProps> {
   render() {
     return (
       <div className={css('p-switch', this.props.className)}>

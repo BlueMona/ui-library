@@ -1,5 +1,7 @@
 # ui-library
 
+[Launch Storybook](https://peeriotechnologies.github.io/ui-library/)
+
 Styles and PeerUI React component library for Peerio desktop application and web properties. Please note that this entire repo is a WIP; it is designed to function within Peerio properties (see `peerio-desktop` and `peerio-cms`). It *can* work independently, but requires the consumer to follow some specific instructions, outlined below.
 
 ### File Paths

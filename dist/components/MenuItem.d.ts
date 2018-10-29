@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 export interface MenuItemProps {
     className?: string;
     value?: string;
@@ -11,7 +11,7 @@ export interface MenuItemProps {
     disabled?: boolean;
     selected?: boolean;
 }
-export declare class MenuItem extends React.Component<MenuItemProps> {
+export declare class MenuItem extends Component<MenuItemProps> {
     clickHandler: (ev: React.MouseEvent<HTMLLIElement>) => void;
     render(): JSX.Element;
 }

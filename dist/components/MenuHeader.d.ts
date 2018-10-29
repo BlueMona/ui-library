@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 export interface MenuHeaderProps {
     className?: string;
     leftContent?: any;
@@ -9,6 +9,6 @@ export interface MenuHeaderProps {
     disabled?: boolean;
     selected?: boolean;
 }
-export declare class MenuHeader extends React.Component<MenuHeaderProps> {
+export declare class MenuHeader extends Component<MenuHeaderProps> {
     render(): JSX.Element;
 }

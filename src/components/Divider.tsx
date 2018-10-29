@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-export class Divider extends React.PureComponent {
+export class Divider extends PureComponent {
   render() {
     return <hr className="p-divider" />;
   }

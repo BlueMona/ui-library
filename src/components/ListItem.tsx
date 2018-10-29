@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import css from 'classnames';
 
 import { MaterialIcon } from './MaterialIcon';
@@ -16,7 +16,7 @@ export interface ListItemProps {
   onClick?: (ev?: React.MouseEvent<HTMLLIElement>) => void;
 }
 
-export class ListItem extends React.Component<ListItemProps> {
+export class ListItem extends Component<ListItemProps> {
   render() {
     return (
       <li
@@ -35,16 +35,20 @@ export class ListItem extends React.Component<ListItemProps> {
           <div className="side-content left">{this.props.leftContent}</div>
         ) : null}
 
-        {this.props.caption ? (
-          <div className="content">
-            <div className="caption">{this.props.caption}</div>
-            {this.props.legend ? (
-              <div className="legend">{this.props.legend}</div>
-            ) : null}
-          </div>
-        ) : (
-          <div className="content">{this.props.children}</div>
-        )}
+        <div className="content">
+          {this.props.caption || this.props.legend ? (
+            <React.Fragment>
+              {this.props.caption ? (
+                <div className="caption">{this.props.caption}</div>
+              ) : null}
+              {this.props.legend ? (
+                <div className="legend">{this.props.legend}</div>
+              ) : null}
+            </React.Fragment>
+          ) : (
+            this.props.children
+          )}
+        </div>
 
         {this.props.rightIcon ? (
           <div className="side-content right icon">
