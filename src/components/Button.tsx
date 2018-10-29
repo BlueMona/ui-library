@@ -97,7 +97,6 @@ export class Button extends Component<ButtonProps> {
       this.props.label || this.props.children ? (
         <span
           key={`button-label-${this.props.label || this.props.children}`}
-          data-test-id={this.props.testId}
           className="label"
         >
           {this.props.label || this.props.children}
@@ -130,6 +129,7 @@ export class Button extends Component<ButtonProps> {
 
     return (
       <button
+        data-test-id={this.props.testId}
         tabIndex={this.props.tabIndex}
         className={classNames}
         onClick={this.props.onClick}
