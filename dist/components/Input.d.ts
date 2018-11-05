@@ -10,6 +10,7 @@ interface BaseInputProps {
     autoFocus?: boolean;
     maxLength?: number;
     placeholder?: string;
+    readOnly?: boolean;
     value?: string;
     onChange?: (val: string) => void;
     onClear?: () => void;
@@ -25,7 +26,6 @@ interface TextAreaInputProps {
 interface InputInputProps {
     multiline?: false;
     type?: 'text' | 'password';
-    readOnly?: boolean;
     disabled?: boolean;
 }
 export declare type InputProps = BaseInputProps & (TextAreaInputProps | InputInputProps);

@@ -50,6 +50,8 @@ let Input = class Input extends react_1.Component {
         return !this.props.multiline && !!this.props.value && !!this.props.onClear;
     }
     handleFocus() {
+        if (this.props.readOnly)
+            return;
         if (this.props.onFocus)
             this.props.onFocus();
         this.isFocused = true;
@@ -81,7 +83,7 @@ let Input = class Input extends react_1.Component {
                 focused: this.isFocused
             }) },
             this.props.label ? (react_1.default.createElement("div", { className: classnames_1.default('label') }, this.props.label)) : null,
-            this.props.multiline ? (react_1.default.createElement("textarea", { placeholder: this.props.placeholder, value: this.props.value, maxLength: this.props.maxLength, onChange: this.props.onChange ? this.handleChange : undefined, onKeyPress: this.props.onKeyPress, onKeyDown: this.props.onKeyDown, onKeyUp: this.props.onKeyUp, onBlur: this.handleBlur, onFocus: this.handleFocus, ref: this.setRef })) : (react_1.default.createElement("input", { placeholder: this.props.placeholder, value: this.props.value, maxLength: this.props.maxLength, onChange: this.props.onChange ? this.handleChange : undefined, onKeyPress: this.props.onKeyPress, onKeyDown: this.props.onKeyDown, onKeyUp: this.props.onKeyUp, onBlur: this.handleBlur, onFocus: this.handleFocus, type: this.props.type || 'text', readOnly: this.props.readOnly, disabled: this.props.disabled, ref: this.setRef })),
+            this.props.multiline ? (react_1.default.createElement("textarea", { placeholder: this.props.placeholder, value: this.props.value, maxLength: this.props.maxLength, onChange: this.props.onChange ? this.handleChange : undefined, onKeyPress: this.props.onKeyPress, onKeyDown: this.props.onKeyDown, onKeyUp: this.props.onKeyUp, onBlur: this.handleBlur, onFocus: this.handleFocus, readOnly: this.props.readOnly, ref: this.setRef })) : (react_1.default.createElement("input", { placeholder: this.props.placeholder, value: this.props.value, maxLength: this.props.maxLength, onChange: this.props.onChange ? this.handleChange : undefined, onKeyPress: this.props.onKeyPress, onKeyDown: this.props.onKeyDown, onKeyUp: this.props.onKeyUp, onBlur: this.handleBlur, onFocus: this.handleFocus, type: this.props.type || 'text', readOnly: this.props.readOnly, disabled: this.props.disabled, ref: this.setRef })),
             this.showClearButton ? (react_1.default.createElement(Button_1.Button, { tabIndex: -1, className: "clear-button", icon: "close", onClick: this.clearInput })) : null,
             this.props.noHelperText ? null : (react_1.default.createElement("div", { className: classnames_1.default('hint-or-error', {
                     error: !!this.props.error,
