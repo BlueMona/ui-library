@@ -24,7 +24,7 @@ Please note that this entire repo is a WIP; it is still fairly closely coupled w
 render() {
   return(
     <div className="my-neat-component">
-      <Button onClick={this.anEvent} icon="star_outline" tooltip="An event"/>
+      <Button onClick={this.anEvent} icon="star_outline" tooltip="An event" />
       <Divider />
     </div>
   );
