@@ -55,7 +55,7 @@ export class Avatar extends Component<AvatarProps> {
             onClick={this.props.onClick}
           >
             {c.hasAvatar ? (
-              <img src={c.mediumAvatarUrl} alt={c.username} />
+              <img src={c.mediumAvatarUrl} alt={c.username} draggable={false} />
             ) : (
               c.letter
             )}
