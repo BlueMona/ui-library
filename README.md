@@ -56,4 +56,4 @@ The PeerUI brand uses Open Sans and Source Serif Pro, both available for free fr
 
 ## Contributing
 
-Contribution guidelines are available (here)[https://github.com/PeerioTechnologies/ui-library/blob/master/contribute.md].
+Contribution guidelines are available [here](https://github.com/PeerioTechnologies/ui-library/blob/master/contribute.md).
