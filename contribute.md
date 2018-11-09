@@ -1,6 +1,6 @@
 # Contributing
 
-Anyone member of the PeerioTechnologies organization can commit directly to this repo. Ideally, though, all changes to the repo are done via branching and pull requests, so that maintainers/contributors can be notified of the changes that are being made.
+Any member of the PeerioTechnologies organization can commit directly to this repo. Ideally, though, all changes to the repo are done via branching and pull requests, so that maintainers/contributors can be notified of the changes that are being made.
 
 ## Testing
 
