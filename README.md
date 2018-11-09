@@ -53,3 +53,7 @@ The PeerUI brand uses Open Sans and Source Serif Pro, both available for free fr
 #### Portals
 
 `<Dialog>` and `<Menu>` both use ReactDOM's `createPortal` function which lets us render the component to an arbitrary place in the document, allowing the component to escape its parent hierarchy. Currently they target the element with the id `root`, which obviously means that something `#root` needs to exist in the document.
+
+## Contributing
+
+Contribution guidelines are available (here)[https://github.com/PeerioTechnologies/ui-library/blob/master/contribute.md].
