@@ -198,7 +198,7 @@ let Dialog = class Dialog extends react_1.Component {
             react_1.default.createElement("div", { className: "p-dialog-overlay", onClick: onCancel }),
             react_1.default.createElement("dialog", { open: true, className: classnames_1.default('p-dialog', className, size, theme) },
                 headerImage ? (react_1.default.createElement("div", { className: "header-image" },
-                    react_1.default.createElement("img", { src: headerImage }))) : null,
+                    react_1.default.createElement("img", { src: headerImage, draggable: false }))) : null,
                 react_1.default.createElement("div", { className: "body" },
                     title ? react_1.default.createElement("div", { className: "title" }, title) : null,
                     children),
