@@ -36,7 +36,7 @@ export interface ButtonProps {
   /** HTML tab index */
   tabIndex?: number;
 
-  // Label for E2E desktop tests  
+  // Label for E2E desktop tests
   testId?: string;
 
   onClick?: (ev?: React.MouseEvent<HTMLButtonElement>) => void;
