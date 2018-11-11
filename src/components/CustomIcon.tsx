@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import css from 'classnames';
 
 import { getParentWithClass } from './helpers/dom';
+import iconSvgs from './CustomIconSvg';
 
 export interface CustomIconProps {
   className?: string;
@@ -100,14 +101,8 @@ export class CustomIcon extends Component<CustomIconProps> {
         })}
         ref={this.setIconRef}
       >
-        <img
-          className="hover"
-          src={`./static/custom-icons/${this.props.icon}-hover.svg`}
-        />
-        <img
-          className="default"
-          src={`./static/custom-icons/${this.props.icon}.svg`}
-        />
+        {iconSvgs[this.props.icon].default}
+        {iconSvgs[this.props.icon].hover || null}
       </div>
     );
   }
