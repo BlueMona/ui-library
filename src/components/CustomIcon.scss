@@ -8,28 +8,28 @@
     width: 16px;
   }
 
-  img.default {
+  svg.default {
     opacity: 0.54;
   }
 
-  img.hover {
+  svg.hover {
     display: none;
     opacity: 1;
   }
 
   &.active {
-    img.default {
+    svg.default {
       opacity: 1;
     }
   }
 
   &.hovered,
   &.selected {
-    img.default {
+    svg.default {
       display: none;
     }
 
-    img.hover {
+    svg.hover {
       display: inline-block;
     }
   }
