@@ -277,16 +277,16 @@
   .p-custom-icon.small {
     height: 16px;
     width: 16px; }
-  .p-custom-icon img.default {
+  .p-custom-icon svg.default {
     opacity: 0.54; }
-  .p-custom-icon img.hover {
+  .p-custom-icon svg.hover {
     display: none;
     opacity: 1; }
-  .p-custom-icon.active img.default {
+  .p-custom-icon.active svg.default {
     opacity: 1; }
-  .p-custom-icon.hovered img.default, .p-custom-icon.selected img.default {
+  .p-custom-icon.hovered svg.default, .p-custom-icon.selected svg.default {
     display: none; }
-  .p-custom-icon.hovered img.hover, .p-custom-icon.selected img.hover {
+  .p-custom-icon.hovered svg.hover, .p-custom-icon.selected svg.hover {
     display: inline-block; }
 
 .p-dialog-wrapper {

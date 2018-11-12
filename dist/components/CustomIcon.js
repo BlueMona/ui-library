@@ -21,6 +21,7 @@ const mobx_1 = require("mobx");
 const mobx_react_1 = require("mobx-react");
 const classnames_1 = __importDefault(require("classnames"));
 const dom_1 = require("./helpers/dom");
+const CustomIconSvg_1 = __importDefault(require("./CustomIconSvg"));
 let CustomIcon = class CustomIcon extends react_1.Component {
     constructor() {
         /*
@@ -66,8 +67,8 @@ let CustomIcon = class CustomIcon extends react_1.Component {
                 hovered: this.hovered,
                 active: this.props.active
             }), ref: this.setIconRef },
-            react_1.default.createElement("img", { className: "hover", src: `./static/custom-icons/${this.props.icon}-hover.svg` }),
-            react_1.default.createElement("img", { className: "default", src: `./static/custom-icons/${this.props.icon}.svg` })));
+            CustomIconSvg_1.default[this.props.icon].default,
+            CustomIconSvg_1.default[this.props.icon].hover || null));
     }
 };
 __decorate([
