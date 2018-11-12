@@ -1,3 +1,15 @@
+/*
+  This file contains the inline SVG markup that is used in the CustomIcon component.
+  Inline SVG has its issues but this is easier than requiring the consumer to have
+  src paths to specific SVG files, which would require the downstream project to
+  copy those files to a specific directory path.
+
+  The raw SVG files as provided by design are in the folder static/customicons/ for
+  reference. These are just for reference! There's no automated process for importing
+  them here. Please see `/static/custom-icons/README.md` for detailed instructions on
+  adding new custom icons.
+*/
+
 import React from 'react';
 
 export default {
