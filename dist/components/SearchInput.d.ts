@@ -1,4 +1,5 @@
 import React from 'react';
-export default class SearchInput extends React.Component {
+import { Input } from './Input';
+export default class SearchInput extends React.Component<Input> {
     render(): JSX.Element;
 }
