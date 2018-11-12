@@ -13,7 +13,15 @@ interface BaseInputProps {
   error?: string;
   hint?: string;
   theme?: 'transparent';
-  noHelperText?: boolean; // Use to hide error/hint div in cases of very tight positioning.
+
+  /** Use to hide error/hint div in cases of very tight positioning. */
+  noHelperText?: boolean;
+
+  /**
+   * Make this a "Search Input" style = different style, no error/helper text.
+   * There's also a <SearchInput> component for convenience.
+   */
+  isSearch?: boolean;
 
   // Standard HTML input props
   autoFocus?: boolean;
@@ -121,11 +129,16 @@ export class Input extends Component<InputProps> {
           'has-label': !!this.props.label,
           'has-error': !!this.props.error,
           'has-clear-button': this.showClearButton,
-          focused: this.isFocused
+          focused: this.isFocused,
+          'p-search-input': this.props.isSearch
         })}
       >
         {this.props.label ? (
           <div className={css('label')}>{this.props.label}</div>
+        ) : null}
+
+        {this.props.isSearch ? (
+          <MaterialIcon icon="search" className="search-icon" />
         ) : null}
 
         {this.props.multiline ? (
@@ -169,7 +182,7 @@ export class Input extends Component<InputProps> {
           />
         ) : null}
 
-        {this.props.noHelperText ? null : (
+        {this.props.noHelperText || this.props.isSearch ? null : (
           <div
             className={css('hint-or-error', {
               error: !!this.props.error,
