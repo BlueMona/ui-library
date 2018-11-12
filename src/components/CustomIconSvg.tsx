@@ -6,7 +6,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -24,7 +23,6 @@ export default {
       <svg
         className="hover"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -33,7 +31,6 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          id="white_background"
           style={{ fill: '#FFFFFF' }}
           d="M20,6h-8l-2-2H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8
         C22,6.9,21.1,6,20,6z"
@@ -51,7 +48,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -59,10 +55,7 @@ export default {
         viewBox="0 0 24 24"
         xmlSpace="preserve"
       >
-        <path
-          id="path1_fill"
-          d="M16.2,9.7v3.7h3.7v2.4l4.1-4.3l-4.1-4.3v2.4L16.2,9.7C16.2,9.6,16.2,9.7,16.2,9.7z"
-        />
+        <path d="M16.2,9.7v3.7h3.7v2.4l4.1-4.3l-4.1-4.3v2.4L16.2,9.7C16.2,9.6,16.2,9.7,16.2,9.7z" />
         <polygon
           points="18.2,8.5 18.2,2.5 4,2.5 4,3.8 4,20.5 12.9,23.7 12.9,20.5 18.2,20.5 18.2,14.5 16.2,14.5 16.2,18.5 
 	12.9,18.5 12.9,7 6,4.5 6,4.5 16.2,4.5 16.2,8.5 "
@@ -73,7 +66,6 @@ export default {
       <svg
         className="hover"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -83,17 +75,14 @@ export default {
       >
         <g>
           <path
-            id="path0_fill"
             style={{ fill: '#408CFF' }}
             d="M18.2,8.5v-6H4v18h14.2v-6h-2v4H6v-14h10.2v4H18.2z"
           />
           <path
-            id="path1_fill"
             style={{ fill: '#408CFF' }}
             d="M16.2,9.7v3.7h3.7v2.4l4.1-4.3l-4.1-4.3v2.4h-3.7V9.7z"
           />
           <path
-            id="path2_fill"
             style={{ fill: '#408CFF' }}
             d="M12.9,23.7L4,20.5V3.8L12.9,7V23.7z"
           />
@@ -106,7 +95,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -115,7 +103,6 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          id="path0_fill"
           d="M22,10.9c0,1.2-0.2,2.2-0.6,3.2s-0.9,1.7-1.6,2.2s-1.4,0.8-2.3,0.8c-0.7,0-1.2-0.2-1.7-0.5
         c-0.5-0.3-0.8-0.8-1-1.4h-0.1c-0.4,0.6-0.9,1.1-1.5,1.4s-1.3,0.5-2,0.5c-1.3,0-2.4-0.4-3.2-1.3c-0.8-0.9-1.2-2-1.2-3.5
         c0-1.7,0.5-3,1.5-4.1c1-1,2.4-1.6,4.1-1.6c0.6,0,1.3,0.1,2.1,0.2s1.4,0.3,2,0.5L16.2,13v0.3c0,1.3,0.4,2,1.3,2
@@ -131,7 +118,6 @@ export default {
       <svg
         className="hover"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -140,7 +126,6 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          id="path0_fill"
           style={{ fill: '#408CFF' }}
           d="M22,10.9c0,1.2-0.2,2.2-0.6,3.2c-0.4,1-0.9,1.7-1.6,2.2c-0.7,0.5-1.4,0.8-2.3,0.8
         c-0.7,0-1.2-0.2-1.7-0.5c-0.5-0.3-0.8-0.8-1-1.4h-0.1c-0.4,0.6-0.9,1.1-1.5,1.4c-0.6,0.3-1.3,0.5-2,0.5c-1.3,0-2.4-0.4-3.2-1.3
@@ -160,7 +145,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -169,7 +153,6 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          id="path0_fill"
           d="M4,4h6l2,2h8c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H4c-1.1,0-2-0.9-2-2V6C2,4.9,2.9,4,4,4z M12,9
         v2H8v4h4v2l4-4L12,9z"
         />
@@ -179,7 +162,6 @@ export default {
       <svg
         className="hover"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -188,7 +170,6 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          id="path0_fill"
           style={{ fill: '#408CFF' }}
           d="M4,4h6l2,2h8c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H4c-1.1,0-2-0.9-2-2V6C2,4.9,2.9,4,4,4z M12,9
         v2H8v4h4v2l4-4L12,9z"
@@ -201,7 +182,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -215,7 +195,6 @@ export default {
         H4c-1.1,0-2-0.9-2-2V4c0-1.1,0.9-2,2-2h16c1.1,0,2,0.9,2,2V20z"
         />
         <path
-          id="path1_fill"
           style={{ fill: '#2C95CF' }}
           d="M13,11h5v2h-5v5h-2v-5H6v-2h5V6h2V11z"
         />
@@ -227,7 +206,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -235,17 +213,13 @@ export default {
         viewBox="0 0 24 24"
         xmlSpace="preserve"
       >
-        <path
-          id="path0_fill"
-          d="M5.9,1l2.3,1.9V10L5,13h5.9v8l1.1,2l1.1-2v-8H19l-3.2-2.7V2.8L17.9,1h-6H5.9z"
-        />
+        <path d="M5.9,1l2.3,1.9V10L5,13h5.9v8l1.1,2l1.1-2v-8H19l-3.2-2.7V2.8L17.9,1h-6H5.9z" />
       </svg>
     ),
     hover: (
       <svg
         className="hover"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -254,7 +228,6 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          id="path0_fill"
           style={{ fill: '#408CFF' }}
           d="M5.9,1l2.3,1.9V10L5,13h5.9v8l1.1,2l1.1-2v-8H19l-3.2-2.7V2.8L17.9,1h-6H5.9z"
         />
@@ -266,7 +239,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -275,7 +247,6 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          id="path0_fill"
           style={{ fill: '#02CEDB' }}
           d="M13.7,2v2.8L8.7,9.8l-4.2,0l3.9,3.9L2,20l-0.7,2.1l2.1-0.7l6.4-6.4l3.9,3.9l0-4.2l5-5l2.8,0
         l-3.9-3.9L13.7,2z"
@@ -288,7 +259,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -297,7 +267,6 @@ export default {
         xmlSpace="preserve"
       >
         <polygon
-          id="path0_fill"
           style={{ fill: '#FFFFFF' }}
           points="13.7,2 13.7,4.8 8.7,9.8 4.5,9.8 8.4,13.6 2,20 1.3,22.1 3.5,21.4 9.8,15.1 13.7,19 
           13.7,14.7 18.7,9.8 21.5,9.8 17.6,5.9 "
@@ -310,7 +279,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -355,7 +323,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -444,7 +411,6 @@ export default {
       <svg
         className="default"
         version="1.1"
-        id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         x="0px"
@@ -485,10 +451,10 @@ export default {
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
-        <g id="Canvas" fill="none">
-          <g id="thumb/documents/default">
-            <g id="Group">
-              <g id="Vector">
+        <g fill="none">
+          <g>
+            <g>
+              <g>
                 <path
                   d="M 2.66667 21.5999L 2.66667 0L 0 0L 0 21.5999C 0 23.0849 1.2 24.2999 2.66667 24.2999L 14.6667 24.2999L 18.6667 24.2999L 18.6667 21.5999L 2.66667 21.5999Z"
                   transform="translate(5 5.27527)"
@@ -496,7 +462,7 @@ export default {
                   fill-opacity="0.54"
                 />
               </g>
-              <g id="path0 fill 1">
+              <g>
                 <path
                   d="M 7.06667 2.83499L 7.06667 7.01998C 7.06667 8.50497 8.26667 9.85497 9.86667 9.85497L 14 9.85497L 14 19.0349L 2.93333 19.0349L 2.93333 2.83499L 7.06667 2.83499ZM 11.2 0L 2.8 0C 1.33333 0 0 1.215 0 2.83499L 0 18.8999C 0 20.3849 1.2 21.7349 2.8 21.7349L 13.8667 21.7349C 15.3333 21.7349 16.6667 20.5199 16.6667 18.8999L 16.6667 5.53498L 11.2 0ZM 9.73333 7.01998L 9.73333 2.83499L 13.6666 7.01998L 9.73333 7.01998Z"
                   transform="translate(10.3334 2.5752)"
@@ -520,17 +486,17 @@ export default {
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
       >
-        <g id="Canvas" fill="none">
-          <g id="thumb/documents/hover">
-            <g id="Group">
-              <g id="Vector">
+        <g fill="none">
+          <g>
+            <g>
+              <g>
                 <path
                   d="M 2.66667 21.5999L 2.66667 0L 0 0L 0 21.5999C 0 23.0849 1.2 24.2999 2.66667 24.2999L 14.6667 24.2999L 18.6667 24.2999L 18.6667 21.5999L 2.66667 21.5999Z"
                   transform="translate(5 5.70007)"
                   fill="white"
                 />
               </g>
-              <g id="path0 fill 1">
+              <g>
                 <path
                   d="M 11.2 0L 2.8 0C 1.33333 0 0 1.215 0 2.83499L 0 18.8999C 0 20.3849 1.2 21.7349 2.8 21.7349L 13.8667 21.7349C 15.3333 21.7349 16.6667 20.5199 16.6667 18.8999L 16.6667 5.53498L 11.2 0Z"
                   transform="translate(10.3334 3)"
@@ -538,9 +504,9 @@ export default {
                 />
               </g>
             </g>
-            <g id="thumb/documents/default">
-              <g id="Group_2">
-                <g id="Vector_2">
+            <g>
+              <g>
+                <g>
                   <path
                     d="M 2.66667 21.5999L 2.66667 0L 0 0L 0 21.5999C 0 23.0849 1.2 24.2999 2.66667 24.2999L 14.6667 24.2999L 18.6667 24.2999L 18.6667 21.5999L 2.66667 21.5999Z"
                     transform="translate(5 5.70007)"
@@ -548,7 +514,7 @@ export default {
                     fill-opacity="0.54"
                   />
                 </g>
-                <g id="path0 fill 1_2">
+                <g>
                   <path
                     d="M 7.06667 2.83499L 7.06667 7.01998C 7.06667 8.50497 8.26667 9.85497 9.86667 9.85497L 14 9.85497L 14 19.0349L 2.93333 19.0349L 2.93333 2.83499L 7.06667 2.83499ZM 11.2 0L 2.8 0C 1.33333 0 0 1.215 0 2.83499L 0 18.8999C 0 20.3849 1.2 21.7349 2.8 21.7349L 13.8667 21.7349C 15.3333 21.7349 16.6667 20.5199 16.6667 18.8999L 16.6667 5.53498L 11.2 0ZM 9.73333 7.01998L 9.73333 2.83499L 13.6666 7.01998L 9.73333 7.01998Z"
                     transform="translate(10.3334 3)"
