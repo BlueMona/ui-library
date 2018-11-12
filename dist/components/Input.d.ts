@@ -6,7 +6,13 @@ interface BaseInputProps {
     error?: string;
     hint?: string;
     theme?: 'transparent';
+    /** Use to hide error/hint div in cases of very tight positioning. */
     noHelperText?: boolean;
+    /**
+     * Make this a "Search Input" style = different style, no error/helper text.
+     * There's also a <SearchInput> component for convenience.
+     */
+    isSearch?: boolean;
     autoFocus?: boolean;
     maxLength?: number;
     placeholder?: string;
