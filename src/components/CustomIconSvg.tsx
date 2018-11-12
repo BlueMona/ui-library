@@ -4,7 +4,7 @@ export default {
   'folder-shared': {
     default: (
       <svg
-        className="default"
+        className="icon-folder-shared default"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -21,7 +21,7 @@ export default {
     ),
     hover: (
       <svg
-        className="hover"
+        className="icon-folder-shared hover"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -31,12 +31,12 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          style={{ fill: '#FFFFFF' }}
+          className="fill-white"
           d="M20,6h-8l-2-2H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8
         C22,6.9,21.1,6,20,6z"
         />
         <path
-          style={{ opacity: 0.54 }}
+          className="half-opacity"
           d="M20,6h-8l-2-2H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V8C22,6.9,21.1,6,20,6z M15,9
         c1.1,0,2,0.9,2,2s-0.9,2-2,2s-2-0.9-2-2S13.9,9,15,9z M19,17h-8v-1c0-1.3,2.7-2,4-2s4,0.7,4,2V17z"
         />
@@ -46,7 +46,7 @@ export default {
   leave: {
     default: (
       <svg
-        className="default"
+        className="icon-leave default"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -64,7 +64,7 @@ export default {
     ),
     hover: (
       <svg
-        className="hover"
+        className="icon-leave hover"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -75,17 +75,14 @@ export default {
       >
         <g>
           <path
-            style={{ fill: '#408CFF' }}
+            className="hover-fill"
             d="M18.2,8.5v-6H4v18h14.2v-6h-2v4H6v-14h10.2v4H18.2z"
           />
           <path
-            style={{ fill: '#408CFF' }}
+            className="hover-fill"
             d="M16.2,9.7v3.7h3.7v2.4l4.1-4.3l-4.1-4.3v2.4h-3.7V9.7z"
           />
-          <path
-            style={{ fill: '#408CFF' }}
-            d="M12.9,23.7L4,20.5V3.8L12.9,7V23.7z"
-          />
+          <path className="hover-fill" d="M12.9,23.7L4,20.5V3.8L12.9,7V23.7z" />
         </g>
       </svg>
     )
@@ -93,7 +90,7 @@ export default {
   mention: {
     default: (
       <svg
-        className="default"
+        className="icon-mention default"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -116,7 +113,7 @@ export default {
     ),
     hover: (
       <svg
-        className="hover"
+        className="icon-mention hover"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -126,7 +123,7 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          style={{ fill: '#408CFF' }}
+          className="hover-fill"
           d="M22,10.9c0,1.2-0.2,2.2-0.6,3.2c-0.4,1-0.9,1.7-1.6,2.2c-0.7,0.5-1.4,0.8-2.3,0.8
         c-0.7,0-1.2-0.2-1.7-0.5c-0.5-0.3-0.8-0.8-1-1.4h-0.1c-0.4,0.6-0.9,1.1-1.5,1.4c-0.6,0.3-1.3,0.5-2,0.5c-1.3,0-2.4-0.4-3.2-1.3
         c-0.8-0.9-1.2-2-1.2-3.5c0-1.7,0.5-3,1.5-4.1c1-1,2.4-1.6,4.1-1.6c0.6,0,1.3,0.1,2.1,0.2c0.8,0.1,1.4,0.3,2,0.5l-0.3,5.7v0.3
@@ -143,7 +140,7 @@ export default {
   move: {
     default: (
       <svg
-        className="default"
+        className="icon-move default"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -160,7 +157,7 @@ export default {
     ),
     hover: (
       <svg
-        className="hover"
+        className="icon-move hover"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -170,7 +167,7 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          style={{ fill: '#408CFF' }}
+          className="hover-fill"
           d="M4,4h6l2,2h8c1.1,0,2,0.9,2,2v10c0,1.1-0.9,2-2,2H4c-1.1,0-2-0.9-2-2V6C2,4.9,2.9,4,4,4z M12,9
         v2H8v4h4v2l4-4L12,9z"
         />
@@ -180,7 +177,7 @@ export default {
   new: {
     default: (
       <svg
-        className="default"
+        className="icon-new default"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -204,7 +201,7 @@ export default {
   'pin-off': {
     default: (
       <svg
-        className="default"
+        className="icon-pin-off default"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -218,7 +215,7 @@ export default {
     ),
     hover: (
       <svg
-        className="hover"
+        className="icon-pin-off hover"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -228,7 +225,7 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          style={{ fill: '#408CFF' }}
+          className="hover-fill"
           d="M5.9,1l2.3,1.9V10L5,13h5.9v8l1.1,2l1.1-2v-8H19l-3.2-2.7V2.8L17.9,1h-6H5.9z"
         />
       </svg>
@@ -237,7 +234,7 @@ export default {
   'pin-on': {
     default: (
       <svg
-        className="default"
+        className="icon-pin-on default"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -247,29 +244,8 @@ export default {
         xmlSpace="preserve"
       >
         <path
-          style={{ fill: '#02CEDB' }}
           d="M13.7,2v2.8L8.7,9.8l-4.2,0l3.9,3.9L2,20l-0.7,2.1l2.1-0.7l6.4-6.4l3.9,3.9l0-4.2l5-5l2.8,0
         l-3.9-3.9L13.7,2z"
-        />
-      </svg>
-    )
-  },
-  'pin-on-white': {
-    default: (
-      <svg
-        className="default"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        x="0px"
-        y="0px"
-        viewBox="0 0 24 24"
-        xmlSpace="preserve"
-      >
-        <polygon
-          style={{ fill: '#FFFFFF' }}
-          points="13.7,2 13.7,4.8 8.7,9.8 4.5,9.8 8.4,13.6 2,20 1.3,22.1 3.5,21.4 9.8,15.1 13.7,19 
-          13.7,14.7 18.7,9.8 21.5,9.8 17.6,5.9 "
         />
       </svg>
     )
@@ -277,7 +253,7 @@ export default {
   preferences: {
     default: (
       <svg
-        className="default"
+        className="icon-preferences default"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -298,7 +274,7 @@ export default {
     ),
     hover: (
       <svg
-        className="hover"
+        className="icon-preferences hover"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -321,7 +297,7 @@ export default {
   'public-profile': {
     default: (
       <svg
-        className="default"
+        className="icon-public-profile default"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -345,7 +321,7 @@ export default {
     ),
     hover: (
       <svg
-        className="hover"
+        className="icon-public-profile hover"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -355,17 +331,17 @@ export default {
         <path
           d="M12 4C12 6.2 10.2 8 8 8C5.8 8 4 6.2 4 4C4 1.8 5.8 0 8 0C10.2 0 12 1.8 12 4Z"
           transform="translate(3 4)"
-          fill="#408CFF"
+          className="hover-fill"
         />
         <path
           d="M0 14C0 11.3 5.3 10 8 10C8.15607 10 8.32082 10.0043 8.49274 10.0131C8.17524 10.7791 8 11.6191 8 12.5C8 13.7886 8.375 14.9897 9.02182 16H0V14Z"
           transform="translate(3 4)"
-          fill="#408CFF"
+          className="hover-fill"
         />
         <path
           d="M4.4955 0C2.0115 0 0 2.016 0 4.5C0 6.984 2.0115 9 4.4955 9C6.984 9 9 6.984 9 4.5C9 2.016 6.984 0 4.4955 0ZM7.614 2.7H6.2865C6.1425 2.1375 5.9355 1.5975 5.6655 1.098C6.4935 1.3815 7.182 1.9575 7.614 2.7ZM4.5 0.918C4.8735 1.458 5.166 2.0565 5.3595 2.7H3.6405C3.834 2.0565 4.1265 1.458 4.5 0.918ZM1.017 5.4C0.945 5.112 0.9 4.8105 0.9 4.5C0.9 4.1895 0.945 3.888 1.017 3.6H2.538C2.502 3.897 2.475 4.194 2.475 4.5C2.475 4.806 2.502 5.103 2.538 5.4H1.017ZM1.386 6.3H2.7135C2.8575 6.8625 3.0645 7.4025 3.3345 7.902C2.5065 7.6185 1.818 7.047 1.386 6.3ZM2.7135 2.7H1.386C1.818 1.953 2.5065 1.3815 3.3345 1.098C3.0645 1.5975 2.8575 2.1375 2.7135 2.7ZM4.5 8.082C4.1265 7.542 3.834 6.9435 3.6405 6.3H5.3595C5.166 6.9435 4.8735 7.542 4.5 8.082ZM5.553 5.4H3.447C3.4065 5.103 3.375 4.806 3.375 4.5C3.375 4.194 3.4065 3.8925 3.447 3.6H5.553C5.5935 3.8925 5.625 4.194 5.625 4.5C5.625 4.806 5.5935 5.103 5.553 5.4ZM5.6655 7.902C5.9355 7.4025 6.1425 6.8625 6.2865 6.3H7.614C7.182 7.0425 6.4935 7.6185 5.6655 7.902ZM6.462 5.4C6.498 5.103 6.525 4.806 6.525 4.5C6.525 4.194 6.498 3.897 6.462 3.6H7.983C8.055 3.888 8.1 4.1895 8.1 4.5C8.1 4.8105 8.055 5.112 7.983 5.4H6.462Z"
           transform="translate(13 12)"
-          fill="#408CFF"
+          className="hover-fill"
         />
       </svg>
     )
@@ -373,7 +349,7 @@ export default {
   'remove-member': {
     default: (
       <svg
-        className="default"
+        className="icon-remove-member default"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -390,7 +366,7 @@ export default {
     ),
     hover: (
       <svg
-        className="hover"
+        className="icon-remove-member hover"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -400,16 +376,20 @@ export default {
         <path
           d="M14 8C16.21 8 18 6.21 18 4C18 1.79 16.21 0 14 0C11.79 0 10 1.79 10 4C10 6.21 11.79 8 14 8ZM14 10C11.33 10 6 11.34 6 14V16H22V14C22 11.34 16.67 10 14 10Z"
           transform="translate(1 4)"
-          fill="#408CFF"
+          className="hover-fill"
         />
-        <path d="M0 6H8V8H0V6Z" transform="translate(1 4)" fill="#408CFF" />
+        <path
+          d="M0 6H8V8H0V6Z"
+          transform="translate(1 4)"
+          className="hover-fill"
+        />
       </svg>
     )
   },
   signout: {
     default: (
       <svg
-        className="default"
+        className="icon-signout default"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -426,7 +406,7 @@ export default {
     ),
     hover: (
       <svg
-        className="hover"
+        className="icon-signout hover"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -443,7 +423,7 @@ export default {
   'stacked-files': {
     default: (
       <svg
-        className="default"
+        className="icon-stacked-files default"
         width="32"
         height="32"
         viewBox="0 0 32 32"
@@ -459,7 +439,7 @@ export default {
                   d="M 2.66667 21.5999L 2.66667 0L 0 0L 0 21.5999C 0 23.0849 1.2 24.2999 2.66667 24.2999L 14.6667 24.2999L 18.6667 24.2999L 18.6667 21.5999L 2.66667 21.5999Z"
                   transform="translate(5 5.27527)"
                   fill="black"
-                  fill-opacity="0.54"
+                  className="half-opacity"
                 />
               </g>
               <g>
@@ -467,7 +447,7 @@ export default {
                   d="M 7.06667 2.83499L 7.06667 7.01998C 7.06667 8.50497 8.26667 9.85497 9.86667 9.85497L 14 9.85497L 14 19.0349L 2.93333 19.0349L 2.93333 2.83499L 7.06667 2.83499ZM 11.2 0L 2.8 0C 1.33333 0 0 1.215 0 2.83499L 0 18.8999C 0 20.3849 1.2 21.7349 2.8 21.7349L 13.8667 21.7349C 15.3333 21.7349 16.6667 20.5199 16.6667 18.8999L 16.6667 5.53498L 11.2 0ZM 9.73333 7.01998L 9.73333 2.83499L 13.6666 7.01998L 9.73333 7.01998Z"
                   transform="translate(10.3334 2.5752)"
                   fill="black"
-                  fill-opacity="0.54"
+                  className="half-opacity"
                 />
               </g>
             </g>
@@ -478,7 +458,7 @@ export default {
 
     hover: (
       <svg
-        className="hover"
+        className="icon-stacked-files hover"
         width="32"
         height="33"
         viewBox="0 0 32 33"
@@ -511,7 +491,7 @@ export default {
                     d="M 2.66667 21.5999L 2.66667 0L 0 0L 0 21.5999C 0 23.0849 1.2 24.2999 2.66667 24.2999L 14.6667 24.2999L 18.6667 24.2999L 18.6667 21.5999L 2.66667 21.5999Z"
                     transform="translate(5 5.70007)"
                     fill="black"
-                    fill-opacity="0.54"
+                    className="half-opacity"
                   />
                 </g>
                 <g>
@@ -519,7 +499,7 @@ export default {
                     d="M 7.06667 2.83499L 7.06667 7.01998C 7.06667 8.50497 8.26667 9.85497 9.86667 9.85497L 14 9.85497L 14 19.0349L 2.93333 19.0349L 2.93333 2.83499L 7.06667 2.83499ZM 11.2 0L 2.8 0C 1.33333 0 0 1.215 0 2.83499L 0 18.8999C 0 20.3849 1.2 21.7349 2.8 21.7349L 13.8667 21.7349C 15.3333 21.7349 16.6667 20.5199 16.6667 18.8999L 16.6667 5.53498L 11.2 0ZM 9.73333 7.01998L 9.73333 2.83499L 13.6666 7.01998L 9.73333 7.01998Z"
                     transform="translate(10.3334 3)"
                     fill="black"
-                    fill-opacity="0.54"
+                    className="half-opacity"
                   />
                 </g>
               </g>
