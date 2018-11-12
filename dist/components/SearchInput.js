@@ -10,5 +10,5 @@ class SearchInput extends react_1.default.Component {
         return react_1.default.createElement(Input_1.Input, Object.assign({}, this.props, { isSearch: true }));
     }
 }
-exports.default = SearchInput;
+exports.SearchInput = SearchInput;
 //# sourceMappingURL=SearchInput.js.map
