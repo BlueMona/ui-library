@@ -778,9 +778,21 @@ dialog {
 
 .p-search-input-container {
   display: flex;
-  position: relative; }
+  position: relative;
+  width: 100%; }
   .p-search-input-container .search-icon {
-    position: absolute; }
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    margin-top: -24px;
+    z-index: 1; }
+  .p-search-input-container .p-input input {
+    height: 48px;
+    padding-left: 48px; }
+  .p-search-input-container.large .search-icon {
+    margin-top: -32px; }
+  .p-search-input-container.large .p-input input {
+    height: 64px; }
 
 .p-switch {
   display: flex;

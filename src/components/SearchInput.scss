@@ -1,11 +1,30 @@
 .p-search-input-container {
   display: flex;
   position: relative;
+  width: 100%;
 
   .search-icon {
     position: absolute;
+    left: 16px;
+    top: 50%;
+    margin-top: -24px; // half input height
+    z-index: 1;
   }
 
-  .p-input {
+  // Default height is 48px, overriding Input default
+  .p-input input {
+    height: 48px;
+    padding-left: 48px;
+  }
+
+  &.large {
+    .search-icon {
+      margin-top: -32px;
+    }
+
+    // "Large" class makes height 64px, back to Input default
+    .p-input input {
+      height: 64px;
+    }
   }
 }

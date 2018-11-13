@@ -1,4 +1,8 @@
 "use strict";
+/*
+  Functionally almost identical to the Input component.
+  Slightly different style, adds the "search" icon, and no helper/error text.
+*/
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16,9 +20,9 @@ const Input_1 = require("./Input");
 const MaterialIcon_1 = require("./MaterialIcon");
 let SearchInput = class SearchInput extends react_1.default.Component {
     render() {
-        return (react_1.default.createElement("div", { className: "p-search-input-container" },
+        return (react_1.default.createElement("div", { className: classnames_1.default('p-search-input-container', this.props.size) },
             react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: "search", className: "search-icon" }),
-            react_1.default.createElement(Input_1.Input, Object.assign({}, this.props, { className: classnames_1.default(this.props.className, this.props.size, 'p-search-input'), noHelperText: true }))));
+            react_1.default.createElement(Input_1.Input, Object.assign({}, this.props, { className: classnames_1.default(this.props.className, 'p-search-input'), noHelperText: true }))));
     }
 };
 SearchInput = __decorate([
