@@ -776,6 +776,12 @@ dialog {
   .p-radio li .material-icons:hover {
     color: #408cff; }
 
+.p-search-input-container {
+  display: flex;
+  position: relative; }
+  .p-search-input-container .search-icon {
+    position: absolute; }
+
 .p-switch {
   display: flex;
   justify-content: space-between;

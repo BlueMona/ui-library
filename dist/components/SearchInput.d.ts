@@ -1,5 +1,9 @@
 import React from 'react';
-import { Input } from './Input';
-export declare class SearchInput extends React.Component<Input> {
+import { InputProps } from './Input';
+declare type SearchInputProps = InputProps & {
+    size?: 'small';
+};
+export declare class SearchInput extends React.Component<SearchInputProps> {
     render(): JSX.Element;
 }
+export {};
