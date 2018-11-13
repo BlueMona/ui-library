@@ -5,16 +5,16 @@
 
   .search-icon {
     position: absolute;
-    left: 16px;
+    left: $padding-large;
     top: 50%;
-    margin-top: -12px; // half MaterialIcon height
+    margin-top: -12px; // half icon height
     z-index: 1;
   }
 
   // Default height is 48px, overriding Input default
   .p-input input {
     height: 48px;
-    padding-left: 48px;
+    padding-left: $padding-xxl;
   }
 
   // "Large" class makes height 64px, back to Input default

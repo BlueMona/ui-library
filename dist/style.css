@@ -449,11 +449,12 @@ dialog {
   .p-input.has-error input {
     border-color: #e90162; }
   .p-input.has-clear-button input {
-    padding-right: 32px; }
+    padding-right: 48px; }
   .p-input .clear-button {
     position: absolute;
-    right: 0;
-    top: 16px; }
+    right: 24px;
+    top: 50%;
+    margin-top: -18px; }
   .p-input.transparent input,
   .p-input.transparent textarea {
     border: 0;
@@ -782,7 +783,7 @@ dialog {
   width: 100%; }
   .p-search-input-container .search-icon {
     position: absolute;
-    left: 16px;
+    left: 24px;
     top: 50%;
     margin-top: -12px;
     z-index: 1; }
