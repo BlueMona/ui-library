@@ -268,7 +268,7 @@ export class Dialog extends Component<DialogProps> {
         <dialog open className={css('p-dialog', className, size, theme)}>
           {headerImage ? (
             <div className="header-image">
-              <img src={headerImage} draggable={false}/>
+              <img src={headerImage} draggable={false} />
             </div>
           ) : null}
           <div className="body">

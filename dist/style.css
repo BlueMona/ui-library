@@ -449,11 +449,12 @@ dialog {
   .p-input.has-error input {
     border-color: #e90162; }
   .p-input.has-clear-button input {
-    padding-right: 32px; }
+    padding-right: 48px; }
   .p-input .clear-button {
     position: absolute;
-    right: 0;
-    top: 16px; }
+    right: 16px;
+    top: 50%;
+    margin-top: -18px; }
   .p-input.transparent input,
   .p-input.transparent textarea {
     border: 0;
@@ -775,6 +776,22 @@ dialog {
     margin-left: 16px; }
   .p-radio li .material-icons:hover {
     color: #408cff; }
+
+.p-search-input {
+  display: flex;
+  position: relative;
+  width: 100%; }
+  .p-search-input .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    margin-top: -12px;
+    z-index: 1; }
+  .p-search-input .p-input input {
+    height: 48px;
+    padding-left: 48px; }
+  .p-search-input.large .p-input input {
+    height: 64px; }
 
 .p-switch {
   display: flex;

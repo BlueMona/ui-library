@@ -6,6 +6,7 @@ interface BaseInputProps {
     error?: string;
     hint?: string;
     theme?: 'transparent';
+    /** Use to hide error/hint div in cases of very tight positioning. */
     noHelperText?: boolean;
     autoFocus?: boolean;
     maxLength?: number;
