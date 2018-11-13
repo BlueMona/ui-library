@@ -452,7 +452,7 @@ dialog {
     padding-right: 48px; }
   .p-input .clear-button {
     position: absolute;
-    right: 24px;
+    right: 16px;
     top: 50%;
     margin-top: -18px; }
   .p-input.transparent input,
@@ -783,7 +783,7 @@ dialog {
   width: 100%; }
   .p-search-input-container .search-icon {
     position: absolute;
-    left: 24px;
+    left: 16px;
     top: 50%;
     margin-top: -12px;
     z-index: 1; }
