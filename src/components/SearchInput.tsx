@@ -15,12 +15,11 @@ type SearchInputProps = InputProps & { size?: 'large' };
 export class SearchInput extends React.Component<SearchInputProps> {
   render() {
     return (
-      <div className={css('p-search-input', this.props.size, this.props.className)}>
+      <div
+        className={css('p-search-input', this.props.size, this.props.className)}
+      >
         <MaterialIcon icon="search" className="search-icon" />
-        <Input
-          {...this.props}
-          noHelperText={true}
-        />
+        <Input {...this.props} noHelperText={true} />
       </div>
     );
   }
