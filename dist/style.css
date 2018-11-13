@@ -790,6 +790,10 @@ dialog {
   .p-search-input .p-input input {
     height: 48px;
     padding-left: 48px; }
+    .p-search-input .p-input input:hover {
+      border-color: rgba(0, 0, 0, 0.54); }
+  .p-search-input .p-input.focused input {
+    border-color: rgba(0, 0, 0, 0.54); }
   .p-search-input.large .p-input input {
     height: 64px; }
 

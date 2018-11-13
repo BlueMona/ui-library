@@ -11,15 +11,27 @@
     z-index: 1;
   }
 
-  // Default height is 48px, overriding Input default
-  .p-input input {
-    height: 48px;
-    padding-left: $padding-xxl;
+  .p-input {
+    input {
+      // Default height is 48px, overriding Input default
+      height: 48px;
+      padding-left: $padding-xxl;
+
+      &:hover {
+        border-color: $input-border;
+      }
+    }
+
+    &.focused {
+      input {
+        border-color: $input-border;
+      }
+    }
   }
 
-  // "Large" class makes height 64px, back to Input default
   &.large {
     .p-input input {
+      // "Large" class makes height 64px, back to Input default
       height: 64px;
     }
   }
