@@ -26,8 +26,6 @@ export class A11yHelper {
 
   @action.bound
   private handleKeydown(ev: KeyboardEvent) {
-    //eslint-disable-next-line no-console
-    console.log('handleKeydown');
     _.throttle(() => {
       if (this.keyboardNavEnabled === false && ev.keyCode === 9) {
         this.keyboardNavEnabled = true;
@@ -37,8 +35,6 @@ export class A11yHelper {
 
   @action.bound
   private handleMousemove() {
-    //eslint-disable-next-line no-console
-    console.log('handleMousemove');
     _.throttle(() => {
       this.keyboardNavEnabled = false;
     }, 100);
