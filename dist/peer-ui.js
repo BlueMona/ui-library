@@ -29,4 +29,6 @@ __export(require("./components/Divider"));
 __export(require("./components/List"));
 __export(require("./components/ListHeading"));
 __export(require("./components/ListItem"));
+// Helpers
+__export(require("./components/helpers/a11y"));
 //# sourceMappingURL=peer-ui.js.map

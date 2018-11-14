@@ -19,3 +19,4 @@ export * from './components/Divider';
 export * from './components/List';
 export * from './components/ListHeading';
 export * from './components/ListItem';
+export * from './components/helpers/a11y';
