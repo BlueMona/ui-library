@@ -13,39 +13,45 @@
  */
 
 import { action, computed, observable } from 'mobx';
+import _ from 'lodash';
 
 export class A11yHelper {
   @observable
-  keyboardNav = true;
+  keyboardNavEnabled = true;
 
   @computed
   get keyboardNavClass() {
-    return this.keyboardNav ? '.keyboard-nav' : null;
+    return this.keyboardNavEnabled ? 'keyboard-nav' : null;
   }
 
   @action.bound
   private handleKeydown(ev: KeyboardEvent) {
     //eslint-disable-next-line no-console
     console.log('handleKeydown');
-    if (this.keyboardNav === false && ev.keyCode === 9) {
-      this.keyboardNav = true;
-    }
+    _.throttle(() => {
+      if (this.keyboardNavEnabled === false && ev.keyCode === 9) {
+        this.keyboardNavEnabled = true;
+      }
+    }, 100);
   }
 
   @action.bound
   private handleMousemove() {
     //eslint-disable-next-line no-console
     console.log('handleMousemove');
-    this.keyboardNav = false;
+    _.throttle(() => {
+      this.keyboardNavEnabled = false;
+    }, 100);
   }
 
-  addListeners = () => {
-    document.addEventListener('keydown', this.handleKeydown);
-    document.addEventListener('mousemove', this.handleMousemove);
-  };
-
-  removeListeners = () => {
-    document.addEventListener('keydown', this.handleKeydown);
-    document.addEventListener('mousemove', this.handleMousemove);
+  keynavListeners = {
+    add: () => {
+      document.addEventListener('keydown', this.handleKeydown);
+      document.addEventListener('mousemove', this.handleMousemove);
+    },
+    remove: () => {
+      document.addEventListener('keydown', this.handleKeydown);
+      document.addEventListener('mousemove', this.handleMousemove);
+    }
   };
 }
