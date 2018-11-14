@@ -60,5 +60,5 @@ __decorate([
 __decorate([
     mobx_1.action.bound
 ], A11yHelper.prototype, "handleMousemove", null);
-exports.default = A11yHelper;
+exports.A11yHelper = A11yHelper;
 //# sourceMappingURL=a11y.js.map

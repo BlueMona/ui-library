@@ -11,7 +11,7 @@
  * then the listeners likewise can be added/removed according to the component's
  * needs. (I imagine this will usually be tied to the component lifecycle.)
  */
-export default class A11yHelper {
+export declare class A11yHelper {
     keyboardNav: boolean;
     readonly keyboardNavClass: ".keyboard-nav" | null;
     private handleKeydown;

@@ -14,7 +14,7 @@
 
 import { action, computed, observable } from 'mobx';
 
-export default class A11yHelper {
+export class A11yHelper {
   @observable
   keyboardNav = true;
 
