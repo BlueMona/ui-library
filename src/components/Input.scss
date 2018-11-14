@@ -37,7 +37,7 @@
   // Focus state
   &.focused {
     input {
-      outline: 0;
+      outline: 0; // a11y.scss
       border-color: $peerio-blue;
     }
   }

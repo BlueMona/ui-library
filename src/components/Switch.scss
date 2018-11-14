@@ -19,7 +19,7 @@
 
     &:active,
     &:focus {
-      outline: none;
+      outline: none; // a11y.scss
     }
 
     input {
