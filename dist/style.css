@@ -431,7 +431,8 @@ dialog {
     transition: top 150ms, font-size 150ms, color 150ms;
     color: rgba(0, 0, 0, 0.54);
     background-color: white;
-    font-size: 12px; }
+    font-size: 12px;
+    z-index: 1; }
   .p-input .hint-or-error {
     display: flex;
     height: 16px;
@@ -456,6 +457,8 @@ dialog {
   .p-input.has-clear-button input {
     padding-right: 48px; }
   .p-input .input-container {
+    display: flex;
+    width: 100%;
     position: relative; }
   .p-input .clear-button {
     position: absolute;
