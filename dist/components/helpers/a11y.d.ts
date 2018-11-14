@@ -12,10 +12,12 @@
  * needs. (I imagine this will usually be tied to the component lifecycle.)
  */
 export declare class A11yHelper {
-    keyboardNav: boolean;
-    readonly keyboardNavClass: ".keyboard-nav" | null;
+    keyboardNavEnabled: boolean;
+    readonly keyboardNavClass: "keyboard-nav" | null;
     private handleKeydown;
     private handleMousemove;
-    addListeners: () => void;
-    removeListeners: () => void;
+    keynavListeners: {
+        add: () => void;
+        remove: () => void;
+    };
 }

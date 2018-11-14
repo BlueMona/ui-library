@@ -18,39 +18,49 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const mobx_1 = require("mobx");
+const lodash_1 = __importDefault(require("lodash"));
 class A11yHelper {
     constructor() {
-        this.keyboardNav = true;
-        this.addListeners = () => {
-            document.addEventListener('keydown', this.handleKeydown);
-            document.addEventListener('mousemove', this.handleMousemove);
-        };
-        this.removeListeners = () => {
-            document.addEventListener('keydown', this.handleKeydown);
-            document.addEventListener('mousemove', this.handleMousemove);
+        this.keyboardNavEnabled = true;
+        this.keynavListeners = {
+            add: () => {
+                document.addEventListener('keydown', this.handleKeydown);
+                document.addEventListener('mousemove', this.handleMousemove);
+            },
+            remove: () => {
+                document.addEventListener('keydown', this.handleKeydown);
+                document.addEventListener('mousemove', this.handleMousemove);
+            }
         };
     }
     get keyboardNavClass() {
-        return this.keyboardNav ? '.keyboard-nav' : null;
+        return this.keyboardNavEnabled ? 'keyboard-nav' : null;
     }
     handleKeydown(ev) {
         //eslint-disable-next-line no-console
         console.log('handleKeydown');
-        if (this.keyboardNav === false && ev.keyCode === 9) {
-            this.keyboardNav = true;
-        }
+        lodash_1.default.throttle(() => {
+            if (this.keyboardNavEnabled === false && ev.keyCode === 9) {
+                this.keyboardNavEnabled = true;
+            }
+        }, 100);
     }
     handleMousemove() {
         //eslint-disable-next-line no-console
         console.log('handleMousemove');
-        this.keyboardNav = false;
+        lodash_1.default.throttle(() => {
+            this.keyboardNavEnabled = false;
+        }, 100);
     }
 }
 __decorate([
     mobx_1.observable
-], A11yHelper.prototype, "keyboardNav", void 0);
+], A11yHelper.prototype, "keyboardNavEnabled", void 0);
 __decorate([
     mobx_1.computed
 ], A11yHelper.prototype, "keyboardNavClass", null);
