@@ -102,6 +102,15 @@
     }
   }
 
+  /*
+    Helper text expands p-input's overall height, which in turns throws off
+    the button's `absolute` positioning. So we wrap the input + button in a
+    containing div with `position: relative`.
+  */
+  .input-container {
+    position: relative;
+  }
+
   .clear-button {
     position: absolute;
     right: $margin-default;

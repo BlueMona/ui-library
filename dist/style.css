@@ -386,6 +386,11 @@ dialog {
   position: relative;
   height: auto;
   width: 100%;
+  /*
+    Helper text expands p-input's overall height, which in turns throws off
+    the button's `absolute` positioning. So we wrap the input + button in a
+    containing div with `position: relative`.
+  */
   /* 
    * TRANSPARENT
    * - makes inputs fully transparent, no borders, no background colours
@@ -450,6 +455,8 @@ dialog {
     border-color: #e90162; }
   .p-input.has-clear-button input {
     padding-right: 48px; }
+  .p-input .input-container {
+    position: relative; }
   .p-input .clear-button {
     position: absolute;
     right: 16px;
