@@ -27,6 +27,22 @@ const lodash_1 = __importDefault(require("lodash"));
 class A11yHelper {
     constructor() {
         this.keyboardNavEnabled = true;
+        this.handleKeydown = lodash_1.default.throttle(ev => {
+            console.log('handleKeydown');
+            if (this.keyboardNavEnabled === false && ev.keyCode === 9) {
+                this.keyboardNavEnabled = true;
+                console.log('handleKeydown throttled');
+                console.log(this.keyboardNavEnabled);
+            }
+        }, 100);
+        this.handleMousemove = lodash_1.default.throttle(() => {
+            console.log('handleMousemove');
+            if (this.keyboardNavEnabled === true) {
+                this.keyboardNavEnabled = false;
+                console.log('handleMousemove throttled');
+                console.log(this.keyboardNavEnabled);
+            }
+        }, 100);
         this.keynavListeners = {
             add: () => {
                 document.addEventListener('keydown', this.handleKeydown);
@@ -41,24 +57,6 @@ class A11yHelper {
     get keyboardNavClass() {
         return this.keyboardNavEnabled ? 'keyboard-nav' : null;
     }
-    handleKeydown(ev) {
-        lodash_1.default.throttle(() => {
-            if (this.keyboardNavEnabled === false && ev.keyCode === 9) {
-                this.keyboardNavEnabled = true;
-                console.log('handleKeydown');
-                console.log(this.keyboardNavEnabled);
-            }
-        }, 100);
-    }
-    handleMousemove() {
-        lodash_1.default.throttle(() => {
-            if (this.keyboardNavEnabled === true) {
-                this.keyboardNavEnabled = false;
-                console.log('handleMousemove');
-                console.log(this.keyboardNavEnabled);
-            }
-        }, 100);
-    }
 }
 __decorate([
     mobx_1.observable
@@ -68,9 +66,9 @@ __decorate([
 ], A11yHelper.prototype, "keyboardNavClass", null);
 __decorate([
     mobx_1.action.bound
-], A11yHelper.prototype, "handleKeydown", null);
+], A11yHelper.prototype, "handleKeydown", void 0);
 __decorate([
     mobx_1.action.bound
-], A11yHelper.prototype, "handleMousemove", null);
+], A11yHelper.prototype, "handleMousemove", void 0);
 exports.A11yHelper = A11yHelper;
 //# sourceMappingURL=a11y.js.map
