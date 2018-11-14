@@ -42,8 +42,6 @@ class A11yHelper {
         return this.keyboardNavEnabled ? 'keyboard-nav' : null;
     }
     handleKeydown(ev) {
-        //eslint-disable-next-line no-console
-        console.log('handleKeydown');
         lodash_1.default.throttle(() => {
             if (this.keyboardNavEnabled === false && ev.keyCode === 9) {
                 this.keyboardNavEnabled = true;
@@ -51,10 +49,10 @@ class A11yHelper {
         }, 100);
     }
     handleMousemove() {
-        //eslint-disable-next-line no-console
-        console.log('handleMousemove');
         lodash_1.default.throttle(() => {
-            this.keyboardNavEnabled = false;
+            if (this.keyboardNavEnabled === true) {
+                this.keyboardNavEnabled = false;
+            }
         }, 100);
     }
 }

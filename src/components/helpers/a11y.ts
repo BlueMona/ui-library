@@ -36,7 +36,9 @@ export class A11yHelper {
   @action.bound
   private handleMousemove() {
     _.throttle(() => {
-      this.keyboardNavEnabled = false;
+      if (this.keyboardNavEnabled === true) {
+        this.keyboardNavEnabled = false;
+      }
     }, 100);
   }
 
