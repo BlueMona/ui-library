@@ -1,0 +1,28 @@
+@mixin outline-default() {
+  outline: 2px solid;
+}
+
+// Feedback when using keyboard navigation
+.keyboard-nav {
+  .p-button {
+    &:active,
+    &:focus {
+      @include outline-default();
+    }
+  }
+
+  .p-input {
+    &.focused {
+      input {
+        @include outline-default();
+      }
+    }
+  }
+
+  .p-switch {
+    &:active,
+    &:focus {
+      @include outline-default();
+    }
+  }
+}
