@@ -20,9 +20,9 @@ const Input_1 = require("./Input");
 const MaterialIcon_1 = require("./MaterialIcon");
 let SearchInput = class SearchInput extends react_1.default.Component {
     render() {
-        return (react_1.default.createElement("div", { className: classnames_1.default('p-search-input', this.props.size, this.props.className) },
+        return (react_1.default.createElement("div", { className: classnames_1.default('p-search-input', this.props.className) },
             react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: "search", className: "search-icon" }),
-            react_1.default.createElement(Input_1.Input, Object.assign({}, this.props, { noHelperText: true }))));
+            react_1.default.createElement(Input_1.Input, Object.assign({}, this.props, { size: this.props.size || 'small', noHelperText: true }))));
     }
 };
 SearchInput = __decorate([

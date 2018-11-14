@@ -109,6 +109,13 @@
     margin-top: -18px; // half icon height
   }
 
+  // SIZES //
+  &.small {
+    input {
+      height: 48px;
+    }
+  }
+
   // THEMES //
   /* 
    * TRANSPARENT

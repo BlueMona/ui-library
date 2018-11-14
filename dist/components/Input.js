@@ -76,7 +76,7 @@ let Input = class Input extends react_1.Component {
         }
     }
     render() {
-        return (react_1.default.createElement("div", { className: classnames_1.default('p-input', this.props.className, this.props.theme, {
+        return (react_1.default.createElement("div", { className: classnames_1.default('p-input', this.props.className, this.props.theme, this.props.size, {
                 'has-label': !!this.props.label,
                 'has-error': !!this.props.error,
                 'has-clear-button': this.showClearButton,

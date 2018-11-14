@@ -28,11 +28,4 @@
       }
     }
   }
-
-  &.large {
-    .p-input input {
-      // "Large" class makes height 64px, back to Input default
-      height: 64px;
-    }
-  }
 }

@@ -9,17 +9,17 @@ import css from 'classnames';
 import { Input, InputProps } from './Input';
 import { MaterialIcon } from './MaterialIcon';
 
-type SearchInputProps = InputProps & { size?: 'large' };
-
 @observer
-export class SearchInput extends React.Component<SearchInputProps> {
+export class SearchInput extends React.Component<InputProps> {
   render() {
     return (
-      <div
-        className={css('p-search-input', this.props.size, this.props.className)}
-      >
+      <div className={css('p-search-input', this.props.className)}>
         <MaterialIcon icon="search" className="search-icon" />
-        <Input {...this.props} noHelperText={true} />
+        <Input
+          {...this.props}
+          size={this.props.size || 'small'}
+          noHelperText={true}
+        />
       </div>
     );
   }

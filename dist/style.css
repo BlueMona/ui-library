@@ -455,6 +455,8 @@ dialog {
     right: 16px;
     top: 50%;
     margin-top: -18px; }
+  .p-input.small input {
+    height: 48px; }
   .p-input.transparent input,
   .p-input.transparent textarea {
     border: 0;
@@ -794,8 +796,6 @@ dialog {
       border-color: rgba(0, 0, 0, 0.54); }
   .p-search-input .p-input.focused input {
     border-color: rgba(0, 0, 0, 0.54); }
-  .p-search-input.large .p-input input {
-    height: 64px; }
 
 .p-switch {
   display: flex;

@@ -14,6 +14,12 @@ interface BaseInputProps {
   hint?: string;
   theme?: 'transparent';
 
+  /**
+   * default/large = 64px tall
+   * small = 48px tall
+   */
+  size?: 'small' | 'large';
+
   /** Use to hide error/hint div in cases of very tight positioning. */
   noHelperText?: boolean;
 
@@ -119,12 +125,18 @@ export class Input extends Component<InputProps> {
   render() {
     return (
       <div
-        className={css('p-input', this.props.className, this.props.theme, {
-          'has-label': !!this.props.label,
-          'has-error': !!this.props.error,
-          'has-clear-button': this.showClearButton,
-          focused: this.isFocused
-        })}
+        className={css(
+          'p-input',
+          this.props.className,
+          this.props.theme,
+          this.props.size,
+          {
+            'has-label': !!this.props.label,
+            'has-error': !!this.props.error,
+            'has-clear-button': this.showClearButton,
+            focused: this.isFocused
+          }
+        )}
       >
         {this.props.label ? (
           <div className={css('label')}>{this.props.label}</div>
