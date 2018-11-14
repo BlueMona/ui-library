@@ -28,3 +28,6 @@ export * from './components/Divider';
 export * from './components/List';
 export * from './components/ListHeading';
 export * from './components/ListItem';
+
+// Helpers
+export * from './components/helpers/a11y';
