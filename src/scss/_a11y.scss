@@ -1,5 +1,6 @@
 @mixin outline-default() {
-  outline: 2px solid;
+  outline: 1px solid $peerio-blue;
+  box-shadow: $shadow-2;
 }
 
 // Feedback when using keyboard navigation
@@ -11,13 +12,14 @@
     }
   }
 
-  .p-input {
-    &.focused {
-      input {
-        @include outline-default();
-      }
-    }
-  }
+  // Input focus has built-in highlighting
+  // .p-input {
+  //   &.focused {
+  //     input {
+  //       @include outline-default();
+  //     }
+  //   }
+  // }
 
   .p-switch {
     &:active,
