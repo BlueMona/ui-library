@@ -856,3 +856,12 @@ dialog {
   border-radius: 4px; }
   .p-tooltip.small {
     max-width: 64px; }
+
+.keyboard-nav .p-button:active, .keyboard-nav .p-button:focus {
+  outline: 2px solid; }
+
+.keyboard-nav .p-input.focused input {
+  outline: 2px solid; }
+
+.keyboard-nav .p-switch:active, .keyboard-nav .p-switch:focus {
+  outline: 2px solid; }
