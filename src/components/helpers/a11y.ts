@@ -29,6 +29,8 @@ export class A11yHelper {
     _.throttle(() => {
       if (this.keyboardNavEnabled === false && ev.keyCode === 9) {
         this.keyboardNavEnabled = true;
+        console.log('handleKeydown');
+        console.log(this.keyboardNavEnabled);
       }
     }, 100);
   }
@@ -38,6 +40,8 @@ export class A11yHelper {
     _.throttle(() => {
       if (this.keyboardNavEnabled === true) {
         this.keyboardNavEnabled = false;
+        console.log('handleMousemove');
+        console.log(this.keyboardNavEnabled);
       }
     }, 100);
   }

@@ -45,6 +45,8 @@ class A11yHelper {
         lodash_1.default.throttle(() => {
             if (this.keyboardNavEnabled === false && ev.keyCode === 9) {
                 this.keyboardNavEnabled = true;
+                console.log('handleKeydown');
+                console.log(this.keyboardNavEnabled);
             }
         }, 100);
     }
@@ -52,6 +54,8 @@ class A11yHelper {
         lodash_1.default.throttle(() => {
             if (this.keyboardNavEnabled === true) {
                 this.keyboardNavEnabled = false;
+                console.log('handleMousemove');
+                console.log(this.keyboardNavEnabled);
             }
         }, 100);
     }
