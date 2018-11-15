@@ -7,7 +7,7 @@
  * helper lets the component create/store a11y state (e.g. keyboardNav) and
  * then access/modify that state directly or use the included functions.
  *
- * The idea is that it can be instantiated with `new` whever it's needed and
+ * The idea is that it can be instantiated with `new` wherever it's needed and
  * then the listeners likewise can be added/removed according to the component's
  * needs. (I imagine this will usually be tied to the component lifecycle.)
  */
