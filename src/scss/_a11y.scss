@@ -1,6 +1,5 @@
 @mixin outline-default() {
-  outline: 1px solid $peerio-blue;
-  box-shadow: $shadow-2;
+  outline: 2px solid $peerio-blue;
 }
 
 // Feedback when using keyboard navigation
@@ -9,6 +8,16 @@
     &:active,
     &:focus {
       @include outline-default();
+    }
+  }
+
+  .p-checkbox .p-checkbox-container {
+    &:active,
+    &:focus {
+      .material-icons {
+        @include outline-default();
+        color: $color-affirmative;
+      }
     }
   }
 
