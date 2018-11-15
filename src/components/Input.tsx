@@ -142,46 +142,48 @@ export class Input extends Component<InputProps> {
           <div className={css('label')}>{this.props.label}</div>
         ) : null}
 
-        {this.props.multiline ? (
-          <textarea
-            placeholder={this.props.placeholder}
-            value={this.props.value}
-            maxLength={this.props.maxLength}
-            onChange={this.props.onChange ? this.handleChange : undefined}
-            onKeyPress={this.props.onKeyPress}
-            onKeyDown={this.props.onKeyDown}
-            onKeyUp={this.props.onKeyUp}
-            onBlur={this.handleBlur}
-            onFocus={this.handleFocus}
-            readOnly={this.props.readOnly}
-            ref={this.setRef}
-          />
-        ) : (
-          <input
-            placeholder={this.props.placeholder}
-            value={this.props.value}
-            maxLength={this.props.maxLength}
-            onChange={this.props.onChange ? this.handleChange : undefined}
-            onKeyPress={this.props.onKeyPress}
-            onKeyDown={this.props.onKeyDown}
-            onKeyUp={this.props.onKeyUp}
-            onBlur={this.handleBlur}
-            onFocus={this.handleFocus}
-            type={this.props.type || 'text'}
-            readOnly={this.props.readOnly}
-            disabled={this.props.disabled}
-            ref={this.setRef}
-          />
-        )}
+        <div className="input-container">
+          {this.props.multiline ? (
+            <textarea
+              placeholder={this.props.placeholder}
+              value={this.props.value}
+              maxLength={this.props.maxLength}
+              onChange={this.props.onChange ? this.handleChange : undefined}
+              onKeyPress={this.props.onKeyPress}
+              onKeyDown={this.props.onKeyDown}
+              onKeyUp={this.props.onKeyUp}
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              readOnly={this.props.readOnly}
+              ref={this.setRef}
+            />
+          ) : (
+            <input
+              placeholder={this.props.placeholder}
+              value={this.props.value}
+              maxLength={this.props.maxLength}
+              onChange={this.props.onChange ? this.handleChange : undefined}
+              onKeyPress={this.props.onKeyPress}
+              onKeyDown={this.props.onKeyDown}
+              onKeyUp={this.props.onKeyUp}
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              type={this.props.type || 'text'}
+              readOnly={this.props.readOnly}
+              disabled={this.props.disabled}
+              ref={this.setRef}
+            />
+          )}
 
-        {this.showClearButton ? (
-          <Button
-            tabIndex={-1}
-            className="clear-button"
-            icon="close"
-            onClick={this.clearInput}
-          />
-        ) : null}
+          {this.showClearButton ? (
+            <Button
+              tabIndex={-1}
+              className="clear-button"
+              icon="close"
+              onClick={this.clearInput}
+            />
+          ) : null}
+        </div>
 
         {this.props.noHelperText ? null : (
           <div
