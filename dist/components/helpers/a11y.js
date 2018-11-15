@@ -8,7 +8,7 @@
  * helper lets the component create/store a11y state (e.g. keyboardNav) and
  * then access/modify that state directly or use the included functions.
  *
- * The idea is that it can be instantiated with `new` whever it's needed and
+ * The idea is that it can be instantiated with `new` wherever it's needed and
  * then the listeners likewise can be added/removed according to the component's
  * needs. (I imagine this will usually be tied to the component lifecycle.)
  */
@@ -48,7 +48,7 @@ class A11yHelper {
             }
         };
     }
-    get keyboardNavClass() {
+    get keyboardNavClassComputed() {
         return this.keyboardNavEnabled ? 'keyboard-nav' : null;
     }
 }
@@ -57,7 +57,7 @@ __decorate([
 ], A11yHelper.prototype, "keyboardNavEnabled", void 0);
 __decorate([
     mobx_1.computed
-], A11yHelper.prototype, "keyboardNavClass", null);
+], A11yHelper.prototype, "keyboardNavClassComputed", null);
 __decorate([
     mobx_1.action.bound
 ], A11yHelper.prototype, "handleKeydown", void 0);
