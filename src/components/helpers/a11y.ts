@@ -26,21 +26,15 @@ export class A11yHelper {
 
   @action.bound
   private handleKeydown = _.throttle(ev => {
-    console.log('handleKeydown');
     if (this.keyboardNavEnabled === false && ev.keyCode === 9) {
       this.keyboardNavEnabled = true;
-      console.log('handleKeydown throttled');
-      console.log(this.keyboardNavEnabled);
     }
   }, 100);
 
   @action.bound
   private handleMousemove = _.throttle(() => {
-    console.log('handleMousemove');
     if (this.keyboardNavEnabled === true) {
       this.keyboardNavEnabled = false;
-      console.log('handleMousemove throttled');
-      console.log(this.keyboardNavEnabled);
     }
   }, 100);
 
