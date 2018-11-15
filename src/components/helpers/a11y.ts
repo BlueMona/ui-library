@@ -20,7 +20,7 @@ export class A11yHelper {
   keyboardNavEnabled = true;
 
   @computed
-  get keyboardNavClass() {
+  get keyboardNavClassComputed() {
     return this.keyboardNavEnabled ? 'keyboard-nav' : null;
   }
 
