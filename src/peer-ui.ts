@@ -30,4 +30,4 @@ export * from './components/ListHeading';
 export * from './components/ListItem';
 
 // Helpers
-export * from './components/helpers/a11y';
+export * from './components/_Wrapper';
