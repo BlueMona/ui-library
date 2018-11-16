@@ -19,7 +19,8 @@
 
     &:active,
     &:focus {
-      outline: none; // a11y.scss
+      // Added back under .keyboard-nav; modified style is in a11y.scss
+      outline: none;
     }
 
     input {
