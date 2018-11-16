@@ -15,7 +15,6 @@
 
 import React from 'react';
 import { action, computed, observable } from 'mobx';
-import _ from 'lodash';
 
 export class PeerUIWrapper extends React.Component {
   @observable
@@ -27,18 +26,18 @@ export class PeerUIWrapper extends React.Component {
   }
 
   @action.bound
-  private handleKeydown = _.throttle((ev: KeyboardEvent) => {
+  private handleKeydown(ev: KeyboardEvent) {
     if (this.keyboardNavEnabled === false && ev.keyCode === 9) {
       this.keyboardNavEnabled = true;
     }
-  }, 100);
+  }
 
   @action.bound
-  private handleMousemove = _.throttle(() => {
+  private handleMousemove() {
     if (this.keyboardNavEnabled === true) {
       this.keyboardNavEnabled = false;
     }
-  }, 100);
+  }
 
   componentWillMount() {
     document.addEventListener('keydown', this.handleKeydown);
