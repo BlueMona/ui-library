@@ -4,6 +4,7 @@
 
 // Feedback when using keyboard navigation
 .keyboard-nav {
+  // Buttons: add outline
   .p-button {
     &:active,
     &:focus {
@@ -11,6 +12,7 @@
     }
   }
 
+  // Checkbox: add outline and use hover color
   .p-checkbox .p-checkbox-container {
     &:active,
     &:focus {
@@ -21,15 +23,10 @@
     }
   }
 
-  // Input focus has built-in highlighting
-  // .p-input {
-  //   &.focused {
-  //     input {
-  //       @include outline-default();
-  //     }
-  //   }
-  // }
+  // Input: focus is already highlighted
+  // .p-input {}
 
+  // Switch: add outline
   .p-switch {
     &:active,
     &:focus {
