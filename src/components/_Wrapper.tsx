@@ -14,16 +14,12 @@
  */
 
 import React from 'react';
-import { action, computed, observable } from 'mobx';
+import { action, observable } from 'mobx';
+import css from 'classnames';
 
 export class PeerUIWrapper extends React.Component {
   @observable
   keyboardNavEnabled = true;
-
-  @computed
-  get keyboardNavClass() {
-    return this.keyboardNavEnabled ? 'keyboard-nav' : undefined;
-  }
 
   @action.bound
   private handleKeydown(ev: KeyboardEvent) {
@@ -50,6 +46,14 @@ export class PeerUIWrapper extends React.Component {
   }
 
   render() {
-    return <div className={this.keyboardNavClass}>{this.props.children}</div>;
+    return (
+      <div
+        className={css('peerui-wrapper', {
+          'keyboard-nav': this.keyboardNavEnabled
+        })}
+      >
+        {this.props.children}
+      </div>
+    );
   }
 }
