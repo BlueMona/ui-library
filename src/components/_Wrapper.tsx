@@ -15,8 +15,10 @@
 
 import React from 'react';
 import { action, observable } from 'mobx';
+import { observer } from 'mobx-react';
 import css from 'classnames';
 
+@observer
 export class PeerUIWrapper extends React.Component {
   @observable
   keyboardNavEnabled = true;
