@@ -866,3 +866,13 @@ dialog {
   border-radius: 4px; }
   .p-tooltip.small {
     max-width: 64px; }
+
+.keyboard-nav .p-button:active, .keyboard-nav .p-button:focus {
+  outline: 2px solid #408cff; }
+
+.keyboard-nav .p-checkbox .p-checkbox-container:active .material-icons, .keyboard-nav .p-checkbox .p-checkbox-container:focus .material-icons {
+  outline: 2px solid #408cff;
+  color: #408cff; }
+
+.keyboard-nav .p-switch:active, .keyboard-nav .p-switch:focus {
+  outline: 2px solid #408cff; }

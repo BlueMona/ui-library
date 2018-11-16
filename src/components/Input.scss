@@ -37,6 +37,7 @@
   // Focus state
   &.focused {
     input {
+      // Added back under .keyboard-nav; modified style is in a11y.scss
       outline: 0;
       border-color: $peerio-blue;
     }
