@@ -13,7 +13,7 @@
  * we've given it a generic name.
  */
 import React from 'react';
-export declare class PeerUIWrapper extends React.Component {
+export declare class A11yWrapper extends React.Component {
     keyboardNavEnabled: boolean;
     private handleKeydown;
     private handleMousemove;

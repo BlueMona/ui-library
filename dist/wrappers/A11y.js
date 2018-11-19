@@ -27,7 +27,7 @@ const react_1 = __importDefault(require("react"));
 const mobx_1 = require("mobx");
 const mobx_react_1 = require("mobx-react");
 const classnames_1 = __importDefault(require("classnames"));
-let PeerUIWrapper = class PeerUIWrapper extends react_1.default.Component {
+let A11yWrapper = class A11yWrapper extends react_1.default.Component {
     constructor() {
         super(...arguments);
         this.keyboardNavEnabled = true;
@@ -58,15 +58,15 @@ let PeerUIWrapper = class PeerUIWrapper extends react_1.default.Component {
 };
 __decorate([
     mobx_1.observable
-], PeerUIWrapper.prototype, "keyboardNavEnabled", void 0);
+], A11yWrapper.prototype, "keyboardNavEnabled", void 0);
 __decorate([
     mobx_1.action.bound
-], PeerUIWrapper.prototype, "handleKeydown", null);
+], A11yWrapper.prototype, "handleKeydown", null);
 __decorate([
     mobx_1.action.bound
-], PeerUIWrapper.prototype, "handleMousemove", null);
-PeerUIWrapper = __decorate([
+], A11yWrapper.prototype, "handleMousemove", null);
+A11yWrapper = __decorate([
     mobx_react_1.observer
-], PeerUIWrapper);
-exports.PeerUIWrapper = PeerUIWrapper;
-//# sourceMappingURL=_Wrapper.js.map
+], A11yWrapper);
+exports.A11yWrapper = A11yWrapper;
+//# sourceMappingURL=A11y.js.map
