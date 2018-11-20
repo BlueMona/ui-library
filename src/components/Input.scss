@@ -37,6 +37,7 @@
   // Focus state
   &.focused {
     input {
+      // Added back under .keyboard-nav; modified style is in a11y.scss
       outline: 0;
       border-color: $peerio-blue;
     }
@@ -56,6 +57,7 @@
     color: $text-dark-secondary;
     background-color: $background-root;
     font-size: 12px;
+    z-index: 1;
   }
 
   // Hint/error text container
@@ -98,14 +100,33 @@
   // Clear text input button
   &.has-clear-button {
     input {
-      padding-right: $padding-xl;
+      padding-right: $padding-xxl;
     }
+  }
+
+  /*
+    Helper text expands p-input's overall height, which in turns throws off
+    the button's `absolute` positioning. So we wrap the input + button in a
+    containing div with `position: relative`.
+  */
+  .input-container {
+    display: flex;
+    width: 100%;
+    position: relative;
   }
 
   .clear-button {
     position: absolute;
-    right: 0;
-    top: 16px;
+    right: $margin-default;
+    top: 50%;
+    margin-top: -18px; // half icon height
+  }
+
+  // SIZES //
+  &.small {
+    input {
+      height: 48px;
+    }
   }
 
   // THEMES //

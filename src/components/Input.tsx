@@ -13,7 +13,15 @@ interface BaseInputProps {
   error?: string;
   hint?: string;
   theme?: 'transparent';
-  noHelperText?: boolean; // Use to hide error/hint div in cases of very tight positioning.
+
+  /**
+   * default/large = 64px tall
+   * small = 48px tall
+   */
+  size?: 'small' | 'large';
+
+  /** Use to hide error/hint div in cases of very tight positioning. */
+  noHelperText?: boolean;
 
   // Standard HTML input props
   autoFocus?: boolean;
@@ -117,57 +125,65 @@ export class Input extends Component<InputProps> {
   render() {
     return (
       <div
-        className={css('p-input', this.props.className, this.props.theme, {
-          'has-label': !!this.props.label,
-          'has-error': !!this.props.error,
-          'has-clear-button': this.showClearButton,
-          focused: this.isFocused
-        })}
+        className={css(
+          'p-input',
+          this.props.className,
+          this.props.theme,
+          this.props.size,
+          {
+            'has-label': !!this.props.label,
+            'has-error': !!this.props.error,
+            'has-clear-button': this.showClearButton,
+            focused: this.isFocused
+          }
+        )}
       >
         {this.props.label ? (
           <div className={css('label')}>{this.props.label}</div>
         ) : null}
 
-        {this.props.multiline ? (
-          <textarea
-            placeholder={this.props.placeholder}
-            value={this.props.value}
-            maxLength={this.props.maxLength}
-            onChange={this.props.onChange ? this.handleChange : undefined}
-            onKeyPress={this.props.onKeyPress}
-            onKeyDown={this.props.onKeyDown}
-            onKeyUp={this.props.onKeyUp}
-            onBlur={this.handleBlur}
-            onFocus={this.handleFocus}
-            readOnly={this.props.readOnly}
-            ref={this.setRef}
-          />
-        ) : (
-          <input
-            placeholder={this.props.placeholder}
-            value={this.props.value}
-            maxLength={this.props.maxLength}
-            onChange={this.props.onChange ? this.handleChange : undefined}
-            onKeyPress={this.props.onKeyPress}
-            onKeyDown={this.props.onKeyDown}
-            onKeyUp={this.props.onKeyUp}
-            onBlur={this.handleBlur}
-            onFocus={this.handleFocus}
-            type={this.props.type || 'text'}
-            readOnly={this.props.readOnly}
-            disabled={this.props.disabled}
-            ref={this.setRef}
-          />
-        )}
+        <div className="input-container">
+          {this.props.multiline ? (
+            <textarea
+              placeholder={this.props.placeholder}
+              value={this.props.value}
+              maxLength={this.props.maxLength}
+              onChange={this.props.onChange ? this.handleChange : undefined}
+              onKeyPress={this.props.onKeyPress}
+              onKeyDown={this.props.onKeyDown}
+              onKeyUp={this.props.onKeyUp}
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              readOnly={this.props.readOnly}
+              ref={this.setRef}
+            />
+          ) : (
+            <input
+              placeholder={this.props.placeholder}
+              value={this.props.value}
+              maxLength={this.props.maxLength}
+              onChange={this.props.onChange ? this.handleChange : undefined}
+              onKeyPress={this.props.onKeyPress}
+              onKeyDown={this.props.onKeyDown}
+              onKeyUp={this.props.onKeyUp}
+              onBlur={this.handleBlur}
+              onFocus={this.handleFocus}
+              type={this.props.type || 'text'}
+              readOnly={this.props.readOnly}
+              disabled={this.props.disabled}
+              ref={this.setRef}
+            />
+          )}
 
-        {this.showClearButton ? (
-          <Button
-            tabIndex={-1}
-            className="clear-button"
-            icon="close"
-            onClick={this.clearInput}
-          />
-        ) : null}
+          {this.showClearButton ? (
+            <Button
+              tabIndex={-1}
+              className="clear-button"
+              icon="close"
+              onClick={this.clearInput}
+            />
+          ) : null}
+        </div>
 
         {this.props.noHelperText ? null : (
           <div

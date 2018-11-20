@@ -1,0 +1,31 @@
+.p-search-input {
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  .search-icon {
+    position: absolute;
+    left: $padding-default;
+    top: 50%;
+    margin-top: -12px; // half icon height
+    z-index: 1;
+  }
+
+  .p-input {
+    input {
+      // Default height is 48px, overriding Input default
+      height: 48px;
+      padding-left: $padding-xxl;
+
+      &:hover {
+        border-color: $input-border;
+      }
+    }
+
+    &.focused {
+      input {
+        border-color: $input-border;
+      }
+    }
+  }
+}
