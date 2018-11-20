@@ -277,17 +277,24 @@
   .p-custom-icon.small {
     height: 16px;
     width: 16px; }
-  .p-custom-icon img.default {
+  .p-custom-icon svg path.fill-white {
+    fill: white; }
+  .p-custom-icon svg.default,
+  .p-custom-icon path.half-opacity {
     opacity: 0.54; }
-  .p-custom-icon img.hover {
+  .p-custom-icon svg.hover {
     display: none;
     opacity: 1; }
-  .p-custom-icon.active img.default {
+    .p-custom-icon svg.hover path.hover-fill {
+      fill: #408cff; }
+  .p-custom-icon.active svg.default {
     opacity: 1; }
-  .p-custom-icon.hovered img.default, .p-custom-icon.selected img.default {
+  .p-custom-icon.hovered svg.default, .p-custom-icon.selected svg.default {
     display: none; }
-  .p-custom-icon.hovered img.hover, .p-custom-icon.selected img.hover {
+  .p-custom-icon.hovered svg.hover, .p-custom-icon.selected svg.hover {
     display: inline-block; }
+  .p-custom-icon svg.icon-pin-on path {
+    fill: #02cedb; }
 
 .p-dialog-wrapper {
   display: flex;
