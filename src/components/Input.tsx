@@ -29,7 +29,7 @@ interface BaseInputProps {
   readOnly?: boolean;
   value?: string;
 
-  // Label for E2E desktop tests
+  /** Label for E2E desktop tests */
   testId?: string;
 
   // React props
