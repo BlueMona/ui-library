@@ -40,7 +40,7 @@ export interface DialogProps {
   theme?: 'warning' | 'error' | 'primary';
 
   /** Title displayed at the top of the dialog. */
-  title?: string;
+  title?: React.ReactChild;
 
   /** URL to header image */
   headerImage?: string;
