@@ -9,7 +9,6 @@ import { MaterialIcon } from './MaterialIcon';
 interface BaseInputProps {
   className?: string;
   label?: string;
-  testId?: string;
   error?: string;
   hint?: string;
   theme?: 'transparent';
@@ -29,6 +28,9 @@ interface BaseInputProps {
   placeholder?: string;
   readOnly?: boolean;
   value?: string;
+
+  /** Label for E2E desktop tests */
+  testId?: string;
 
   // React props
   onChange?: (val: string) => void;
@@ -145,6 +147,7 @@ export class Input extends Component<InputProps> {
         <div className="input-container">
           {this.props.multiline ? (
             <textarea
+              data-test-id={this.props.testId}
               placeholder={this.props.placeholder}
               value={this.props.value}
               maxLength={this.props.maxLength}
@@ -159,6 +162,7 @@ export class Input extends Component<InputProps> {
             />
           ) : (
             <input
+              data-test-id={this.props.testId}
               placeholder={this.props.placeholder}
               value={this.props.value}
               maxLength={this.props.maxLength}

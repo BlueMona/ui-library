@@ -21,6 +21,8 @@ export interface ButtonProps {
     active?: boolean;
     /** HTML tab index */
     tabIndex?: number;
+    /** Label for E2E desktop tests */
+    testId?: string;
     onClick?: (ev?: React.MouseEvent<HTMLButtonElement>) => void;
     onMouseEnter?: (ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
     onMouseLeave?: (ev?: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;

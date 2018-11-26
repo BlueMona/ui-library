@@ -32,7 +32,7 @@ class Button extends react_1.Component {
         if (this.props.href) {
             return (react_1.default.createElement("a", { tabIndex: this.props.tabIndex, href: this.props.href, className: classNames, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave, style: this.props.style }, buttonContent));
         }
-        return (react_1.default.createElement("button", { tabIndex: this.props.tabIndex, className: classNames, onClick: this.props.onClick, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave, disabled: this.props.disabled, style: this.props.style }, buttonContent));
+        return (react_1.default.createElement("button", { "data-test-id": this.props.testId, tabIndex: this.props.tabIndex, className: classNames, onClick: this.props.onClick, onMouseEnter: this.props.onMouseEnter, onMouseLeave: this.props.onMouseLeave, disabled: this.props.disabled, style: this.props.style }, buttonContent));
     }
 }
 exports.Button = Button;

@@ -31,7 +31,7 @@ let Avatar = class Avatar extends react_1.Component {
         else if (c.tofuError) {
             errorIcon = react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: "error" });
         }
-        return (react_1.default.createElement("div", { className: "p-avatar" },
+        return (react_1.default.createElement("div", { className: "p-avatar", "data-test-id": this.props.contact.username },
             react_1.default.createElement("div", { className: "contents" },
                 react_1.default.createElement("div", { className: classnames_1.default('image-container', this.props.className, `${this.props.size || 'medium'}`, {
                         clickable: this.props.clickable || !!this.props.onClick,
