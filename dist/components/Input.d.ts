@@ -17,6 +17,7 @@ interface BaseInputProps {
     placeholder?: string;
     readOnly?: boolean;
     value?: string;
+    /** Label for E2E desktop tests */
     testId?: string;
     onChange?: (val: string) => void;
     onClear?: () => void;
