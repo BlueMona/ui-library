@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import css from 'classnames';
 
 import { getParentWithClass } from './helpers/dom';
+import iconSvgs from './CustomIconSvg';
 
 export interface CustomIconProps {
   className?: string;
@@ -29,15 +30,16 @@ export class CustomIcon extends Component<CustomIconProps> {
   /*
    * Hovering: It's Weird
    *
-   * SVG recolouring via CSS is not supported in Chromium, so we can't just do a
-   * :hover state
+   * Direct SVG recolouring via CSS is tricky and not the most well supported,
+   * so we can't just do a :hover state.
    *
-   * Instead, with hover enabled, <CustomIcon> actually shows a different image
-   * file on hover. Currently, this is done by adding a listener on a parent
+   * Instead, with hover enabled, <CustomIcon> actually shows a different SVG
+   * on hover. Currently, this is done by adding a listener on a parent
    * element with class .custom-icon-hover-container
    *
-   * So, in all, it's kinda clunky, but it allows us to do things like having
-   * CustomIcon change colour when MenuItem is hovered.
+   * So, in all, it's kinda clunky, but it does allow us to do things like having
+   * CustomIcon change colour when MenuItem is hovered, where MenuItem is
+   * way up the parent tree.
    */
 
   hoverContainer: any; // TODO: is there a better way?
@@ -100,14 +102,8 @@ export class CustomIcon extends Component<CustomIconProps> {
         })}
         ref={this.setIconRef}
       >
-        <img
-          className="hover"
-          src={`./static/custom-icons/${this.props.icon}-hover.svg`}
-        />
-        <img
-          className="default"
-          src={`./static/custom-icons/${this.props.icon}.svg`}
-        />
+        {iconSvgs[this.props.icon].default}
+        {iconSvgs[this.props.icon].hover || null}
       </div>
     );
   }

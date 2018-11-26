@@ -8,29 +8,45 @@
     width: 16px;
   }
 
-  img.default {
+  svg path {
+    &.fill-white {
+      fill: $white;
+    }
+  }
+
+  svg.default,
+  path.half-opacity {
     opacity: 0.54;
   }
 
-  img.hover {
+  svg.hover {
     display: none;
     opacity: 1;
+
+    path.hover-fill {
+      fill: $customicon-hover-default;
+    }
   }
 
   &.active {
-    img.default {
+    svg.default {
       opacity: 1;
     }
   }
 
   &.hovered,
   &.selected {
-    img.default {
+    svg.default {
       display: none;
     }
 
-    img.hover {
+    svg.hover {
       display: inline-block;
     }
+  }
+
+  // Unique colours
+  svg.icon-pin-on path {
+    fill: $customicon-pin-on;
   }
 }

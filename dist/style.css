@@ -277,17 +277,24 @@
   .p-custom-icon.small {
     height: 16px;
     width: 16px; }
-  .p-custom-icon img.default {
+  .p-custom-icon svg path.fill-white {
+    fill: white; }
+  .p-custom-icon svg.default,
+  .p-custom-icon path.half-opacity {
     opacity: 0.54; }
-  .p-custom-icon img.hover {
+  .p-custom-icon svg.hover {
     display: none;
     opacity: 1; }
-  .p-custom-icon.active img.default {
+    .p-custom-icon svg.hover path.hover-fill {
+      fill: #408cff; }
+  .p-custom-icon.active svg.default {
     opacity: 1; }
-  .p-custom-icon.hovered img.default, .p-custom-icon.selected img.default {
+  .p-custom-icon.hovered svg.default, .p-custom-icon.selected svg.default {
     display: none; }
-  .p-custom-icon.hovered img.hover, .p-custom-icon.selected img.hover {
+  .p-custom-icon.hovered svg.hover, .p-custom-icon.selected svg.hover {
     display: inline-block; }
+  .p-custom-icon svg.icon-pin-on path {
+    fill: #02cedb; }
 
 .p-dialog-wrapper {
   display: flex;
@@ -386,6 +393,11 @@ dialog {
   position: relative;
   height: auto;
   width: 100%;
+  /*
+    Helper text expands p-input's overall height, which in turns throws off
+    the button's `absolute` positioning. So we wrap the input + button in a
+    containing div with `position: relative`.
+  */
   /* 
    * TRANSPARENT
    * - makes inputs fully transparent, no borders, no background colours
@@ -426,7 +438,8 @@ dialog {
     transition: top 150ms, font-size 150ms, color 150ms;
     color: rgba(0, 0, 0, 0.54);
     background-color: white;
-    font-size: 12px; }
+    font-size: 12px;
+    z-index: 1; }
   .p-input .hint-or-error {
     display: flex;
     height: 16px;
@@ -449,11 +462,18 @@ dialog {
   .p-input.has-error input {
     border-color: #e90162; }
   .p-input.has-clear-button input {
-    padding-right: 32px; }
+    padding-right: 48px; }
+  .p-input .input-container {
+    display: flex;
+    width: 100%;
+    position: relative; }
   .p-input .clear-button {
     position: absolute;
-    right: 0;
-    top: 16px; }
+    right: 16px;
+    top: 50%;
+    margin-top: -18px; }
+  .p-input.small input {
+    height: 48px; }
   .p-input.transparent input,
   .p-input.transparent textarea {
     border: 0;
@@ -776,6 +796,24 @@ dialog {
   .p-radio li .material-icons:hover {
     color: #408cff; }
 
+.p-search-input {
+  display: flex;
+  position: relative;
+  width: 100%; }
+  .p-search-input .search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    margin-top: -12px;
+    z-index: 1; }
+  .p-search-input .p-input input {
+    height: 48px;
+    padding-left: 48px; }
+    .p-search-input .p-input input:hover {
+      border-color: rgba(0, 0, 0, 0.54); }
+  .p-search-input .p-input.focused input {
+    border-color: rgba(0, 0, 0, 0.54); }
+
 .p-switch {
   display: flex;
   justify-content: space-between;
@@ -835,3 +873,13 @@ dialog {
   border-radius: 4px; }
   .p-tooltip.small {
     max-width: 64px; }
+
+.keyboard-nav .p-button:active, .keyboard-nav .p-button:focus {
+  outline: 2px solid #408cff; }
+
+.keyboard-nav .p-checkbox .p-checkbox-container:active .material-icons, .keyboard-nav .p-checkbox .p-checkbox-container:focus .material-icons {
+  outline: 2px solid #408cff;
+  color: #408cff; }
+
+.keyboard-nav .p-switch:active, .keyboard-nav .p-switch:focus {
+  outline: 2px solid #408cff; }

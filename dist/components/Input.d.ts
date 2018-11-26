@@ -5,6 +5,12 @@ interface BaseInputProps {
     error?: string;
     hint?: string;
     theme?: 'transparent';
+    /**
+     * default/large = 64px tall
+     * small = 48px tall
+     */
+    size?: 'small' | 'large';
+    /** Use to hide error/hint div in cases of very tight positioning. */
     noHelperText?: boolean;
     autoFocus?: boolean;
     maxLength?: number;

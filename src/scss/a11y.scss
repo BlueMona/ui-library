@@ -1,0 +1,36 @@
+@mixin outline-default() {
+  outline: 2px solid $peerio-blue;
+}
+
+// Feedback when using keyboard navigation
+.keyboard-nav {
+  // Buttons: add outline
+  .p-button {
+    &:active,
+    &:focus {
+      @include outline-default();
+    }
+  }
+
+  // Checkbox: add outline and use hover color
+  .p-checkbox .p-checkbox-container {
+    &:active,
+    &:focus {
+      .material-icons {
+        @include outline-default();
+        color: $color-affirmative;
+      }
+    }
+  }
+
+  // Input: focus is already highlighted
+  // .p-input {}
+
+  // Switch: add outline
+  .p-switch {
+    &:active,
+    &:focus {
+      @include outline-default();
+    }
+  }
+}

@@ -21,20 +21,22 @@ const mobx_1 = require("mobx");
 const mobx_react_1 = require("mobx-react");
 const classnames_1 = __importDefault(require("classnames"));
 const dom_1 = require("./helpers/dom");
+const CustomIconSvg_1 = __importDefault(require("./CustomIconSvg"));
 let CustomIcon = class CustomIcon extends react_1.Component {
     constructor() {
         /*
          * Hovering: It's Weird
          *
-         * SVG recolouring via CSS is not supported in Chromium, so we can't just do a
-         * :hover state
+         * Direct SVG recolouring via CSS is tricky and not the most well supported,
+         * so we can't just do a :hover state.
          *
-         * Instead, with hover enabled, <CustomIcon> actually shows a different image
-         * file on hover. Currently, this is done by adding a listener on a parent
+         * Instead, with hover enabled, <CustomIcon> actually shows a different SVG
+         * on hover. Currently, this is done by adding a listener on a parent
          * element with class .custom-icon-hover-container
          *
-         * So, in all, it's kinda clunky, but it allows us to do things like having
-         * CustomIcon change colour when MenuItem is hovered.
+         * So, in all, it's kinda clunky, but it does allow us to do things like having
+         * CustomIcon change colour when MenuItem is hovered, where MenuItem is
+         * way up the parent tree.
          */
         super(...arguments);
         this.hovered = false;
@@ -66,8 +68,8 @@ let CustomIcon = class CustomIcon extends react_1.Component {
                 hovered: this.hovered,
                 active: this.props.active
             }), ref: this.setIconRef },
-            react_1.default.createElement("img", { className: "hover", src: `./static/custom-icons/${this.props.icon}-hover.svg` }),
-            react_1.default.createElement("img", { className: "default", src: `./static/custom-icons/${this.props.icon}.svg` })));
+            CustomIconSvg_1.default[this.props.icon].default,
+            CustomIconSvg_1.default[this.props.icon].hover || null));
     }
 };
 __decorate([
