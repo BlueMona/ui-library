@@ -9,12 +9,11 @@ import { Tooltip } from './Tooltip';
 export interface AvatarProps {
   className?: string;
 
-  /** Contact object */
   contact: ContactProps;
 
   size?: 'tiny' | 'small' | 'medium' | 'large' | 'full';
 
-  /** Set true to have a tooltip, which will show user"s username */
+  /** Set true to have a tooltip, which will show user's username */
   tooltip?: boolean;
 
   /**
