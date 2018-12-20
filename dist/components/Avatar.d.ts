@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { ContactProps } from './helpers/interfaces';
 export interface AvatarProps {
     className?: string;
-    /** Contact object */
     contact: ContactProps;
     size?: 'tiny' | 'small' | 'medium' | 'large' | 'full';
-    /** Set true to have a tooltip, which will show user"s username */
+    /** Set true to have a tooltip, which will show user's username */
     tooltip?: boolean;
     /**
      * `clickable` is only for styling (hover effect), which is automatically

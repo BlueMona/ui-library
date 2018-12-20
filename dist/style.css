@@ -94,6 +94,13 @@
       width: 224px;
       border-radius: 8px; }
 
+.p-avatar-tooltip .full-name {
+  font-weight: 600; }
+
+.p-avatar-tooltip .username {
+  font-weight: 400;
+  font-style: italic; }
+
 .p-button {
   display: inline-flex;
   align-items: center;

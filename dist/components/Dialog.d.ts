@@ -16,7 +16,7 @@ export interface DialogProps {
     /** Adds a stripe to the top of the dialog. */
     theme?: 'warning' | 'error' | 'primary';
     /** Title displayed at the top of the dialog. */
-    title?: string;
+    title?: React.ReactChild;
     /** URL to header image */
     headerImage?: string;
 }

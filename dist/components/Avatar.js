@@ -38,7 +38,9 @@ let Avatar = class Avatar extends react_1.Component {
                         'light-bg': !c.hasAvatar && c.color.isLight
                     }), style: !c.hasAvatar ? { backgroundColor: c.color.value } : {}, onClick: this.props.onClick }, c.hasAvatar ? (react_1.default.createElement("img", { src: c.mediumAvatarUrl, alt: c.username, draggable: false })) : (c.letter))),
             errorIcon,
-            this.props.tooltip ? (react_1.default.createElement(Tooltip_1.Tooltip, { text: c.fullNameAndUsername, position: "top" })) : null));
+            this.props.tooltip ? (react_1.default.createElement(Tooltip_1.Tooltip, { className: "p-avatar-tooltip", text: react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("span", { className: "full-name" }, `${c.fullName}`),
+                    react_1.default.createElement("span", { className: "username" }, c.username)), position: "top" })) : null));
     }
 };
 Avatar = __decorate([

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 export interface TooltipProps {
     className?: string;
-    text?: string;
+    text?: string | JSX.Element;
     position?: 'top' | 'right' | 'bottom' | 'left';
     size?: 'small';
 }

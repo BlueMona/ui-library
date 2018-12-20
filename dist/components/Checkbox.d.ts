@@ -1,8 +1,8 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 export interface CheckboxProps {
     className?: string;
     checked: boolean;
-    onChange?: () => void;
+    onChange?: (ev: React.ChangeEvent<HTMLInputElement>) => void;
     label?: any;
     disabled?: boolean;
 }
