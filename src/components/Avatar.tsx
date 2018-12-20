@@ -67,6 +67,7 @@ export class Avatar extends Component<AvatarProps> {
             text={
               <>
                 <span className="full-name">{`${c.fullName}`}</span>
+                {` `}
                 <span className="username">{c.username}</span>
               </>
             }
