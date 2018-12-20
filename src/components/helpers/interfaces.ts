@@ -7,6 +7,7 @@ export interface ActionProps {
 
 export interface ContactProps {
   color: ContactColorProps;
+  fullName: string;
   fullNameAndUsername: string;
   hasAvatar?: boolean;
   isDeleted?: boolean;

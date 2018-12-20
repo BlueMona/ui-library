@@ -20,7 +20,7 @@ import { getPositionInWindow } from './helpers/dom';
 
 export interface TooltipProps {
   className?: string;
-  text?: string;
+  text?: string | JSX.Element;
 
   // If empty, will default to "top"
   position?: 'top' | 'right' | 'bottom' | 'left';
