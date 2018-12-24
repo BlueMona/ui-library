@@ -99,3 +99,14 @@
     }
   }
 }
+
+.p-avatar-tooltip {
+  .full-name {
+    font-weight: $font-weight-semibold;
+  }
+
+  .username {
+    font-weight: $font-weight-regular;
+    font-style: italic;
+  }
+}

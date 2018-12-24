@@ -62,7 +62,17 @@ export class Avatar extends Component<AvatarProps> {
         </div>
         {errorIcon}
         {this.props.tooltip ? (
-          <Tooltip text={c.fullNameAndUsername} position="top" />
+          <Tooltip
+            className="p-avatar-tooltip"
+            text={
+              <>
+                <span className="full-name">{`${c.fullName}`}</span>
+                &nbsp;
+                <span className="username">{c.username}</span>
+              </>
+            }
+            position="top"
+          />
         ) : null}
       </div>
     );
