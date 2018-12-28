@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 interface BaseInputProps {
+    inputId?: string;
     className?: string;
     label?: string;
     error?: string;
