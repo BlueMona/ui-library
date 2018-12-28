@@ -7,6 +7,7 @@ import { Button } from './Button';
 import { MaterialIcon } from './MaterialIcon';
 
 interface BaseInputProps {
+  inputId?: string;
   className?: string;
   label?: string;
   error?: string;
@@ -147,6 +148,7 @@ export class Input extends Component<InputProps> {
         <div className="input-container">
           {this.props.multiline ? (
             <textarea
+              id={this.props.inputId}
               data-test-id={this.props.testId}
               placeholder={this.props.placeholder}
               value={this.props.value}
@@ -162,6 +164,7 @@ export class Input extends Component<InputProps> {
             />
           ) : (
             <input
+              id={this.props.inputId}
               data-test-id={this.props.testId}
               placeholder={this.props.placeholder}
               value={this.props.value}
