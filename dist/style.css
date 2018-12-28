@@ -861,8 +861,6 @@ dialog {
         border: 1px solid #408cff; }
 
 .p-tooltip {
-  display: flex;
-  align-items: center;
   position: fixed;
   z-index: 10;
   max-width: 162px;
