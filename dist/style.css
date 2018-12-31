@@ -516,8 +516,12 @@ dialog {
   padding: 8px 16px; }
   .p-list-item:hover {
     background-color: rgba(64, 140, 255, 0.15); }
-    .p-list-item:hover .material-icons:not(.gold) {
+    .p-list-item:hover .material-icons {
       color: #408cff; }
+      .p-list-item:hover .material-icons .gold {
+        color: gold; }
+      .p-list-item:hover .material-icons .error {
+        color: #e90162; }
   .p-list-item.active {
     font-weight: 600;
     background: rgba(84, 97, 204, 0.45); }

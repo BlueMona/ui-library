@@ -26,7 +26,7 @@ let Avatar = class Avatar extends react_1.Component {
         const c = this.props.contact;
         let errorIcon;
         if (c.isDeleted) {
-            errorIcon = react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: "remove_circle" });
+            errorIcon = react_1.default.createElement(MaterialIcon_1.MaterialIcon, { className: "error", icon: "remove_circle" });
         }
         else if (c.tofuError) {
             errorIcon = react_1.default.createElement(MaterialIcon_1.MaterialIcon, { icon: "error" });
