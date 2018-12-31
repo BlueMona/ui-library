@@ -11,8 +11,17 @@
   &:hover {
     background-color: $background-selected;
 
-    .material-icons:not(.gold) {
+    .material-icons {
       color: $color-affirmative;
+
+      // Certain icon colours should not change on hover
+      .gold {
+        color: gold;
+      }
+
+      .error {
+        color: $color-error;
+      }
     }
   }
 
