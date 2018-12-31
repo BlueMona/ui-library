@@ -32,7 +32,7 @@ export class Avatar extends Component<AvatarProps> {
 
     let errorIcon;
     if (c.isDeleted) {
-      errorIcon = <MaterialIcon icon="remove_circle" />;
+      errorIcon = <MaterialIcon className="error" icon="remove_circle" />;
     } else if (c.tofuError) {
       errorIcon = <MaterialIcon icon="error" />;
     }
