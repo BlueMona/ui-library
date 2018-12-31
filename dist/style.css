@@ -518,9 +518,9 @@ dialog {
     background-color: rgba(64, 140, 255, 0.15); }
     .p-list-item:hover .material-icons {
       color: #408cff; }
-      .p-list-item:hover .material-icons .gold {
+      .p-list-item:hover .material-icons.gold {
         color: gold; }
-      .p-list-item:hover .material-icons .error {
+      .p-list-item:hover .material-icons.error {
         color: #e90162; }
   .p-list-item.active {
     font-weight: 600;

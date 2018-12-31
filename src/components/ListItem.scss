@@ -15,11 +15,11 @@
       color: $color-affirmative;
 
       // Certain icon colours should not change on hover
-      .gold {
+      &.gold {
         color: gold;
       }
 
-      .error {
+      &.error {
         color: $color-error;
       }
     }
